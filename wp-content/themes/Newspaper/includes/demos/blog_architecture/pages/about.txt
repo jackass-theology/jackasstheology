@@ -1,0 +1,13 @@
+[vc_row full_width="stretch_row" tdc_css="eyJhbGwiOnsibWFyZ2luLWJvdHRvbSI6IjAiLCJwYWRkaW5nLXRvcCI6IjAiLCJwYWRkaW5nLWJvdHRvbSI6IjAiLCJiYWNrZ3JvdW5kLXBvc2l0aW9uIjoiY2VudGVyIGJvdHRvbSJ9fQ==" el_class="td-contact-page-text"][vc_column][td_block_text_with_title tdc_css="eyJhbGwiOnsicGFkZGluZy1yaWdodCI6IjE4MCIsInBhZGRpbmctbGVmdCI6IjE4MCJ9LCJwaG9uZSI6eyJwYWRkaW5nLXJpZ2h0IjoiMzAiLCJwYWRkaW5nLWxlZnQiOiIzMCJ9LCJwaG9uZV9tYXhfd2lkdGgiOjc2N30="]
+<h1 style="text-align: center;">Architecture is the will of an epoch translated into space</h1>
+<p style="text-align: right; margin-right: 20px; font-size: 12px;"><em>Ludwig Mies van der Rohe</em></p>
+<p style="text-align: center;"><span style="font-size: 15px;">Newspaper Architecture &amp; Design is your ultimate inspiration, knowledge, architecture and design magazine website. We give you the best architecture, design and interiors projects and latest news from around the world.</span></p>
+[/td_block_text_with_title][/vc_column][/vc_row][vc_row el_class="td-contact-page-text"][vc_column][td_block_text_with_title]
+<div class="td-paragraph-padding-5">
+<p style="text-align: center;">Newspaper Architecture &amp; Design was founded on 1st March 2017.</p>
+<p style="text-align: center;">Our mission is to broadcast is your ultimate inspiration, knowledge, architecture and design magazine website. We give you the best architecture, design and interiors projects and latest news from around the world.</p>
+<p style="text-align: center;">This website, first of all started by the desire to collect the most important information and help architects create better architecture, to deliver inspiration, tools and knowledge to the our visitors.</p>
+<p style="text-align: center;">Enjoy what we picked up for you and visit source sites recommended for more details.</p>
+
+</div>
+[/td_block_text_with_title][/vc_column][/vc_row][vc_row][vc_column][td_block_5 limit="6"][/vc_column][/vc_row]

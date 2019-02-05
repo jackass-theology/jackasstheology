@@ -1,0 +1,321 @@
+
+/*  ----------------------------------------------------------------------------
+    container
+*/
+.td-container,
+.tdc-row {
+  width: 1068px;
+  margin-right: auto;
+  margin-left: auto;
+
+  &:before,
+  &:after {
+    display: table;
+    content: '';
+    line-height: 0;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+// -----------------
+// Background for all rows with stretch_row + mobile all rows
+// -----------------
+.tdc-row[class*="stretch_row"] > .td-pb-row > .td-element-style {
+  width: 100vw !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+}
+//.tdc-row > .td-pb-row > .td-element-style,
+//.tdc-inner-row > .td-pb-row > .td-element-style {
+.td-pb-row > .td-element-style {
+  /* responsive portrait phone */
+  @media (max-width: @responsive_p_phone_max) {
+    width: 100vw !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+  }
+}
+
+// -----------------
+// absolute inner - add padding on content
+// -----------------
+.vc_inner.absolute_inner {
+  /* responsive portrait tablet */
+  @media (min-width: @responsive_l_tablet_min) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  /* responsive portrait tablet */
+  @media (min-width: @responsive_p_tablet_min) and (max-width: @responsive_p_tablet_max) {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+}
+// -----------------
+// full content - inner row only
+// -----------------
+.vc_inner.absolute_inner_full {
+  width: 100% !important;
+}
+
+// -----------------
+// 1068px content - inner row only
+// -----------------
+.vc_inner.absolute_inner_1068 {
+  width: 100% !important;
+  max-width: 1156px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+
+  /* responsive landscape tablet */
+  @media (min-width: @responsive_l_tablet_min) and (max-width: @responsive_l_tablet_max) {
+    max-width: 1020px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  /* responsive portrait tablet */
+  @media (min-width: @responsive_p_tablet_min) and (max-width: @responsive_p_tablet_max) {
+    max-width: 768px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+// -----------------
+// 1200px content
+// -----------------
+.tdc-row.stretch_row_1200 {
+  width: auto !important;
+  max-width: 1240px;
+
+  > .td-pb-row {
+    /* responsive portrait tablet */
+    @media (min-width: @responsive_p_tablet_min) and (max-width: @responsive_p_tablet_max) {
+      margin-right: 0;
+      margin-left: 0;
+    }
+  }
+
+  /* responsive portrait tablet */
+  @media (min-width: @responsive_l_tablet_min) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+.vc_inner.absolute_inner_1200 {
+  width: 100% !important;
+  max-width: 1288px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
+// -----------------
+// 1400px content
+// -----------------
+.tdc-row.stretch_row_1400 {
+  width: auto !important;
+  max-width: 1440px;
+
+  > .td-pb-row {
+    /* responsive portrait tablet */
+    @media (min-width: @responsive_p_tablet_min) and (max-width: @responsive_p_tablet_max) {
+      margin-right: 0;
+      margin-left: 0;
+    }
+  }
+
+  /* responsive portrait tablet */
+  @media (min-width: @responsive_l_tablet_min) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+.vc_inner.absolute_inner_1400 {
+  width: 100% !important;
+  max-width: 1488px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
+
+// -----------------
+// 1600px content
+// -----------------
+.tdc-row.stretch_row_1600 {
+  width: auto !important;
+  max-width: 1640px;
+
+  > .td-pb-row {
+    /* responsive portrait tablet */
+    @media (min-width: @responsive_p_tablet_min) and (max-width: @responsive_p_tablet_max) {
+      margin-right: 0;
+      margin-left: 0;
+    }
+  }
+
+  /* responsive portrait tablet */
+  @media (min-width: @responsive_l_tablet_min) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+.vc_inner.absolute_inner_1600 {
+  width: 100% !important;
+  max-width: 1688px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
+// -----------------
+// 1800px content
+// -----------------
+.tdc-row.stretch_row_1800 {
+  width: auto !important;
+  max-width: 1840px;
+
+  > .td-pb-row {
+    /* responsive portrait tablet */
+    @media (min-width: @responsive_p_tablet_min) and (max-width: @responsive_p_tablet_max) {
+      margin-right: 0;
+      margin-left: 0;
+    }
+  }
+
+  /* responsive portrait tablet */
+  @media (min-width: @responsive_l_tablet_min) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+.vc_inner.absolute_inner_1800 {
+  width: 100% !important;
+  max-width: 1888px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
+// -----------------
+// Stretch row and content
+// -----------------
+.tdc-row.stretch_row_content {
+  width: 100% !important;
+}
+
+// -----------------
+// Stretch row and content (with paddings)
+// -----------------
+.tdc-row.stretch_row_content_no_space {
+  width: 100% !important;
+
+  > .td-pb-row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+// row on stretch content 20px margin on mobile
+.tdc-row.td-stretch-content {
+  /* responsive portrait phone */
+  @media (max-width: @responsive_p_phone_max) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+/*  ----------------------------------------------------------------------------
+    rows
+*/
+.td-pb-row {
+  .mx-row();
+  margin-right: -24px;
+  margin-left: -24px;
+  position: relative; // fix td-element-style position
+}
+
+.td-boxed-layout {
+  .vc_row {
+    width: auto;
+    left: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+
+/*  ----------------------------------------------------------------------------
+    all spans
+*/
+
+.td-pb-row [class*="td-pb-span"] {
+  .mx-span();
+  position: relative;
+}
+
+.vc_row-no-padding {
+  &.td-pb-row [class*="td-pb-span"] {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+/*  ----------------------------------------------------------------------------
+    smart sidebar - fix
+*/
+.td-ss-main-sidebar,
+.td-ss-row .td-pb-span4 .wpb_wrapper
+{
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;
+}
+
+
+/*  ----------------------------------------------------------------------------
+    main grid
+*/
+.td-pb-span1  {  width: 8.33333333%;   }
+.td-pb-span2  {  width: 16.66666667%;  }
+.td-pb-span3  {  width: 25%;           }
+.td-pb-span4  {  width: 33.33333333%;  } // td-1-col
+.td-pb-span5  {  width: 41.66666667%;  }
+.td-pb-span6  {  width: 50%;           }
+.td-pb-span7  {  width: 58.33333333%;  }
+.td-pb-span8  {  width: 66.66666667%;  } // td-2-col
+.td-pb-span9  {  width: 75%;           }
+.td-pb-span10 {  width: 83.33333333%;  }
+.td-pb-span11 {  width: 91.66666667%;  }
+.td-pb-span12 {  width: 100%;          } // td-3-col
+
+
+/*  ----------------------------------------------------------------------------
+    hacks Visual Composer
+*/
+
+.wpb_row {
+  margin-bottom: 0;
+}
+
+// Visual Composer VC latest version 4.9
+// @updated by RA 14 july 2016 - if we use !important, the build in design tab from visual composer cannot overwrite
+.vc_col-has-fill>.vc_column-inner,
+.vc_row-has-fill+.vc_row-full-width+.vc_row>.vc_column_container>.vc_column-inner,
+.vc_row-has-fill+.vc_row>.vc_column_container>.vc_column-inner,
+.vc_row-has-fill+.vc_vc_row>.vc_row>.vc_vc_column>.vc_column_container>.vc_column-inner,
+.vc_row-has-fill+.vc_vc_row_inner>.vc_row>.vc_vc_column_inner>.vc_column_container>.vc_column-inner,
+.vc_row-has-fill>.vc_column_container>.vc_column-inner,
+.vc_row-has-fill>.vc_row>.vc_vc_column>.vc_column_container>.vc_column-inner,
+.vc_row-has-fill>.vc_vc_column_inner>.vc_column_container>.vc_column-inner {
+  padding-top: 0;
+}
+
+//  @updated by RA 14 july 2016 - made more generic and added padding-top reset. I've updated the templates that are in the theme
+.vc_row .vc_column-inner  {
+  padding-left: 0;
+  padding-right: 0;
+}

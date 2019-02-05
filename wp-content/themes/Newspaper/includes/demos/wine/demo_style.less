@@ -1,0 +1,128 @@
+@import "../../less_files/variables.less";
+
+
+/*
+Wine demo
+*/
+
+
+.td-wine {
+
+  //menu bar
+  &.page-template-page-pagebuilder-overlay {
+    .td-header-wrap .td-header-menu-wrap-full,
+    .sf-menu > .current-menu-ancestor > a,
+    .sf-menu > .current-category-ancestor > a,
+    .td-header-style-3 .td-header-main-menu,
+    .td-header-style-4 .td-header-main-menu,
+    .td-header-style-8 .td-header-top-menu-full {
+      background-color: transparent !important;
+    }
+  }
+
+  //menu
+  &.tdm-menu-active-style2 {
+
+    //menu list
+    .tdm-header .sf-menu > li > a {
+      margin: 0 20px;
+      line-height: 22px;
+
+      &:after {
+        height: 2px;
+      }
+    }
+
+    //logo on tablet
+    .tdm-header-style-3 .td-logo-in-menu {
+      /* portrait tablet */
+      @media (min-width: @responsive_p_tablet_min) and (max-width: @responsive_p_tablet_max) {
+        position: relative;
+      }
+    }
+  }
+
+
+  //all big titles
+  .tdm-title-bg {
+
+    /* landscape tablet */
+    @media (min-width: @responsive_l_tablet_min) and (max-width: @responsive_l_tablet_max) {
+      font-size: 42px;
+      line-height: 54px;
+    }
+
+    /* portrait tablet */
+    @media (min-width: @responsive_p_tablet_min) and (max-width: @responsive_p_tablet_max) {
+      font-size: 36px;
+      line-height: 46px;
+    }
+
+    /* portrait phone */
+    @media (max-width: @responsive_p_phone_max) {
+      font-size: 32px;
+      line-height: 42px;
+    }
+  }
+
+
+  //hero big title
+  .tdm-hero-title .tdm-title-bg {
+    font-size: 80px;
+    line-height: 90px;
+
+    /* landscape tablet */
+    @media (min-width: @responsive_l_tablet_min) and (max-width: @responsive_l_tablet_max) {
+      font-size: 60px;
+      line-height: 70px;
+    }
+
+    /* portrait tablet */
+    @media (min-width: @responsive_p_tablet_min) and (max-width: @responsive_p_tablet_max) {
+      font-size: 48px;
+      line-height: 56px;
+    }
+
+    /* portrait phone */
+    @media (max-width: @responsive_p_phone_max) {
+      font-size: 60px;
+      line-height: 70px;
+    }
+  }
+
+
+  //product page
+  .tdm-product-column {
+    .tds-title {
+      padding: 0 20px;
+    }
+
+    .tdm-descr {
+      padding: 0 20px 40px;
+    }
+  }
+
+
+  //contact page padding
+  &.contact {
+    .td-main-content-wrap {
+      padding-bottom: 0;
+    }
+  }
+
+  //contactform
+  div.wpforms-container .wpforms-form div.wpforms-field-container .wpforms-field input,
+  div.wpforms-container .wpforms-form div.wpforms-field-container .wpforms-field textarea {
+    border-color: #d6d8a1;
+    color: #444;
+    font-size: 14px;
+    padding-right: 12px;
+    padding-left: 12px;
+    font-weight: 400;
+  }
+
+  // demos button
+  #td-theme-settings .td-skin-buy a {
+    background-color: #ccb930;
+  }
+}

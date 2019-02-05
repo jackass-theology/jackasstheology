@@ -1,0 +1,105 @@
+/* ------------------------------- */
+  //   Search title
+/* ------------------------------- */
+.tdb-search-title {
+  margin-bottom: 37px;
+
+  .tdb-title-text {
+    font-weight: 400;
+  }
+}
+
+
+
+/* ------------------------------- */
+//   Search breadcrumbs
+/* ------------------------------- */
+.search-results .tdb_breadcrumbs {
+  margin-bottom: 2px;
+}
+
+
+
+/* ------------------------------- */
+//   Search form
+/* ------------------------------- */
+.tdb_search_form {
+  margin-bottom: 40px;
+
+  .tdb-search-form-inner {
+    position: relative;
+    display: flex;
+    background-color: #fff;
+  }
+  .tdb-search-form-border {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #e1e1e1;
+    pointer-events: none;
+  }
+  .tdb-search-form-input:focus + .tdb-search-form-border {
+    border-color: #b0b0b0;
+  }
+
+  .tdb-search-form-input,
+  .tdb-search-form-btn {
+    height: auto;
+    min-height: 32px;
+  }
+
+  .tdb-search-form-input {
+    position: relative;
+    flex: 1;
+    background-color: transparent;
+    line-height: 19px;
+    border: 0;
+  }
+
+  .tdb-search-form-placeholder {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 3px 9px;
+    font-size: 12px;
+    line-height: 21px;
+    color: #999;
+    .transition(all 0.3s ease);
+    pointer-events: none;
+  }
+
+  .tdb-search-form-btn {
+    text-shadow: none;
+    padding: 7px 15px 8px 15px;
+    line-height: 16px;
+    margin: 0;
+    background-color: #222222;
+    font-family: @font3;
+    font-size: 13px;
+    font-weight: 500;
+    color: #fff;
+    z-index: 1;
+    .transition(all 0.3s ease);
+
+    &:hover {
+      background-color: @td_theme_color;
+    }
+
+    i,
+    span {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    i {
+      position: relative;
+      font-size: 12px;
+    }
+  }
+
+  .tdb-search-msg {
+    font-size: 12px;
+  }
+}

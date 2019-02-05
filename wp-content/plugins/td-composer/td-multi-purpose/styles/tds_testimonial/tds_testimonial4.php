@@ -1,0 +1,239 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: tagdiv
+ * Date: 13.07.2017
+ * Time: 9:38
+ */
+
+class tds_testimonial4 extends td_style {
+
+    private $unique_style_class;
+    private $atts = array();
+    private $index_style;
+
+    function __construct( $atts, $unique_block_class = '', $index_style = '') {
+        $this->atts = $atts;
+        $this->index_style = $index_style;
+    }
+
+	private function get_css() {
+
+        $compiled_css = '';
+
+        $unique_style_class = $this->unique_style_class;
+
+		$raw_css =
+			"<style>
+
+                /* @block_margin */
+                .$unique_style_class.tds-testimonial4 {
+					margin-top: @block_margin;
+				}
+
+				/* @image_size */ 
+				.$unique_style_class.tds-testimonial4 .tdm-testimonial-image {
+					width: @image_size;
+					height: @image_size;
+				}
+                /* @image_margin */
+                .$unique_style_class.tds-testimonial4 .tdm-testimonial-image {
+					margin-top: -@image_margin;
+				}
+				/* @image_space */
+				.$unique_style_class .tdm-testimonial-image {
+					margin-right: @image_space;
+				}
+				/* @image_border_radius */
+				.$unique_style_class .tdm-testimonial-image {
+					border-radius: @image_border_radius;
+				}
+				
+				/* @name_color */
+				.$unique_style_class .tdm-testimonial-name {
+				    color: @name_color;
+				}
+				/* @title_color */
+				body .$unique_style_class .tdm-testimonial-job {
+				    color: @title_color;
+				}
+				/* @description_color */
+				.$unique_style_class .tdm-testimonial-descr {
+				    color: @description_color;
+				}
+				/* @all_border_size */
+				.$unique_style_class {
+				    border: @all_border_size @all_border_style @all_border_color;
+				}
+				/* @border_radius */
+				.$unique_style_class {
+				    border-radius: @border_radius;
+				}
+
+
+
+				/* @f_name */
+				.$unique_style_class .tdm-title {
+					@f_name
+				}
+				/* @f_job_title */
+				.$unique_style_class .tdm-testimonial-job {
+					@f_job_title
+				}
+				/* @f_descr */
+				.$unique_style_class .tdm-descr {
+					@f_descr
+				}
+
+			</style>";
+
+
+        $td_css_res_compiler = new td_css_res_compiler( $raw_css );
+        $td_css_res_compiler->load_settings( __CLASS__ . '::cssMedia', $this->atts);
+
+        $compiled_css .= $td_css_res_compiler->compile_css();
+        return $compiled_css;
+	}
+
+    /**
+     * Callback pe media
+     *
+     * @param $responsive_context td_res_context
+     * @param $atts
+     */
+    static function cssMedia( $res_ctx ) {
+
+        /*-- IMAGE -- */
+        // image size
+        $image_size = $res_ctx->get_shortcode_att( 'image_size' );
+        if( $image_size != '' ) {
+            if ( is_numeric( $image_size ) ) {
+                $res_ctx->load_settings_raw( 'image_size',  $image_size . 'px' );
+
+                $res_ctx->load_settings_raw( 'block_margin', $image_size / 2 . 'px' );
+                $res_ctx->load_settings_raw( 'image_margin', ( $image_size / 2 ) + 22 . 'px' );
+            }
+        } else {
+            $res_ctx->load_settings_raw( 'image_size', '64px' );
+
+            $res_ctx->load_settings_raw( 'block_margin', '26px' );
+            $res_ctx->load_settings_raw( 'image_margin', '55px' );
+        }
+
+        // image space
+        $image_space = $res_ctx->get_shortcode_att( 'image_space' );
+        if( $image_space != '' ) {
+            if ( is_numeric( $image_space ) ) {
+                $res_ctx->load_settings_raw( 'image_space',  $image_space . 'px' );
+            }
+        } else {
+            $res_ctx->load_settings_raw( 'image_space',  '15px' );
+        }
+
+        // image border radius
+        $border_radius = $res_ctx->get_shortcode_att( 'image_border_radius' );
+        $res_ctx->load_settings_raw( 'image_border_radius',  $border_radius );
+        if( $border_radius != '' ) {
+            if ( is_numeric( $border_radius ) ) {
+                $res_ctx->load_settings_raw( 'image_border_radius',  $border_radius . 'px' );
+            }
+        }
+
+
+
+        /*-- TEXT -- */
+        // name color
+        $res_ctx->load_settings_raw( 'name_color', $res_ctx->get_style_att( 'name_color', __CLASS__ ) );
+
+        // job title color
+        $res_ctx->load_settings_raw( 'title_color', $res_ctx->get_style_att( 'title_color', __CLASS__ ) );
+
+        // description color
+        $res_ctx->load_settings_raw( 'description_color', $res_ctx->get_style_att( 'description_color', __CLASS__ ) );
+
+
+
+        /*-- BORDER -- */
+        // border size
+        $border_size = $res_ctx->get_style_att( 'all_border_size', __CLASS__ );
+        if( $border_size != '' ) {
+            if ( is_numeric( $border_size ) ) {
+                $res_ctx->load_settings_raw( 'all_border_size',  $border_size . 'px' );
+            }
+        } else {
+            $res_ctx->load_settings_raw( 'all_border_size',  '1px' );
+        }
+
+        // border style
+        $border_style = $res_ctx->get_style_att( 'all_border_style', __CLASS__ );
+        $res_ctx->load_settings_raw( 'all_border_style', 'solid' );
+        if( $border_style != '' ) {
+            $res_ctx->load_settings_raw( 'all_border_style', $border_style );
+        }
+
+        // border color
+        $border_color = $res_ctx->get_style_att( 'all_border_color', __CLASS__ );
+        $res_ctx->load_settings_raw( 'all_border_color', '#e8e8e8' );
+        if( $border_color != '' ) {
+            $res_ctx->load_settings_raw( 'all_border_color', $border_color );
+        }
+
+        // border radius
+        $border_radius = $res_ctx->get_style_att( 'border_radius', __CLASS__ );
+        if( $border_radius != '' ) {
+            if ( is_numeric( $border_radius ) ) {
+                $res_ctx->load_settings_raw( 'border_radius',  $border_radius . 'px' );
+            }
+        } else {
+            $res_ctx->load_settings_raw( 'border_radius',  '5px' );
+        }
+
+
+
+        /*-- FONTS -- */
+        $res_ctx->load_font_settings( 'f_name', __CLASS__ );
+        $res_ctx->load_font_settings( 'f_job_title', __CLASS__ );
+        $res_ctx->load_font_settings( 'f_descr', __CLASS__ );
+
+    }
+
+    function render( $index_style = '' ) {
+        if ( ! empty( $index_style ) ) {
+            $this->index_template = $index_style;
+        }
+        $this->unique_style_class = td_global::td_generate_unique_id();
+
+        $image = $this->get_shortcode_att( 'image' );
+        $name = $this->get_shortcode_att( 'name' );
+        $name_tag = $this->get_shortcode_att( 'name_tag' );
+        $job_title = $this->get_shortcode_att( 'job_title' );
+        $description = rawurldecode( base64_decode( strip_tags( $this->get_shortcode_att( 'description' ) ) ) );
+
+        // name tag
+        if ( empty($name_tag ) ) {
+            $name_tag = 'h2';
+        }
+
+        $buffy = PHP_EOL . '<style>' . PHP_EOL . $this->get_css() . PHP_EOL . '</style>';
+        $buffy .= '<div class="tdm-testimonial-wrap td-fix-index ' . self::get_class_style(__CLASS__) . ' ' . $this->unique_style_class . '">';
+            if ( ! empty( $image ) ) {
+                $buffy .= '<div class="tdm-testimonial-image" style="background-image: url(' . tdc_util::get_image_or_placeholder( $image ) . ');"></div>';
+            }
+
+            $buffy .= '<p class="tdm-descr tdm-testimonial-descr">' . $description . '</p>';
+
+            $buffy .= '<' . $name_tag . ' class="tdm-title tdm-title-sm tdm-testimonial-name">' . $name . '</' . $name_tag . '>';
+            $buffy .= '<span class="tdm-testimonial-job">' . $job_title  . '</span>';
+        $buffy .= '</div>';
+
+		return $buffy;
+	}
+
+    function get_style_att( $att_name ) {
+        return $this->get_att( $att_name ,__CLASS__, $this->index_style );
+    }
+
+    function get_atts() {
+        return $this->atts;
+    }
+}

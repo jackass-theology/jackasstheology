@@ -1,0 +1,103 @@
+@import "../../less_files/variables.less";
+@import "../../less_files/mixin.less";
+
+
+.td-showcase {
+
+  // HEADER
+  .tdm-header-style-1 {
+    .td-header-gradient:before {
+      display: none;
+    }
+  }
+
+  /* responsive portrait tablet */
+  @media (min-width: @responsive_p_tablet_max) {
+    .td-header-wrap .td-affix {
+      .td-main-menu-logo a,
+      .sf-menu > li > a,
+      .header-search-wrap .td-icon-search,
+      .td-header-menu-social {
+        line-height: 58px !important;
+      }
+    }
+  }
+
+  .tds-title3 {
+    .tdm-title-sub {
+      letter-spacing: 3px;
+    }
+  }
+
+  /* responsive phone + portrait tablet */
+  @media (max-width: @responsive_p_tablet_max) {
+    .tdm-title-xxsm {
+      font-size: 20px;
+      line-height: 26px;
+    }
+
+    .tdm-title-xsm {
+      font-size: 22px;
+      line-height: 30px;
+    }
+
+    .tdm-title-sm {
+      font-size: 26px;
+    }
+
+    .tdm-title-md {
+      font-size: 45px;
+      line-height: 46px;
+    }
+
+    .tdm-title-bg {
+      font-size: 48px;
+      line-height: 48px;
+    }
+
+    .tdm_block_team_member .tdm-title {
+      font-size: 24px;
+      line-height: 27px;
+    }
+    .tds-team-member3 .tdm-member-image-wrap {
+      width: 120px;
+    }
+  }
+
+
+  .tds-button2 {
+    &:hover{
+      background-color: #000;
+    }
+  }
+  .td-showcase-dark-btn {
+    .tds-button2 {
+      &:hover{
+        background-color: #fff;
+      }
+    }
+  }
+
+
+
+  .tds-title-over-image1 {
+    .tdm-title-sm {
+      margin-top: 6px;
+      margin-bottom: 4px;
+      font-family: "Playfair Display";
+    }
+  }
+
+
+  // FOOTER
+  .td-showcase-subfooter {
+    .tdm-descr {
+      font-size: 13px;
+    }
+  }
+
+  // demos button
+  #td-theme-settings .td-skin-buy a {
+    background-color: #747bf0;
+  }
+}

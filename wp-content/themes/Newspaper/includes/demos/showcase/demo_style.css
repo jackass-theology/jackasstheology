@@ -1,0 +1,98 @@
+/*  ----------------------------------------------------------------------------
+    responsive settings
+*/
+/* responsive landscape tablet */
+/* responsive portrait tablet */
+/* responsive portrait phone */
+.mx_image_background {
+  background-color: #f2f2f2;
+}
+.td-visibility-hidden {
+  visibility: hidden;
+}
+/*  ----------------------------------------------------------------------------
+    from bootstrap
+*/
+.clearfix {
+  *zoom: 1;
+}
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.clearfix:after {
+  clear: both;
+}
+/*
+usage:
+.td-block-row {
+  .mx-row(td-block-span);
+}
+
+@all_span_selector - is the begining of the span selector
+ */
+.td-showcase {
+  /* responsive portrait tablet */
+  /* responsive phone + portrait tablet */
+}
+.td-showcase .tdm-header-style-1 .td-header-gradient:before {
+  display: none;
+}
+@media (min-width: 1018px) {
+  .td-showcase .td-header-wrap .td-affix .td-main-menu-logo a,
+  .td-showcase .td-header-wrap .td-affix .sf-menu > li > a,
+  .td-showcase .td-header-wrap .td-affix .header-search-wrap .td-icon-search,
+  .td-showcase .td-header-wrap .td-affix .td-header-menu-social {
+    line-height: 58px !important;
+  }
+}
+.td-showcase .tds-title3 .tdm-title-sub {
+  letter-spacing: 3px;
+}
+@media (max-width: 1018px) {
+  .td-showcase .tdm-title-xxsm {
+    font-size: 20px;
+    line-height: 26px;
+  }
+  .td-showcase .tdm-title-xsm {
+    font-size: 22px;
+    line-height: 30px;
+  }
+  .td-showcase .tdm-title-sm {
+    font-size: 26px;
+  }
+  .td-showcase .tdm-title-md {
+    font-size: 45px;
+    line-height: 46px;
+  }
+  .td-showcase .tdm-title-bg {
+    font-size: 48px;
+    line-height: 48px;
+  }
+  .td-showcase .tdm_block_team_member .tdm-title {
+    font-size: 24px;
+    line-height: 27px;
+  }
+  .td-showcase .tds-team-member3 .tdm-member-image-wrap {
+    width: 120px;
+  }
+}
+.td-showcase .tds-button2:hover {
+  background-color: #000;
+}
+.td-showcase .td-showcase-dark-btn .tds-button2:hover {
+  background-color: #fff;
+}
+.td-showcase .tds-title-over-image1 .tdm-title-sm {
+  margin-top: 6px;
+  margin-bottom: 4px;
+  font-family: "Playfair Display";
+}
+.td-showcase .td-showcase-subfooter .tdm-descr {
+  font-size: 13px;
+}
+.td-showcase #td-theme-settings .td-skin-buy a {
+  background-color: #747bf0;
+}

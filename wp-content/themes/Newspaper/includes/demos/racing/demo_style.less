@@ -1,0 +1,84 @@
+@import "../../less_files/variables.less";
+
+/*
+Racing Demo
+*/
+
+.td-racing {
+
+  .tdm-header-style-3 {
+
+    //menu bg color
+    &.td-header-wrap .td-header-menu-wrap-full,
+    &.td-header-menu-wrap.td-affix {
+      background: linear-gradient(to right, #13478a 0, #005aa2 20%, #113e81 100%)  !important;
+
+      //arrow right of menu tags canceled
+      .sf-menu .td-icon-menu-down {
+        display: none;
+      }
+    }
+
+    //menu tags with arrow padding correction
+    .sf-menu a.sf-with-ul {
+      padding-right: 20px;
+
+      /* responsive portrait tablet */
+      @media (min-width: @responsive_p_tablet_min) and (max-width: @responsive_p_tablet_max) {
+        padding-right: 9px;
+      }
+    }
+
+    .sf-menu > li > a {
+      padding: 0 20px;
+    }
+
+    //menu button left margin
+    .tdm-header-menu-btns {
+      margin-left: 50px;
+    }
+
+    //mega menu bg color
+    .td_stretch_content .td_block_mega_menu:before,
+    .td_stretch_content_1200 .td_block_mega_menu:before,
+    .td_stretch_content_1400 .td_block_mega_menu:before,
+    .td_stretch_content_1600 .td_block_mega_menu:before,
+    .td_stretch_content_1800 .td_block_mega_menu:before {
+      background-color: transparent;
+    }
+  }
+
+
+  .racing-video-playlist {
+    margin-bottom: 0;
+  }
+
+  .td-racing-footer-socials {
+    &.td-social-style4 {
+      color: #fff;
+
+      .td-social-box:hover {
+        .td_social_info {
+          color: #fff;
+        }
+      }
+
+      .td_social_type a {
+        color: #fff;
+
+        @media (min-width: @responsive_p_tablet_min) {
+          display: none;
+        }
+      }
+
+      .td_social_info {
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  // demos button
+  #td-theme-settings .td-skin-buy a {
+    background-color: #05508e;
+  }
+}

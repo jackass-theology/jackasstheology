@@ -1,0 +1,49 @@
+.aft-info-wrap .aft-section .dashicons {
+	margin-top: -4px;
+	vertical-align: middle;
+}
+
+.aft-info-wrap .nav-tab {
+	font-size: 16px;
+}
+
+.aft-info-wrap h1 {
+	font-size: 2em;
+}
+
+.aft-info-wrap h3 {
+	font-size: 1.2em;
+}
+
+.aft-info-wrap .aft-section-useful-plugins,
+.aft-info-wrap .aft-section-upgrade-to-pro,
+.aft-info-wrap .aft-section-demo-content {
+	margin-top: 50px;
+}
+
+.aft-info-wrap .tab-upgrade-to-pro {
+	background-color: #bf2424;
+	background-color: #159614;
+	color: #FFF;
+}
+
+.aft-info-wrap .wp-badge {
+	background-image: url('../images/af-themes-logo.png');
+	background-color: #FFF;
+	background-size: 110px auto;
+	background-position: center;
+	height: 70px;
+}
+
+.aft-info-wrap .quick-links a {
+	margin-right: 5px;
+}
+
+.aft-info-notice .btn-dismiss {
+	margin-left: 20px;
+}
+
+.aft-info-wrap .plugin-list {
+	list-style-position: inside;
+	list-style-type: disc;
+}

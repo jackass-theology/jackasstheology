@@ -1,0 +1,42 @@
+<div class="tdc-property-wrap tdc-property-textfield">
+						<div class="tdc-property-title">My control title:</div>
+						<div class="tdc-property">
+							<input name="my_name" type="text" value="Block title"/>
+						</div>
+					</div>
+
+
+					<!-- textfield -->
+					<div class="tdc-property-wrap tdc-property-textfield">
+						<div class="tdc-property-title">My random shit:</div>
+						<div class="tdc-property">
+							<input name="my_name" type="text" value="Block title"/>
+						</div>
+					</div>
+
+
+					<!-- dropdown -->
+					<div class="tdc-property-wrap tdc-property-dropdown">
+						<div class="tdc-property-title">My prop:</div>
+						<div class="tdc-property">
+							<select name="category_id" data-option=""><option class="" value="">- All categories -</option><option class="988" value="988">Fashion</option><option class="2" value="2">Featured</option><option class="982" value="982">Lifestyle</option><option class="984" value="984"> - Health</option><option class="985" value="985"> - Music</option><option class="986" value="986"> - Recipes</option><option class="983" value="983"> - Travel</option><option class="990" value="990">Music</option><option class="991" value="991">Photography</option><option class="989" value="989">Sport</option><option class="1" value="1">Uncategorized</option><option class="987" value="987">World</option></select>
+						</div>
+					</div>
+
+
+
+					<!-- colorpicker -->
+					<?php
+					$widget_color_picker_id = tdc_util::generate_unique_id();
+					?>
+					<div class="tdc-property-wrap tdc-property-colorpicker">
+						<div class="tdc-property-title">My colorpicker:</div>
+						<div class="tdc-property">
+							<input id="<?php echo $widget_color_picker_id ?>" name="my_name" type="text" value="#dd3333"/>
+						</div>
+					</div>
+					<script>
+						jQuery( document ).ready(function() {
+							jQuery("#<?php echo $widget_color_picker_id ?>").cs_wpColorPicker();
+						});
+					</script>

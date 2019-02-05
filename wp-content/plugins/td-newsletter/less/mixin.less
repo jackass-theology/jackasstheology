@@ -1,0 +1,115 @@
+// Clearfix
+.clearfix {
+  *zoom: 1;
+  &:before,
+  &:after {
+    display: table;
+    content: '';
+    line-height: 0;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+// Border Radius
+.border-radius(@radius) {
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  border-radius: @radius;
+}
+
+// Transitions
+.transition(@transition) {
+  -webkit-transition: @transition;
+  -moz-transition: @transition;
+  -o-transition: @transition;
+  transition: @transition;
+}
+
+.transition_important(@transition) {
+  -webkit-transition: @transition !important;
+  -moz-transition: @transition !important;
+  -o-transition: @transition !important;
+  transition: @transition !important;
+}
+
+.transition(@transition1, @transition2) {
+  -webkit-transition: @transition1, @transition2;
+  -moz-transition: @transition1, @transition2;
+  -o-transition: @transition1, @transition2;
+  transition: @transition1, @transition2;
+}
+
+.transition(@transition1, @transition2, @transition3) {
+  -webkit-transition: @transition1, @transition2, @transition3;
+  -moz-transition: @transition1, @transition2, @transition3;
+  -o-transition: @transition1, @transition2, @transition3;
+  transition: @transition1, @transition2, @transition3;
+}
+
+.transform-origin(@string) {
+  -webkit-transform-origin: @string;
+  -moz-transform-origin: @string;
+  -o-transform-origin: @string;
+  transform-origin: @string;
+}
+
+.transform(@string){
+  transform: @string;
+  -webkit-transform: @string;
+  -moz-transform: 	 @string;
+  -ms-transform: 		 @string;
+  -o-transform: 		 @string;
+}
+
+.perspective(@string){
+  perspective: @string;
+  -webkit-perspective: @string;
+  -moz-perspective: @string;
+  -ms-perspective: @string;
+  -o-perspective: @string;
+}
+
+.transform-style(@string){
+  -webkit-transform-style: @string;
+  transform-style: @string;
+}
+
+.transform_important(@string){
+  transform: @string !important;
+  -webkit-transform: @string !important;
+  -moz-transform: 	 @string !important;
+  -ms-transform: 		 @string !important;
+  -o-transform: 		 @string !important;
+}
+
+// Opacity
+.opacity(@value) {
+  @ieval: @value*100;
+  opacity: @value;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity="@ieval")";
+  filter: alpha(opacity=@ieval);
+}
+
+// Drop shadows
+.box-shadow(@shadow) {
+  -webkit-box-shadow: @shadow;
+  -moz-box-shadow: @shadow;
+  box-shadow: @shadow;
+}
+
+// Box sizing
+.box-sizing(@boxmodel) {
+  -webkit-box-sizing: @boxmodel;
+  -moz-box-sizing: @boxmodel;
+  box-sizing: @boxmodel;
+}
+
+
+.scale (@factor) {
+  -webkit-transform: scale(@factor);
+  -moz-transform: 	 scale(@factor);
+  -ms-transform: 		 scale(@factor);
+  -o-transform: 		 scale(@factor);
+}

@@ -1,0 +1,33 @@
+/*  ----------------------------------------------------------------------------
+    responsive settings
+*/
+/* responsive landscape tablet */
+/* responsive portrait tablet */
+/* responsive portrait phone */
+/*
+Gossip Magazine Demo
+*/
+.td-gossip .td-header-gradient:before {
+  display: none;
+}
+.td-gossip .td_block_template_8 .td-block-title > *:before,
+.td-gossip .td_block_template_8 .td-block-title > *:after {
+  width: 70px;
+  height: 5px;
+}
+@media (min-width: 768px) and (max-width: 1140px) {
+  .td-gossip .td_block_template_8 .td-block-title > *:before,
+  .td-gossip .td_block_template_8 .td-block-title > *:after {
+    width: 40px;
+    height: 4px;
+  }
+}
+@media (max-width: 767px) {
+  .td-gossip .td_block_template_8 .td-block-title > *:before,
+  .td-gossip .td_block_template_8 .td-block-title > *:after {
+    width: 50px;
+  }
+}
+.td-gossip #td-theme-settings .td-skin-buy a {
+  background-color: #ff00fa;
+}

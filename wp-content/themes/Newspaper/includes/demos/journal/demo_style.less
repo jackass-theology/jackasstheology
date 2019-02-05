@@ -1,0 +1,37 @@
+@import "../../less_files/variables.less";
+@import "../../less_files/mixin.less";
+
+
+.td-journal {
+
+  background-color: #f4f7fc;
+
+  .td-main-page-wrap {
+    padding-top: 80px;
+
+    /* responsive landscape tablet */
+    @media (min-width: @responsive_l_tablet_min) and (max-width: @responsive_l_tablet_max) {
+      padding-top: 60px;
+    }
+    /* responsive portrait phone */
+    @media (max-width: @responsive_p_phone_max) {
+      padding-top: 55px;
+    }
+  }
+
+  .td-container-wrap,
+  .post {
+    background-color: transparent;
+  }
+
+  .tdm-header-style-3 {
+    .td-header-gradient:before {
+      display: none;
+    }
+
+    ul.sf-menu > .td-menu-item > a {
+      letter-spacing: 1px;
+    }
+  }
+
+}

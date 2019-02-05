@@ -1,0 +1,55 @@
+/*  ----------------------------------------------------------------------------
+    responsive settings
+*/
+/* responsive landscape tablet */
+/* responsive portrait tablet */
+/* responsive portrait phone */
+/*
+Lifestyle Blog Demo
+*/
+.td-blog-lifestyle .td-header-style-9 .td-header-top-menu-full,
+.td-blog-lifestyle .td-header-style-9 .td-header-main-menu {
+  border-bottom: 1px solid #eaeaea;
+}
+.td-blog-lifestyle.home .td-header-style-9 .td-header-main-menu {
+  border-bottom: none;
+}
+.td-blog-lifestyle .td-header-gradient:before {
+  display: none;
+}
+.td-blog-lifestyle .sf-menu > .current-menu-item > a:after,
+.td-blog-lifestyle .sf-menu > .current-menu-ancestor > a:after,
+.td-blog-lifestyle .sf-menu > .current-category-ancestor > a:after,
+.td-blog-lifestyle .sf-menu > li:hover > a:after,
+.td-blog-lifestyle .sf-menu > .sfHover > a:after {
+  width: 20px;
+}
+.td-blog-lifestyle .sf-menu .td-icon-menu-down {
+  display: none;
+}
+.td-blog-lifestyle .sf-menu a.sf-with-ul {
+  padding-right: 14px;
+  /* responsive portrait tablet */
+}
+@media (min-width: 768px) and (max-width: 1018px) {
+  .td-blog-lifestyle .sf-menu a.sf-with-ul {
+    padding-right: 9px;
+  }
+}
+.td-blog-lifestyle .td-big-grid-flex .td-module-title a {
+  text-shadow: none;
+}
+.td-blog-lifestyle .td-module-meta-info .td-module-comments a {
+  font-size: 10px !important;
+  padding: 5px 6px 4px 7px;
+  top: 12px;
+}
+.td-blog-lifestyle .td-lifestyle-author-box .td-author-name {
+  margin: 10px 0;
+}
+.td-blog-lifestyle .td-post-content .td-modal-image img {
+  border-radius: 8px;
+}
+.td-blog-lifestyle #td-theme-settings .td-skin-buy a {
+  background-color: #d89686;
+}

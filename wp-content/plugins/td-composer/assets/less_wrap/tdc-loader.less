@@ -1,0 +1,97 @@
+/*
+  Full screen loader
+*/
+
+// rotate animation
+@-webkit-keyframes rotating /* Safari and Chrome */ {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotating {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+/*
+  full screen loader
+*/
+.tdc-fullscreen-loader-wrap {
+  position: absolute;
+  left: 300px;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 100px;
+  height: 100px;
+  z-index: 3; //999999;
+  background: url('../images/loader.gif');
+  background-repeat: no-repeat;
+
+  // rotate
+  -webkit-animation: rotating 6s linear infinite;
+  -moz-animation: rotating 6s linear infinite;
+  -ms-animation: rotating 6s linear infinite;
+  -o-animation: rotating 6s linear infinite;
+  animation: rotating 6s linear infinite;
+}
+
+
+body.tdcComposerLoaded {
+  background-color: #fff; // fix boxed headers color - transparent color
+
+  .tdc-fullscreen-loader-wrap,
+  .screen-meta-toggle {
+    // hide on TDC the screen option toggle from WP
+    display: none !important;
+  }
+
+  #tdc-sidebar {
+    pointer-events: all;
+  }
+
+  #tdc-live-iframe {
+    opacity: 1;
+  }
+}
+
+
+/*
+  save button loader
+*/
+.tdc-saving-loader {
+  background-color: transparent !important;
+  .tdc-icon-save {
+    background-position: 3px 2px !important;
+    background: transparent url("../images/loader-small.gif") no-repeat;
+  }
+}
+
+
+/*
+  Open editor loader - it's not here, it's in assets/less_wp_admin/wp_admin_main.less
+*/

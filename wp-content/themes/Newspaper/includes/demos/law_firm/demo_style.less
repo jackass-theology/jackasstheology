@@ -1,0 +1,141 @@
+@import "../../less_files/variables.less";
+@import "../../less_files/mixin.less";
+
+
+.td-law-firm {
+
+  .tdm-header-style-3 {
+    .td-header-main-menu {
+      border-bottom: 2px solid rgba(255, 255, 255, 0.09);
+    }
+
+    .td-header-gradient:before {
+      display: none;
+    }
+  }
+  &.tdm-menu-active-style2 .tdm-header-style-3 {
+    .td-main-menu-logo img {
+      max-height: 130px;
+    }
+
+    .td-main-menu-logo a,
+    ul.sf-menu > .td-menu-item,
+    .td-header-menu-social,
+    #td-header-search-button .td-icon-search {
+      line-height: 130px;
+    }
+  }
+  &.page-template-page-pagebuilder-overlay {
+    .tdm-header-style-3 {
+      &.td-header-wrap .td-header-menu-wrap-full {
+        background-color: transparent;
+      }
+    }
+  }
+
+
+  .tds-button6 {
+    height: 51px;
+    font-family: "Noto Serif";
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 50px;
+    padding: 0 32px;
+    text-transform: uppercase;
+  }
+
+  .td-law-firm-hero,
+  .td-law-firm-text-img,
+  .td-law-firm-section-title {
+    .tdm-title {
+      font-family: "Noto Serif";
+      font-weight: normal;
+    }
+  }
+
+
+  // HERO SECTIONS
+  .td-law-firm-hero {
+    .tdm-title-bg {
+      font-size: 89px;
+      line-height: 62px;
+
+      /* responsive portrait tablet */
+      @media (min-width: @responsive_p_tablet_min) and (max-width: @responsive_p_tablet_max) {
+        font-size: 60px;
+      }
+      /* responsive portrait phone */
+      @media (max-width: @responsive_p_phone_max) {
+        font-size: 50px;
+      }
+    }
+
+    .tdm-descr {
+      font-size: 18px;
+    }
+  }
+
+
+
+  .td-law-firm-text-img {
+    /* responsive tablet + desktop */
+    @media (min-width: @responsive_p_phone_max) {
+      .tdm-text-wrap {
+        padding-right: 60px;
+      }
+      &.tdm-flip-yes {
+        .tdm-text-wrap {
+          padding-right: 0;
+          padding-left: 60px;
+        }
+      }
+    }
+
+    .tdm-col-img {
+      padding: 0;
+      background-color: @td_theme_color;
+    }
+  }
+
+
+
+  .td-law-firm-team {
+    .tdm-title {
+      font-size: 28px;
+      line-height: 36px;
+      font-weight: 400;
+    }
+
+    .tdm-member-title {
+      margin-top: 6px;
+      font-size: 15px;
+    }
+  }
+
+
+  // FOOTER
+  .td-law-firm-footer-menu {
+    li {
+      margin-left: 0;
+
+      a {
+        color: #fff;
+
+        &:hover {
+          color: @td_theme_color;
+        }
+      }
+    }
+  }
+
+  .td-law-firm-copy {
+    .tdm-descr {
+      font-size: 13px;
+    }
+  }
+
+  // demos button
+  #td-theme-settings .td-skin-buy a {
+    background-color: #c2ab42;
+  }
+}

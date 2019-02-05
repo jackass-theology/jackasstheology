@@ -1,0 +1,263 @@
+/*
+    fix logo alignment for logo in menus
+*/
+// affix logo alignment
+@media (min-width: 768px) {
+  .tdm-header-style-3 .td-affix .td-main-menu-logo img {
+    top: 0;
+  }
+}
+// firefox
+@-moz-document url-prefix() {
+  @media (min-width: 768px) {
+    .tdm-header-style-3 .td-main-menu-logo a img {
+      top: -1px;
+    }
+  }
+}
+
+
+/* -------------------------------------------------------------------
+  Styles MP 1 & 2 & 3
+----------------------------------------------------------------------  */
+.tdm-header-style-1,
+.tdm-header-style-2,
+.tdm-header-style-3 {
+  &.td-header-wrap .td-header-top-menu-full {
+    background-color: #222;
+  }
+
+  // logo - in menu
+  .td-main-menu-logo {
+    display: block;
+    margin-right: 42px;
+    height: 80px;
+
+    /* responsive landscape tablet */
+    @media (min-width: @responsive_l_tablet_min) and (max-width: @responsive_l_tablet_max) {
+      margin-right: 20px;
+    }
+
+    /* responsive portrait tablet */
+    @media (min-width: @responsive_p_tablet_min) and (max-width: @responsive_p_tablet_max) {
+      margin-right: 10px;
+    }
+
+    /* responsive portrait phone */
+    @media (max-width: @responsive_p_phone_max) {
+      float: left;
+      margin: 0;
+      display: inline;
+      width: 0;
+      height: 0;
+    }
+
+    a {
+      line-height: 80px;
+    }
+
+    img {
+      max-height: 80px;
+
+      /* responsive portrait phone */
+      @media (max-width: @responsive_p_phone_max) {
+        max-height: 48px;
+      }
+    }
+  }
+
+  // ad
+  .td-header-sp-recs {
+    width: 100%;
+
+    /* responsive min landscape tablet */
+    @media (min-width: @responsive_l_tablet_min) {
+      margin: 24px auto 0 auto !important;
+    }
+    /* responsive portrait tablet */
+    @media (min-width: @responsive_p_tablet_min) and (max-width: @responsive_p_tablet_max) {
+      margin: 14px auto 0 auto !important;
+    }
+  }
+
+  &.td-header-background-image {
+    .td-header-sp-recs {
+      /* responsive min landscape tablet */
+      @media (min-width: @responsive_l_tablet_min) {
+        margin-bottom: 24px !important;
+      }
+      /* responsive portrait tablet */
+      @media (min-width: @responsive_p_tablet_min) and (max-width: @responsive_p_tablet_max) {
+        margin-bottom: 14px !important;
+      }
+    }
+  }
+
+  .td-header-rec-wrap {
+    min-height: 0;
+  }
+
+  .td-a-rec-id-header,
+  .td-g-rec-id-header {
+    img {
+      position: relative;
+    }
+
+    .adsbygoogle {
+      position: relative;
+      display: block !important;
+    }
+  }
+
+  //buttons
+  .tdm-header-menu-btns {
+    line-height: 80px;
+  }
+
+  //social icons
+  .td-header-menu-social {
+    line-height: 80px;
+  }
+
+  .td-header-menu-wrap-full #td-header-search-button {
+    color: #000;
+
+    .td-icon-search {
+      line-height: 80px;
+    }
+  }
+
+  //main-menu
+  #td-header-menu {
+    display: block;
+  }
+
+  .sf-menu {
+    > li > a {
+      line-height: 80px;
+
+      /* responsive landscape tablet */
+      @media (min-width: @responsive_l_tablet_min) and (max-width: @responsive_l_tablet_max) {
+        padding: 0 12px;
+      }
+    }
+  }
+
+  .sf-menu a.sf-with-ul {
+    /* responsive landscape tablet */
+    @media (min-width: @responsive_l_tablet_min) and (max-width: @responsive_l_tablet_max) {
+      padding-right: 26px;
+    }
+  }
+
+  .td-mega-menu {
+    ul {
+      border-top: none;
+    }
+  }
+
+  /* responsive portrait phone */
+  @media (max-width: @responsive_p_phone_max) {
+    .td-header-main-menu {
+      height: 54px;
+    }
+  }
+
+  .td-affix {
+    .td-header-menu-btns,
+    .td-header-menu-social {
+      line-height: 48px;
+    }
+  }
+}
+//Special case for:
+// - single template 6,
+// - single template 7,
+// - homepage post template 7,
+// - single template 8,
+// - single template 10,
+// - single template 11,
+// - category template 2,
+// - category template 5,
+// - category template 6,
+// - category template 7,
+// - category template 8,
+.single_template_6 .tdm-header-style-1,
+.single_template_7 .tdm-header-style-1,
+.homepage-post.single_template_7 .tdm-header-style-1,
+.single_template_8 .tdm-header-style-1,
+.single_template_10 .tdm-header-style-1,
+.single_template_11 .tdm-header-style-1,
+.td_category_template_2 .tdm-header-style-1,
+.td_category_template_5 .tdm-header-style-1,
+.td_category_template_6 .tdm-header-style-1,
+.td_category_template_8 .tdm-header-style-1,
+.single_template_6 .tdm-header-style-2,
+.single_template_7 .tdm-header-style-2,
+.homepage-post.single_template_7 .tdm-header-style-2,
+.single_template_8 .tdm-header-style-2,
+.single_template_10 .tdm-header-style-2,
+.single_template_11 .tdm-header-style-2,
+.td_category_template_2 .tdm-header-style-2,
+.td_category_template_5 .tdm-header-style-2,
+.td_category_template_6 .tdm-header-style-2,
+.td_category_template_8 .tdm-header-style-2,
+.single_template_6 .tdm-header-style-3,
+.single_template_7 .tdm-header-style-3,
+.homepage-post.single_template_7 .tdm-header-style-3,
+.single_template_8 .tdm-header-style-3,
+.single_template_10 .tdm-header-style-3,
+.single_template_11 .tdm-header-style-3,
+.td_category_template_2 .tdm-header-style-3,
+.td_category_template_5 .tdm-header-style-3,
+.td_category_template_6 .tdm-header-style-3,
+.td_category_template_8 .tdm-header-style-3 {
+  .td-header-sp-recs {
+    /* responsive min landscape tablet */
+    @media (min-width: @responsive_l_tablet_min) {
+      margin-bottom: 24px !important;
+    }
+    /* responsive portrait tablet */
+    @media (min-width: @responsive_p_tablet_min) and (max-width: @responsive_p_tablet_max) {
+      margin-bottom: 14px !important;
+    }
+  }
+}
+
+/* -------------------------------------------------------------------
+  Style MP 2
+----------------------------------------------------------------------  */
+.tdm-header-style-2 {
+  .td-logo-in-menu {
+    /* tablet + desktop */
+    @media (min-width: @responsive_p_phone_max) {
+      position: absolute;
+      top: 0;
+      left: 20px;
+    }
+  }
+
+  /* responsive tablet & desktop */
+  @media (min-width: @responsive_p_phone_max) {
+    #td-header-menu > div > .sf-menu {
+      display: table;
+      margin: 0 auto;
+    }
+  }
+
+  .tdm-menu-btns-socials {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}
+
+
+/* -------------------------------------------------------------------
+  Style MP 3
+----------------------------------------------------------------------  */
+.tdm-header-style-3 {
+  .sf-menu {
+    float: right;
+  }
+}

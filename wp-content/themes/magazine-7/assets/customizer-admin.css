@@ -1,0 +1,34 @@
+body #customize-controls .control-section-upsell .accordion-section-title:hover,
+body #customize-controls .control-section-upsell .accordion-section-title:focus {
+    background-color: #fff;
+}
+
+body .control-section-upsell .accordion-section-title .button {
+    margin-top: -4px;
+    font-weight: 700;
+    margin-left: 8px;
+    background: #ff3c36;
+    border: none;
+    color: #fff;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    -ms-box-shadow: none;
+    -o-box-shadow: none;
+}
+
+body .control-section-upsell .accordion-section-title .button:hover {
+    background-color: #404040;
+}
+
+body #accordion-section-theme_upsell {
+    display: block !important;
+}
+
+body #accordion-section-theme_upsell h3 {
+    background-color: #5a5a5a !important;
+    color: #fff !important;
+    border-left: 0 !important;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}

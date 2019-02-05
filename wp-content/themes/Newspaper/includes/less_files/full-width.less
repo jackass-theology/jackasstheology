@@ -1,0 +1,30 @@
+.td-stretch-content {
+  .td-big-grids {
+    width: 1068px;
+    margin-left: auto;
+    margin-right: auto;
+
+    /* responsive landscape tablet */
+    @media (min-width: @responsive_l_tablet_min) and (max-width: @responsive_l_tablet_max) {
+      width: 980px;
+    }
+
+    /* responsive portrait tablet */
+    @media (min-width: @responsive_p_tablet_min) and (max-width: @responsive_p_tablet_max) {
+      width: 740px;
+    }
+
+    /* responsive portrait phone */
+    @media (max-width: @responsive_p_phone_max) {
+      width: auto;
+      margin-left: -20px;
+      margin-right: -20px;
+    }
+  }
+
+  .td-module-thumb {
+    .entry-thumb {
+      min-width: 100%;
+    }
+  }
+}

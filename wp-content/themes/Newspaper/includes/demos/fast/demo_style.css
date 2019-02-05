@@ -1,0 +1,79 @@
+/*  ----------------------------------------------------------------------------
+    responsive settings
+*/
+/* responsive landscape tablet */
+/* responsive portrait tablet */
+/* responsive portrait phone */
+/*
+Fast News Demo
+*/
+.td-fast-news .tdm-header-style-1 .td-header-gradient:before {
+  display: none;
+}
+.td-fast-news .tdm-header-style-1.td-header-wrap .td-header-menu-wrap-full,
+.td-fast-news .tdm-header-style-1.td-header-menu-wrap.td-affix {
+  background: linear-gradient(to right, #b9035b 0, #ef0a32 25%, #8b0081 100%) !important;
+}
+.td-fast-news .tdm-header-style-1 .td_stretch_content .td_block_mega_menu:before,
+.td-fast-news .tdm-header-style-1 .td_stretch_content_1200 .td_block_mega_menu:before,
+.td-fast-news .tdm-header-style-1 .td_stretch_content_1400 .td_block_mega_menu:before,
+.td-fast-news .tdm-header-style-1 .td_stretch_content_1600 .td_block_mega_menu:before,
+.td-fast-news .tdm-header-style-1 .td_stretch_content_1800 .td_block_mega_menu:before {
+  background-color: transparent;
+}
+@font-face {
+  font-family: 'td-fast';
+  font-weight: normal;
+  font-style: normal;
+  src: url('font/td-fast.eot?1');
+  src: url('font/td-fast.eot?1#iefix') format('embedded-opentype'), url('font/td-fast.ttf?1') format('truetype'), url('font/td-fast.woff?1') format('woff'), url('font/td-fast.svg?1#td-fast') format('svg');
+}
+.td-fast-news .tdc-font-fast {
+  display: inline-block;
+  font: normal normal normal 14px/1 td-fast;
+  position: relative;
+  margin-right: 6px;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.td-fast-news .tdc-font-fast-home {
+  font-size: 28px;
+  top: 5px;
+  margin-right: 8px;
+}
+.td-fast-news .tdc-font-fast-home:before {
+  content: "\e925";
+}
+.td-fast-news .tdc-font-fast-lightbulb {
+  font-size: 28px;
+  top: 6px;
+  margin-right: 4px;
+}
+.td-fast-news .tdc-font-fast-lightbulb:before {
+  content: "\e984";
+}
+.td-fast-news .tdc-font-fast-sattelite {
+  font-size: 30px;
+  top: 7px;
+}
+.td-fast-news .tdc-font-fast-sattelite:before {
+  content: "\e90b";
+}
+.td-fast-news .tdc-font-fast-apple {
+  font-size: 28px;
+  top: 5px;
+}
+.td-fast-news .tdc-font-fast-apple:before {
+  content: "\e910";
+}
+.td-fast-news .tdc-font-fast-arrows-double {
+  font-size: 26px;
+  top: 6px;
+}
+.td-fast-news .tdc-font-fast-arrows-double:before {
+  content: "\e95e";
+}
+.td-fast-news #td-theme-settings .td-skin-buy a {
+  background-color: #ea2e2e;
+}

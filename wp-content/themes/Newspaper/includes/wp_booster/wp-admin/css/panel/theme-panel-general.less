@@ -1,0 +1,133 @@
+.td-theme-panel-body {
+  #wpcontent {
+    background-color: #3b7fa8 !important;
+    background: url('../images/panel/bg/1.png');
+    background-repeat: no-repeat;
+    background-position: left top;
+  }
+
+  #wpfooter {
+    color: rgba(255,255,255,0.80);
+
+    a {
+      color: #fff;
+    }
+  }
+
+  ul#adminmenu a.wp-has-current-submenu:after, ul#adminmenu>li.current>a.current:after {
+    border-right-color: #30749B;
+  }
+}
+
+/* --------- */
+/* NEWSMAG theme panel */
+/* --------- */
+.newsmag_page_td_theme_panel {
+  #wpcontent {
+    background-repeat: repeat;
+  }
+}
+
+/* --------- */
+/* NEWSPAPER theme panel */
+/* --------- */
+.newspaper_page_td_theme_panel {
+  #wpcontent {
+    background-repeat: repeat;
+  }
+}
+
+/* --------- */
+/* IONMAG theme panel */
+/* --------- */
+
+@red_panel_color: #ec4d4d;
+
+.ionmag_page_td_theme_panel {
+  .td-checkbox-active,
+  .td_upload_button,
+  .td-big-button,
+  .td-button-add-new-sidebar {
+    background-color: @red_panel_color;
+  }
+
+  .wp-picker-container input.button {
+    background-color: @red_panel_color;
+  }
+
+  .td-panel-save-button {
+    background: none;
+    background-color: @red_panel_color;
+  }
+
+  .td-panel-save-button:focus {
+    outline: 0;
+    border-color: transparent;
+  }
+
+  .td-panel-save-button:hover {
+    background: linear-gradient(bottom, rgba(255,255,255,0.0) 0%, #f13434);
+    background: -moz-linear-gradient(bottom, rgba(255,255,255,0.0) 0%, #f13434);
+    background: -webkit-linear-gradient(bottom, rgba(255,255,255,0.0) 0%, #f13434);
+    background-color: @red_panel_color;
+  }
+
+  .td-visual-selector-active {
+    border-color: @red_panel_color !important;
+  }
+
+  .td-radio-control-option-selected span {
+    background-image: url("../images/panel/radio-check-r.png");
+  }
+
+  select:focus,
+  textarea:focus {
+    border-color: #ddd;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+
+  #wpcontent {
+    background: url('../images/panel/bg/bg-red.jpg');
+  }
+
+  // Post settings - Default post templates
+  .td_panel_box_default_post_template_site_wide {
+    .td-box-description {
+      float: none;
+      width: auto;
+      padding-bottom: 18px;
+    }
+    .td-box-control-full {
+      float: none;
+      width: auto;
+    }
+    .td-small-wrapper-o-separator {
+      margin-right: 15px;
+      margin-bottom: 11px;
+    }
+  }
+}
+
+.td-theme-Ionmag {
+  .td-visual-selector-active {
+    border-color: @red_panel_color !important;
+  }
+  .td-button-add-new-sidebar {
+    background-color: @red_panel_color;
+  }
+  .td-wpa-info strong {
+    color: @red_panel_color;
+  }
+}
+
+//theme update - icon that appears before "New version available."
+.update-ionmag p:before {
+  color: #f56e28;
+  content: "\f463";
+  display: inline-block;
+  font: 400 20px/1 dashicons;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  vertical-align: top;
+}

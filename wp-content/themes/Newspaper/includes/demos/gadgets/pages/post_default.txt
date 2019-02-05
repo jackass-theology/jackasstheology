@@ -1,0 +1,45 @@
+A 2017 Wall Street Journal survey found that employers have a very or somewhat difficult time finding people with the requisite soft skills. But what if employers are looking for soft skills and are not seeing them? The vast majority of mid-size and large employers in the US, UK and Canada utilize Applicant Tracking Systems.
+<blockquote>There are more employers that claim soft skills are hard to find than hard skills</blockquote>
+Applicant Tracking Systems (ATS) make it possible for employers to post new positions online and manage the hundreds of applicants who typically respond to each opportunity. No human hiring manager reviews hundreds of applications.
+
+Instead, the ATS produces a manageable number of viable candidates for the hiring manager to review. How does the ATS do this? It's not magic, but rather a keyword-based filter, comparing resumes to the posted job description, and passing through candidates who appear to be a better match.
+
+[caption id="attachment_25426" align="aligncenter" width="696"]<a href="xxx_td_pic_p1_xxx"><img class=" td-modal-image wp-image-25426 size-full" src="xxx_td_pic_p1_xxx" width="696" height="465" /></a> Photographing the most wonderful nature scenes[/caption]
+
+The keyword-based filter at the top of the hiring funnel of most employers has a number of interesting knock-on effects. One is the phenomenon of resume spam: candidates who literally copy the job description in white font into their resume in order to get past the screen. A second is an over-emphasis on technical skills.
+
+Faced with the need to differentiate hundreds candidates for every online posting, employers have added many new job requirements most of which are technical.
+<blockquote class="td_quote_box td_box_left">According to Burning Glass, technical skills now dominate in terms of the sheer number of competencies demanded in job descriptions more than cognitive and soft skills combined for virtually every career.</blockquote>
+While the dominance of technical skills in job descriptions is probably a reflection of the fact that it's easier to come up with 10 technical requirements for a job than 10 different ways of saying problem solving or communication skills, this is the reality Millennials face in being seen by hiring managers. Because if they don't have these technical skills, they're not making it through the ATS filter. And if they're not making through the ATS filter, they're effectively invisible to employers.
+
+[caption id="attachment_25427" align="alignright" width="300"]<a href="xxx_td_pic_p2_xxx"><img class=" td-modal-image wp-image-25427" src="xxx_td_pic_p2_xxx" width="300" height="400" /></a> The pleasure of outdoor photography[/caption]
+
+Does this mean there's a soft skills shortage or that Millennials are all late, disorganized poor communicators? The punctual, organized and well-spoken Millennials whom employers should want have played by the rules and completed college degrees.
+
+But because nearly all colleges and universities continue to live in a bubble, floating high above the mundane concerns of the labor market, and because they continue to believe that the job of higher education is to prepare students for their fifth job.
+
+Colleges have not seriously undertaken to provide last mile technical training to students. So all these Millennials are missing.
+<blockquote>The first is giving all Millennials a chance to become visible to employers through last-mile technical training</blockquote>
+The second is that employers need to escape the tyranny of the keyword-based filter at the top of their hiring funnel. Employers need to demand that their ATS vendors like Taleo (Oracle) incorporate new technologies that allow them to screen (and search) on competencies rather than keywords.
+
+[caption id="attachment_25428" align="aligncenter" width="696"]<a href="xxx_td_pic_p3_xxx"><img class=" td-modal-image wp-image-25428 size-full" src="xxx_td_pic_p3_xxx" width="696" height="464" /></a> The best full frame compatible lenses[/caption]
+
+The shift to competency-based hiring is inevitable and will broaden the top of the funnel to include candidates with great soft skills, and likely more diverse backgrounds than the current pedigree- and degree-based hiring system allows.
+<blockquote class="td_quote_box td_box_right">Gyroscope founder Anand Sharma seems pretty content when we meet up for a walk to The Mill, a hip cafe known for its $4 toast in San Francisco's NOPA neighborhood. It's a rare sunny day in the city and his startup is growing.</blockquote>
+His self-tracking platform with a sleek UI has added a genetics and step tracking component and soon blood tracking. He's also closed on a small sum of angel funding from key investors like Periscope founder Keyvon Beykpour.
+
+Even Jack Dorsey has started using Gyroscope, he tells me. Sharma's worked for well over two years! He called it AprilZero then but the idea grew to include friends and soon anyone who wanted to track themselves on a range of different metrics relating to health and wellness.
+
+The plan now includes where you go, what you eat, how many times you go running in a year and how much time you spend staring at the screen in front of you.
+
+[caption id="attachment_25429" align="alignleft" width="300"]<a href="xxx_td_pic_p4_xxx"><img class=" td-modal-image wp-image-25429" src="xxx_td_pic_p4_xxx" width="300" height="450" /></a> Sharma developing his next big project[/caption]
+
+The platform seems like an outgrowth of the quantified self movement a movement pairing technology with personal data to help you improve your life in some mental or physical way. But Sharma shrugs off the suggestion.
+
+I don't like to place myself in that category, he says. Mainly because those guys are little weird. He's not wrong. The movement, also known as life logging, conjures up images of folks wearing six different health tracking bands, sensors on their heads and measuring every little detail of their actions in every part of their life for what sometimes is very unclear.
+
+But Sharma, whom we've written about before when he was just getting started, has shaped the platform up quite a bit since starting out. Gyroscope is in the App Store now!
+
+He has thought about productivity components like how much time you spend surfing the internet each day and added a bit of a competitive enhancement to the platform, allowing you to compare how many steps you took compared to your friends on the platform.
+
+He's also launching a feature this summer called Insights, an AI component that aims to help you make connections between certain behaviors and what you log on the platform. Sharma tells me it would work by drawing these connections and then sending push notifications to motivate and remind those using Gyroscope to do something relating to their goals.

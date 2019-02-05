@@ -1,0 +1,56 @@
+@import "variables.less";
+@import "mixin.less";
+
+
+// header builder
+@import "header.less";
+
+// single post pages
+@import "single_post.less";
+
+// category pages
+@import "category.less";
+
+// author pages
+@import "author.less";
+
+// search pages
+@import "search.less";
+
+// tag pages
+@import "tag.less";
+
+// date pages
+@import "date.less";
+
+// attachment elements
+@import "attachment.less";
+
+// common page elements
+@import "common.less";
+
+// page template
+.td-main-content-wrap {
+  padding-bottom: 0;
+}
+
+// edit template wp-admin bar button
+#wp-admin-bar-tdb_template_builder a {
+  background-color: #2b4858;
+  color: #fff;
+
+  &:hover {
+    background-color: #1c5879 !important;
+    color: #fff !important;
+  }
+}
+
+// fake blocks for preview
+.tdb-fake-block {
+  filter: grayscale(1);
+  opacity: 0.1;
+
+  .td_module_wrap {
+    pointer-events: none;
+  }
+}

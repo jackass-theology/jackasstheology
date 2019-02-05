@@ -1,0 +1,875 @@
+@import "../less_wrap/mixin.less";
+
+@import "blocks-custom.less";
+
+// Font family
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
+@font1:'Open Sans', sans-serif;
+
+html.tdc-active {
+  margin: 0 !important;
+}
+
+html.tdc-active #wpadminbar {
+  display: none;
+}
+
+.no-hover {
+  pointer-events: none;
+}
+
+.yes-hover {
+  pointer-events: all;
+}
+
+.tdc-elements {
+  //min-height: 50px; /* used when only the placeholder is inside and it's hidden */
+}
+
+.tdc-elements:empty {
+  border: 1px dashed #aeef40;
+  height: 50px;
+}
+
+.tdc-row,
+.tdc-column,
+.tdc-inner-row,
+.tdc-inner-column,
+.tdc-element,
+.tdc-element-column,
+.tdc-element-inner-row,
+.tdc-element-inner-column {
+  cursor: pointer;
+  transition: opacity 0.4s ease;
+}
+
+// keep height on tdc-element which contains floated '.td_block_wrap'
+.tdc-element {
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+
+  &.tdc-element-inline {
+    display: inline-block;
+  }
+}
+
+body.tdc-active-helper {
+  .tdc-element {
+    &:after {
+      content: '';
+      display: block;
+      clear: both;
+      //padding-bottom: 1px;
+      //margin-bottom: -1px;
+    }
+  }
+}
+
+.tdc-element img,
+.tdc-element a {
+  pointer-events: none;
+  cursor: pointer;
+}
+
+
+/* ----------------------------------------------------------------------------------------
+  When a element is dragged, starting with the mouse down
+*/
+.tdc-dragged {
+  opacity: 0.5;
+
+  &.tdc-element-inner-row { // fix for absolute inner row
+    opacity: 1;
+    .td-pb-row {
+      opacity: 0.5;
+    }
+  }
+}
+
+
+
+/* ----------------------------------------------------------------------------------------
+  When a element is selected (it's settings are opened in the left sidebar)
+*/
+
+.tdc-element-selected {
+  outline: 2px dashed rgb(212, 212, 212);
+}
+.tdc-element-selected.tdc-element-active {
+  outline: 2px dashed rgba(152, 206, 244, 0.50);
+}
+
+.tdc-column.tdc-element-selected { // columns - they are colapsing and we need to add the outline to the inner wrapper
+  outline: none;
+
+  > .wpb_wrapper {
+    outline: 2px dashed rgb(212, 212, 212);
+  }
+}
+
+.tdc-column.tdc-element-selected.tdc-element-active { // columns - they are colapsing and we need to add the outline to the inner wrapper
+
+  > .wpb_wrapper {
+    outline: 2px dashed rgba(152, 206, 244, 0.50);
+  }
+}
+
+.tdc-inner-column.tdc-element-selected { // columns - they are colapsing and we need to add the outline to the inner wrapper
+  outline: none;
+
+  > .vc_column-inner {
+    outline: 2px dashed rgb(212, 212, 212);
+  }
+}
+
+.tdc-inner-column.tdc-element-selected.tdc-element-active { // columns - they are colapsing and we need to add the outline to the inner wrapper
+
+  > .vc_column-inner {
+    outline: 2px dashed rgba(152, 206, 244, 0.50);
+  }
+}
+
+// fix for the stretch row option
+.stretch_row {
+  .td-pb-row {
+    position: relative;
+
+    &:before {
+      display: block;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  &.tdc-element-selected {
+    outline: none;
+
+    > .vc_row {
+      outline: 2px dashed rgb(212, 212, 212);
+    }
+  }
+}
+
+//
+//.tdc-element-selected {
+//  outline: 1px dashed  #4eb2ec;
+//}
+//
+//.tdc-column.tdc-element-selected { // columns - they are colapsing and we need to add the outline to the inner wrapper
+//  outline: none;
+//
+//  > .vc_column {
+//    outline: 1px dashed #4eb2ec;
+//  }
+//}
+//
+//.tdc-inner-column.tdc-element-selected { // columns - they are colapsing and we need to add the outline to the inner wrapper
+//  outline: none;
+//
+//  > .vc_column_inner {
+//    outline: 1px dashed #4eb2ec;
+//  }
+//}
+
+/* ----------------------------------------------------------------------------------------
+  When a element is mouse down on
+*/
+.tdc-ready-to-move {
+  opacity: 0.9 !important;
+
+  &.tdc-element-inner-row { // fix for absolute inner row
+    opacity: 1 !important;
+    .td-pb-row {
+      opacity: 0.9 !important;
+    }
+  }
+}
+
+
+/* ----------------------------------------------------------------------------------------
+  When a element is dropped, the job is running and we're waiting for new content
+*/
+
+@keyframes tdc-dropped-colorchange {
+  0%    {opacity: 0.5}
+  50%   {opacity: 1}
+  100%  {opacity: 0.5}
+}
+
+@-webkit-keyframes tdc-dropped-colorchange {
+  0%    {opacity: 0.5}
+  50%   {opacity: 1}
+  100%  {opacity: 0.5}
+}
+
+
+.tdc-dropped {
+
+  // hide the play icon, it appears over the loader due to z-index issues
+  .td-video-play-ico {
+    display: none;
+  }
+
+  //background-color: green;
+  position: relative;
+
+  max-height: 550px;
+  min-height: 120px;
+  overflow: hidden;
+  margin-bottom: 45px;
+
+  &:before {
+    top:0;
+    left:0;
+    display: block;
+    height: 100%;
+    width:100%;
+    position: absolute;
+    content: '';
+    z-index: 1;
+    min-height: 100px;
+    background-color: white;
+  }
+
+  &:after  {
+    top:0;
+    left:0;
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background: #F1F1F1 url("../images/loader.gif") no-repeat;
+    content: '';
+    z-index: 2;
+    background-position: center;
+
+    animation: tdc-dropped-colorchange 1s linear infinite;
+    -webkit-animation: tdc-dropped-colorchange 1s linear infinite;
+
+  }
+}
+
+
+.tdc-changed {
+  opacity: 0.5;
+}
+
+
+
+
+
+// some placeholders
+.tdc-element-empty {
+  border: 1px solid #4eb2ec;
+  width: 100%;
+  max-height: 50px;
+  overflow: hidden;
+  cursor: default;
+  margin-bottom: 48px;
+}
+
+.tdc-element-empty:before {
+  text-align: center;
+  content: 'EMPTY ELEMENT';
+  font-size: 12px;
+  line-height: 47px;
+  display: block;
+  height: 100%;
+  color: #666;
+}
+
+.tdc-element-column.tdc-element-empty:before {
+  content: 'EMPTY COLUMN' !important;
+}
+
+.tdc-element-inner-column.tdc-element-empty:before {
+  content: 'EMPTY INNER COLUMN' !important;
+}
+
+.tdc-inner-column .tdc-elements > .tdc-element-empty {
+  border: 1px solid #e7cc00;
+}
+
+#tdc-placeholder {
+  display: none;
+  height: 50px;
+  width: 100%;
+  position: absolute;
+  pointer-events: none;
+  z-index: 100000;
+  margin-top: -25px;
+  border: 1px dashed #aeef40;
+  background-color: rgba(174,239,64,0.4);
+}
+
+.tdc-inner-column .tdc-elements > #tdc-placeholder {
+  border: 1px dashed #e7cc00;
+  background-color: rgba(219,179,0,0.3);
+}
+
+.tdc-columns > #tdc-placeholder {
+  border: 1px dashed #aeef40;
+  background-color: rgba(174,239,64,0.4);
+}
+
+.tdc-inner-columns > #tdc-placeholder {
+  border: 1px dashed #e7cc00;
+  background-color: rgba(219,179,0,0.3);
+}
+
+.vertical {
+  width: 50px !important;
+  height: 200px !important;
+  margin-top: auto !important;
+  right: auto !important;
+}
+
+#tdc-mask {
+  position: absolute;
+  font-size: 10px;
+  pointer-events: none;
+  left: 0;
+  top: 0;
+  width: 0;
+  min-height: 50px; // the height of an empty element
+  display: none;
+}
+
+#tdc-mask-content {
+  width: 0;
+  height: 0;
+  background-color: #00a2ff;
+  opacity: 0.2;
+  pointer-events: none;
+  position: absolute;
+  z-index: 3;
+  display: none;
+}
+
+#tdc-mask-content-full {
+  width: 0;
+  height: 0;
+  background-color: #ffb600;
+  opacity: 0.2;
+  pointer-events: none;
+  position: absolute;
+  z-index: 3;
+  display: none;
+}
+
+
+.tdc-content-row,
+.tdc-content-inner-row {
+  opacity: 1 !important;
+  background-color: rgba(131, 203, 236, 0.12) !important;
+  outline: 1px solid rgba(78, 178, 236, 0.3) !important;
+}
+
+
+// the mask controls for row / column etc that appear on top left
+#tdc-mask-row,
+#tdc-mask-column,
+#tdc-mask-inner-row,
+#tdc-mask-inner-column,
+#tdc-mask-element {
+  float: left;
+  pointer-events: all;
+  color: #fff;
+  height: 17px;
+  position: relative;
+}
+
+#tdc-mask-row {
+  background-color: #415684;
+  width: 47px;
+  }
+
+#tdc-mask-column {
+  background-color: #437ba9;
+  width: 46px;
+}
+
+#tdc-mask-inner-row {
+  background-color: #415684;
+  width: 74px;
+  clear: both;
+
+  &:before {
+    content: '';
+    width: 93px;
+    height: 1px;
+    position: absolute;
+    top: -1px;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.4);
+  }
+}
+
+#tdc-mask-inner-column {
+  background-color: #437ba9;
+  width: 74px;
+}
+
+.tdc-mask-handler-drag {
+  position: absolute;
+  top: -2px;
+  left: 5px;
+  font-family: @font1;
+  line-height: 20px;
+}
+
+#tdc-mask-handler-structure {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  width: 100%;
+  cursor: pointer;
+  min-width: 250px;
+  z-index: 9999;
+}
+
+.tdc-mask-top {
+  #tdc-mask-handler-structure {
+    bottom: auto;
+  }
+}
+
+.td_block_homepage_full_1 {
+  height: 50px;
+  border: 1px solid #eeecf0;
+
+  &:after {
+    text-align: center;
+    content: 'Homepage Post Element';
+    font-size: 12px;
+    line-height: 47px;
+    display: block;
+    height: 100%;
+    color: #666;
+  }
+}
+
+.tdc-big-grid-slide {
+  height: 50px;
+  border: 1px solid #ec6432;
+
+  &:after {
+    text-align: center;
+    content: 'Big Grid Slide must be in a ROW / 3 COLUMNS';
+    font-size: 12px;
+    line-height: 47px;
+    display: block;
+    height: 100%;
+    color: #666;
+  }
+}
+
+#tdc-mask-element {
+  background-color: #56a3bf;
+  width: 84px;
+  cursor: pointer;
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+
+  .tdc-mask-element-delete {
+    background: url('../images/sidebar/spritesheet.png');
+    background-repeat: no-repeat;
+    background-position: -38px -126px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 17px;
+    height: 17px;
+    border-left: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .tdc-mask-element-clone {
+    background: url('../images/sidebar/spritesheet.png');
+    background-repeat: no-repeat;
+    background-position: -112px -63px;
+    position: absolute;
+    top: 0;
+    right: 18px;
+    width: 17px;
+    height: 17px;
+    border-left: 1px solid rgba(255, 255, 255, 0.3);
+  }
+}
+
+#tdc-rows {
+  .tdc-rev-slider {
+    height: 50px;
+    border: 1px solid #ec6432;
+
+    &:after {
+      text-align: center;
+      content: 'Revolution Slider';
+      font-size: 12px;
+      line-height: 47px;
+      display: block;
+      height: 100%;
+      color: #666;
+    }
+  }
+
+  .vc_widget_sidebar {
+    border: 1px solid #ec6432;
+
+    &:after {
+      text-align: center;
+      content: 'Widget Sidebar';
+      font-size: 12px;
+      display: block;
+      height: 100%;
+      color: #666;
+    }
+  }
+}
+
+.tdc-mask-clone {
+  background: url('../images/sidebar/spritesheet.png');
+  background-repeat: no-repeat;
+  .stitches-sprite(-112px, -63px, 14px, 14px);
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 18px;
+  height: 17px;
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+  border-right: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+@keyframes tdc-recycle-pulse {
+	0% { background-color: #e10018; }
+	50% { background-color: #53000b; }
+	100% { background-color: #e10018; }
+}
+
+#tdc-recycle {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #ffffff;
+  width: 258px;
+  height: 90px;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 10000;
+  animation: tdc-recycle-pulse 2s infinite;
+  .transition(opacity 0.4s ease);
+
+  .tdc-delete-text:first-child {
+    &:before {
+      content: 'Drag here to';
+    }
+  }
+}
+
+#tdc-recycle.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#tdc-recycle.active {
+  color: #fff;
+  animation: tdc-recycle-pulse 1s infinite !important;
+
+  .tdc-delete-text:first-child {
+    &:before {
+      content: 'JUST DROP!';
+    }
+  }
+  span {
+    display: none;
+  }
+}
+
+.tdc-delete-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  line-height: 19px;
+
+  span {
+    display: block;
+    text-transform: uppercase;
+    font-size: 14px;
+  }
+}
+
+
+// hide admin edit link from the theme
+.td-admin-edit {
+  display: none !important;
+}
+
+.tdc-block-empty {
+  min-height: 50px;
+  outline: 2px dotted #e8e8e8;
+}
+
+// no posts
+.tdc-no-posts {
+  .td_block_inner {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+
+    &:after {
+      content: 'No posts' !important;
+      display: block !important;
+      font-size: 13px;
+      font-weight: normal;
+      text-align: left;
+      padding: 20px;
+      border: 1px solid rgba(190, 190, 190, 0.35);
+      color: rgba(125, 125, 125, 0.8);
+    }
+  }
+}
+
+/*
+
+    general ad titles on TDC
+
+*/
+.tdc-placeholder-title {
+  font-family: @font1;
+  height: 50px;
+  border: 1px solid #ebebeb;
+  text-align: center;
+  font-size: 12px;
+  line-height: 50px;
+  display: block;
+  color: #666;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+
+  &:before {
+    content: 'Select a spot ID';
+  }
+}
+
+.td-adspot-title {
+  display: none;
+}
+
+// header ad
+.td-spot-id-header {
+  position: relative !important;
+  margin-bottom: 0;
+  width: 728px;
+  height: 90px;
+  margin-left: auto;
+  margin-right: auto;
+
+  /* responsive portrait tablet */
+  @media (min-width: 768px) and (max-width: 1018px) {
+    width: 468px;
+  }
+  /* responsive portrait phone */
+  @media (max-width: 767px) {
+    position: relative;
+    width: 320px;
+    height: 50px;
+    margin: 10px auto;
+  }
+
+  .tdc-placeholder-title {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    height: 90px;
+    line-height: 90px;
+
+    /* responsive portrait tablet */
+    @media (min-width: 768px) and (max-width: 1018px) {
+      height: 60px;
+      line-height: 60px;
+    }
+    /* responsive portrait phone */
+    @media (max-width: 767px) {
+      height: 50px;
+      line-height: 50px;
+    }
+
+    &:before {
+      content: 'Header ad';
+    }
+  }
+}
+
+// custom ads
+[class*="td-spot-id-custom_ad"] {
+  .tdc-placeholder-title {
+    border-color: #ebebeb;
+    width: 728px;
+    height: 90px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+
+    /* responsive portrait tablet */
+    @media (min-width: 768px) and (max-width: 1018px) {
+      width: 468px;
+      height: 60px;
+    }
+    /* responsive portrait phone */
+    @media (max-width: 767px) {
+      position: relative;
+      width: 320px;
+      height: 50px;
+    }
+
+    &:before {
+      position: absolute;
+      top: 50%;
+      .transform(translateY(-50%));
+      margin: auto;
+      display: table;
+      width: 100%;
+    }
+  }
+  .td-adspot-title {
+    display: block;
+  }
+}
+
+// sidebar ad + custom ad 1 column
+.td-spot-id-sidebar,
+.td-pb-span4 [class*="td-spot-id-custom_ad"] {
+  .tdc-placeholder-title {
+    border-color: #ebebeb;
+    width: 300px;
+    height: 250px;
+    margin-left: auto;
+    margin-right: auto;
+
+    /* responsive portrait tablet */
+    @media (min-width: 768px) and (max-width: 1018px) {
+      width: 200px;
+      height: 200px;
+    }
+
+    &:before {
+      content: 'Sidebar ad';
+      position: absolute;
+      top: 50%;
+      .transform(translateY(-50%));
+      margin: auto;
+      display: table;
+      width: 100%;
+    }
+  }
+  .td-adspot-title {
+    display: block;
+  }
+}
+
+// footer ad
+.td-spot-id-footer_top {
+  position: relative !important;
+  margin-bottom: 0;
+  width: 728px;
+  height: 90px;
+  margin-left: auto;
+  margin-right: auto;
+
+  /* responsive portrait tablet */
+  @media (min-width: 768px) and (max-width: 1018px) {
+    width: 468px;
+  }
+  /* responsive portrait phone */
+  @media (max-width: 767px) {
+    position: relative;
+    width: 320px;
+    height: 50px;
+    margin: 10px auto;
+  }
+
+  .tdc-placeholder-title {
+    height: 90px;
+    line-height: 90px;
+
+    /* responsive portrait tablet */
+    @media (min-width: 768px) and (max-width: 1018px) {
+      height: 60px;
+      line-height: 60px;
+    }
+    /* responsive portrait phone */
+    @media (max-width: 767px) {
+      height: 50px;
+      line-height: 50px;
+    }
+
+    &:before {
+      content: 'Footer top ad';
+    }
+  }
+}
+
+// custom ad
+.td-spot-id-custom_ad_1 .tdc-placeholder-title:before {
+  content: 'Custom ad 1' !important;
+}
+.td-spot-id-custom_ad_2 .tdc-placeholder-title:before {
+  content: 'Custom ad 2' !important;
+}
+.td-spot-id-custom_ad_3 .tdc-placeholder-title:before {
+  content: 'Custom ad 3' !important;
+}
+.td-spot-id-custom_ad_4 .tdc-placeholder-title:before {
+  content: 'Custom ad 4' !important;
+}
+.td-spot-id-custom_ad_5 .tdc-placeholder-title:before {
+  content: 'Custom ad 5' !important;
+}
+
+
+.tdc-inactive-menu {
+  pointer-events: none;
+}
+
+
+.td-header-wrap .td_block_wrap {
+  margin-bottom: 0 !important;
+}
+
+.vc_separator.td_block_wrap {
+  margin-bottom: 38px;
+  padding-bottom: 10px;
+}
+
+// error message that shows up when a requiered setting is missing from the block (weather widget / video playlist etc)
+.tdc-missing-external-shortcode,
+.td-block-missing-settings,
+.tdc_external_shortcode {
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 11px;
+  font-weight: normal;
+  text-align: left;
+  padding: 20px;
+  border: 1px solid #eeecf0;
+  color: black;
+
+  span {
+    background-color: #ec4d4d;
+    color: white;
+    font-weight: bold;
+    padding: 3px 8px 4px;
+    font-size: 10px;
+    position: relative;
+    top: -1px;
+    margin-right: 10px;
+  }
+}

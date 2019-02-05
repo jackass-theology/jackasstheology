@@ -1,0 +1,62 @@
+/*  ----------------------------------------------------------------------------
+    responsive settings
+*/
+/* responsive landscape tablet */
+/* responsive portrait tablet */
+/* responsive portrait phone */
+/*
+Racing Demo
+*/
+.td-racing .tdm-header-style-3.td-header-wrap .td-header-menu-wrap-full,
+.td-racing .tdm-header-style-3.td-header-menu-wrap.td-affix {
+  background: linear-gradient(to right, #13478a 0, #005aa2 20%, #113e81 100%) !important;
+}
+.td-racing .tdm-header-style-3.td-header-wrap .td-header-menu-wrap-full .sf-menu .td-icon-menu-down,
+.td-racing .tdm-header-style-3.td-header-menu-wrap.td-affix .sf-menu .td-icon-menu-down {
+  display: none;
+}
+.td-racing .tdm-header-style-3 .sf-menu a.sf-with-ul {
+  padding-right: 20px;
+  /* responsive portrait tablet */
+}
+@media (min-width: 768px) and (max-width: 1018px) {
+  .td-racing .tdm-header-style-3 .sf-menu a.sf-with-ul {
+    padding-right: 9px;
+  }
+}
+.td-racing .tdm-header-style-3 .sf-menu > li > a {
+  padding: 0 20px;
+}
+.td-racing .tdm-header-style-3 .tdm-header-menu-btns {
+  margin-left: 50px;
+}
+.td-racing .tdm-header-style-3 .td_stretch_content .td_block_mega_menu:before,
+.td-racing .tdm-header-style-3 .td_stretch_content_1200 .td_block_mega_menu:before,
+.td-racing .tdm-header-style-3 .td_stretch_content_1400 .td_block_mega_menu:before,
+.td-racing .tdm-header-style-3 .td_stretch_content_1600 .td_block_mega_menu:before,
+.td-racing .tdm-header-style-3 .td_stretch_content_1800 .td_block_mega_menu:before {
+  background-color: transparent;
+}
+.td-racing .racing-video-playlist {
+  margin-bottom: 0;
+}
+.td-racing .td-racing-footer-socials.td-social-style4 {
+  color: #fff;
+}
+.td-racing .td-racing-footer-socials.td-social-style4 .td-social-box:hover .td_social_info {
+  color: #fff;
+}
+.td-racing .td-racing-footer-socials.td-social-style4 .td_social_type a {
+  color: #fff;
+}
+@media (min-width: 768px) {
+  .td-racing .td-racing-footer-socials.td-social-style4 .td_social_type a {
+    display: none;
+  }
+}
+.td-racing .td-racing-footer-socials.td-social-style4 .td_social_info {
+  text-transform: uppercase;
+}
+.td-racing #td-theme-settings .td-skin-buy a {
+  background-color: #05508e;
+}

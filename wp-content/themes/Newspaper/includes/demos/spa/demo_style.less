@@ -1,0 +1,302 @@
+@import "../../less_files/variables.less";
+
+
+/*
+Spa demo
+*/
+
+
+.td-spa {
+
+  //menu bar
+  &.page-template-page-pagebuilder-overlay {
+    .td-header-wrap .td-header-menu-wrap-full,
+    .sf-menu > .current-menu-ancestor > a,
+    .sf-menu > .current-category-ancestor > a,
+    .td-header-style-3 .td-header-main-menu,
+    .td-header-style-4 .td-header-main-menu,
+    .td-header-style-8 .td-header-top-menu-full {
+      background-color: transparent !important;
+    }
+  }
+
+  //menu
+  &.tdm-menu-active-style2 {
+
+    //menu list
+    .tdm-header .sf-menu > li > a {
+      margin: 0 20px;
+      padding: 6px 0;
+    }
+
+    //line under menu list
+    .sf-menu > li > a:after {
+      height: 1px;
+    }
+
+    //magnifier icon
+    .header-search-wrap #td-header-search-button .td-icon-search {
+      font-size: 16px;
+    }
+
+    //logo on tablet
+    .tdm-header-style-2 .td-logo-in-menu {
+      /* portrait tablet */
+      @media (min-width: @responsive_p_tablet_min) and (max-width: @responsive_p_tablet_max) {
+        position: relative;
+      }
+    }
+  }
+
+  //magnifier on affix menu
+  @media (min-width: 768px) {
+    .td-affix .header-search-wrap .td-icon-search {
+      line-height: 60px !important;
+    }
+  }
+
+
+  //all extra small titles
+  .tdm-title-xsm {
+    /* portrait tablet */
+    @media (min-width: @responsive_p_tablet_min) and (max-width: @responsive_p_tablet_max) {
+      font-size: 14px;
+      line-height: 22px;
+    }
+  }
+
+
+  //all medium titles
+  .tdm-title-md {
+
+    /* landscape tablet */
+    @media (min-width: @responsive_l_tablet_min) and (max-width: @responsive_l_tablet_max) {
+      font-size: 32px;
+      line-height: 44px;
+    }
+
+    /* portrait tablet */
+    @media (max-width: @responsive_p_tablet_max) {
+      font-size: 24px;
+      line-height: 34px;
+    }
+  }
+
+
+  //make medium titles smaller on desktop
+  .td-medium-title-smaller .tdm-title-md {
+    @media (min-width: 1141px) {
+      font-size: 30px;
+      line-height: 40px;
+    }
+
+    /* landscape tablet */
+    @media (min-width: @responsive_l_tablet_min) and (max-width: @responsive_l_tablet_max) {
+      font-size: 26px;
+      line-height: 36px;
+    }
+
+    /* portrait tablet */
+    @media (min-width: @responsive_p_tablet_min) and (max-width: @responsive_p_tablet_max) {
+      font-size: 20px;
+      line-height: 28px;
+    }
+  }
+
+
+  //all big titles
+  .tdm-title-bg {
+    /* landscape tablet */
+    @media (min-width: @responsive_l_tablet_min) and (max-width: @responsive_l_tablet_max) {
+      font-size: 38px;
+      line-height: 50px;
+    }
+
+    /* portrait tablet */
+    @media (max-width: @responsive_p_tablet_max) {
+      font-size: 30px;
+      line-height: 40px;
+    }
+  }
+
+
+  //subtitles
+  .tdm-title-sub {
+    /* portrait tablet */
+    @media (min-width: @responsive_p_tablet_min) and (max-width: @responsive_p_tablet_max) {
+      font-size: 14px;
+      line-height: 22px;
+    }
+
+    /* portrait phone */
+    @media (max-width: @responsive_p_phone_max) {
+      font-size: 13px;
+      line-height: 20px;
+    }
+  }
+
+
+  //all descriptions
+  .tdm-descr {
+    font-size: 13px;
+    line-height: 22px;
+    font-weight: 300;
+  }
+
+
+  //big description on big sections (desktop)
+  .td-spa-hero {
+    //all big titles
+    .tdm-title-bg {
+      text-shadow: 0 0 40px rgba(0,0,0,0.2);
+    }
+
+    //description
+    .tdm-descr {
+      /* desktop */
+      @media (min-width: 1141px) {
+        font-size: 22px !important;
+        line-height: 34px !important;
+      }
+    }
+  }
+
+
+  //description on desktop
+  .td-spa-medium-size {
+    .tdm-descr {
+      /* desktop */
+      @media (min-width: 1141px) {
+        font-size: 15px !important;
+        line-height: 25px !important;
+      }
+    }
+  }
+
+
+  //spa menu titles
+  .td-spa-menu {
+    .tdm-title-sm {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 14px;
+      width: 70%;
+    }
+
+    .tdm-title-xsm {
+      font-size: 16px;
+      line-height: 16px;
+    }
+
+    .tdm-food-menu-price {
+      font-size: 14px;
+      font-weight: 400;
+      width: 30%;
+    }
+  }
+
+
+  //title over image blocks
+  .tds-title-over-image1 {
+    .tdm-title-over-image-info {
+      position: absolute;
+      bottom: 30px;
+      left: 0;
+      right: 0;
+      margin: auto;
+      opacity: 0;
+      text-align: center !important;
+
+      .tdm-title-sub {
+        font-size: 13px;
+      }
+    }
+
+    &:before {
+      transition: opacity 0.15s 75ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    &:hover {
+      .tdm-title-over-image-info {
+        opacity: 1;
+      }
+    }
+
+    &:hover:before {
+      opacity: 0.6;
+    }
+  }
+
+
+  //pricing tables
+  .tdm_block_pricing .tdm-pricing-features {
+    font-size: 14px;
+    line-height: 26px;
+  }
+
+
+  //gallery fix spacing
+  .td-spa-gallery {
+    line-height: 0;
+  }
+
+
+  //testimonials
+  .tdm_block_testimonial {
+
+    .tdm-testimonial-job {
+      font-weight: 300;
+      font-family: "Open Sans", Arial, sans-serif;
+      text-transform: uppercase;
+    }
+  }
+
+
+  //footer
+  .td-footer-wrapper a {
+    color: #444;
+  }
+
+
+  //contact form
+  .wpforms-form {
+    .wpforms-field {
+      margin-bottom: 5px !important;
+    }
+
+    input[type=text],
+    input[type=number],
+    input[type=email],
+    textarea {
+      border: 1px solid #eaeaea !important;
+      border-radius: 0 !important;
+      color: #aaa !important;
+      font-size: 13px !important;
+      height: 36px !important;
+      font-weight: 300 !important;
+      padding-right: 12px !important;
+      padding-left: 12px !important;
+    }
+
+    textarea {
+      height: 80px !important;
+      min-height: 80px !important;
+    }
+
+    button[type=submit] {
+      -webkit-transition: background-color 0.4s !important;
+      -moz-transition: background-color 0.4s !important;
+      -o-transition: background-color 0.4s !important;
+      transition: background-color 0.4s !important;
+
+      &:hover {
+        background-color: #444 !important;
+      }
+    }
+  }
+
+  // demos button
+  #td-theme-settings .td-skin-buy a {
+    background-color: #ea967c;
+  }
+}

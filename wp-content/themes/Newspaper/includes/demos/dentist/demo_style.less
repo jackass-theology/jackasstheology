@@ -1,0 +1,311 @@
+@import "../../less_files/variables.less";
+
+
+/*
+Dentist demo
+*/
+
+
+.td-dentist {
+
+  //header
+  .tdm-header-style-3 {
+
+    .td-header-top-menu-full {
+      border-bottom: 1px solid #eaeaea;
+
+      .top-header-menu li a {
+        margin-right: 25px;
+      }
+
+      .tdc-font-tdmp {
+        font-size: 20px;
+        color: #1db4c1;
+        margin-right: 5px;
+        position: relative;
+        top: 4px;
+      }
+    }
+
+    //header items
+    .td-main-menu-logo a {
+      line-height: 110px;
+    }
+
+    .sf-menu > li > a {
+      padding: 0 20px;
+      line-height: 110px;
+
+      /* portrait tablet */
+      @media (min-width: @responsive_p_tablet_min) and (max-width: @responsive_p_tablet_max) {
+        padding: 0 15px;
+        font-size: 14px;
+        line-height: 118px;
+      }
+    }
+
+    #td-header-search-button .td-icon-search {
+      line-height: 110px;
+    }
+
+    //hover & active menu settings
+    .sf-menu > li > a:hover,
+    .sf-menu > .sfHover > a,
+    .sf-menu > .current-menu-item > a,
+    .sf-menu > .current-menu-ancestor > a,
+    .sf-menu > .current-category-ancestor > a {
+      color: #1db4c1;
+    }
+
+    //border under active menu item - invisible
+    .sf-menu > li > a:after {
+      display: none;
+    }
+
+    .td-header-gradient:before {
+      display: none;
+    }
+
+    //sticky menu
+    .td-header-menu-wrap.td-affix {
+      border-bottom: 1px solid #eaeaea;
+    }
+  }
+
+
+  //all small titles
+  .tdm-title-sm {
+    font-weight: 400;
+
+    /* landscape tablet */
+    @media (min-width: @responsive_l_tablet_min) and (max-width: @responsive_l_tablet_max) {
+      font-size: 20px;
+      line-height: 30px;
+    }
+
+    /* portrait tablet */
+    @media (min-width: @responsive_p_tablet_min) and (max-width: @responsive_p_tablet_max) {
+      font-size: 18px;
+      line-height: 26px;
+    }
+
+    /* portrait phone */
+    @media (max-width: @responsive_p_phone_max) {
+      font-size: 20px;
+      line-height: 30px;
+    }
+  }
+
+
+  //all medium titles
+  .tdm-title-md {
+    font-weight: 300;
+    font-size: 28px;
+    line-height: 40px;
+
+    /* landscape tablet */
+    @media (min-width: @responsive_l_tablet_min) and (max-width: @responsive_l_tablet_max) {
+      font-size: 24px;
+      line-height: 36px;
+    }
+
+    /* portrait tablet */
+    @media (min-width: @responsive_p_tablet_min) and (max-width: @responsive_p_tablet_max) {
+      font-size: 20px;
+      line-height: 30px;
+    }
+
+    /* portrait phone */
+    @media (max-width: @responsive_p_phone_max) {
+      font-size: 20px;
+      line-height: 30px;
+    }
+  }
+
+
+  //all big titles
+  .tdm-title-bg {
+    font-weight: 600;
+    line-height: 60px;
+
+    /* landscape tablet */
+    @media (min-width: @responsive_l_tablet_min) and (max-width: @responsive_l_tablet_max) {
+      font-size: 32px;
+      line-height: 44px;
+    }
+
+    /* portrait tablet */
+    @media (min-width: @responsive_p_tablet_min) and (max-width: @responsive_p_tablet_max) {
+      font-size: 26px;
+      line-height: 34px;
+    }
+
+    /* portrait phone */
+    @media (max-width: @responsive_p_phone_max) {
+      font-size: 24px;
+      line-height: 32px;
+    }
+  }
+
+
+  //all descriptions
+  .tdm-descr {
+    font-size: 13px;
+    line-height: 22px;
+  }
+
+
+  //big description on big sections (desktop)
+  .td-dentist-big-elements {
+    .tdm-descr {
+      /* desktop */
+      @media (min-width: 1141px) {
+        font-size: 16px;
+        line-height: 26px;
+      }
+    }
+  }
+
+
+  //all medium buttons
+  .tdm-btn-md {
+    padding: 0 34px;
+  }
+
+
+  //all big buttons
+  .tdm-btn-lg {
+    height: 53px;
+    padding: 0 40px;
+    font-weight: 400;
+  }
+
+  //hero header button
+  .td-hero-button .tdm-btn-md:hover {
+    background-color: rgba(255,255,255,0.8) !important;
+
+  }
+
+
+  //blog section
+  .td_module_10 .item-details {
+    /* portrait phone */
+    @media (max-width: @responsive_p_phone_max) {
+      padding-left: 0 !important;
+    }
+  }
+
+
+  //map section
+  .td-opening {
+    .tdc-row.td-stretch-content {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+
+  //banner footer
+  .td-dentist-banner-footer {
+    /* portrait phone */
+    @media (max-width: @responsive_p_tablet_max) {
+      .tdm-col-icon {
+        display: none;
+      }
+
+      .tdm-col-text {
+        float: none;
+        width: 100%;
+        text-align: center !important;
+      }
+    }
+  }
+
+
+  //testimonials box
+  .tdm_block_testimonial .tds-testimonial3 {
+
+    .tdm-testimonial-descr {
+      margin-bottom: 25px;
+      border-radius: 10px;
+      background: -webkit-linear-gradient(200deg,#45dacb, #30a7d6);
+      background: linear-gradient(200deg,#45dacb, #30a7d6);
+    }
+
+    .tdm-testimonial-info:before {
+      top: -25px;
+      left: 23px;
+      border-width: 8px 7px 0 7px;
+      border-color: #30a7d6 transparent transparent transparent;
+    }
+  }
+
+
+  //contact form
+  .wpforms-form {
+    .wpforms-field {
+      margin-bottom: 5px !important;
+    }
+
+    .wpforms-field-label {
+      font-weight: 400 !important;
+      font-size: 13px !important;
+      line-height: 1 !important;
+      margin-bottom: 10px !important;
+    }
+
+    .wpforms-field-sublabel {
+      font-size: 11px !important;
+      margin: 8px 0 0 12px !important;
+      color: #aaa !important;
+    }
+
+    input[type=text],
+    input[type=number],
+    input[type=email],
+    textarea {
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+      -webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+      -moz-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+      border: none !important;
+      border-bottom-width: 1px !important;
+      border-bottom-style: solid !important;
+      border-bottom-color: #1db4c1 !important;
+      border-radius: 0 !important;
+      color: #444 !important;
+      font-size: 14px !important;
+      height: 36px !important;
+    }
+
+    textarea {
+      height: 60px !important;
+      min-height: 60px !important;
+    }
+
+    button[type=submit] {
+      background-color: #1db4c1 !important;
+      color: #fff !important;
+      border-radius: 50px;
+      border: none !important;
+      padding: 6px 30px !important;
+      font-size: 14px !important;
+      font-weight: 400 !important;
+      -webkit-transition: background-color 0.4s !important;
+      -moz-transition: background-color 0.4s !important;
+      -o-transition: background-color 0.4s !important;
+      transition: background-color 0.4s !important;
+
+      &:hover {
+        background-color: #444 !important;
+      }
+    }
+  }
+
+  //category page
+  &.category {
+    .td-main-content-wrap {
+      padding-top: 60px;
+      padding-bottom: 60px;
+    }
+  }
+}

@@ -1,0 +1,132 @@
+@import "../../less_files/variables.less";
+
+.td-construction {
+  // logo
+  .td-main-menu-logo img {
+    /* responsive landscape tablet */
+    @media (min-width: @responsive_l_tablet_min) and (max-width: @responsive_l_tablet_max) {
+      max-height: 40px;
+    }
+    /* responsive portrait tablet */
+    @media (min-width: @responsive_p_tablet_min) and (max-width: @responsive_p_tablet_max) {
+      max-height: 30px;
+    }
+    /* responsive portrait phone */
+    @media (max-width: @responsive_p_phone_max) {
+      max-height: 30px;
+    }
+  }
+  .td-header-wrap .td-affix .td-main-menu-logo img {
+    max-height: 30px !important;
+  }
+
+  // phone numbers ios
+  a[href^="tel"] {
+    color: inherit;
+  }
+
+  // block header 13
+  .td_block_template_13 .td-block-subtitle {
+    //left: 50%;
+    //transform: translateX(-50%);
+
+    /* responsive portrait phone */
+    @media (max-width: @responsive_p_phone_max) {
+      font-size: 52px;
+      bottom: -8px;
+    }
+  }
+
+  // icon box
+  .tds-icon-box2 {
+    .tdm-title-md {
+      font-size: 23px;
+      line-height: 32px;
+    }
+  }
+
+  // team member
+  .tdm_block_team_member .tdm-member-image {
+    /* responsive portrait phone */
+    @media (max-width: @responsive_p_phone_max) {
+      margin-bottom: 0;
+    }
+  }
+
+  // title
+  .tdm-title-sm {
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: 400;
+
+    /* responsive portrait phone */
+    @media (max-width: @responsive_p_phone_max) {
+      font-size: 14px;
+      line-height: 20px;
+      font-weight: 300;
+    }
+  }
+  .tdm-title-bg {
+    /* responsive portrait phone */
+    @media (max-width: @responsive_p_phone_max) {
+      font-size: 28px;
+      line-height: 34px;
+    }
+  }
+
+  // instagram
+  .td-instagram-black {
+    .td-instagram-image {
+      -webkit-filter: grayscale(100%);
+      filter: grayscale(100%);
+    }
+
+    a:hover .td-instagram-image {
+      -webkit-filter: grayscale(0%);
+      filter: grayscale(0%);
+    }
+  }
+
+  // numbered counter
+  .tdm-counter-wrap .tdm-counter-number {
+    font-size: 70px;
+    line-height: 70px;
+  }
+
+  // header
+  /* responsive portrait phone */
+  @media (min-width: @responsive_p_phone_max) {
+    .tdm-header-style-2 .td-logo-in-menu {
+      left: 0;
+    }
+  }
+
+  // menu line
+  &.tdm-menu-active-style2 .sf-menu > li > a:after {
+    height: 2px;
+  }
+
+  // menu background color
+  &.page-template-page-pagebuilder-overlay {
+    .td-header-menu-wrap-full {
+      background-color: transparent;
+    }
+    /* responsive portrait phone */
+    @media (max-width: @responsive_p_phone_max) {
+      .td-header-wrap .td-header-main-menu,
+      .td-header-wrap .td-header-menu-wrap-full,
+      .td-header-wrap .td-header-menu-wrap {
+        background-color: transparent !important;
+
+        &.td-affix {
+          background-color: #000 !important;
+        }
+      }
+    }
+  }
+
+  // demos button
+  #td-theme-settings .td-skin-buy a {
+    background-color: #f9b800;
+  }
+}

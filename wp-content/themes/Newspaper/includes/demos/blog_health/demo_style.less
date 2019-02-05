@@ -1,0 +1,122 @@
+@import "../../less_files/variables.less";
+
+
+/*
+Health blog demo
+*/
+.td-blog-health {
+  /*
+  body--------------------------------
+  */
+  &.td-boxed-layout .td-main-content-wrap {
+    -webkit-box-shadow: 0 0 200px 0 rgba(0,0,0,0.03);
+    -moz-box-shadow: 0 0 200px 0 rgba(0,0,0,0.03);
+    box-shadow: 0 0 200px 0 rgba(0,0,0,0.03);
+
+    &.td-footer-instagram-container {
+      background-color: transparent;
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+      box-shadow: none;
+      margin-top: 48px;
+    }
+    &.td-main-page-wrap {
+      padding-bottom: 0;
+    }
+  }
+
+  .td-header-style-11 {
+    .td-header-sp-logo {
+      margin: -6px 0;
+    }
+  }
+
+  .td_block_trending_now {
+      .td-trending-now-title {
+        font-size: 12px;
+      }
+  }
+
+  @media (min-width: 1018px) {
+    .td_block_big_grid_fl_4 .td-big-grid-post .entry-title {
+      font-size: 20px;
+      line-height: 24px;
+    }
+  }
+
+  .td_module_mx21 {
+    .td-module-meta-info {
+      display: none;
+    }
+  }
+
+  .td_module_17 {
+    .entry-title {
+      font-size: 26px;
+    }
+
+    .td-post-category {
+      background-color: rgba(0, 0, 0, 0.4) !important;
+      color: #fff;
+      bottom: 43px;
+      top: auto;
+    }
+
+    .td-module-meta-holder {
+      height: 43px;
+      padding: 12px 15px;
+      background-color: rgba(229, 94, 227, 0.7);
+    }
+
+    .td-post-author-name {
+      top: 4px;
+    }
+    .td-post-date {
+      color: #fff;
+      top: 4px;
+    }
+
+    .td-excerpt {
+      font-size: 14px;
+      line-height: 22px;
+    }
+  }
+
+  .td-vlog-container {
+
+    .td_video_playlist_title {
+      background-color: #d36ee5;
+    }
+  }
+
+  /*
+  Sidebar--------------------------------
+  */
+  .td-sidebar-about {
+    margin-bottom: 25px;
+    text-align: center;
+
+    p {
+      font-family: @font1;
+      font-size: 14px;
+      line-height: 22px;
+      color: #111;
+      margin-top: 10px;
+    }
+  }
+
+
+  /*
+  Category--------------------------------
+  */
+  .td-category-header .td-page-title {
+    text-transform: capitalize;
+    font-weight: normal;
+  }
+
+
+  // demos button
+  #td-theme-settings .td-skin-buy a {
+    background-color: #d36ee5;
+  }
+}

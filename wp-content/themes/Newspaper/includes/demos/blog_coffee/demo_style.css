@@ -1,0 +1,220 @@
+/*  ----------------------------------------------------------------------------
+    responsive settings
+*/
+/* responsive landscape tablet */
+/* responsive portrait tablet */
+/* responsive portrait phone */
+/*
+  Coffee blog demo
+*/
+.td-blog-coffee .td-header-style-7 {
+  border-bottom: 1px solid #ddd;
+}
+.td-blog-coffee .td-header-style-7 .sf-menu > li > a:hover,
+.td-blog-coffee .td-header-style-7 .sf-menu > .sfHover > a,
+.td-blog-coffee .td-header-style-7 .sf-menu > .current-menu-item > a,
+.td-blog-coffee .td-header-style-7 .sf-menu > .current-menu-ancestor > a,
+.td-blog-coffee .td-header-style-7 .sf-menu > .current-category-ancestor > a {
+  color: #a39176;
+}
+.td-blog-coffee .td-header-style-7 .sf-menu > li > a:hover:after,
+.td-blog-coffee .td-header-style-7 .sf-menu > .sfHover > a:after,
+.td-blog-coffee .td-header-style-7 .sf-menu > .current-menu-item > a:after,
+.td-blog-coffee .td-header-style-7 .sf-menu > .current-menu-ancestor > a:after,
+.td-blog-coffee .td-header-style-7 .sf-menu > .current-category-ancestor > a:after {
+  width: 30px;
+}
+.td-blog-coffee .td-header-style-7 .sf-menu a.sf-with-ul {
+  padding-right: 20px;
+}
+.td-blog-coffee .td-header-style-7 .sf-menu > li > a {
+  padding: 0 20px;
+}
+.td-blog-coffee .td-header-style-7 .sf-menu > li > a:after {
+  height: 1px;
+  bottom: -1px;
+}
+.td-blog-coffee .td-header-style-7 .td-header-gradient:before {
+  display: none;
+}
+.td-blog-coffee .td-header-style-7 .td-icon-menu-down {
+  display: none;
+}
+.td-blog-coffee .td-header-style-7 .td-header-sp-logo img {
+  padding: 0 20px 0 0;
+}
+.td-blog-coffee .td-header-menu-wrap.td-affix {
+  border-bottom: 1px solid #ddd;
+}
+.td-blog-coffee .td_block_template_9 .td-block-title:before {
+  height: 1px;
+}
+.td-blog-coffee .td_block_template_9 .td-block-title:after {
+  height: 1px;
+  width: 30px;
+}
+.td-blog-coffee .td_module_18 .td-post-category {
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  color: #888;
+  padding: 10px 20px;
+  border: 1px solid #ddd;
+  border-radius: 50px;
+}
+.td-blog-coffee .td_module_18 .td-post-category:hover {
+  opacity: 1;
+  border: 1px solid #888;
+}
+.td-blog-coffee .td_module_18 .entry-title {
+  font-weight: 400;
+  margin: 20px 0;
+  /* responsive portrait tablet */
+  /* responsive portrait phone */
+}
+.td-blog-coffee .td_module_18 .entry-title a {
+  color: #444;
+}
+@media (min-width: 768px) and (max-width: 1018px) {
+  .td-blog-coffee .td_module_18 .entry-title {
+    font-size: 36px;
+    line-height: 42px;
+  }
+}
+@media (max-width: 767px) {
+  .td-blog-coffee .td_module_18 .entry-title {
+    font-size: 26px;
+    line-height: 30px;
+  }
+}
+.td-blog-coffee .td_module_18 .td-module-comments a {
+  background-color: #444;
+}
+.td-blog-coffee .td_module_18 .td-module-thumb {
+  margin-bottom: 0;
+}
+.td-blog-coffee .td_module_18 .meta-info-container {
+  padding-bottom: 40px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+.td-blog-coffee .td_module_18 .td-module-meta-info {
+  margin-bottom: 34px;
+}
+.td-blog-coffee .td_module_18 .td-excerpt {
+  font-family: "Brawler", Georgia, serif;
+  font-size: 18px;
+  line-height: 30px;
+  margin-top: 30px;
+  /* responsive portrait tablet */
+  /* responsive portrait phone */
+}
+@media (min-width: 768px) and (max-width: 1018px) {
+  .td-blog-coffee .td_module_18 .td-excerpt {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+@media (max-width: 767px) {
+  .td-blog-coffee .td_module_18 .td-excerpt {
+    font-size: 14px;
+    line-height: 22px;
+  }
+}
+.td-blog-coffee .td_module_18 .td-read-more,
+.td-blog-coffee .td_module_18 .more-link-wrap {
+  font-family: "Open Sans", Arial, sans-serif;
+  margin: 30px 0 0;
+}
+.td-blog-coffee .td_module_18 .td-read-more a,
+.td-blog-coffee .td_module_18 .more-link-wrap a {
+  padding: 14px 30px;
+  border-radius: 50px;
+  border: 1px solid #ddd;
+  color: #888;
+}
+.td-blog-coffee .td_module_18 .td-read-more:hover a,
+.td-blog-coffee .td_module_18 .more-link-wrap:hover a {
+  border: 1px solid #888;
+  color: #888;
+}
+.td-blog-coffee .td_module_18 .td-icon-menu-right {
+  font-size: 7px;
+  margin-left: 10px;
+  color: #aaa;
+}
+.td-blog-coffee .td_module_mx18 .td-module-title a {
+  /* responsive portrait tablet */
+  /* responsive portrait phone */
+}
+@media (min-width: 768px) and (max-width: 1018px) {
+  .td-blog-coffee .td_module_mx18 .td-module-title a {
+    font-size: 36px;
+    line-height: 42px;
+  }
+}
+@media (max-width: 767px) {
+  .td-blog-coffee .td_module_mx18 .td-module-title a {
+    font-size: 20px;
+    line-height: 24px;
+  }
+}
+.td-blog-coffee .td_module_8 {
+  border-bottom: 1px solid #ddd;
+}
+.td-blog-coffee .td_module_8 h3 > a {
+  color: #444;
+}
+.td-blog-coffee .td_module_8 .td-module-comments {
+  display: none;
+}
+.td-blog-coffee .td_block_23 .td-next-prev-wrap,
+.td-blog-coffee .td_block_23 .td-load-more-wrap {
+  margin-top: 60px;
+}
+.td-blog-coffee .td_block_23 .td_ajax_load_more {
+  border-radius: 50px;
+  padding: 10px 20px;
+}
+.td-blog-coffee .td_module_11 .td-module-comments {
+  display: none;
+}
+.td-blog-coffee .td_module_11 .td-read-more {
+  font-family: "Open Sans", Arial, sans-serif;
+}
+.td-blog-coffee .td_module_11 .td-read-more a {
+  padding: 14px 30px;
+  border-radius: 50px;
+  border: 1px solid #ddd;
+  color: #888;
+  background-color: transparent;
+}
+.td-blog-coffee .td_module_11 .td-read-more a:hover {
+  border: 1px solid #888;
+  color: #888;
+  background-color: transparent !important;
+}
+.td-blog-coffee .td_block_author .td-author-name {
+  font-family: "Volkhov", Georgia, serif;
+}
+.td-blog-coffee .td_block_author .td-author-name a {
+  color: #444;
+}
+.td-blog-coffee .td-big-grid-post .td-module-meta-info .td-post-author-name a {
+  color: #fff;
+}
+.td-blog-coffee .td-social-style8 .td_social_type .td_social_info {
+  color: #444;
+}
+.td-blog-coffee .td-social-style8 .td_social_type .td-sp:before {
+  color: #444;
+}
+.td-blog-coffee .td-social-style8 .td_social_type:hover .td-social-box {
+  border: 1px solid #888;
+}
+.td-blog-coffee .td_block_related_posts .td-cur-simple-item {
+  opacity: 0.8;
+}
+.td-blog-coffee #td-theme-settings .td-skin-buy a {
+  background-color: #a39176;
+}

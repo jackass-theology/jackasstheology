@@ -1,0 +1,432 @@
+.td-boxed-layout {
+  .td-container-wrap {
+    width: 1164px;
+    //overflow: hidden;
+
+    @media (max-width: 1180px) {
+      width: 100%;
+    }
+
+    &.td-main-page-wrap { // on page with builder to fix the stretch row on boxed
+      overflow: hidden;
+    }
+  }
+}
+
+.td-container-wrap {
+  background-color: #fff;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// backstretch image
+.backstretch {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: -99999;
+  top: 0;
+}
+
+body .td-backstretch {
+  max-width: none;
+  opacity: 0;
+  transition: opacity 2s;
+  display: block;
+}
+
+body .td-stretch-width {
+  height: auto;
+  width: 100.03%;
+  margin: 0;
+  position: relative;
+
+  left: 50%;
+  .transform(translateX(-50%));
+}
+
+body .td-stretch-height {
+  position: relative;
+  height: 100%;
+  width: auto;
+  //margin: 0 -1000%;
+
+  // or this  @todo verifica asta (50% + -5o%)
+  left: 50%;
+  .transform(translateX(-50%));
+}
+
+// this method can cause elements to be blurry due to the element being placed on a “half pixel”. A solution for this is to set its parent element to preserve-3d.
+//#td-full-screen-header-image {
+//  -webkit-transform-style: preserve-3d;
+//  -moz-transform-style: preserve-3d;
+//  transform-style: preserve-3d;
+//}
+
+
+// background ad click cursor
+body {
+  &.td-ad-background-link {
+    cursor: pointer;
+  }
+
+  &.td-ad-background-link {
+    .td-container-wrap,
+    .td-header-container,
+    .td-post-header,
+    .td-container {
+      cursor: auto;
+    }
+  }
+}
+
+/*
+
+  Force full width
+
+*/
+// stretch container -------------
+.td_stretch_container {
+  width: 100% !important;
+
+  // menu affix
+  /* responsive desktop */
+  @media (min-width: 1141px) {
+    .td-header-menu-wrap.td-affix {
+      width: 100% !important;
+    }
+  }
+}
+// header style 8
+.td-header-style-8 {
+  .td_stretch_container {
+    .td-header-sp-logo {
+      left: 0;
+      right: 0;
+      margin: auto;
+      pointer-events: none;
+
+      img {
+        pointer-events: auto;
+      }
+    }
+    .td-header-sp-logo {
+      /* responsive desktop */
+      @media (min-width: 1141px) {
+        width: 1068px;
+      }
+      /* responsive landscape tablet */
+      @media (min-width: @responsive_l_tablet_min) and (max-width: @responsive_l_tablet_max) {
+        width: 980px !important;
+        height: 82px;
+        top: 0;
+
+        img {
+          max-width: 190px;
+        }
+      }
+      /* responsive portrait tablet */
+      @media (min-width: @responsive_p_tablet_min) and (max-width: @responsive_p_tablet_max) {
+        width: 740px !important;
+        height: 82px;
+        top: 0;
+
+        img {
+          max-width: 140px;
+        }
+      }
+    }
+  }
+}
+.td-boxed-layout .td-header-style-8 {
+  .td_stretch_container {
+    &,
+    .td-header-sp-logo {
+      width: 1164px !important;
+
+      @media (max-width: 1180px) {
+        width: 100% !important;
+      }
+    }
+  }
+}
+
+
+// stretch content ---------------
+.td_stretch_content,
+.td_stretch_content_1200,
+.td_stretch_content_1400,
+.td_stretch_content_1600,
+.td_stretch_content_1800 {
+  /* responsive desktop */
+  @media (min-width: 1141px) {
+    // mega menu
+    .sf-menu .td-mega-menu ul {
+      width: ~"calc(100% + 2px)" !important;
+      overflow: hidden;
+      left: 0 !important;
+      transform: translateX(0) !important;
+      -webkit-transform: translateX(0) !important;
+    }
+    .td_block_mega_menu {
+      width: 1114px;
+      margin-left: auto;
+      margin-right: auto;
+      overflow: visible;
+
+      &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 100%;
+        width: 100%;
+        height: 100%;
+        background-color: #fafafa;
+      }
+
+      .td_mega_menu_sub_cats .cur-sub-cat {
+        border-left: 1px solid #eaeaea;
+      }
+
+      &.td-no-subcats:before {
+        display: none;
+      }
+    }
+  }
+}
+
+.td_stretch_content {
+  width: 100% !important;
+
+  /* responsive desktop */
+  @media (min-width: @responsive_p_tablet_min) {
+    .td-container {
+      width: 100% !important;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    #td-top-search {
+      right: 10px;
+    }
+    .td-header-sp-recs {
+      float: right;
+    }
+
+
+    .td-header-menu-wrap.td-affix {
+      width: 100% !important;
+    }
+
+    // search
+    .td-drop-down-search {
+      right: 10px;
+    }
+  }
+}
+.td_stretch_content_1200,
+.td_stretch_content_1400,
+.td_stretch_content_1600,
+.td_stretch_content_1800 {
+  /* responsive portrait tablet */
+  @media (min-width: @responsive_p_tablet_min) {
+    padding-left: 20px;
+    padding-right: 20px;
+
+    &.td-header-menu-wrap-full {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .td-header-menu-wrap {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+  &.td-footer-instagram-container {
+    padding-left: 0;
+    padding-right: 0;
+
+    .td-instagram-user,
+    .td_block_instagram {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
+.td_stretch_content_1200 {
+  .td-container,
+  &.td-footer-instagram-container .td-instagram-user,
+  &.td-footer-instagram-container .td_block_instagram {
+    max-width: 1200px !important;
+    width: auto !important;
+  }
+}
+.td_stretch_content_1400 {
+  .td-container,
+  &.td-footer-instagram-container .td-instagram-user,
+  &.td-footer-instagram-container .td_block_instagram {
+    max-width: 1400px !important;
+    width: auto !important;
+  }
+}
+.td_stretch_content_1600 {
+  .td-container,
+  &.td-footer-instagram-container .td-instagram-user,
+  &.td-footer-instagram-container .td_block_instagram {
+    max-width: 1600px !important;
+    width: auto !important;
+  }
+}
+.td_stretch_content_1800 {
+  .td-container,
+  &.td-footer-instagram-container .td-instagram-user,
+  &.td-footer-instagram-container .td_block_instagram {
+    max-width: 1800px !important;
+    width: auto !important;
+  }
+}
+
+// headers
+// header style 3, 4
+.td-header-style-3,
+.td-header-style-4 {
+  .td_stretch_content {
+    /* responsive desktop */
+    @media (min-width: 1141px) {
+      .td-mega-row {
+        padding: 22px 0 16px 0;
+      }
+      .td-mega-span {
+        width: 196px;
+        min-height: 202px;
+        float: left;
+        margin-left: 22px !important;
+      }
+      .td-next-prev-wrap {
+        margin: 0 0 22px 22px !important;
+      }
+    }
+  }
+}
+
+// header style 6
+.td-header-style-6 {
+  .td_stretch_content {
+    /* responsive desktop */
+    @media (min-width: 1141px) {
+      #td-header-menu {
+        padding-right: 48px;
+      }
+    }
+  }
+}
+
+// header style 7
+.td-header-style-7 {
+  .td_stretch_content {
+    /* responsive desktop */
+    @media (min-width: 1141px) {
+      #td-header-menu {
+        padding-right: 48px;
+      }
+    }
+  }
+}
+
+// header style 8
+.td-header-style-8 {
+  .td_stretch_content,
+  .td_stretch_content_1200,
+  .td_stretch_content_1400,
+  .td_stretch_content_1600,
+  .td_stretch_content_1800 {
+    /* responsive desktop */
+    @media (min-width: 1141px) {
+      .td-header-top-menu {
+        width: auto;
+      }
+      &.td-header-top-menu-full {
+        .td-container {
+          padding-left: 20px;
+        }
+      }
+      .td-header-sp-logo {
+        left: 30px;
+      }
+      #td-header-menu {
+        padding-left: 20px;
+      }
+      .td-container {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+
+    /* responsive landscape tablet */
+    @media (min-width: @responsive_l_tablet_min) and (max-width: @responsive_l_tablet_max) {
+      .td-header-sp-logo {
+        height: 82px;
+        top: 0;
+      }
+      &.td-container {
+        width: 980px !important;
+      }
+    }
+    /* responsive portrait tablet */
+    @media (min-width: @responsive_p_tablet_min) and (max-width: @responsive_p_tablet_max) {
+      .td-header-sp-logo {
+        height: 82px;
+        top: 0;
+      }
+      &.td-container {
+        width: 740px !important;
+      }
+    }
+  }
+
+  /* responsive desktop */
+  @media (min-width: 1141px) {
+    .td_stretch_content_1200,
+    .td_stretch_content_1400,
+    .td_stretch_content_1600,
+    .td_stretch_content_1800 {
+      .td-header-sp-logo {
+        width: auto;
+      }
+    }
+
+    .td_stretch_content_1200 {
+      .td-header-sp-logo {
+        max-width: 1200px;
+      }
+    }
+    .td_stretch_content_1400 {
+      .td-header-sp-logo {
+        max-width: 1400px;
+      }
+    }
+    .td_stretch_content_1600 {
+      .td-header-sp-logo {
+        max-width: 1600px;
+      }
+    }
+    .td_stretch_content_1800 {
+      .td-header-sp-logo {
+        max-width: 1800px;
+      }
+    }
+  }
+}
+
+// header style 10
+.td-header-style-10 {
+  .td_stretch_content {
+    /* responsive desktop */
+    @media (min-width: 1141px) {
+      .td-affix .td-main-menu-logo {
+        margin-left: 10px;
+      }
+    }
+  }
+}

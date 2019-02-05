@@ -1,0 +1,102 @@
+@import "../../less_files/variables.less";
+
+/*
+Fast News Demo
+*/
+
+.td-fast-news {
+
+  .tdm-header-style-1 {
+
+    .td-header-gradient:before {
+      display: none;
+    }
+
+    &.td-header-wrap .td-header-menu-wrap-full,
+    &.td-header-menu-wrap.td-affix {
+      background: linear-gradient(to right, #b9035b 0, #ef0a32 25%, #8b0081 100%) !important;
+    }
+
+    .td_stretch_content .td_block_mega_menu:before,
+    .td_stretch_content_1200 .td_block_mega_menu:before,
+    .td_stretch_content_1400 .td_block_mega_menu:before,
+    .td_stretch_content_1600 .td_block_mega_menu:before,
+    .td_stretch_content_1800 .td_block_mega_menu:before {
+      background-color: transparent;
+    }
+
+  }
+
+  @font-face {
+    font-family: 'td-fast';
+    font-weight: normal;
+    font-style: normal;
+    src: url('font/td-fast.eot?1');
+    src: url('font/td-fast.eot?1#iefix') format('embedded-opentype'),
+    url('font/td-fast.ttf?1') format('truetype'),
+    url('font/td-fast.woff?1') format('woff'),
+    url('font/td-fast.svg?1#td-fast') format('svg');
+  }
+
+  .tdc-font-fast {
+    display: inline-block;
+    font: normal normal normal 14px/1 td-fast;
+    position: relative;
+    margin-right: 6px;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .tdc-font-fast-home {
+    font-size: 28px;
+    top: 5px;
+    margin-right: 8px;
+
+    &:before {
+      content: "\e925";
+    }
+  }
+
+  .tdc-font-fast-lightbulb {
+    font-size: 28px;
+    top: 6px;
+    margin-right: 4px;
+
+    &:before {
+      content: "\e984";
+    }
+  }
+
+  .tdc-font-fast-sattelite {
+    font-size: 30px;
+    top: 7px;
+
+    &:before {
+      content: "\e90b";
+    }
+  }
+
+  .tdc-font-fast-apple {
+    font-size: 28px;
+    top: 5px;
+
+    &:before {
+      content: "\e910";
+    }
+  }
+
+  .tdc-font-fast-arrows-double {
+    font-size: 26px;
+    top: 6px;
+
+    &:before {
+      content: "\e95e";
+    }
+  }
+
+  // demos button
+  #td-theme-settings .td-skin-buy a {
+    background-color: #ea2e2e;
+  }
+}

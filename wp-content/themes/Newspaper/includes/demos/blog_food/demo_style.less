@@ -1,0 +1,155 @@
+@import "../../less_files/variables.less";
+
+
+/*
+Food Blog Demo
+*/
+
+.td-blog-food {
+
+  .td-header-style-10 {
+
+    //search icon on menu
+    .header-search-wrap {
+      .td-drop-down-search {
+        top: 110%;
+      }
+
+      .td-icon-search {
+        font-size: 15px;
+      }
+
+      input[type=submit] {
+        text-transform: uppercase !important;
+        font-size: 11px;
+        line-height: 20px;
+      }
+    }
+
+    .sf-menu > li > a {
+      padding: 0 30px;
+    }
+
+    .sf-menu > li > a:after {
+      background-color: transparent;
+    }
+
+    .sf-menu > li > a:hover,
+    .sf-menu > .sfHover > a,
+    .sf-menu > .current-menu-item > a,
+    .sf-menu > .current-menu-ancestor > a,
+    .sf-menu > .current-category-ancestor > a {
+      color: #aaddd0;
+    }
+
+    //arrow right of menu tags canceled
+    .sf-menu .td-icon-menu-down {
+      display: none;
+    }
+
+    //mega menu tag padding correction
+    .sf-menu a.sf-with-ul {
+      padding-right: 30px;
+
+      /* responsive portrait tablet */
+      @media (min-width: @responsive_p_tablet_min) and (max-width: @responsive_p_tablet_max) {
+        padding-right: 9px;
+      }
+    }
+
+    .td-header-main-menu:after {
+      content:'';
+      width: 86%;
+      height: 10px;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background-image: url("assets/menu-line.png");
+
+      @media (max-width: 767px) {
+        display: none;
+      }
+    }
+  }
+
+  .td-affix .td-header-main-menu {
+
+    &:after {
+      display: none;
+    }
+  }
+
+
+  //shadow under menu canceled
+  .td-header-gradient:before {
+    display: none;
+  }
+
+  //instagram widget on sidebar
+  .td-instagram-sidebar {
+    opacity: 0.6;
+  }
+
+  // post
+  .td-recipe-time {
+    width: 100%;
+    padding: 11px 16px 10px;
+    margin-bottom: 26px;
+    position: relative;
+
+    &:after {
+      content:'';
+      width: 100%;
+      height: 10px;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background-image: url("assets/menu-line.png");
+
+      @media (max-width: 767px) {
+        top: 105%;
+      }
+    }
+
+    br {
+      display: none;
+    }
+
+    .td-recipe-info {
+      float: left;
+      width: 33.3333%;
+
+      /* responsive portrait tablet */
+      @media (max-width: @responsive_p_tablet_max) {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  }
+
+  .td-page-content .dropcap1,
+  .td-post-content .dropcap1,
+  .wpb_text_column .dropcap1,
+  .td_block_text_with_title .dropcap1,
+  .bbpress .dropcap1,
+  .woocommerce #tab-description .dropcap1,
+  .mce-content-body .dropcap1,
+  .comment-content .dropcap1 {
+    font-size: 30px;
+    padding: 0;
+    line-height: 52px;
+    color: #fff;
+    background-color: #aaddd0;
+    font-family: Raleway, sans-serif;
+    min-width: 60px;
+    min-height: 60px;
+  }
+
+
+  // demos button
+  #td-theme-settings .td-skin-buy a {
+    background-color: #aaddd0;
+  }
+}

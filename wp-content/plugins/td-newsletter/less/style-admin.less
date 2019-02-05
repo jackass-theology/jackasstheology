@@ -1,0 +1,16 @@
+// mixin
+// Sprite Function
+.stitches-sprite(@x: 0, @y: 0, @width: 0, @height: 0) {
+  background-position: @x @y !important;
+  width: @width;
+  height: @height;
+}
+
+[class*="tdc-ico-tdn_block_"] {
+  background: url('../td-newsletter/images/pagebuilder/tdc-icons.png') !important;
+  .stitches-sprite(-5px, -5px, 40px, 24px);
+}
+
+.tdc-ico-tdn_block_newsletter_subscribe {
+  .stitches-sprite(-5px, -39px, 40px, 24px);
+}

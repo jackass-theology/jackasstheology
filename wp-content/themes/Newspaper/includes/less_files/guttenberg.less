@@ -1,0 +1,63 @@
+/*  ----------------------------------------------------------------------------
+    less for Guttenberg elements
+*/
+
+// Latest comments - block
+.wp-block-latest-comments {
+  &.has-avatars .wp-block-latest-comments__comment .wp-block-latest-comments__comment-excerpt, &.has-avatars .wp-block-latest-comments__comment .wp-block-latest-comments__comment-meta {
+    margin-left: 0;
+  }
+
+  .wp-block-latest-comments__comment {
+    display: flex;
+  }
+}
+
+// Categories - block
+.wp-block-categories {
+  padding: 0 10px;
+
+  &,
+  ul {
+    list-style-type: none;
+  }
+
+  ul {
+    margin: 5px 0 0;
+    padding-left: 26px;
+  }
+
+  li {
+    margin-left: 0;
+    margin-bottom: 5px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  a {
+    color: #000;
+
+    &:hover {
+      text-decoration: none;
+      color: @td_theme_color;
+    }
+  }
+
+  .td-widget-no {
+    float: right;
+  }
+}
+
+//Blockquotes block
+.wp-block-quote {
+  cite {
+    color: #6c7781;
+    font-size: 13px;
+    margin-top: 1em;
+    position: relative;
+    font-style: normal;
+  }
+}
+
