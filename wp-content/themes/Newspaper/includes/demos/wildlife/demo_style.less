@@ -1,0 +1,249 @@
+@import "../../less_files/variables.less";
+
+
+/*
+Wildlife Photographer demo
+*/
+
+
+.td-wildlife {
+
+  //menu bar
+  &.page-template-page-pagebuilder-overlay {
+    .td-header-wrap .td-header-menu-wrap-full,
+    .sf-menu > .current-menu-ancestor > a,
+    .sf-menu > .current-category-ancestor > a,
+    .td-header-style-3 .td-header-main-menu,
+    .td-header-style-4 .td-header-main-menu,
+    .td-header-style-8 .td-header-top-menu-full {
+      background-color: transparent !important;
+    }
+  }
+
+  //menu
+  &.tdm-menu-active-style3 {
+
+    //menu list
+    .tdm-header .sf-menu > li > a {
+      margin: 0 15px;
+
+      /* portrait tablet */
+      @media (min-width: @responsive_p_tablet_min) and (max-width: @responsive_p_tablet_max) {
+        margin: 0 5px;
+      }
+    }
+
+    //logo on tablet
+    .tdm-header-style-2 .td-logo-in-menu {
+      left: 0;
+    }
+  }
+
+
+  //header button
+  .tdm-header-style-2 .tdm-header-menu-btns {
+    line-height: 74px;
+
+    .tdm-btn-md {
+      font-size: 12px;
+      line-height: 32px;
+      height: 33px;
+      padding: 0 24px;
+      border-radius: 50px;
+
+      &:before {
+        border-radius: 50px;
+      }
+
+      &:hover {
+        &:before {
+          border-radius: 50px;
+        }
+
+        .tdm-btn-text {
+          color: #fff;
+        }
+
+      }
+    }
+  }
+
+
+  //all big titles
+  .tdm-title-bg {
+    font-size: 54px;
+    line-height: 66px;
+
+    /* landscape tablet */
+    @media (min-width: @responsive_l_tablet_min) and (max-width: @responsive_l_tablet_max) {
+      font-size: 42px;
+      line-height: 54px;
+    }
+
+    /* portrait tablet */
+    @media (min-width: @responsive_p_tablet_min) and (max-width: @responsive_p_tablet_max) {
+      font-size: 36px;
+      line-height: 46px;
+    }
+
+    /* portrait phone */
+    @media (max-width: @responsive_p_phone_max) {
+      font-size: 32px;
+      line-height: 42px;
+    }
+  }
+
+  //all medium titles
+  .tdm-title-md {
+
+    /* landscape tablet */
+    @media (min-width: @responsive_l_tablet_min) and (max-width: @responsive_l_tablet_max) {
+      font-size: 22px;
+      line-height: 30px;
+    }
+
+    /* portrait tablet */
+    @media (min-width: @responsive_p_tablet_min) and (max-width: @responsive_p_tablet_max) {
+      font-size: 18px;
+      line-height: 26px;
+    }
+
+    /* portrait phone */
+    @media (max-width: @responsive_p_phone_max) {
+      font-size: 22px;
+      line-height: 30px;
+    }
+  }
+
+
+  //all small titles
+  .tdm-title-sm {
+
+    /* landscape tablet */
+    @media (min-width: @responsive_l_tablet_min) and (max-width: @responsive_l_tablet_max) {
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    /* portrait tablet */
+    @media (min-width: @responsive_p_tablet_min) and (max-width: @responsive_p_tablet_max) {
+      font-size: 14px;
+      line-height: 22px;
+    }
+
+    /* portrait phone */
+    @media (max-width: @responsive_p_phone_max) {
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+
+  //all descriptions
+  /* portrait tablet */
+  @media (min-width: @responsive_p_tablet_min) and (max-width: @responsive_p_tablet_max) {
+    .tdm-descr {
+      font-size: 13px !important;
+      line-height: 22px !important;
+    }
+  }
+
+
+  .td-wildlife-contact {
+    .tdm-title-xxsm {
+      font-size: 16px;
+      line-height: 1;
+      font-weight: 300;
+    }
+
+    /* portrait tablet */
+    @media (min-width: @responsive_p_tablet_min) and (max-width: @responsive_p_tablet_max) {
+      .tdm-title-xxsm {
+        font-size: 14px;
+      }
+    }
+  }
+
+
+  //hero title
+  .td-wildlife-hero {
+    .tdm-title-bg {
+      font-size: 78px;
+      line-height: 90px;
+      text-shadow: 0 3px 20px rgba(0,0,0,1);
+
+      /* landscape tablet */
+      @media (min-width: @responsive_l_tablet_min) and (max-width: @responsive_l_tablet_max) {
+        font-size: 42px;
+        line-height: 54px;
+      }
+
+      /* portrait tablet */
+      @media (min-width: @responsive_p_tablet_min) and (max-width: @responsive_p_tablet_max) {
+        font-size: 36px;
+        line-height: 46px;
+      }
+
+      /* portrait phone */
+      @media (max-width: @responsive_p_phone_max) {
+        font-size: 32px;
+        line-height: 42px;
+      }
+    }
+
+    .tdm-descr {
+      background-color: rgba(65, 175, 7, 0.6);
+      display: inline-block;
+      padding: 5px 20px;
+      font-family: "Josefin Sans", Verdana, Arial, sans-serif;
+      font-size: 18px;
+      line-height: 26px;
+    }
+  }
+
+
+  //subheader
+  .td-wildlife-subheader {
+    line-height: 0;
+
+    .tds-title-over-image1 .tdm-title-sm {
+      text-shadow: 0 0 10px rgba(0,0,0,0.4);
+    }
+  }
+
+
+  //articles on homepage
+  @media (max-width: 500px) {
+    .td_block_11.td-column-1 .td_module_10 .item-details {
+      padding-left: 0;
+    }
+  }
+
+
+  // page no bottom padding
+  div .td-main-content-wrap {
+    padding-bottom: 0;
+  }
+
+
+  //gallery page
+  &.gallery {
+    .td-main-content-wrap {
+      padding-bottom: 0;
+    }
+  }
+
+  .td-wildlife-gallery {
+    line-height: 0;
+  }
+
+
+  //contact form button
+  .wpforms-form button[type=submit] {
+    border-radius: 50px;
+  }
+
+  // demos button
+  #td-theme-settings .td-skin-buy a {
+    background-color: #e28534;
+  }
+}

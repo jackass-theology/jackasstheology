@@ -1,0 +1,57 @@
+/* responsive landscape tablet */
+@media (min-width: @responsive_l_tablet_min) and (max-width: @responsive_l_tablet_max) {
+  // container
+  .td-container,
+  .tdc-row {
+    width: 980px;
+  }
+
+  // rows + blocks row
+  .td-pb-row,
+  .td-block-row {
+    margin-right: -20px;
+    margin-left: -20px;
+  }
+}
+
+
+/* responsive portrait tablet */
+@media (min-width: @responsive_p_tablet_min) and (max-width: @responsive_p_tablet_max) {
+  // container
+  .td-container,
+  .tdc-row {
+    width: 740px;
+  }
+
+  // rows + blocks row
+  .td-pb-row,
+  .td-block-row {
+    margin-right: -14px;
+    margin-left: -14px;
+  }
+}
+
+
+/* responsive portrait phone */
+@media (max-width: @responsive_p_phone_max) {
+  // container
+  .td-container,
+  .tdc-row  {
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  // rows + blocks row
+  .td-pb-row,
+  .td-block-row {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  // fix background full on mobile - problem with 100vw!
+  .tdc-row[class*="stretch_row"] {
+    //overflow: hidden;
+  }
+}

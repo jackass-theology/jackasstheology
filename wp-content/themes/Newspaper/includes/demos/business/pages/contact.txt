@@ -1,0 +1,9 @@
+[vc_row][vc_column width="2/3"][td_block_text_with_title custom_title="Contact"]
+
+For feedbacks around customer services please contact us via email and our support team will email you back <a href="mailto:customer.experience@theguardian.com">customer.experience@buisness.com</a><br><br>If you would like to contribute, please ensure you have read our contributors guide and use the form below or email address to reach us. The availability of our editors is limited on weekends, however, you can still contact us and we will reply you as soon as possible.
+
+[/td_block_text_with_title][td_block_text_with_title custom_title="Contact Form"]<p><em>You can place your contact from here!</em></p>[/td_block_text_with_title][/vc_column][vc_column width="1/3"][td_block_text_with_title custom_title="Contact Details"]
+
+<strong>Newspaper Web Service</strong><br>123 California St. Doargo<br><br>(899) 123-9465 (main number)<br>(899) 123-1568 (fax)<br><br>Email: <strong><a href="mailto:contact@newspaper.com" target="_blank" rel="noopener noreferrer">contact@yoursite.com</a></strong>
+
+[/td_block_text_with_title][td_block_text_with_title custom_title="About us"]Newspaper Business provides the latest stock market, financial and business news from around the world.[/td_block_text_with_title][td_block_social_counter twitter="envato" googleplus="+envato" style="style8 td-social-boxed td-social-font-icons" custom_title="follow us" instagram="envato"][/vc_column][/vc_row]

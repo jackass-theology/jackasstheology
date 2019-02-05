@@ -1,0 +1,273 @@
+@import "variables.less";
+@import "mixin.less";
+@import "type.less";
+@import "font-icons.less";
+@import "post.less";
+@import "page.less";
+@import "review.less";
+@import "modules.less";
+@import "smart-lists.less";
+@import "video-playlists.less";
+
+
+// Reset the box-sizing
+* {
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;         /* Opera/IE 8+ */
+}
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  width : auto\9;
+  height: auto;
+}
+
+body {
+  visibility: visible;
+  background-color: #c1c1c1;
+}
+
+/* ----------------------------------------------------------------------------
+    Theme Grid
+*/
+#td-outer-wrap {
+  overflow: auto;
+  margin: auto;
+  width: 100%;
+  background-color: #fff;
+}
+.td-container {
+  max-width: 696px;
+  margin: 0 auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* ----------------------------------------------------------------------------
+    Header
+*/
+.td-header-wrap {
+  background-color: #222;
+  color: #fff;
+  height: 60px;
+  position: relative;
+  z-index: 9998;
+  width: 100%;
+  -webkit-backface-visibility: hidden;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+// logo
+.td-main-menu-logo {
+  .td-amp-site-logo {
+    max-height: 60px;
+    margin-left: 18px;
+  }
+
+  img {
+    height: 100%;
+    width: auto;
+    min-width: 0;
+    right: auto;
+    margin-left: 0;
+  }
+}
+
+// search icon
+.td-search-icon {
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  i {
+    width: 62px;
+    line-height: 60px;
+    font-size: 22px;
+    color: #fff;
+
+    &:before {
+      position: relative;
+      top: 2px;
+    }
+  }
+}
+
+/* ----------------------------------------------------------------------------
+    Ads
+*/
+
+.td-a-rec,
+.td-a-rec {
+  margin: 30px auto 30px;
+  text-align: center;
+
+  amp-img {
+    display: inline-block;
+    max-width: 100%;
+  }
+}
+
+// header ad
+.td-a-rec-id-tds_amp_header {
+  margin-top: 25px;
+}
+
+/* ----------------------------------------------------------------------------
+    Breadcrumbs
+*/
+.td-crumb-container {
+  margin: 15px 0;
+  line-height: 1;
+}
+.single-post .td-bred-no-url-last { // hide breadcrumb parts on single post
+  display: none;
+}
+.entry-crumbs {
+  font-size: 12px;
+  color: #999;
+
+  a {
+    color: #999;
+  }
+
+  .td-bread-sep {
+    font-size: 11px;
+    margin: 0 5px;
+    position: relative;
+    top: 1px;
+  }
+}
+
+/* ----------------------------------------------------------------------------
+    Footer
+*/
+.td-footer-wrap {
+  text-align: center;
+  background-color: #222;
+  color: #fff;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  clear: both;
+
+  a {
+    color: #fff;
+  }
+  > a {
+    display: inline-block;
+  }
+  .block-title {
+    margin: 0 0 26px 0;
+  }
+
+  .td-footer-description a {
+    color: @td_theme_color;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+.td-footer-component-wrap {
+  margin-bottom: 40px;
+  font-size: 15px;
+  line-height: 21px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  .td-footer-logo {
+    amp-img,
+    amp-anim {
+      display: inline-block;
+      max-width: 100%;
+    }
+  }
+}
+.footer-email-wrap {
+  padding-top: 16px;
+
+  a {
+    color: @td_theme_color;
+  }
+}
+// footer social icons
+.td-social-icon-wrap {
+  display: inline-block;
+  margin: 5px;
+
+  .td-icon-font {
+    font-size: 14px;
+    width: 40px;
+    height: 40px;
+    line-height: 38px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.03);
+  }
+}
+
+/* ----------------------------------------------------------------------------
+    Sub-footer
+*/
+.td-sub-footer-wrap {
+  color: #ccc;
+  background-color: #000;
+  padding: 18px 0;
+}
+
+// back to top
+.td-back-to-top {
+  display: inline-block;
+  margin-right: 5px;
+  float: right;
+  cursor: pointer;
+  width: 31px;
+  height:31px;
+  z-index: 9999;
+  position: relative;
+  bottom: 5px;
+
+  .td-icon-menu-up {
+    position: relative;
+    color: #fff;
+    font-size: 14px;
+    display: block;
+    text-align: center;
+    width: 32px;
+    height: 32px;
+    line-height: 38px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.03);
+
+    &:before {
+      position: relative;
+      bottom: 3px;
+    }
+  }
+}
+
+// copy write text
+.td-sub-footer-copy {
+  display: inline-block;
+  font-size: 12px;
+}
+
+/* ----------------------------------------------------------------------------
+    Blocks general
+*/
+.block-title {
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+  margin: 30px 0;
+  text-transform: uppercase;
+  line-height: 1;
+}

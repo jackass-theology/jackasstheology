@@ -1,0 +1,58 @@
+<span class="dropcap dropcap3">B</span>uilding first evolved out of the dynamics between needs (shelter, security, worship, etc.) and means (available building materials and attendant skills). As human cultures developed and knowledge began to be formalized through oral traditions and practices, building became a craft, and "architecture" is the name given to the most highly formalized and respected versions of that craft.
+
+<div class="td-paragraph-padding-1">
+
+It is widely assumed that architectural success was the product of a process of trial and error, with progressively less trial and more replication as the results of the process proved increasingly satisfactory. What is termed vernacular architecture continues to be produced in many parts of the world. Indeed, vernacular buildings make up most of the built world that people experience every day. Early human settlements were mostly rural. Due to a surplus in production the economy began to expand resulting in urbanization thus creating urban areas which grew and evolved very rapidly in some cases, such as that of Anatolia and Mohenjo Daro of the Indus Valley Civilization in modern-day Pakistan.
+
+<blockquote class="td_quote_box td_box_center">"A house in Japan is considered differently from one in Europe. It is more transient, sits more lightly on the ground"</blockquote>
+
+They grew out of harsh conditions the devastation of war, privations of the aftermath, recurrent earthquakes, shortage of land but then often chose to add voluntary challenges of their own. There are houses where the rooms are separated by courtyards, such that you have to expose yourself to the weather to pass from one to another, or where unusable voids are inserted into already cramped locations, or where normal expectations of privacy, comfort, cosiness, domesticity, beauty and shelter are, with careful deliberation but for reasons not completely explained, challenged.
+
+</div>
+
+Then there are the full-sized constructions, the hut-on-stilts and the white boxes, one the work of the idiosyncratic reviver of traditional craft, the other a recreation of the house of 2005 by the Pritzker prize winner. The latter is conceived as a series of small pavilions connected by courts, recreated here with books, music, films and personal objects recalling the life of its owner. Lighting rises and falls in imitation of the cycle of day and night, accelerated to 60 minutes. When it is darker you can see films projected against the exterior of the building, which is something he likes to do. It is as immersive as the other material is restrained, creating an alternate version of the original rather than a perfect simulacrum.
+
+[caption id="attachment_164" align="aligncenter" width="1068"]<a href="xxx_td_pic_p1_xxx"><img class=" td-modal-image wp-image-164 size-full" src="xxx_td_pic_p1_xxx" alt="" width="1068" height="712" /></a> The Olympic Stadium, Berlin, Germany[/caption]
+
+<div class="td-paragraph-padding-1">
+
+The architecture of different parts of Asia developed along different lines from that of Europe; Buddhist, Hindu and Sikh architecture each having different characteristics. Buddhist architecture, in particular, showed great regional diversity. Hindu temple architecture, which developed around the 3rd century BCE, is governed by concepts laid down in the Shastras, and is concerned with expressing the macrocosm and the microcosm. In many Asian countries, pantheistic religion led to architectural forms that were designed specifically to enhance the natural landscape.
+
+With the emerging knowledge in scientific fields and the rise of new materials and technology, architecture and engineering began to separate, and the architect began to concentrate on aesthetics and the humanist aspects, often at the expense of technical aspects of building design. To satisfy the contemporary ethos a building should be constructed in a manner which is environmentally friendly in terms of the production of its materials, its impact upon the natural and built environment of its surrounding area and the demands that it makes upon non-sustainable power sources for heating, cooling, water and waste management and lighting.
+
+</div>
+
+In the late 20th century a new concept was added to those included in the compass of both structure and function, the consideration of sustainability, hence sustainable architecture.
+
+<blockquote>We shape our buildings; thereafter they shape us.</blockquote>
+
+Landscape architecture is the design of outdoor public areas, landmarks, and structures to achieve environmental, social-behavioral, or aesthetic outcomes. It involves the systematic investigation of existing social, ecological, and soil conditions and processes in the landscape, and the design of interventions that will produce the desired outcome.
+
+
+[caption id="attachment_165" align="alignleft" width="232"]<a href="xxx_td_pic_p2_xxx"><img class=" td-modal-image wp-image-165 size-medium" src="xxx_td_pic_p2_xxx" alt="" width="232" height="300" /></a> Yo Photo of a Skyscraper[/caption]
+
+A system architecture can comprise system components that will work together to implement the overall system. There have been efforts to formalize languages to describe system architecture, collectively these are called architecture description languages (ADLs).
+
+Business architecture is defined as "a blueprint of the enterprise that provides a common understanding of the organization and is used to align strategic objectives and tactical demands." People who develop and maintain business architecture are known as business architects.
+
+To restrict the meaning of (architectural) formalism to art for art's sake is not only reactionary; it can also be a purposeless quest for perfection or originality which degrades form into a mere instrumentality". Among the philosophies that have influenced modern architects and their approach to building design are rationalism, empiricism, structuralism, poststructuralism, and phenomenology.
+
+There was also the rise of the "gentleman architect" who usually dealt with wealthy clients and concentrated predominantly on visual qualities derived usually from historical prototypes, typified by the many country houses of Great Britain that were created in the Neo Gothic or Scottish Baronial styles.
+
+<blockquote class="td_pull_quote td_pull_center">Forests were the first temples of God and in forests men grasped their first idea of architecture.</blockquote>
+
+Since the 1980s, as the complexity of buildings began to increase (in terms of structural systems, services, energy and technologies), the field of architecture became multi-disciplinary with specializations for each project type, technological expertise or project delivery methods. In addition, there has been an increased separation of the 'design' architect from the 'project' architect who ensures that the project meets the required standards and deals with matters of liability.
+
+[caption id="attachment_166" align="aligncenter" width="1068"]<a href="xxx_td_pic_p3_xxx"><img class=" td-modal-image wp-image-166 size-full" src="xxx_td_pic_p3_xxx" alt="" width="1068" height="712" /></a> Golden Gate Bridge, USA[/caption]
+
+The preparatory processes for the design of any large building have become increasingly complicated, and require preliminary studies of such matters as durability, sustainability, quality, money, and compliance with local laws.
+<blockquote class="td_quote_box td_box_left">We need houses as we need clothes, architecture stimulates fashion. It is like hunger and thirst you need them both.</blockquote>
+A large structure can no longer be the design of one person but must be the work of many. Modernism and Postmodernism have been criticised by some members of the architectural profession who feel that successful architecture is not a personal, philosophical, or aesthetic pursuit by individualists; rather it has to consider everyday needs of people and use technology to create liveable environments, with the design process being informed by studies of behavioral, environmental, and social sciences. Cognitive architecture can refer to a theory about the structure of the human mind. One of the main goals of a cognitive architecture is to summarize the various results of cognitive psychology in a comprehensive computer model.
+
+[caption id="attachment_167" align="alignright" width="200"]<a href="xxx_td_pic_p4_xxx"><img class=" td-modal-image wp-image-167 size-medium" src="xxx_td_pic_p4_xxx" alt="" width="200" height="300" /></a> Photo of a skyscraper, building, architecture[/caption]
+
+There has been an acceleration in the number of buildings which seek to meet green building sustainable design principles.
+
+Environmental sustainability has become a mainstream issue, with profound effect on the architectural profession. Many developers, those who support the financing of buildings, have become educated to encourage the facilitation of environmentally sustainable design, rather than solutions based primarily on immediate cost. Major examples of this can be found in passive solar building design, greener roof designs, biodegradable materials, and more attention to a structure's energy usage.
+
+Enterprise architecture applies architecture principles and practices to guide organizations through the business, information, process, and technology changes necessary to execute their strategies. These practices utilize the various aspects of an enterprise to identify, motivate, and achieve these changes." Practitioners of enterprise architecture, enterprise architects, are responsible for performing the analysis of business structure and processes and are often called upon to draw conclusions from the information collected to address the goals of enterprise architecture: effectiveness, efficiency, agility, and durability.

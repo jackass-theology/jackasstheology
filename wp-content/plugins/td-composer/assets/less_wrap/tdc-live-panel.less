@@ -1,0 +1,307 @@
+#tdc-live-panel {
+  //////////////////////////////////////////////////////////
+  // COD FIXURI
+  .td-box-description {
+    padding-bottom: 15px;
+  }
+
+  .td-box-content {
+    padding-bottom: 25px;
+  }
+
+  .td-wrapper-radio-buttons {
+    padding-bottom: 0;
+  }
+
+  ul {
+    margin: 0;
+  }
+  //////////////////////////////////////////////////////////
+
+
+  .td-box {
+    margin: 0;
+  }
+
+  .td-box-header {
+    padding-left: 12px;
+    padding-right: 12px;
+    box-shadow: none;
+    border-top: 1px solid #efefef;
+    border-bottom: 1px solid #efefef;
+  }
+
+  .tdc-panel-menu {
+    cursor: pointer;
+
+    &:hover {
+      color: #4db2ec;
+    }
+  }
+
+  .td-box-content {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .td-box-control-full {
+    width: 100%;
+  }
+
+
+  .td-box-content-wrap {
+    //padding: 0 12px 0 12px;
+  }
+
+  .td-wrapper-radio-buttons {
+    a {
+      width: auto;
+      max-width: 100%;
+      margin-right: 0;
+    }
+  }
+
+  .td_panel_box_header_style {
+    .td-small-wrapper-o-separator {
+      margin-bottom: 20px;
+      margin-right: 20px;
+
+      &:nth-child(2n) {
+        margin-right: 0;
+      }
+    }
+    .td-visual-selector-o-img {
+      padding: 5px !important;
+    }
+  }
+}
+
+.tdc-window-frame {
+  footer {
+    &:after {
+      clear: both;
+      content: '';
+      display: block;
+    }
+  }
+}
+
+#tdc-menu-settings,
+#tdc-page-settings {
+  box-sizing: border-box;
+  position: fixed;
+  width: 1100px;
+  min-width: 800px;
+  height: 620px;
+  min-height: 400px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 101; // over live panel
+  margin: 0 auto;
+  background-color: #fff;
+  display: none;
+  .box-shadow(0px 0px 20px 1px rgba(0,0,0,0.15));
+
+
+  header {
+    height: 35px;
+    background-color: #000;
+
+    .title {
+      padding: 9px 0 0 19px;
+      float: left;
+      font-size: 12px;
+      color: #fff;
+      pointer-events: none;
+    }
+  }
+
+  footer {
+    padding: 10px;
+    background-color: #f1f1f1;
+    border-style: solid;
+    border-color: #e3e3e3;
+    border-width: 1px 0 0 0;
+    box-sizing: border-box;
+  }
+
+  .content {
+    height: calc(~"100% - 85px");
+  }
+}
+
+
+.tdc-iframe-close-button {
+  position: relative;
+  float: right;
+  width: 35px;
+  height: 35px;
+  text-align: center;
+  color: #fff;
+  cursor: pointer;
+  .transition(background-color 0.05s ease-in-out);
+
+  &:hover {
+    background-color: #268ac2;
+  }
+
+  &:before {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    content: '';
+    display: block;
+    width: 19px;
+    height: 19px;
+    background: url('../images/sidebar/spritesheet.png');
+    background-repeat: no-repeat;
+    background-position: -5px -126px;
+  }
+}
+.tdc-iframe-apply-button,
+.tdc-iframe-ok-button {
+  position: relative;
+  float: right;
+  background-color: #000;
+  margin-left: 10px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-align: center;
+  color: #fff;
+  cursor: pointer;
+  .transition(background-color 0.05s ease-in-out);
+
+  &:hover {
+    background-color: #268ac2;
+  }
+
+  &:before {
+    display: block;
+    padding: 0 18px;
+    line-height: 29px;
+  }
+}
+
+.tdc-iframe-apply-button {
+  &:before {
+    content: 'Apply';
+  }
+}
+
+.tdc-iframe-ok-button {
+  &:before {
+    content: 'Ok';
+  }
+}
+
+
+#tdc-wpeditor {
+  box-sizing: border-box;
+  position: fixed;
+  border: 1px solid #ddd;
+  height: 750px;
+  min-width: 650px; // to allow media library create galleries
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 101; // over live panel
+  margin: 0 auto;
+  background-color: #FFFFFF;
+  display: none;
+  .box-shadow(0px 0px 20px 1px rgba(0,0,0,0.15));
+
+  header {
+    margin: -1px 0 0 -1px;
+    height: 35px;
+    background-color: #000;
+
+    #title {
+      padding: 9px 0 0 19px;
+      float: left;
+      font-size: 12px;
+      color: #fff;
+    }
+  }
+
+  .content {
+    height: calc(~"100% - 35px");
+  }
+}
+
+/* ----------------------------------------------------------------------------------------
+  When a element is dropped, the job is running and we're waiting for new content
+*/
+
+@keyframes tdc-dropped-colorchange {
+  0%    {opacity: 0.5}
+  50%   {opacity: 1}
+  100%  {opacity: 0.5}
+}
+
+@-webkit-keyframes tdc-dropped-colorchange {
+  0%    {opacity: 0.5}
+  50%   {opacity: 1}
+  100%  {opacity: 0.5}
+}
+
+
+.tdc-dropped,
+.tdc-dropped-wpeditor {
+
+  // hide the play icon, it appears over the loader due to z-index issues
+  .td-video-play-ico {
+    display: none;
+  }
+
+  //background-color: green;
+  position: relative;
+
+  max-height: 600px;
+  min-height: 120px;
+  overflow: hidden;
+  margin-bottom: 45px;
+
+  &:before {
+    top:0;
+    left:0;
+    display: block;
+    height: 100%;
+    width:100%;
+    position: absolute;
+    content: '';
+    z-index: 1;
+    min-height: 100px;
+    background-color: white;
+  }
+
+  &:after  {
+    top:0;
+    left:0;
+    display: block;
+    height: 100%;
+    width:100%;
+    position: absolute;
+    background: #F1F1F1 url("../images/loader.gif") no-repeat;
+    content: '';
+    z-index: 2;
+    background-position: center;
+
+    animation: tdc-dropped-colorchange 1s linear infinite;
+    -webkit-animation: tdc-dropped-colorchange 1s linear infinite;
+
+  }
+}
+
+
+.tdc-dropped-wpeditor {
+  max-height: none;
+}
+
+.clear-position {
+  .transform_important(none);
+}

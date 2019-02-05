@@ -1,0 +1,159 @@
+/*  ----------------------------------------------------------------------------
+    responsive settings
+*/
+/* responsive landscape tablet */
+/* responsive portrait tablet */
+/* responsive portrait phone */
+.td-smart-app .tdm-social-item {
+  margin: 5px 10px 5px 0;
+}
+.td-smart-app .tdm-descr {
+  font-size: 13px;
+  line-height: 22px;
+}
+.td-smart-app .tdm-title-bg {
+  /* responsive landscape tablet */
+  /* responsive portrait tablet */
+  /* responsive portrait phone */
+}
+@media (min-width: 1019px) and (max-width: 1140px) {
+  .td-smart-app .tdm-title-bg {
+    font-size: 40px;
+    line-height: 46px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1018px) {
+  .td-smart-app .tdm-title-bg {
+    font-size: 32px;
+    line-height: 38px;
+  }
+}
+@media (max-width: 767px) {
+  .td-smart-app .tdm-title-bg {
+    font-size: 30px;
+    line-height: 38px;
+  }
+}
+.td-smart-app .tdm-title-md {
+  /* responsive landscape tablet */
+  /* responsive portrait tablet */
+}
+@media (min-width: 1019px) and (max-width: 1140px) {
+  .td-smart-app .tdm-title-md {
+    font-size: 27px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1018px) {
+  .td-smart-app .tdm-title-md {
+    font-size: 20px;
+    line-height: 26px;
+  }
+}
+.td-smart-app .tdm-title-sm {
+  /* responsive landscape tablet */
+  /* responsive portrait tablet */
+  /* responsive portrait phone */
+}
+@media (min-width: 1019px) and (max-width: 1140px) {
+  .td-smart-app .tdm-title-sm {
+    font-size: 19px;
+    line-height: 27px;
+    font-weight: 400;
+  }
+}
+@media (min-width: 768px) and (max-width: 1018px) {
+  .td-smart-app .tdm-title-sm {
+    font-size: 17px;
+    line-height: 24px;
+    font-weight: 400;
+  }
+}
+@media (max-width: 767px) {
+  .td-smart-app .tdm-title-sm {
+    font-size: 17px;
+    line-height: 24px;
+    font-weight: 400;
+  }
+}
+.td-smart-app .tdm-pricing-feature {
+  /* responsive portrait tablet */
+}
+@media (min-width: 768px) and (max-width: 1018px) {
+  .td-smart-app .tdm-pricing-feature {
+    font-size: 12px;
+  }
+}
+.td-smart-app .tds-button5.tdm-btn-xlg {
+  /* responsive portrait tablet */
+}
+@media (min-width: 768px) and (max-width: 1018px) {
+  .td-smart-app .tds-button5.tdm-btn-xlg {
+    font-size: 14px;
+  }
+}
+.td-smart-app .tds-button5.tdm-btn-lg {
+  /* responsive portrait tablet */
+}
+@media (min-width: 768px) and (max-width: 1018px) {
+  .td-smart-app .tds-button5.tdm-btn-lg {
+    font-size: 13px;
+  }
+}
+.td-smart-app .tdm-big-button .tds-button5 {
+  line-height: 50px;
+  font-weight: 600;
+  font-size: 32px;
+  /* responsive portrait tablet */
+}
+@media (min-width: 768px) and (max-width: 1018px) {
+  .td-smart-app .tdm-big-button .tds-button5 {
+    font-size: 24px;
+  }
+}
+.td-smart-app .tdc-inner-column {
+  vertical-align: top;
+}
+.td-smart-app .tdm_block_list .tdm-list-items {
+  font-size: 13px;
+}
+.td-smart-app.page-template-page-pagebuilder-overlay {
+  /* responsive portrait phone */
+}
+.td-smart-app.page-template-page-pagebuilder-overlay .td-header-menu-wrap-full {
+  background-color: transparent;
+}
+@media (max-width: 767px) {
+  .td-smart-app.page-template-page-pagebuilder-overlay .td-header-wrap .td-header-main-menu,
+  .td-smart-app.page-template-page-pagebuilder-overlay .td-header-wrap .td-header-menu-wrap-full,
+  .td-smart-app.page-template-page-pagebuilder-overlay .td-header-wrap .td-header-menu-wrap {
+    background-color: transparent !important;
+  }
+  .td-smart-app.page-template-page-pagebuilder-overlay .td-header-wrap .td-header-main-menu.td-affix,
+  .td-smart-app.page-template-page-pagebuilder-overlay .td-header-wrap .td-header-menu-wrap-full.td-affix,
+  .td-smart-app.page-template-page-pagebuilder-overlay .td-header-wrap .td-header-menu-wrap.td-affix {
+    background-color: #000 !important;
+  }
+}
+.td-smart-app .td_module_3 .td-module-thumb {
+  /* responsive portrait phone */
+}
+@media (max-width: 767px) {
+  .td-smart-app .td_module_3 .td-module-thumb {
+    margin-left: -20px;
+    margin-right: -20px;
+  }
+}
+.td-smart-app.category .td-category-grid .td_block_wrap {
+  /* responsive portrait phone */
+}
+@media (max-width: 767px) {
+  .td-smart-app.category .td-category-grid .td_block_wrap {
+    padding-bottom: 0;
+  }
+}
+.td-smart-app #td-theme-settings .td-skin-buy a {
+  background-color: #4481fc;
+}
+.td-md-is-chrome .td-smart-app .td-element-style-before {
+  height: 100.1% !important;
+}

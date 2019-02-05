@@ -1,0 +1,58 @@
+/*  ----------------------------------------------------------------------------
+    responsive settings
+*/
+/* responsive landscape tablet */
+/* responsive portrait tablet */
+/* responsive portrait phone */
+.mx_image_background {
+  background-color: #f2f2f2;
+}
+.td-visibility-hidden {
+  visibility: hidden;
+}
+/*  ----------------------------------------------------------------------------
+    from bootstrap
+*/
+.clearfix {
+  *zoom: 1;
+}
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.clearfix:after {
+  clear: both;
+}
+/*
+usage:
+.td-block-row {
+  .mx-row(td-block-span);
+}
+
+@all_span_selector - is the begining of the span selector
+ */
+.td-entertainment .td-header-gradient:before {
+  display: none;
+}
+.td-entertainment .td_block_template_5 .td-block-title {
+  margin-bottom: 32px;
+  margin-left: -17px;
+  /* responsive portrait tablet */
+  /* responsive portrait phone */
+}
+.td-entertainment .td_block_template_5 .td-block-title > * {
+  border-left-width: 3px;
+}
+@media (min-width: 768px) and (max-width: 1018px) {
+  .td-entertainment .td_block_template_5 .td-block-title {
+    margin-bottom: 26px;
+  }
+}
+@media (max-width: 767px) {
+  .td-entertainment .td_block_template_5 .td-block-title {
+    margin-bottom: 22px;
+    margin-left: -15px;
+  }
+}

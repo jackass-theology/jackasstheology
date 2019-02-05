@@ -1,0 +1,246 @@
+/*  ----------------------------------------------------------------------------
+    responsive settings
+*/
+/* responsive landscape tablet */
+/* responsive portrait tablet */
+/* responsive portrait phone */
+/*
+Dentist demo
+*/
+.td-dentist .tdm-header-style-3 .td-header-top-menu-full {
+  border-bottom: 1px solid #eaeaea;
+}
+.td-dentist .tdm-header-style-3 .td-header-top-menu-full .top-header-menu li a {
+  margin-right: 25px;
+}
+.td-dentist .tdm-header-style-3 .td-header-top-menu-full .tdc-font-tdmp {
+  font-size: 20px;
+  color: #1db4c1;
+  margin-right: 5px;
+  position: relative;
+  top: 4px;
+}
+.td-dentist .tdm-header-style-3 .td-main-menu-logo a {
+  line-height: 110px;
+}
+.td-dentist .tdm-header-style-3 .sf-menu > li > a {
+  padding: 0 20px;
+  line-height: 110px;
+  /* portrait tablet */
+}
+@media (min-width: 768px) and (max-width: 1018px) {
+  .td-dentist .tdm-header-style-3 .sf-menu > li > a {
+    padding: 0 15px;
+    font-size: 14px;
+    line-height: 118px;
+  }
+}
+.td-dentist .tdm-header-style-3 #td-header-search-button .td-icon-search {
+  line-height: 110px;
+}
+.td-dentist .tdm-header-style-3 .sf-menu > li > a:hover,
+.td-dentist .tdm-header-style-3 .sf-menu > .sfHover > a,
+.td-dentist .tdm-header-style-3 .sf-menu > .current-menu-item > a,
+.td-dentist .tdm-header-style-3 .sf-menu > .current-menu-ancestor > a,
+.td-dentist .tdm-header-style-3 .sf-menu > .current-category-ancestor > a {
+  color: #1db4c1;
+}
+.td-dentist .tdm-header-style-3 .sf-menu > li > a:after {
+  display: none;
+}
+.td-dentist .tdm-header-style-3 .td-header-gradient:before {
+  display: none;
+}
+.td-dentist .tdm-header-style-3 .td-header-menu-wrap.td-affix {
+  border-bottom: 1px solid #eaeaea;
+}
+.td-dentist .tdm-title-sm {
+  font-weight: 400;
+  /* landscape tablet */
+  /* portrait tablet */
+  /* portrait phone */
+}
+@media (min-width: 1019px) and (max-width: 1140px) {
+  .td-dentist .tdm-title-sm {
+    font-size: 20px;
+    line-height: 30px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1018px) {
+  .td-dentist .tdm-title-sm {
+    font-size: 18px;
+    line-height: 26px;
+  }
+}
+@media (max-width: 767px) {
+  .td-dentist .tdm-title-sm {
+    font-size: 20px;
+    line-height: 30px;
+  }
+}
+.td-dentist .tdm-title-md {
+  font-weight: 300;
+  font-size: 28px;
+  line-height: 40px;
+  /* landscape tablet */
+  /* portrait tablet */
+  /* portrait phone */
+}
+@media (min-width: 1019px) and (max-width: 1140px) {
+  .td-dentist .tdm-title-md {
+    font-size: 24px;
+    line-height: 36px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1018px) {
+  .td-dentist .tdm-title-md {
+    font-size: 20px;
+    line-height: 30px;
+  }
+}
+@media (max-width: 767px) {
+  .td-dentist .tdm-title-md {
+    font-size: 20px;
+    line-height: 30px;
+  }
+}
+.td-dentist .tdm-title-bg {
+  font-weight: 600;
+  line-height: 60px;
+  /* landscape tablet */
+  /* portrait tablet */
+  /* portrait phone */
+}
+@media (min-width: 1019px) and (max-width: 1140px) {
+  .td-dentist .tdm-title-bg {
+    font-size: 32px;
+    line-height: 44px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1018px) {
+  .td-dentist .tdm-title-bg {
+    font-size: 26px;
+    line-height: 34px;
+  }
+}
+@media (max-width: 767px) {
+  .td-dentist .tdm-title-bg {
+    font-size: 24px;
+    line-height: 32px;
+  }
+}
+.td-dentist .tdm-descr {
+  font-size: 13px;
+  line-height: 22px;
+}
+.td-dentist .td-dentist-big-elements .tdm-descr {
+  /* desktop */
+}
+@media (min-width: 1141px) {
+  .td-dentist .td-dentist-big-elements .tdm-descr {
+    font-size: 16px;
+    line-height: 26px;
+  }
+}
+.td-dentist .tdm-btn-md {
+  padding: 0 34px;
+}
+.td-dentist .tdm-btn-lg {
+  height: 53px;
+  padding: 0 40px;
+  font-weight: 400;
+}
+.td-dentist .td-hero-button .tdm-btn-md:hover {
+  background-color: rgba(255, 255, 255, 0.8) !important;
+}
+.td-dentist .td_module_10 .item-details {
+  /* portrait phone */
+}
+@media (max-width: 767px) {
+  .td-dentist .td_module_10 .item-details {
+    padding-left: 0 !important;
+  }
+}
+.td-dentist .td-opening .tdc-row.td-stretch-content {
+  padding-left: 0;
+  padding-right: 0;
+}
+.td-dentist .td-dentist-banner-footer {
+  /* portrait phone */
+}
+@media (max-width: 1018px) {
+  .td-dentist .td-dentist-banner-footer .tdm-col-icon {
+    display: none;
+  }
+  .td-dentist .td-dentist-banner-footer .tdm-col-text {
+    float: none;
+    width: 100%;
+    text-align: center !important;
+  }
+}
+.td-dentist .tdm_block_testimonial .tds-testimonial3 .tdm-testimonial-descr {
+  margin-bottom: 25px;
+  border-radius: 10px;
+  background: -webkit-linear-gradient(200deg, #45dacb, #30a7d6);
+  background: linear-gradient(200deg, #45dacb, #30a7d6);
+}
+.td-dentist .tdm_block_testimonial .tds-testimonial3 .tdm-testimonial-info:before {
+  top: -25px;
+  left: 23px;
+  border-width: 8px 7px 0 7px;
+  border-color: #30a7d6 transparent transparent transparent;
+}
+.td-dentist .wpforms-form .wpforms-field {
+  margin-bottom: 5px !important;
+}
+.td-dentist .wpforms-form .wpforms-field-label {
+  font-weight: 400 !important;
+  font-size: 13px !important;
+  line-height: 1 !important;
+  margin-bottom: 10px !important;
+}
+.td-dentist .wpforms-form .wpforms-field-sublabel {
+  font-size: 11px !important;
+  margin: 8px 0 0 12px !important;
+  color: #aaa !important;
+}
+.td-dentist .wpforms-form input[type=text],
+.td-dentist .wpforms-form input[type=number],
+.td-dentist .wpforms-form input[type=email],
+.td-dentist .wpforms-form textarea {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+  -webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+  -moz-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+  border: none !important;
+  border-bottom-width: 1px !important;
+  border-bottom-style: solid !important;
+  border-bottom-color: #1db4c1 !important;
+  border-radius: 0 !important;
+  color: #444 !important;
+  font-size: 14px !important;
+  height: 36px !important;
+}
+.td-dentist .wpforms-form textarea {
+  height: 60px !important;
+  min-height: 60px !important;
+}
+.td-dentist .wpforms-form button[type=submit] {
+  background-color: #1db4c1 !important;
+  color: #fff !important;
+  border-radius: 50px;
+  border: none !important;
+  padding: 6px 30px !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  -webkit-transition: background-color 0.4s !important;
+  -moz-transition: background-color 0.4s !important;
+  -o-transition: background-color 0.4s !important;
+  transition: background-color 0.4s !important;
+}
+.td-dentist .wpforms-form button[type=submit]:hover {
+  background-color: #444 !important;
+}
+.td-dentist.category .td-main-content-wrap {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}

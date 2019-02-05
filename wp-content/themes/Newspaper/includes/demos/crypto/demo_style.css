@@ -1,0 +1,33 @@
+/*  ----------------------------------------------------------------------------
+    responsive settings
+*/
+/* responsive landscape tablet */
+/* responsive portrait tablet */
+/* responsive portrait phone */
+/*
+Crypto News Demo
+*/
+.td-crypto .td_block_template_2 .td-block-title {
+  text-align: center;
+}
+.td-crypto .td-crypto-latest .td-block-title {
+  text-align: center;
+}
+.td-crypto .td_module_11 .td-read-more a {
+  background-color: transparent;
+  color: #111;
+  font-size: 12px;
+  font-weight: 400;
+  border: 1px solid #ddd;
+  transition: all 0.4s;
+}
+.td-crypto .td_module_11 .td-read-more a:hover {
+  background-color: #fbb03b !important;
+  border: 1px solid transparent;
+}
+.td-crypto .td_module_11 .td-module-comments {
+  display: none;
+}
+.td-crypto #td-theme-settings .td-skin-buy a {
+  background-color: #fbb03b;
+}

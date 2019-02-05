@@ -1,0 +1,630 @@
+@font_open_sans:'Open Sans', arial, sans-serif;
+@font_ubuntu:'Ubuntu', sans-serif;
+
+
+
+@import "tooltip.less";
+
+//load the panel files
+@import "panel/theme-panel-general.less";
+@import "panel/header.less";
+@import "panel/navigation.less";
+@import "panel/content.less";
+@import "panel/controls.less";
+@import "panel/footer.less";
+@import "panel/box.less";
+@import "panel/page-builder.less";
+@import "panel/help-text.less";
+
+//load less file from theme
+@import "../../../less_files/admin-style.less";
+
+@import "panel/import_demo.less";
+@import "panel/color_picker.less";
+
+
+@import "wp_panels/general.less";
+@import "wp_panels/demos.less";
+@import "wp_panels/plugins.less";
+@import "wp_panels/welcome.less";
+@import "wp_panels/system_status.less";
+@import "wp_panels/activation.less";
+@import "wp_panels/admin-popup.less";
+
+//page options
+@import "page_options/td-metabox.less";
+@import "page_options/td-tabs.less";
+@import "page_options/td-metabox-controls.less";
+
+
+//remove outlines in panel
+.td-container-wrap {
+  a {
+    outline: 0;
+  }
+  direction: ltr !important;
+}
+
+
+
+//hide visual composer
+.vc-license-activation-notice {
+  display: none;
+}
+#vc_properties-panel {
+  .wp-color-result {
+    margin-bottom: 0px;
+  }
+
+  .vc_description {
+    margin-top: 4px;
+  }
+
+
+}
+
+
+/*  ----------------------------------------------------------------------------
+    tinymce
+*/
+
+.mce-td_tinymce_shortcode_dropdown button {
+  padding-right: 25px !important;
+}
+
+.mce-td_tinymce_dropdown_title {
+  background-color: #4db2ec !important;
+  span{
+    font-weight: bold;
+
+    color:white !important;
+  }
+}
+.mce-menu-sub .mce-menu-item .mce-text {
+  font-size: 14px !important;
+  text-transform: none !important;
+}
+
+
+
+
+
+/*  ----------------------------------------------------------------------------
+    MIXING functions
+*/
+
+.td-panel-remove-transitions {
+  -webkit-transition-property: initial;
+  -moz-transition-property: initial;
+  transition-property: initial;
+  -webkit-transition-duration: 0s;
+  -moz-transition-duration: 0s;
+  transition-duration: 0s;
+  -webkit-transition-timing-function: initial;
+  -moz-transition-timing-function: initial;
+  transition-timing-function: initial;
+}
+
+
+// Transitions
+.transition(@transition) {
+  -webkit-transition: @transition;
+  -moz-transition: @transition;
+  -o-transition: @transition;
+  transition: @transition;
+}
+
+// Transform
+.transform(@string){
+  transform: @string;
+  -webkit-transform: @string;
+  -moz-transform: 	 @string;
+  -ms-transform: 		 @string;
+  -o-transform: 		 @string;
+}
+
+// Drop shadows
+.box-shadow(@shadow) {
+  -webkit-box-shadow: @shadow;
+  -moz-box-shadow: @shadow;
+  box-shadow: @shadow;
+}
+
+// mixin
+// Sprite Function
+.stitches-sprite(@x: 0, @y: 0, @width: 0, @height: 0) {
+  background-position: @x @y;
+  width: @width;
+  height: @height;
+}
+
+// remove links outline
+.td-visual-selector-o a {
+    outline: 0;
+}
+
+// firefox remove box-shadow on focus
+a:focus {
+  box-shadow: none;
+}
+
+
+
+/*  ----------------------------------------------------------------------------
+    wordpress wp admin panel style
+*/
+.td-wpa-info {
+  font-size:12px;
+  color:#878787;
+  padding-top: 8px;
+  padding-bottom: 5px;
+  display: block;
+  strong {
+    color:black;
+    font-weight: bold;
+    color:#4db2ec;
+  }
+
+  ul {
+    margin-top: 8px;
+    list-style-type: circle;
+    padding-left: 17px;
+  }
+
+  li {
+    margin-bottom: 3px;
+  }
+}
+
+.widget-inside .td-wpa-info {
+  padding-top: 0px !important;
+  margin-top: -10px !important;
+}
+
+
+.td-theme-panel-body #wpbody-content {
+  //min-height: 1000px;
+}
+
+
+
+/*  ----------------------------------------------------------------------------
+    tgma plugin sh t
+*/
+.td-tgma-tip {
+  color:#4db2ec;
+}
+
+
+#tgmpa-plugins {
+  .install,
+  .activate
+  {
+    visibility: visible;
+  }
+}
+
+
+/*  ----------------------------------------------------------------------------
+    top level icon - panel mod
+*/
+
+.wp-not-current-submenu#toplevel_page_td_theme_panel{
+  .wp-menu-image {
+    &::before {
+      color:#4c96c3 !important;
+    }
+  }
+
+  .wp-menu-name {
+    color:#4c96c3 !important;
+  }
+}
+
+.td-tip-vc-columns {
+  max-width: 100% !important;
+}
+
+
+/*  ----------------------------------------------------------------------------
+    widget tabs
+*/
+
+.widget-content { // this is applied only on widget section
+  .tdc-tabs-wrapper {
+    margin: 0 -15px;
+    overflow: hidden;
+    padding-top: 11px;
+
+    input,
+    select {
+      height: 28px;
+    }
+
+    label {
+      margin-bottom: 4px;
+      display: inline-block;
+      font-weight: 500;
+    }
+
+    .tdc-tabs {
+      padding: 0;
+
+      // hide style and css tab on widgets
+      a[data-tab-id*="tdc-tab-style"],
+      a[data-tab-id*="tdc-tab-css"] {
+        display: none;
+      }
+    }
+
+    .tdc-tab-content {
+      p:first-child {
+        margin-top: 0;
+      }
+    }
+
+    .tdc-property-tdc_css .tdc-css-box-input {
+      height: 21px;
+    }
+
+    .wp-picker-container .button {
+      margin-left: 8px !important;
+    }
+
+    .tdc-property-colorpicker .tdc-property .wp-picker-container {
+      float: right;
+    }
+
+    .tdc-responsive-buttons,
+    .tdc-property-tdc_css .tdc-box-margin {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .tdc-tab-content-wrap,
+    .tdc-tabs .tdc-tab-active {
+      -webkit-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1) !important;
+      -moz-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1) !important;
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1) !important;
+    }
+  }
+
+  // fix color piker from WP4.9
+  .wp-picker-container .wp-color-result-text {
+    visibility: hidden;
+  }
+}
+
+.tdc-tabs {
+  padding: 0 12px;
+}
+.tdc-tabs a {
+  padding: 8px 12px 7px 12px;
+  display: inline-block;
+  position: relative;
+  top: 1px;
+  color: #000000;
+  text-decoration: none;
+  font-size: 12px;
+}
+.tdc-tabs .tdc-tab-active {
+  -webkit-box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.1) !important;
+  -moz-box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.1) !important;
+  background-color: #fff;
+  position: relative;
+  z-index: 1;
+}
+.tdc-tabs .tdc-tab-active:before {
+  content: '';
+  position: absolute;
+  bottom: -11px;
+  left: -5px;
+  z-index: 1;
+  width: 125%;
+  height: 12px;
+  background-color: #fff;
+}
+.tdc-tab-content-wrap {
+  -webkit-box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.1) !important;
+  -moz-box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.1) !important;
+  padding: 18px 13px 15px 14px;
+  background-color: #fff;
+  position: relative;
+}
+.tdc-tab-content-wrap:before {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 20px;
+  background-color: #fff;
+}
+.tdc-tab-content-wrap .tdc-tab-content {
+  display: none;
+}
+.tdc-tab-content-wrap .tdc-tab-content-visible {
+  display: block;
+}
+
+// image controller - on widgets
+.td-widget-attach-image-wrap {
+  position: relative;
+  margin: 14px 0;
+
+  .td-wpa-info {
+    margin-top: 0 !important;
+  }
+
+  label {
+    line-height: 27px;
+  }
+  .td-widget-attach-image {
+    width: 27px;
+    height: 27px;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-size: cover;
+  }
+  .td-widget-remove-image {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 27px;
+    font-size: 12px;
+    text-decoration: none;
+    margin-right: 10px;
+    line-height: 27px;
+  }
+  .td-hidden-button {
+    display: none;
+  }
+}
+
+
+
+// custom td thickbox css
+.td-thickbox-loading {
+  #TB_window {
+    visibility: hidden;
+  }
+}
+
+.td-thickbox {
+  #TB_closeWindowButton:focus {
+    .tb-close-icon {
+      box-shadow: none !important;
+      color: #666;
+    }
+  }
+
+  #TB_closeWindowButton:hover {
+    .tb-close-icon {
+      color: #00a0d2;
+    }
+  }
+
+  height: auto !important;
+
+  box-shadow: rgba(0, 0, 0, 0.0980392) 0px 0px 6px 2px;
+
+
+  #TB_title {
+    font-size: 13px;
+    height: 32px;
+
+    border-bottom: 1px solid rgb(238, 238, 238);
+
+  }
+
+  #TB_ajaxContent {
+    padding: 18px;
+    height: auto !important;
+  }
+
+  .tb-close-icon {
+
+    margin-right: 3px;
+    margin-top: 3px;
+    &:focus {
+      outline:0 !important;
+    }
+    &::before {
+      font-size:15px !important;
+      line-height: 28px;
+
+    }
+  }
+}
+
+// Theme panel modal box general
+.td-thickbox {
+  // wrap
+  &#TB_window {
+    background: url('../images/bg-modal.jpg');
+    background-size: cover;
+    background-position: center;
+    .box-shadow(0 0 20px rgba(0, 0, 0, 0.2));
+    overflow: hidden;
+    padding: 0;
+
+    &:before {
+      content: '';
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      z-index: -1;
+      background: rgba(0, 69, 130, 0.8);
+      background: -moz-linear-gradient(45deg, rgba(0, 69, 130, 0.8) 0%, rgba(38, 134, 146, 0.8) 100%);
+      background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(0, 69, 130, 0.8)), color-stop(100%, rgba(38, 134, 146, 0.8)));
+      background: -webkit-linear-gradient(45deg, rgba(0, 69, 130, 0.8) 0%, rgba(38, 134, 146, 0.8) 100%);
+      background: -o-linear-gradient(45deg, rgba(0, 69, 130, 0.8) 0%, rgba(38, 134, 146, 0.8) 100%);
+      background: -ms-linear-gradient(45deg, rgba(0, 69, 130, 0.8) 0%, rgba(38, 134, 146, 0.8) 100%);
+      background: linear-gradient(45deg, rgba(0, 69, 130, 0.8) 0%, rgba(38, 134, 146, 0.8) 100%);
+    }
+  }
+
+  // title
+  #TB_title {
+    border: none !important;
+    background: none;
+    height: auto;
+    padding: 0 50px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing:  border-box;
+    box-sizing:  border-box;
+  }
+  #TB_ajaxWindowTitle {
+    padding: 0;
+    line-height: 63px;
+    text-align: center;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #fff;
+    width: 100%;
+  }
+
+
+  // content
+  #TB_ajaxContent {
+    padding: 36px 15px 40px !important;
+    height: auto !important;
+    width: auto !important;
+    color: #fff;
+    text-align: center;
+
+    div {
+      font-size: 14px;
+      padding: 0 36px;
+      line-height: 23px;
+    }
+
+    // input in modal
+    .td-confirm-info {
+      input {
+        background-color: transparent;
+        border-width: 0 0 1px 0;
+        .box-shadow(none);
+        border-color: rgba(255, 255, 255, 0.41);
+        padding: 8px;
+        margin-top: 10px;
+        text-align: center;
+        font-size: 16px;
+        line-height: 32px;
+        color: #fff;
+        width: 100%;
+
+        &::placeholder {
+          color: rgba(255, 255, 255, 0.38);
+        }
+      }
+      label {
+        display: block;
+      }
+      .info {
+        margin-top: 10px;
+        line-height: 19px;
+      }
+
+      select {
+        margin-top: 10px;
+      }
+    }
+  }
+
+  // buttons
+  .td-confirm-buttons {
+    text-align: center;
+
+    button {
+      width: auto;
+      min-width: 120px;
+      height: 50px;
+      background-color: #fff;
+      padding: 5px 12px 6px;
+      margin: 34px 9px 0 9px;
+      text-transform: uppercase;
+      text-shadow: none;
+      font-size: 13px;
+      font-weight: 600;
+      color: #000;
+      .box-shadow(1px 1px 4px 0 rgba(0,0,0,0.2));
+      border: 0;
+      border-radius: 0;
+      outline: none !important;
+
+      &:hover {
+        color: #ffffff;
+        background-color: #ec4d4d;
+      }
+    }
+  }
+
+  #TB_closeWindowButton {
+    margin: 17px !important;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.16);
+    }
+  }
+
+  // close
+  .tb-close-icon {
+    background: url('../images/spritesheet.png');
+    background-repeat: no-repeat;
+    background-position: 0px -121px;
+    width: 29px;
+    height: 29px;
+    margin: 0 !important;
+    outline: none !important;
+    .box-shadow(none);
+
+    &:before {
+      display: none;
+    }
+  }
+}
+
+
+
+
+.td-confirm-buttons {
+  text-align: right;
+  padding-top: 18px;
+
+  button {
+    min-width: 100px;
+    background-color: white;
+    border: 1px solid #ccc;
+    font-size:13px;
+    line-height: 14px;
+    height: 32px;
+    cursor:pointer;
+    color: #555;
+
+
+    &:hover {
+      border-color: #999;
+      color: #23282d;
+    }
+  }
+}
+
+.td-thickbox-fixed {
+  height: 400px !important;
+
+  #TB_ajaxContent {
+    height: auto !important;
+  }
+
+  .td-confirm-info{
+    height: 288px !important;
+    overflow-y: scroll;
+  }
+}

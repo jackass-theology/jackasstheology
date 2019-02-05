@@ -1,0 +1,55 @@
+/*  ----------------------------------------------------------------------------
+    responsive settings
+*/
+/* responsive landscape tablet */
+/* responsive portrait tablet */
+/* responsive portrait phone */
+.td-book-club-demo {
+  /* tablet + desktop */
+  /* responsive portrait phone */
+}
+.td-book-club-demo .td-header-menu-wrap {
+  border-color: #eaeaea;
+  border-style: solid;
+  border-width: 1px 0;
+}
+.td-book-club-demo .td-header-menu-wrap:before {
+  display: none;
+}
+@media (min-width: 767px) {
+  .td-book-club-demo .td-header-sp-logo {
+    padding-top: 26px;
+    padding-bottom: 26px;
+  }
+}
+.td-book-club-demo .sf-menu > .current-menu-item > a,
+.td-book-club-demo .sf-menu > .current-menu-ancestor > a,
+.td-book-club-demo .sf-menu > .current-category-ancestor > a,
+.td-book-club-demo .sf-menu > li:hover > a,
+.td-book-club-demo .sf-menu > .sfHover > a {
+  color: #4db2ec !important;
+}
+.td-book-club-demo .sf-menu > .current-menu-item > a:after,
+.td-book-club-demo .sf-menu > .current-menu-ancestor > a:after,
+.td-book-club-demo .sf-menu > .current-category-ancestor > a:after,
+.td-book-club-demo .sf-menu > li:hover > a:after,
+.td-book-club-demo .sf-menu > .sfHover > a:after {
+  background-color: transparent;
+}
+@media (max-width: 767px) {
+  .td-book-club-demo .hesperiden.tparrows {
+    width: 50px !important;
+    height: 50px !important;
+  }
+  .td-book-club-demo .hesperiden.tparrows:before {
+    font-size: 20px !important;
+    line-height: 50px !important;
+  }
+}
+.td-book-club-demo .footer-logo-wrap img {
+  display: block;
+  margin: 0 auto;
+}
+.td-book-club-demo #td-theme-settings .td-skin-buy a {
+  background-color: #505162;
+}

@@ -1,0 +1,32 @@
+@import "../../less_files/variables.less";
+@import "../../less_files/mixin.less";
+
+
+.td-gaming {
+  &.page-template-page-pagebuilder-overlay {
+    .td-header-wrap .td-header-menu-wrap-full {
+      background-color: transparent !important;
+    }
+
+    /* responsive portrait phone */
+    @media (max-width: @responsive_p_phone_max) {
+      .td-header-menu-wrap-full,
+      .td-header-menu-wrap,
+      .td-header-main-menu {
+        background-color: transparent !important;
+      }
+    }
+  }
+
+  .tdm-header-style-1 {
+    .td-header-gradient:before {
+      display: none;
+    }
+
+    ul.sf-menu > .td-menu-item > a {
+      padding: 0 30px;
+      letter-spacing: 2px;
+    }
+  }
+
+}

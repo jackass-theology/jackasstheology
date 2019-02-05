@@ -1,0 +1,196 @@
+/* ------------------------------- */
+//   Titles sizes
+/* ------------------------------- */
+
+// default
+.tdm-title {
+  font-size: 36px;
+  line-height: 47px;
+  font-weight: 400;
+  margin-top: 10px;
+  margin-bottom: 26px;
+  color: #111;
+  .transition(all 0.2s ease);
+
+  /* responsive portrait tablet */
+  @media (min-width: @responsive_p_tablet_min) and (max-width: @responsive_p_tablet_max) {
+    //margin-bottom: 19px;
+  }
+
+  /* responsive portrait phone */
+  @media (max-width: @responsive_p_phone_max) {
+    //margin-bottom: 16px;
+    font-size: 35px;
+    line-height: 39px;
+  }
+}
+.tds-title {
+  .tdm-title {
+    display: inline-block; // to fix gradient size
+  }
+}
+
+// xx-small
+.tdm-title-xxsm {
+  font-size: 13px;
+  line-height: 16px;
+  font-weight: 600;
+}
+
+// x-small uppercase
+.tdm-title-xsm {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+// small
+.tdm-title-sm {
+  margin-bottom: 7px;
+  font-size: 23px;
+  line-height: 33px;
+  font-weight: 500;
+}
+
+// medium
+.tdm-title-md {
+  font-size: 28px;
+  line-height: 36px;
+  font-weight: 400;
+
+  /* responsive landscape tablet */
+  @media (min-width: @responsive_l_tablet_min) and (max-width: @responsive_l_tablet_max) {
+    font-size: 26px;
+    line-height: 32px;
+  }
+
+  /* responsive portrait tablet */
+  @media (min-width: @responsive_p_tablet_min) and (max-width: @responsive_p_tablet_max) {
+    font-size: 24px;
+    line-height: 30px;
+  }
+}
+
+// big
+.tdm-title-bg {
+  font-size: 46px;
+  line-height: 56px;
+  font-weight: 400;
+
+  /* responsive portrait tablet */
+  @media (min-width: @responsive_p_tablet_min) and (max-width: @responsive_p_tablet_max) {
+    font-size: 36px;
+    line-height: 42px;
+  }
+
+  /* responsive portrait phone */
+  @media (max-width: @responsive_p_phone_max) {
+    font-size: 40px;
+    line-height: 50px;
+  }
+}
+
+// alignment
+// fix align
+.tdm-content-horiz-center {
+  .tdm-title-line {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+.tdm-content-horiz-right {
+  .tdm-title-line {
+    margin-left: auto;
+    margin-right: 0;
+  }
+}
+
+
+/* ------------------------------- */
+//   Description sizes
+/* ------------------------------- */
+
+// small desc
+.tdm-descr-sm {
+  font-family: @font1;
+  font-size: 15px;
+  line-height: 26px;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+// default
+.tdm-descr {
+  font-family: @font1;
+  font-size: 16px;
+  line-height: 28px;
+  color: #666;
+  margin-bottom: 30px;
+
+  /* responsive portrait tablet + phone */
+  @media (max-width: @responsive_p_tablet_max) {
+    font-size: 15px;
+    line-height: 24px;
+  }
+
+  /* responsive portrait tablet */
+  @media (min-width: @responsive_p_tablet_min) and (max-width: @responsive_p_tablet_max) {
+    margin-bottom: 25px;
+  }
+
+  /* responsive portrait phone */
+  @media (max-width: @responsive_p_phone_max) {
+    margin-bottom: 20px;
+  }
+}
+
+/* ------------------------------- */
+//   Templates
+/* ------------------------------- */
+
+// Style 2
+.tds-title2,
+.tds-title3 {
+  .tdm-title {
+    margin-bottom: 0 !important;
+  }
+  .tdm-title-line {
+    display: table;
+    position: relative;
+    .transition(all 0.2s ease);
+
+    &:after {
+      content: '';
+      width: 100%;
+      position: absolute;
+      background-color: @td_theme_color;
+      top: 0;
+      left: 0;
+      margin: auto;
+      .transition(all 0.2s ease);
+    }
+  }
+}
+
+
+// Style 3
+.tds-title3 {
+  .tdm-title {
+    font-weight: 600;
+  }
+
+  .tdm-title-sub {
+    font-family: @font3;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: 500;
+    color: #666;
+  }
+
+  &.tdm-subtitle-above {
+    .tdm-title {
+      margin-bottom: 26px !important;
+    }
+  }
+}

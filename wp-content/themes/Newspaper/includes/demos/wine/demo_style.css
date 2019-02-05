@@ -1,0 +1,101 @@
+/*  ----------------------------------------------------------------------------
+    responsive settings
+*/
+/* responsive landscape tablet */
+/* responsive portrait tablet */
+/* responsive portrait phone */
+/*
+Wine demo
+*/
+.td-wine.page-template-page-pagebuilder-overlay .td-header-wrap .td-header-menu-wrap-full,
+.td-wine.page-template-page-pagebuilder-overlay .sf-menu > .current-menu-ancestor > a,
+.td-wine.page-template-page-pagebuilder-overlay .sf-menu > .current-category-ancestor > a,
+.td-wine.page-template-page-pagebuilder-overlay .td-header-style-3 .td-header-main-menu,
+.td-wine.page-template-page-pagebuilder-overlay .td-header-style-4 .td-header-main-menu,
+.td-wine.page-template-page-pagebuilder-overlay .td-header-style-8 .td-header-top-menu-full {
+  background-color: transparent !important;
+}
+.td-wine.tdm-menu-active-style2 .tdm-header .sf-menu > li > a {
+  margin: 0 20px;
+  line-height: 22px;
+}
+.td-wine.tdm-menu-active-style2 .tdm-header .sf-menu > li > a:after {
+  height: 2px;
+}
+.td-wine.tdm-menu-active-style2 .tdm-header-style-3 .td-logo-in-menu {
+  /* portrait tablet */
+}
+@media (min-width: 768px) and (max-width: 1018px) {
+  .td-wine.tdm-menu-active-style2 .tdm-header-style-3 .td-logo-in-menu {
+    position: relative;
+  }
+}
+.td-wine .tdm-title-bg {
+  /* landscape tablet */
+  /* portrait tablet */
+  /* portrait phone */
+}
+@media (min-width: 1019px) and (max-width: 1140px) {
+  .td-wine .tdm-title-bg {
+    font-size: 42px;
+    line-height: 54px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1018px) {
+  .td-wine .tdm-title-bg {
+    font-size: 36px;
+    line-height: 46px;
+  }
+}
+@media (max-width: 767px) {
+  .td-wine .tdm-title-bg {
+    font-size: 32px;
+    line-height: 42px;
+  }
+}
+.td-wine .tdm-hero-title .tdm-title-bg {
+  font-size: 80px;
+  line-height: 90px;
+  /* landscape tablet */
+  /* portrait tablet */
+  /* portrait phone */
+}
+@media (min-width: 1019px) and (max-width: 1140px) {
+  .td-wine .tdm-hero-title .tdm-title-bg {
+    font-size: 60px;
+    line-height: 70px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1018px) {
+  .td-wine .tdm-hero-title .tdm-title-bg {
+    font-size: 48px;
+    line-height: 56px;
+  }
+}
+@media (max-width: 767px) {
+  .td-wine .tdm-hero-title .tdm-title-bg {
+    font-size: 60px;
+    line-height: 70px;
+  }
+}
+.td-wine .tdm-product-column .tds-title {
+  padding: 0 20px;
+}
+.td-wine .tdm-product-column .tdm-descr {
+  padding: 0 20px 40px;
+}
+.td-wine.contact .td-main-content-wrap {
+  padding-bottom: 0;
+}
+.td-wine div.wpforms-container .wpforms-form div.wpforms-field-container .wpforms-field input,
+.td-wine div.wpforms-container .wpforms-form div.wpforms-field-container .wpforms-field textarea {
+  border-color: #d6d8a1;
+  color: #444;
+  font-size: 14px;
+  padding-right: 12px;
+  padding-left: 12px;
+  font-weight: 400;
+}
+.td-wine #td-theme-settings .td-skin-buy a {
+  background-color: #ccb930;
+}

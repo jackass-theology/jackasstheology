@@ -1,0 +1,84 @@
+@import "../../less_files/variables.less";
+
+
+/*
+Lifestyle Blog Demo
+*/
+
+.td-blog-lifestyle {
+
+  //border under menu
+  .td-header-style-9 {
+    .td-header-top-menu-full,
+    .td-header-main-menu {
+      border-bottom: 1px solid #eaeaea;
+    }
+  }
+
+  //border under menu canceled on homepage
+  &.home {
+    .td-header-style-9 {
+      .td-header-main-menu {
+        border-bottom: none;
+      }
+    }
+  }
+
+  //shadow under menu canceled
+  .td-header-gradient:before {
+    display: none;
+  }
+
+  //line under menu tags
+  .sf-menu > .current-menu-item > a:after,
+  .sf-menu > .current-menu-ancestor > a:after,
+  .sf-menu > .current-category-ancestor > a:after,
+  .sf-menu > li:hover > a:after,
+  .sf-menu > .sfHover > a:after {
+    width: 20px;
+  }
+
+  //arrow right of menu tags canceled
+  .sf-menu .td-icon-menu-down {
+    display: none;
+  }
+
+  //menu tags padding correction
+  .sf-menu a.sf-with-ul {
+    padding-right: 14px;
+
+    /* responsive portrait tablet */
+    @media (min-width: @responsive_p_tablet_min) and (max-width: @responsive_p_tablet_max) {
+      padding-right: 9px;
+    }
+  }
+
+  //shadow under title canceled on big grid flex
+  .td-big-grid-flex .td-module-title a {
+    text-shadow: none;
+  }
+
+  //module comments adjustments
+  .td-module-meta-info .td-module-comments a {
+    font-size: 10px !important;
+    padding: 5px 6px 4px 7px;
+    top: 12px;
+  }
+
+  //author box title adjustment
+  .td-lifestyle-author-box {
+    .td-author-name {
+      margin: 10px 0;
+    }
+  }
+
+  //border radius on post images
+  .td-post-content .td-modal-image img  {
+    border-radius: 8px;
+  }
+
+  // demos button
+  #td-theme-settings .td-skin-buy a {
+    background-color: #d89686;
+  }
+}

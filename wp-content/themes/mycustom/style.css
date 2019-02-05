@@ -1,0 +1,64 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/*
+
+Theme Name: mycustom
+
+Author: Ryan MacDiarmid
+
+Template: Newspaper
+
+*/
+
+@import url('../Newspaper/style.css');
+
+.td-post-template-7 .td-post-header .entry-title {
+    font-family: Merriweather;
+    font-size: 60px;
+    line-height: 75px;
+    font-weight: 100;
+    text-align:center; 
+}
+
+ .td-post-template-7 .td-post-content {
+  
+    margin-top: 21px;
+    padding-bottom: 30px;
+    padding-left: 0;
+    padding-right: 0;
+    
+ }
+    
+    .td-post-content p {
+        
+    font-family: Merriweather;
+    font-weight: 200; 
+    line-height: 2.1em;
+    padding-left: 0px;
+    
+    }
+    
+  .tdm_block.tdm_block_inline_text 
+    .tdm-descr  {
+        
+    font-family: open sans;
+    font-size: 16px;
+    font-weight: 100; 
+    line-height: 1.5em;
+
+    }
+    
+.tdm-header-style-1 .td-main-menu-logo img, .tdm-header-style-2 .td-main-menu-logo img, .tdm-header-style-3 .td-main-menu-logo img {
+    max-height: 90px;
+}
+
+.td_block_slide .iosSlider-col-1 .entry-title {
+    padding-top: 30px;
+    font-family: Merriweather;
+    font-weight: 200; 
+    line-height: 1.4em;
+    font-size: 30px;
+}  
+
+    

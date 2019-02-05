@@ -1,0 +1,253 @@
+/*  ----------------------------------------------------------------------------
+    responsive settings
+*/
+/* responsive landscape tablet */
+/* responsive portrait tablet */
+/* responsive portrait phone */
+.td-craft-ideas .td-header-style-10 {
+  /* responsive portrait tablet */
+}
+.td-craft-ideas .td-header-style-10 .td-header-top-menu-full {
+  position: absolute;
+  top: 0;
+}
+.td-craft-ideas .td-header-style-10 .sf-menu > li > a:after {
+  display: none;
+}
+@media (min-width: 768px) and (max-width: 1018px) {
+  .td-craft-ideas .td-header-style-10 .td-header-main-menu {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  .td-craft-ideas .td-header-style-10 ul.sf-menu > .td-menu-item > a {
+    font-size: 10px;
+  }
+  .td-craft-ideas .td-header-style-10 ul.sf-menu > .td-menu-item > a [class*="ico-craft-"] {
+    font-size: 16px;
+  }
+}
+.td-craft-ideas .td-header-style-10 .sf-menu > .current-menu-item > a,
+.td-craft-ideas .td-header-style-10 .sf-menu > .current-menu-ancestor > a,
+.td-craft-ideas .td-header-style-10 .sf-menu > .current-category-ancestor > a,
+.td-craft-ideas .td-header-style-10 .sf-menu > li:hover > a,
+.td-craft-ideas .td-header-style-10 .sf-menu > .sfHover > a {
+  color: #70c3b7;
+}
+.td-craft-ideas .td-header-style-10 .td-header-sp-logo img {
+  /* responsive landscape tablet */
+  /* responsive portrait tablet */
+}
+@media (min-width: 1019px) and (max-width: 1140px) {
+  .td-craft-ideas .td-header-style-10 .td-header-sp-logo img {
+    max-height: 260px;
+    margin-top: 10px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1018px) {
+  .td-craft-ideas .td-header-style-10 .td-header-sp-logo img {
+    max-height: 200px;
+    margin-top: 20px;
+  }
+}
+.td-craft-ideas .td_block_mega_menu .td_module_mega_menu {
+  text-align: center;
+}
+@font-face {
+  font-family: 'craft-ideas';
+  src: url('font/craft_ideas.eot?1');
+  src: url('font/craft_ideas.eot?1#iefix') format('embedded-opentype'), url('font/craft_ideas.woff?1') format('woff'), url('font/craft_ideas.ttf?1') format('truetype'), url('font/craft_ideas.svg?1#craft-ideas') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+.td-craft-ideas [class^="ico-craft-"]:before,
+.td-craft-ideas [class*=" ico-craft-"]:before {
+  font-family: 'craft-ideas';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  text-align: center;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.td-craft-ideas [class*="ico-craft-"] {
+  line-height: 1;
+  text-align: center;
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 22px;
+  margin-right: 10px;
+}
+.td-craft-ideas .ico-craft-food:before {
+  content: "\e900";
+}
+.td-craft-ideas .ico-craft-home:before {
+  content: "\e903";
+}
+.td-craft-ideas .ico-craft-sew:before {
+  content: "\e907";
+}
+.td-craft-ideas .ico-craft-buttons:before {
+  content: "\e902";
+}
+.td-craft-ideas .ico-craft-lifehacks:before {
+  content: "\e905";
+}
+.td-craft-ideas .ico-craft-circle:before {
+  content: "\e901";
+}
+.td-craft-ideas .ico-craft-diy:before {
+  content: "\e904";
+}
+.td-craft-ideas .ico-craft-more:before {
+  content: "\e906";
+}
+.td-craft-ideas .td-module-comments a {
+  background-color: #fdc42d;
+}
+.td-craft-ideas .td-module-comments a:after {
+  border-color: #fdc42d transparent transparent transparent;
+}
+.td-craft-ideas .td-post-category {
+  position: relative;
+  background-color: transparent;
+  color: #70c3b7;
+  margin-right: 0;
+  padding: 6px 0;
+}
+.td-craft-ideas .td-post-category:hover {
+  background-color: transparent;
+}
+.td-craft-ideas .td_module_mega_menu .td-post-category {
+  margin-right: 0;
+  padding: 12px 0 0;
+}
+.td-craft-ideas .td-social-style3 .td_social_type .td_social_info {
+  font-family: Crimson Text;
+  font-size: 14px;
+  font-weight: 400;
+}
+.td-craft-ideas .td-social-style3 .td_social_type a {
+  font-family: Crimson Text;
+  font-size: 12px;
+}
+.td-craft-ideas .td-read-more a,
+.td-craft-ideas .more-link-wrap a {
+  background-color: transparent !important;
+  background-image: url("images/read-more-bg.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  display: inline;
+  color: #fff !important;
+  opacity: 0.8;
+  font-size: 12px;
+  padding: 10px 18px;
+}
+.td-craft-ideas .td-read-more a:hover,
+.td-craft-ideas .more-link-wrap a:hover {
+  opacity: 1;
+}
+.td-craft-ideas .td-read-more a i,
+.td-craft-ideas .more-link-wrap a i {
+  display: none;
+}
+.td-craft-ideas .td_module_18 .td-read-more {
+  margin-top: 20px;
+}
+.td-craft-ideas .td_ajax_load_more {
+  background-color: transparent !important;
+  background-image: url("images/header-bg.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  border: none;
+  color: #fff !important;
+  opacity: 0.8;
+  font-size: 12px;
+  padding: 11px 24px;
+}
+.td-craft-ideas .td_ajax_load_more:hover {
+  opacity: 1;
+}
+.td-craft-ideas .td_block_template_6 .td-block-title {
+  background-image: url("images/header-bg.png");
+}
+.td-craft-ideas .td_block_template_6 .td-block-title > * {
+  color: #fff;
+}
+.td-craft-ideas .td_block_template_6 .td-block-title:before {
+  display: none;
+}
+.td-craft-ideas .td_module_18 .meta-info-container {
+  padding-bottom: 28px;
+}
+.td-craft-ideas .td_module_3 {
+  text-align: center;
+}
+.td-craft-ideas .td_block_9 .td-module-meta-info {
+  display: none;
+}
+.td-craft-ideas .td_block_9 .td_module_wrap {
+  padding-bottom: 6px;
+  margin-bottom: 12px;
+}
+.td-craft-ideas .td_block_9 .td-module-title {
+  font-size: 14px;
+  line-height: 21px;
+}
+.td-craft-ideas .td_block_image_box.td-image-box-style-2 .entry-title {
+  font-size: 12px;
+  font-family: Montserrat;
+}
+.td-craft-ideas .td_block_image_box .td-small-image .td-custom-image a {
+  background-color: #f9f9f9;
+}
+.td-craft-ideas .td_block_author .td-author-name {
+  font-size: 24px;
+  font-family: Indie Flower;
+  font-weight: normal;
+  text-transform: none;
+}
+.td-craft-ideas.td_category_template_1 .td-category-header {
+  text-align: center;
+  padding-bottom: 38px;
+}
+.td-craft-ideas.td_category_template_1 .td-category-header .td-page-title {
+  font-weight: normal;
+  margin: 30px 0 0;
+}
+.td-craft-ideas.td_category_template_1 .td-category-header .td-category-description {
+  width: auto;
+}
+.td-craft-ideas .td_block_big_grid_fl_2.td-grid-style-1 .td-meta-info-container {
+  text-align: center;
+}
+.td-craft-ideas .td_block_big_grid_fl_2.td-grid-style-1 .td-big-grid-post .entry-title {
+  font-size: 28px;
+  line-height: 36px;
+}
+.td-craft-ideas .td_block_template_6 .td-related-title {
+  margin-bottom: 0;
+  background-image: none;
+}
+.td-craft-ideas .td_block_template_6 .td-related-title a {
+  color: #000;
+}
+.td-craft-ideas .td_block_template_6 .td-related-title .td-cur-simple-item {
+  color: #70c3b7;
+}
+.td-craft-ideas .td_block_template_6 .td-related-title:before {
+  display: none;
+}
+.td-craft-ideas .top-header-menu .avatar {
+  border-radius: 50px;
+}
+.td-craft-ideas .page-nav a,
+.td-craft-ideas .page-nav span {
+  border-radius: 20px;
+}
+.td-craft-ideas #td-theme-settings .td-skin-buy a {
+  background-color: #fdc42d;
+}

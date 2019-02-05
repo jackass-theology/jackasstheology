@@ -1,0 +1,137 @@
+@import "../../less_files/variables.less";
+@import "../../less_files/mixin.less";
+
+
+.td-ink {
+  //&,
+  //.td-container-wrap {
+  //  background-color: #fffff6;
+  //}
+
+  // TITLES
+  .tdm-title-md {
+    letter-spacing: 1px;
+  }
+
+  /* responsive phone + tablet */
+  @media (max-width: @responsive_l_tablet_max) {
+    .tdm-title-md {
+      margin-bottom: 16px;
+    }
+  }
+  /* responsive phone + portrait tablet */
+  @media (max-width: @responsive_p_tablet_max) {
+    .tdm-title-sm {
+      font-size: 28px;
+      line-height: 34px;
+    }
+    .tdm-title-md {
+      font-size: 44px;
+      line-height: 44px;
+    }
+  }
+  /* responsive portrait phone */
+  @media (max-width: @responsive_p_phone_max) {
+    .tdm_block_inline_text p.tdm-descr,
+    .tdm_block_list .tdm-list-items {
+      font-size: 17px;
+      line-height: 28px;
+    }
+  }
+
+
+  // HEADER
+  &.tdm-menu-active-style2 {
+    .tdm-header.tdm-header-style-2 {
+      ul.sf-menu {
+        > .td-menu-item {
+          line-height: 100px;
+        }
+
+        a {
+          padding: 14px 0;
+          letter-spacing: 2px;
+        }
+      }
+      .td-affix ul.sf-menu a {
+        padding: 0;
+      }
+    }
+  }
+
+
+  // CONTACT FORM
+  div.td-ink-contact-form {
+    .wpforms-form {
+      div.wpforms-field-container {
+        div.wpforms-field {
+          input,
+          select,
+          textarea {
+            padding: 12px 14px;
+            font-size: 18px;
+            font-weight: 400;
+            border: 0;
+          }
+
+          input,
+          select {
+            height: 48px;
+          }
+
+          input,
+          textarea {
+            &:focus {
+              border: 0;
+            }
+          }
+
+          select {
+            border-radius: 0;
+          }
+        }
+      }
+
+      div.wpforms-submit-container {
+        text-align: center;
+
+        button.wpforms-submit {
+          background: transparent;
+          height: 55px;
+          padding: 0 36px;
+          font-family: 'Roboto', sans-serif;
+          font-weight: 500;
+          font-size: 15px;
+          line-height: 51px;
+          text-transform: none;
+          color: #fff;
+          border: 2px solid #fff;
+
+          &:hover {
+            color: #bbb;
+            border-color: #bbb;
+          }
+        }
+      }
+    }
+  }
+
+
+  // FOOTER
+  .td-ink-footer {
+    p.tdm-descr {
+      font-size: 17px;
+
+      /* responsive phone + portrait tablet */
+      @media (max-width: @responsive_p_tablet_max) {
+        font-size: 15px;
+        line-height: 26px;
+      }
+    }
+  }
+
+  // demos button
+  #td-theme-settings .td-skin-buy a {
+    background-color: #bf9f60;
+  }
+}

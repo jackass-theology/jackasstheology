@@ -1,0 +1,41 @@
+// Contact form
+div.wpforms-container .wpforms-form div.wpforms-field-container {
+  font-family: @font1;
+
+  .wpforms-field {
+    input,
+    textarea {
+      font-family: @font1;
+      border-color: #eef0f3;
+      border-width: 0 0 1px 0;
+      border-radius: 0;
+      color: #243442;
+      font-size: 15px;
+      padding-right: 0;
+      padding-left: 0;
+      font-weight: 600;
+    }
+
+    .wpforms-field-label {
+      color: #adb3b9;
+      font-size: 13px;
+      font-weight: 500;
+    }
+  }
+}
+div.wpforms-container .wpforms-form div.wpforms-submit-container {
+  button[type=submit] {
+    font-family: @font1;
+    border: none;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 10px 30px;
+    .transition(all 0.3s ease);
+
+    &:hover {
+      background-color: #000;
+    }
+  }
+}

@@ -1,0 +1,126 @@
+/*  ----------------------------------------------------------------------------
+    responsive settings
+*/
+/* responsive landscape tablet */
+/* responsive portrait tablet */
+/* responsive portrait phone */
+.mx_image_background {
+  background-color: #f2f2f2;
+}
+.td-visibility-hidden {
+  visibility: hidden;
+}
+/*  ----------------------------------------------------------------------------
+    from bootstrap
+*/
+.clearfix {
+  *zoom: 1;
+}
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.clearfix:after {
+  clear: both;
+}
+/*
+usage:
+.td-block-row {
+  .mx-row(td-block-span);
+}
+
+@all_span_selector - is the begining of the span selector
+ */
+.td-ink {
+  /* responsive phone + tablet */
+  /* responsive phone + portrait tablet */
+  /* responsive portrait phone */
+}
+.td-ink .tdm-title-md {
+  letter-spacing: 1px;
+}
+@media (max-width: 1140px) {
+  .td-ink .tdm-title-md {
+    margin-bottom: 16px;
+  }
+}
+@media (max-width: 1018px) {
+  .td-ink .tdm-title-sm {
+    font-size: 28px;
+    line-height: 34px;
+  }
+  .td-ink .tdm-title-md {
+    font-size: 44px;
+    line-height: 44px;
+  }
+}
+@media (max-width: 767px) {
+  .td-ink .tdm_block_inline_text p.tdm-descr,
+  .td-ink .tdm_block_list .tdm-list-items {
+    font-size: 17px;
+    line-height: 28px;
+  }
+}
+.td-ink.tdm-menu-active-style2 .tdm-header.tdm-header-style-2 ul.sf-menu > .td-menu-item {
+  line-height: 100px;
+}
+.td-ink.tdm-menu-active-style2 .tdm-header.tdm-header-style-2 ul.sf-menu a {
+  padding: 14px 0;
+  letter-spacing: 2px;
+}
+.td-ink.tdm-menu-active-style2 .tdm-header.tdm-header-style-2 .td-affix ul.sf-menu a {
+  padding: 0;
+}
+.td-ink div.td-ink-contact-form .wpforms-form div.wpforms-field-container div.wpforms-field input,
+.td-ink div.td-ink-contact-form .wpforms-form div.wpforms-field-container div.wpforms-field select,
+.td-ink div.td-ink-contact-form .wpforms-form div.wpforms-field-container div.wpforms-field textarea {
+  padding: 12px 14px;
+  font-size: 18px;
+  font-weight: 400;
+  border: 0;
+}
+.td-ink div.td-ink-contact-form .wpforms-form div.wpforms-field-container div.wpforms-field input,
+.td-ink div.td-ink-contact-form .wpforms-form div.wpforms-field-container div.wpforms-field select {
+  height: 48px;
+}
+.td-ink div.td-ink-contact-form .wpforms-form div.wpforms-field-container div.wpforms-field input:focus,
+.td-ink div.td-ink-contact-form .wpforms-form div.wpforms-field-container div.wpforms-field textarea:focus {
+  border: 0;
+}
+.td-ink div.td-ink-contact-form .wpforms-form div.wpforms-field-container div.wpforms-field select {
+  border-radius: 0;
+}
+.td-ink div.td-ink-contact-form .wpforms-form div.wpforms-submit-container {
+  text-align: center;
+}
+.td-ink div.td-ink-contact-form .wpforms-form div.wpforms-submit-container button.wpforms-submit {
+  background: transparent;
+  height: 55px;
+  padding: 0 36px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 51px;
+  text-transform: none;
+  color: #fff;
+  border: 2px solid #fff;
+}
+.td-ink div.td-ink-contact-form .wpforms-form div.wpforms-submit-container button.wpforms-submit:hover {
+  color: #bbb;
+  border-color: #bbb;
+}
+.td-ink .td-ink-footer p.tdm-descr {
+  font-size: 17px;
+  /* responsive phone + portrait tablet */
+}
+@media (max-width: 1018px) {
+  .td-ink .td-ink-footer p.tdm-descr {
+    font-size: 15px;
+    line-height: 26px;
+  }
+}
+.td-ink #td-theme-settings .td-skin-buy a {
+  background-color: #bf9f60;
+}

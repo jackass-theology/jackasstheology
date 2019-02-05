@@ -1,0 +1,361 @@
+@import "../../less_files/variables.less";
+
+
+/*
+Technology demo
+*/
+
+
+.td-technology {
+
+  /*
+  header--------------------------------
+  */
+
+  .tdm-header-style-2 {
+    .sf-menu > li > a {
+      padding: 0 35px;
+
+      /* portrait tablet */
+      @media (min-width: @responsive_p_tablet_min) and (max-width: @responsive_p_tablet_max) {
+        padding: 0 20px;
+      }
+    }
+
+    .td-main-menu-logo img {
+      /* responsive portrait tablet */
+      @media (min-width: @responsive_p_tablet_min) and (max-width: @responsive_p_tablet_max) {
+        max-height: 44px;
+      }
+    }
+  }
+
+
+  /*
+  body--------------------------------
+  */
+
+  .td-header-content {
+    .tds-title3 .tdm-title {
+      font-size: 46px;
+      line-height: 56px;
+      font-weight: 300;
+
+      /* portrait tablet */
+      @media (min-width: @responsive_p_tablet_min) and (max-width: @responsive_p_tablet_max) {
+        font-size: 40px;
+        line-height: 52px;
+      }
+
+      /* portrait phone */
+      @media (max-width: @responsive_p_phone_max) {
+        font-size: 36px;
+        line-height: 44px;
+      }
+    }
+
+    .tds-title3 .tdm-title-sub {
+      font-size: 18px;
+      line-height: 26px;
+      margin-bottom: 0;
+
+      /* portrait phone */
+      @media (max-width: @responsive_p_phone_max) {
+        font-size: 15px;
+        line-height: 24px;
+      }
+    }
+  }
+
+
+  //all big titles
+  .tdm-title-bg {
+    font-size: 46px;
+    line-height: 56px;
+    font-weight: 300;
+
+    /* portrait tablet */
+    @media (min-width: @responsive_p_tablet_min) and (max-width: @responsive_p_tablet_max) {
+      font-size: 40px;
+      line-height: 52px;
+    }
+
+    /* portrait phone */
+    @media (max-width: @responsive_p_tablet_max) {
+      font-size: 36px;
+      line-height: 46px;
+    }
+  }
+
+
+  //all medium titles
+  .tdm-title-md {
+    font-size: 24px;
+    line-height: 36px;
+    font-weight: 300;
+  }
+
+
+  //all small titles
+  .tdm-title-sm {
+    font-size: 18px;
+    line-height: 26px;
+    font-weight: 400;
+    margin-bottom: 0;
+  }
+
+
+  //all titles template 13
+  .td_block_template_13 {
+    .td-block-title {
+      font-size: 20px;
+      font-weight: 500;
+
+      span {
+        margin-left: 0 !important;
+      }
+    }
+
+    .td-block-subtitle {
+      font-size: 100px;
+      font-weight: 500;
+      bottom: -30px;
+
+      /* portrait tablet */
+      @media (min-width: @responsive_l_tablet_min) and (max-width: @responsive_l_tablet_max) {
+        font-size: 80px;
+        bottom: -25px;
+      }
+
+      /* portrait phone */
+      @media (max-width: @responsive_p_tablet_max) {
+        font-size: 55px;
+        bottom: -15px;
+      }
+    }
+  }
+
+
+  //title on left side
+  .td-left-title .td_block_template_13 {
+
+    .td-block-subtitle {
+      left: -120px;
+
+      /* portrait tablet */
+      @media (min-width: @responsive_p_tablet_min) and (max-width: @responsive_l_tablet_max) {
+        left: 0;
+      }
+
+      /* portrait phone */
+      @media (max-width: @responsive_p_phone_max) {
+        left: 0;
+        right: 0;
+      }
+    }
+  }
+
+
+  //title in center
+  .td-center-title .td_block_template_13 {
+    text-align: center;
+
+    .td-block-subtitle {
+      left: 0;
+      right: 0;
+    }
+  }
+
+
+  //all descriptions
+  .tdm-descr {
+    font-size: 14px;
+    line-height: 26px;
+    font-weight: 300;
+  }
+
+
+  //all buttons on style2 hover
+  .tds-button2:hover {
+    background-color: #22a0d6;
+  }
+
+
+  .tdm-btn-xlg {
+    /* portrait phone */
+    @media (max-width: @responsive_p_phone_max) {
+      padding: 0 30px;
+    }
+  }
+
+
+  //text and image module
+  .td-text-image-module {
+
+    .tdm_block_icon_box {
+      display: table;
+
+      .tdm-col-text {
+        width: auto;
+      }
+    }
+
+    img {
+      box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
+      -webkit-box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
+      -moz-box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+
+      @media (max-width: @responsive_p_tablet_max) {
+        border-radius: 0;
+      }
+    }
+
+    .td-text-adjustment {
+      .tdm-title-sm {
+        font-size: 17px;
+        line-height: 1;
+      }
+    }
+  }
+
+
+  //logos module
+  .td-logo-wrap {
+    .tdm_block_client {
+
+      /* portrait phone */
+      @media (max-width: @responsive_p_phone_max) {
+        width: 50% !important;
+      }
+    }
+  }
+
+
+  //pricing
+  .tdm_block_pricing {
+    /* portrait tablet */
+    @media (min-width: @responsive_p_tablet_min) and (max-width: @responsive_p_tablet_max) {
+      .tdm-pricing-features {
+        font-size: 13px;
+        line-height: 20px;
+      }
+
+      .tdm-descr {
+        font-size: 12px;
+        line-height: 20px;
+      }
+    }
+  }
+
+
+  //footer space
+  .td-main-page-wrap {
+    padding-bottom: 0;
+  }
+
+
+  //footer wrap
+  .td-multipourpose-footer {
+    .widget {
+      margin-bottom: 0;
+    }
+
+    .td_block_wrap {
+      margin-bottom: 0;
+    }
+
+    .td_block_list_menu {
+      /* portrait phone */
+      @media (max-width: @responsive_p_phone_max) {
+        text-align: center !important;
+      }
+    }
+
+    .menu-item {
+      display: inline-block;
+      margin-left: 50px;
+
+      /* portrait phone */
+      @media (max-width: @responsive_p_phone_max) {
+        margin-left: 10px;
+        margin-right: 10px;
+      }
+
+      a {
+        color: #fff;
+        text-transform: uppercase;
+
+        &:hover {
+          opacity: 0.7;
+        }
+      }
+    }
+
+    .tdm_block_inline_text {
+      /* portrait phone */
+      @media (max-width: @responsive_p_phone_max) {
+        display: block;
+        text-align: center;
+      }
+    }
+
+    .tdm-descr {
+      font-size: 12px;
+      line-height: 58px;
+    }
+  }
+
+
+  //articles
+  .td_module_14 {
+
+    .td-module-title {
+      /* portrait tablet */
+      @media (min-width: @responsive_p_tablet_min) and (max-width: @responsive_p_tablet_max) {
+        font-size: 36px;
+        line-height: 48px;
+      }
+
+      /* portrait phone */
+      @media (max-width: @responsive_p_phone_max) {
+        font-size: 24px;
+        line-height: 32px;
+      }
+    }
+
+    .td-module-meta-holder {
+      padding: 20px 30px 24px 30px;
+
+      /* portrait tablet */
+      @media (min-width: @responsive_p_tablet_min) and (max-width: @responsive_p_tablet_max) {
+        padding: 15px 25px 20px 25px;
+      }
+
+      /* portrait phone */
+      @media (max-width: @responsive_p_phone_max) {
+        padding: 10px 15px 14px 15px;
+      }
+    }
+
+    .td-read-more a {
+      background-color: transparent;
+      color: #22a0d6;
+      border-width: 2px;
+      border-style: solid;
+      border-color: #22a0d6;
+      border-radius: 25px;
+      padding: 10px 20px;
+
+      &:hover {
+        color: #fff;
+        background-color: #22a0d6 !important;
+      }
+    }
+  }
+
+  // demos button
+  #td-theme-settings .td-skin-buy a {
+    background-color: #22a0d6;
+  }
+}

@@ -1,0 +1,32 @@
+@import "../../less_files/variables.less";
+@import "../../less_files/mixin.less";
+
+
+.td-entertainment {
+
+  .td-header-gradient:before {
+    display: none;
+  }
+
+  .td_block_template_5 {
+    .td-block-title {
+      margin-bottom: 32px;
+      margin-left: -17px;
+
+      > * {
+        border-left-width: 3px;
+      }
+
+      /* responsive portrait tablet */
+      @media (min-width: @responsive_p_tablet_min) and (max-width: @responsive_p_tablet_max) {
+        margin-bottom: 26px;
+      }
+      /* responsive portrait phone */
+      @media (max-width: @responsive_p_phone_max) {
+        margin-bottom: 22px;
+        margin-left: -15px;
+      }
+    }
+  }
+
+}

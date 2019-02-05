@@ -1,0 +1,43 @@
+/*  ----------------------------------------------------------------------------
+    responsive settings
+*/
+/* responsive landscape tablet */
+/* responsive portrait tablet */
+/* responsive portrait phone */
+.import_video_slider_bg {
+  margin-top: -48px;
+  padding-top: 48px;
+  background-color: #222;
+}
+.import_video_bg {
+  background-color: #e0e0e0;
+}
+.import_video_bg .td-all-devices,
+.import_video_bg .td-a-rec-id-custom_ad_1 > div,
+.import_video_bg .td-a-rec-id-custom_ad_2 > div,
+.import_video_bg .td-a-rec-id-custom_ad_3 > div,
+.import_video_bg .td-a-rec-id-custom_ad_4 > div,
+.import_video_bg .td-a-rec-id-custom_ad_5 > div {
+  margin-bottom: 21px;
+}
+.import_video_bg img {
+  display: inline-block;
+  vertical-align: top;
+}
+.import_dont_miss {
+  margin-bottom: 48px;
+  padding-top: 48px;
+  background-color: #222;
+}
+@media (max-width: 767px) {
+  .import_video_slider_bg {
+    margin-top: -32px;
+    padding-top: 0;
+  }
+  .import_video_slider_bg .td_block_wrap {
+    padding-bottom: 0 !important;
+  }
+}
+.td-video-demo #td-theme-settings .td-skin-buy a {
+  background-color: #F8C900;
+}

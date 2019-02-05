@@ -1,0 +1,130 @@
+/*  ----------------------------------------------------------------------------
+    Module general
+*/
+.td-module-thumb,
+.td_module_wrap {
+  position: relative;
+}
+.td-module-thumb {
+  .entry-thumb {
+    display: block;
+  }
+}
+.entry-thumb {
+  width: 100%; // make full width thumbs
+}
+
+// video icon
+.td-video-play-ico > img {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  width: 30px;
+}
+// date
+.td-post-date {
+  display: inline-block;
+  font-size: 12px;
+  line-height: 16px;
+}
+// reviews
+.entry-review-stars {
+  display: inline-block;
+  i {
+    margin-right: 1px;
+  }
+}
+// admin edit
+.td-admin-edit {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  padding: 5px 8px;
+  font-size: 10px;
+  text-decoration: none;
+  line-height: 1;
+  text-transform: capitalize;
+}
+// category on modules
+.td-post-category {
+  font-size: 9px;
+  line-height: 10px;
+  background-color: @td_black;
+  color: #fff;
+  margin-right: 5px;
+  padding: 4px 6px;
+  display: inline-table;
+  vertical-align: middle;
+  text-transform: uppercase;
+  pointer-events: auto;
+}
+// post title
+.entry-title {
+  -ms-word-wrap: break-word;
+  word-wrap: break-word;
+}
+
+/*  ----------------------------------------------------------------------------
+    Module M1
+*/
+// module M1
+.td_module_amp_1 {
+  margin-bottom: 30px;
+  position: relative;
+
+  .td-module-thumb {
+    position: absolute;
+    overflow: hidden;
+    left: 0;
+    top: 0;
+    width: 120px;
+    height: 85px;
+
+    /* responsive portrait iPhone 5 */
+    @media (max-width: 320px) {
+      width: 100px;
+      height: 70px;
+    }
+
+    amp-img,
+    amp-anim {
+      max-width: 100%;
+    }
+  }
+  .item-details {
+    margin-left: 135px;
+    min-height: 85px;
+
+    /* responsive portrait iPhone 5 */
+    @media (max-width: 320px) {
+      margin-left: 115px;
+      min-height: 70px;
+    }
+  }
+  .entry-title {
+    margin: 0 0 5px 0;
+    font-size: 17px;
+    line-height: 20px;
+
+    a {
+      color: #000;
+    }
+  }
+  // date
+  .td-post-date {
+    color: #444;
+  }
+  // reviews
+  .entry-review-stars {
+    position: relative;
+    top: 3px;
+  }
+}

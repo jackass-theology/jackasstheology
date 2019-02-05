@@ -1,0 +1,57 @@
+@import "../../less_files/variables.less";
+
+.td-book-club-demo {
+  .td-header-menu-wrap {
+    border-color: #eaeaea;
+    border-style: solid;
+    border-width: 1px 0;
+
+    &:before {
+      display: none;
+    }
+  }
+
+  /* tablet + desktop */
+  @media (min-width: @responsive_p_phone_max) {
+    .td-header-sp-logo {
+      padding-top: 26px;
+      padding-bottom: 26px;
+    }
+  }
+  
+  .sf-menu > .current-menu-item > a,
+  .sf-menu > .current-menu-ancestor > a,
+  .sf-menu > .current-category-ancestor > a,
+  .sf-menu > li:hover > a,
+  .sf-menu > .sfHover > a {
+    color: @td_theme_color !important;
+
+    &:after {
+      background-color: transparent;
+    }
+  }
+
+  /* responsive portrait phone */
+  @media (max-width: @responsive_p_phone_max) {
+    .hesperiden.tparrows {
+      width: 50px !important;
+      height: 50px !important;
+
+      &:before {
+        font-size: 20px !important;
+        line-height: 50px !important;
+      }
+    }
+  }
+
+
+  .footer-logo-wrap img {
+    display: block;
+    margin: 0 auto;
+  }
+
+  // demos button
+  #td-theme-settings .td-skin-buy a {
+    background-color: #505162;
+  }
+}

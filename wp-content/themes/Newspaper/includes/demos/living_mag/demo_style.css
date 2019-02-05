@@ -1,0 +1,91 @@
+/*  ----------------------------------------------------------------------------
+    responsive settings
+*/
+/* responsive landscape tablet */
+/* responsive portrait tablet */
+/* responsive portrait phone */
+.mx_image_background {
+  background-color: #f2f2f2;
+}
+.td-visibility-hidden {
+  visibility: hidden;
+}
+/*  ----------------------------------------------------------------------------
+    from bootstrap
+*/
+.clearfix {
+  *zoom: 1;
+}
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.clearfix:after {
+  clear: both;
+}
+/*
+usage:
+.td-block-row {
+  .mx-row(td-block-span);
+}
+
+@all_span_selector - is the begining of the span selector
+ */
+.td-living-mag .td-header-style-10 {
+  /* responsive portrait phone */
+}
+@media (max-width: 767px) {
+  .td-living-mag .td-header-style-10 .td-logo-wrap-full {
+    padding-top: 54px;
+  }
+  .td-living-mag .td-header-style-10 .td-logo-wrap-full .td-logo {
+    line-height: 240px;
+  }
+  .td-living-mag .td-header-style-10 .td-header-menu-wrap-full {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+}
+.td-living-mag .td-header-style-10 .td-header-gradient:before {
+  display: none;
+}
+.td-living-mag .td-header-style-10 .td-header-gradient.td-affix:before {
+  display: block;
+}
+.td-living-mag .td-header-style-10 .sf-menu > li > a {
+  margin-left: 26px;
+  padding: 0 6px;
+}
+.td-living-mag .td-header-style-10 .sf-menu > li > a:after {
+  height: 2px;
+}
+.td-living-mag .td-header-style-10 .sf-menu > li:first-child > a {
+  margin-left: 0;
+}
+.td-living-mag .td-header-style-10 .sf-menu a.sf-with-ul {
+  padding-right: 22px;
+}
+.td-living-mag.page-template-page-pagebuilder-overlay .td-header-style-10 {
+  /* responsive portrait phone */
+}
+.td-living-mag.page-template-page-pagebuilder-overlay .td-header-style-10 .td-header-menu-wrap-full {
+  background-color: transparent;
+}
+@media (max-width: 767px) {
+  .td-living-mag.page-template-page-pagebuilder-overlay .td-header-style-10 .td-logo-wrap-full {
+    min-height: 240px;
+    line-height: 240px;
+  }
+  .td-living-mag.page-template-page-pagebuilder-overlay .td-header-style-10 .td-logo-wrap-full .td-logo {
+    line-height: 240px;
+  }
+}
+.td-living-mag #td-mobile-nav .td-register-section .td-login-button {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
