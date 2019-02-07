@@ -3,7 +3,7 @@ Contributors: rnzo
 Donate link: http://bit.ly/2HdTzmO
 Tags: mailchimp, chimpmail, mailchimp form, mailchimp list, newsletter
 Requires at least: 4.0
-Tested up to: 4.9
+Tested up to: 5.0.5
 Stable tag: 4.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -77,6 +77,10 @@ Do you have questions or issues with Contact Form 7 MailChimp Extension? Use the
 == Changelog ==
 
 For more information, see [Releases](http://renzojohnson.com/contributions/contact-form-7-mailchimp-extension).
+
+= 0.4.50 =
+
+* Fixed reported PHP error
 
 = 0.4.50 =
 
