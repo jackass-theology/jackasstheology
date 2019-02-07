@@ -5,7 +5,8 @@
 /sitemap.*
 /wp-config.php
 *.sql
-
+*_notes/*
+dwsync.xml
 # Hidden files
 *.DS_Store
 *Thumbs.db
