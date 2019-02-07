@@ -12,4 +12,4 @@ dwsync.xml
 *Thumbs.db
 *.sass-cache*
 *~imageoptim*
-
+.vscode
