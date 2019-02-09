@@ -1,4 +1,4 @@
 # jackasstheology
 jackasstheology.com
 
-edited by Mark
+MARK IS A GIANT JACKASS!!
