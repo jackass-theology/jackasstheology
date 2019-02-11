@@ -1,0 +1,427 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Project-Id-Version: SKT Cafe\n"
+"POT-Creation-Date: 2018-12-28 16:15+0530\n"
+"PO-Revision-Date: 2018-12-26 11:18+0530\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.4\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: style.css\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
+"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: 404.php:13
+msgid "404 Not Found"
+msgstr ""
+
+#: 404.php:17
+msgid ""
+"Looks like you have taken a wrong turn.....Dont worry... it happens to the "
+"best of us."
+msgstr ""
+
+#: archive.php:31 front-page.php:170 front-page.php:205
+msgid "Back"
+msgstr ""
+
+#: archive.php:32 front-page.php:171 front-page.php:206
+msgid "Next"
+msgstr ""
+
+#: archive.php:33
+msgid "Posts navigation"
+msgstr ""
+
+#: category.php:17
+msgid "Category: "
+msgstr ""
+
+#. translators: 1: number of comments, 2: post title
+#: comments.php:27
+#, php-format
+msgctxt "comments title"
+msgid "%1$s thought on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
+msgstr[0] ""
+msgstr[1] ""
+
+#: comments.php:35 comments.php:53
+msgid "Comment navigation"
+msgstr ""
+
+#: comments.php:36 comments.php:54
+msgid "&larr; Older Comments"
+msgstr ""
+
+#: comments.php:37 comments.php:55
+msgid "Newer Comments &rarr;"
+msgstr ""
+
+#: comments.php:63
+msgid "Comments are closed."
+msgstr ""
+
+#: content-single.php:22 image.php:49 page.php:23 template-fullwide.php:17
+msgid "Pages:"
+msgstr ""
+
+#: content-single.php:26 page.php:27 template-fullwide.php:21
+msgid "Page"
+msgstr ""
+
+#: content.php:17
+msgid ", "
+msgstr ""
+
+#: content.php:24
+msgid "Read More &rarr;"
+msgstr ""
+
+#: content.php:28
+msgid "Continue reading <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: customize-pro/example-1/class-customize.php:76
+msgid "Upgrade to Pro"
+msgstr ""
+
+#: customize-pro/example-1/class-customize.php:77
+msgid "Upgrade Now"
+msgstr ""
+
+#: footer.php:34
+msgid "Facebook"
+msgstr ""
+
+#: footer.php:37
+msgid "Twitter"
+msgstr ""
+
+#: footer.php:40
+msgid "Google Plus"
+msgstr ""
+
+#: footer.php:43
+msgid "Youtube"
+msgstr ""
+
+#: footer.php:46
+msgid "Instagram"
+msgstr ""
+
+#: footer.php:49
+msgid "Linkedin"
+msgstr ""
+
+#: front-page.php:67 front-page.php:94
+msgid "Read More"
+msgstr ""
+
+#: functions.php:37
+msgid "Primary Menu"
+msgstr ""
+
+#: functions.php:38
+msgid "Footer Menu"
+msgstr ""
+
+#: functions.php:49
+msgid "Blog Sidebar"
+msgstr ""
+
+#: functions.php:50
+msgid "Appears on blog page sidebar"
+msgstr ""
+
+#: functions.php:66
+msgctxt "Roboto Condensed:on or off"
+msgid "on"
+msgstr ""
+
+#: functions.php:71
+msgctxt "Scada:on or off"
+msgid "on"
+msgstr ""
+
+#: functions.php:72
+msgctxt "Lato:on or off"
+msgid "on"
+msgstr ""
+
+#: functions.php:73
+msgctxt "Roboto:on or off"
+msgid "on"
+msgstr ""
+
+#: functions.php:74
+msgctxt "Open Sans:on or off"
+msgid "on"
+msgstr ""
+
+#: functions.php:75
+msgctxt "Assistant:on or off"
+msgid "on"
+msgstr ""
+
+#: functions.php:76
+msgctxt "Lora:on or off"
+msgid "on"
+msgstr ""
+
+#: functions.php:77
+msgctxt "Pattaya:on or off"
+msgid "on"
+msgstr ""
+
+#: functions.php:78
+msgctxt "Marcellus:on or off"
+msgid "on"
+msgstr ""
+
+#: header.php:63
+msgid "Menu"
+msgstr ""
+
+#: image.php:27 image.php:54
+msgid "Edit"
+msgstr ""
+
+#: inc/about-themes.php:5
+msgid "About Theme"
+msgstr ""
+
+#: inc/about-themes.php:15
+msgid "Theme Information"
+msgstr ""
+
+#. Description of the plugin/theme
+#: inc/about-themes.php:17
+msgid "Description Goes Here"
+msgstr ""
+
+#: inc/about-themes.php:23
+msgid "Live Demo"
+msgstr ""
+
+#: inc/about-themes.php:24
+msgid "Buy Pro"
+msgstr ""
+
+#: inc/about-themes.php:25
+msgid "Documentation"
+msgstr ""
+
+#: inc/customizer.php:70
+msgid "Color Scheme"
+msgstr ""
+
+#: inc/customizer.php:71
+msgid "More color options in PRO Version"
+msgstr ""
+
+#: inc/customizer.php:78
+msgid "Slider Settings"
+msgstr ""
+
+#: inc/customizer.php:80
+msgid ""
+"Featured Image Size Should be ( 1400 X 789 ) More slider settings available "
+"in PRO Version"
+msgstr ""
+
+#: inc/customizer.php:90
+msgid "Select page for slide one:"
+msgstr ""
+
+#: inc/customizer.php:100
+msgid "Select page for slide two:"
+msgstr ""
+
+#: inc/customizer.php:110
+msgid "Select page for slide three:"
+msgstr ""
+
+#: inc/customizer.php:120
+msgid "Uncheck To Show Slider"
+msgstr ""
+
+#: inc/customizer.php:125
+msgid "Header Topbar"
+msgstr ""
+
+#: inc/customizer.php:126 inc/customizer.php:276
+msgid "More social icon available in PRO Version"
+msgstr ""
+
+#: inc/customizer.php:135
+msgid "Add contact number here."
+msgstr ""
+
+#: inc/customizer.php:145
+msgid "Add contact address here."
+msgstr ""
+
+#: inc/customizer.php:157 inc/customizer.php:185 inc/customizer.php:250
+msgid "Uncheck To Show This Section"
+msgstr ""
+
+#: inc/customizer.php:164
+msgid "Home Section One"
+msgstr ""
+
+#: inc/customizer.php:165
+msgid "Select Page from the dropdown"
+msgstr ""
+
+#: inc/customizer.php:191
+msgid "Home Section Two"
+msgstr ""
+
+#: inc/customizer.php:192
+msgid "Select Page from the dropdown for section"
+msgstr ""
+
+#: inc/customizer.php:202
+msgid "Add title for section title"
+msgstr ""
+
+#: inc/customizer.php:255
+msgid "Footer Area"
+msgstr ""
+
+#: inc/customizer.php:256
+msgid ""
+"Manager Footer From Widgets >> Footer Column 1, Footer Column 2, Footer "
+"Column 3"
+msgstr ""
+
+#: inc/customizer.php:275
+msgid "Social Settings"
+msgstr ""
+
+#: inc/customizer.php:284
+msgid "Add Facebook link here"
+msgstr ""
+
+#: inc/customizer.php:293
+msgid "Add Twitter link here"
+msgstr ""
+
+#: inc/customizer.php:302
+msgid "Add Google plus link here"
+msgstr ""
+
+#: inc/customizer.php:311
+msgid "Add Youtube link here"
+msgstr ""
+
+#: inc/customizer.php:320
+msgid "Add Instagram link here"
+msgstr ""
+
+#: inc/customizer.php:329
+msgid "Add Linkedin link here"
+msgstr ""
+
+#: inc/template-tags.php:28
+msgid "Post navigation"
+msgstr ""
+
+#: inc/template-tags.php:30
+msgctxt "Previous post link"
+msgid "&larr;"
+msgstr ""
+
+#: inc/template-tags.php:31
+msgctxt "Next post link"
+msgid "&rarr;"
+msgstr ""
+
+#: inc/template-tags.php:55
+msgid "Pingback:"
+msgstr ""
+
+#: inc/template-tags.php:74
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: inc/template-tags.php:161
+msgctxt "Used before publish date."
+msgid "<span class=\"screen-reader-text\">Posted on</span>"
+msgstr ""
+
+#: no-results.php:11
+msgid "Nothing Found"
+msgstr ""
+
+#. translators: %s: publish post started
+#: no-results.php:17
+#, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#: no-results.php:19
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+
+#: no-results.php:22
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+
+#. translators: %s: search term
+#: search.php:16
+#, php-format
+msgid "Search Results for: %s"
+msgstr ""
+
+#: searchform.php:10
+msgid "Search..."
+msgstr ""
+
+#: searchform.php:12
+msgid "Search"
+msgstr ""
+
+#: sidebar.php:10
+msgid "Category"
+msgstr ""
+
+#: sidebar.php:16
+msgid "Archives"
+msgstr ""
+
+#: sidebar.php:22
+msgid "Meta"
+msgstr ""
+
+#. Theme Name of the plugin/theme
+msgid "SKT Cafe"
+msgstr ""
+
+#. Theme URI of the plugin/theme
+msgid "https://www.sktthemes.net/shop/free-coffeehouse-wordpress-theme"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "SKT Themes"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://www.sktthemes.net"
+msgstr ""
