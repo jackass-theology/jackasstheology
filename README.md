@@ -1,4 +1,4 @@
 # jackasstheology
 jackasstheology.com
 
-MARK IS NOT A JACKASS
+MARK IS A GIANT JACKASS!!
