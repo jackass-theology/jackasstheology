@@ -19,6 +19,7 @@
  */
 
 // ** MySQL settings - You can get this info from your web host ** //
+define('REVISR_GIT_PATH', ''); // Added by Revisr
 define('DB_NAME',     'wordpress'); // The name of the database for WordPress
 define('DB_USER',     'root');      // MySQL database username
 define('DB_PASSWORD', 'root');      // MySQL database password
