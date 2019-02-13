@@ -7,6 +7,7 @@
 *.sql
 *_notes/*
 dwsync.xml
+*/**/_notes/*
 # Hidden files
 *.DS_Store
 *Thumbs.db
