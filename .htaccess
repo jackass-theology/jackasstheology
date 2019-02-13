@@ -1,21 +1,21 @@
-
-<IfModule mod_rewrite.c>
-
 # BEGIN WordPress
 <IfModule mod_rewrite.c>
-RewriteEngine On
-RewriteBase /jackassgithub/
-RewriteRule ^index\.php$ - [L]
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /jackassgithub/index.php [L]
-</IfModule>
+  RewriteEngine On
+  RewriteBase /jackasstheology/
+  RewriteRule ^index\.php$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /jackasstheology/index.php [L]
 
-# END WordPress
-
-  # Attempt to load files from production if
-  # they're not in our local version
-  # RewriteCond %{REQUEST_FILENAME} !-d
-  # RewriteCond %{REQUEST_FILENAME} !-f
+  # Attempt to load files from production if they're not in our local version
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME} !-f
   RewriteRule wp-content/uploads/(.*) http://www.jackasstheology.com/wp-content/uploads/$1 [NC,L]
 </IfModule>
+# END WordPress
+
+# disallow searching for wp-config.php file
+<files wp-config.php>
+  order allow,deny
+  deny from all
+</files>
