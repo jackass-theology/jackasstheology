@@ -14,3 +14,4 @@ dwsync.xml
 *.sass-cache*
 *~imageoptim*
 .vscode
+.htaccess
