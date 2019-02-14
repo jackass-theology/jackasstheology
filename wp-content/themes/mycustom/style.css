@@ -13,6 +13,28 @@ Template: Newspaper
 
 @import url('../Newspaper/style.css');
 
+/*BLOCK TEXT HOMEPAGE*/ 
+.tdm_block.tdm_block_inline_text 
+    .tdm-descr  {
+        
+    font-family: open sans;
+    font-size: 16px;
+    font-weight: 100; 
+    line-height: 1.5em;
+    }
+    
+.tdm-header-style-1 .td-main-menu-logo img, .tdm-header-style-2 .td-main-menu-logo img, .tdm-header-style-3 .td-main-menu-logo img {
+    max-height: 90px;
+}
+
+/*.td_block_slide .iosSlider-col-1 */.entry-title {
+    padding-top: 30px;
+    font-family: Merriweather;
+    font-weight: 200; 
+    line-height: 1.4em;
+    font-size: 30px;
+}  
+
 .td-post-template-7 .td-post-header .entry-title {
     font-family: Merriweather;
     font-size: 60px;
@@ -20,16 +42,35 @@ Template: Newspaper
     font-weight: 100;
     text-align:center; 
 }
+ 
+/*HOMEPAGE*/
 
- .td-post-template-7 .td-post-content {
-  
-    margin-top: 21px;
-    padding-bottom: 30px;
-    padding-left: 0;
-    padding-right: 0;
+/*height of Homepage Hero Element*/
+#jackass-hero {
     
- }
-    
+min-height: 90vh !important;
+}
+
+
+/*POSTS*/
+
+	.td-pb-span8 {
+    width:100%;
+	}
+
+	.td-post-content {
+	margin-left:auto;
+	margin-right:auto;
+	width:50em; 
+
+	}
+
+	.td-post-sharing-visible {
+    position: relative;
+    display: block;
+    text-align: center;
+	}
+
     .td-post-content p {
         
     font-family: Merriweather;
@@ -39,26 +80,15 @@ Template: Newspaper
     
     }
     
-  .tdm_block.tdm_block_inline_text 
-    .tdm-descr  {
-        
-    font-family: open sans;
-    font-size: 16px;
-    font-weight: 100; 
-    line-height: 1.5em;
+ /*LIKE COUNTER BOTTOM*/
 
-    }
-    
-.tdm-header-style-1 .td-main-menu-logo img, .tdm-header-style-2 .td-main-menu-logo img, .tdm-header-style-3 .td-main-menu-logo img {
-    max-height: 90px;
+.td-post-sharing-classic
+
+{
+    text-align:center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 6em;
 }
-
-.td_block_slide .iosSlider-col-1 .entry-title {
-    padding-top: 30px;
-    font-family: Merriweather;
-    font-weight: 200; 
-    line-height: 1.4em;
-    font-size: 30px;
-}  
 
     
