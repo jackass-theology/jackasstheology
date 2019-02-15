@@ -9,3 +9,4 @@
 2019-02-14 05:43:16#40 - SyncApiController::__construct() action=auth source=http://localhost:8888/jackasstheology key=c44bfe277594742f20ae176b9cdd21af
 2019-02-14 05:43:16#40 - SyncApiController::__construct() - verifying nonce
 2019-02-14 05:43:16#40 - SyncApiResponse::__toString() returning response data: '{"error_code":0,"session_timeout":1,"has_errors":0,"success":1,"data":{"token":"to2cZSrXvAVKUKLKaSJJMqjtrNeMcf9WNOz26YFW4GaN3JIT","access_nonce":"a4b02e54ec","auth_cookie":"eritchey|1550126596|PHyS0ZOSWkvGFI7XYbtn4kQw1Sy1G3Mcp9aLaKu7Ub4|4d20c444eb9283a2b3b9664fa2b62b9551a1e535acef72022f092aa192ffbe62","user_id":1,"site_key":"d64a2be83811595dcc0473bc0fbc3d2f"}}'
+2019-02-15 05:32:43#46 - WPSiteSyncContent::filter_unique_filename() filename=Rob-Bell-1170x779.jpg ext=.jpg dir=/home/jackas5/dev.jackasstheology.com/wp-content/uploads/2019/02
