@@ -14,3 +14,7 @@
 2019-02-15 22:22:22#52 - WPSiteSyncContent::filter_unique_filename() filename=wp-migrate-db.1.0.10-yni7u7.tmp ext=.tmp dir=/tmp/
 2019-02-15 22:29:55#19 - WPSiteSyncContent::filter_unique_filename() filename=wp-migrate-db-pro-1.9.3.zip ext=.zip dir=/home/jackas5/dev.jackasstheology.com/wp-content/uploads/2019/02
 2019-02-15 22:29:55#19 - WPSiteSyncContent::filter_upgrader_download() package='/home/jackas5/dev.jackasstheology.com/wp-content/uploads/2019/02/wp-migrate-db-pro-1.9.3.zip'
+2019-02-19 21:07:27#38 - WPSiteSyncContent::filter_upgrader_download() package='https://api.deliciousbrains.com/?wc-api=delicious-brains&request=download&licence_key=43bd757f-7e76-45f3-a475-8d3ae47c0653&slug=wp-migrate-db-pro-media-files&site_url=http://dev.jackasstheology.com'
+2019-02-19 21:07:27#38 - WPSiteSyncContent::filter_unique_filename() filename=1550610447-Mrtyze.tmp ext=.tmp dir=/tmp/
+2019-02-19 21:08:27#71 - WPSiteSyncContent::filter_upgrader_download() package='https://api.deliciousbrains.com/?wc-api=delicious-brains&request=download&licence_key=43bd757f-7e76-45f3-a475-8d3ae47c0653&slug=wp-migrate-db-pro-theme-plugin-files&site_url=http://dev.jackasstheology.com'
+2019-02-19 21:08:27#71 - WPSiteSyncContent::filter_unique_filename() filename=1550610507-vjlThV.tmp ext=.tmp dir=/tmp/
