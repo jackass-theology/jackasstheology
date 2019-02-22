@@ -252,3 +252,11 @@
 2019-02-20 04:16:15#21 - SyncModel::remove_all_sync_data() sql=DELETE FROM `wp_spectrom_sync`
 			WHERE (`source_content_id`=341 AND `site_key`='d64a2be83811595dcc0473bc0fbc3d2f') OR
 				(`target_content_id`=341 AND `target_site_key`='d64a2be83811595dcc0473bc0fbc3d2f')
+2019-02-21 17:04:28#91 - WPSiteSyncContent::filter_unique_filename() filename=beard-black-and-white-earing-1278566.jpg ext=.jpg dir=/home/jackas5/dev.jackasstheology.com/wp-content/uploads/2019/02
+2019-02-21 17:27:03#47 - WPSiteSyncContent::filter_unique_filename() filename=REINTEGRATE-Friends_women.jpg ext=.jpg dir=/home/jackas5/dev.jackasstheology.com/wp-content/uploads/2019/02
+2019-02-21 17:27:05#41 - WPSiteSyncContent::filter_unique_filename() filename=REINTEGRATE-friends.jpg ext=.jpg dir=/home/jackas5/dev.jackasstheology.com/wp-content/uploads/2019/02
+2019-02-21 17:27:08#95 - WPSiteSyncContent::filter_unique_filename() filename=REINTEGRATE-love.jpg ext=.jpg dir=/home/jackas5/dev.jackasstheology.com/wp-content/uploads/2019/02
+2019-02-21 17:27:10#11 - WPSiteSyncContent::filter_unique_filename() filename=REINTEGRATE-roadmerge.jpg ext=.jpg dir=/home/jackas5/dev.jackasstheology.com/wp-content/uploads/2019/02
+2019-02-21 20:06:34#26 - WPSiteSyncContent::filter_unique_filename() filename=HOME-All-Jackasses.jpg ext=.jpg dir=/home/jackas5/dev.jackasstheology.com/wp-content/uploads/2019/02
+2019-02-21 20:07:26#40 - WPSiteSyncContent::filter_unique_filename() filename=HOME-All-Jackasses.jpg ext=.jpg dir=/home/jackas5/dev.jackasstheology.com/wp-content/uploads/2019/02
+2019-02-22 04:45:20#49 - WPSiteSyncContent::filter_unique_filename() filename=04-Self-Righteous-Mind.jpg ext=.jpg dir=/home/jackas5/dev.jackasstheology.com/wp-content/uploads/2019/02
