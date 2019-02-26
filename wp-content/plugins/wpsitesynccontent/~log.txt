@@ -260,3 +260,16 @@
 2019-02-21 20:06:34#26 - WPSiteSyncContent::filter_unique_filename() filename=HOME-All-Jackasses.jpg ext=.jpg dir=/home/jackas5/dev.jackasstheology.com/wp-content/uploads/2019/02
 2019-02-21 20:07:26#40 - WPSiteSyncContent::filter_unique_filename() filename=HOME-All-Jackasses.jpg ext=.jpg dir=/home/jackas5/dev.jackasstheology.com/wp-content/uploads/2019/02
 2019-02-22 04:45:20#49 - WPSiteSyncContent::filter_unique_filename() filename=04-Self-Righteous-Mind.jpg ext=.jpg dir=/home/jackas5/dev.jackasstheology.com/wp-content/uploads/2019/02
+2019-02-26 00:12:51#31 - WPSiteSyncContent::filter_unique_filename() filename=05-Bill-Johnson.jpg ext=.jpg dir=/home/jackas5/dev.jackasstheology.com/wp-content/uploads/2019/02
+2019-02-26 00:14:59#18 - WPSiteSyncContent::filter_unique_filename() filename=05-Villian.jpg ext=.jpg dir=/home/jackas5/dev.jackasstheology.com/wp-content/uploads/2019/02
+2019-02-26 00:24:20#38 - SyncModel::remove_all_sync_data() sql=DELETE FROM `wp_spectrom_sync`
+			WHERE (`source_content_id`=815 AND `site_key`='d64a2be83811595dcc0473bc0fbc3d2f') OR
+				(`target_content_id`=815 AND `target_site_key`='d64a2be83811595dcc0473bc0fbc3d2f')
+2019-02-26 01:44:32#75 - WPSiteSyncContent::filter_unique_filename() filename=06-Søren-Kierkegaard_2-3.jpg ext=.jpg dir=/home/jackas5/dev.jackasstheology.com/wp-content/uploads/2019/02
+2019-02-26 01:45:42#91 - WPSiteSyncContent::filter_unique_filename() filename=06-Søren-Kierkegaard-2.jpg ext=.jpg dir=/home/jackas5/dev.jackasstheology.com/wp-content/uploads/2019/02
+2019-02-26 03:37:25#17 - WPSiteSyncContent::filter_unique_filename() filename=09-De-Cervantes.jpg ext=.jpg dir=/home/jackas5/dev.jackasstheology.com/wp-content/uploads/2019/02
+2019-02-26 03:37:33#27 - WPSiteSyncContent::filter_unique_filename() filename=09-mathew-schwartz-398521-unsplash-1.jpg ext=.jpg dir=/home/jackas5/dev.jackasstheology.com/wp-content/uploads/2019/02
+2019-02-26 03:37:37#86 - WPSiteSyncContent::filter_unique_filename() filename=09-sven-brandsma-342430-unsplash.jpg ext=.jpg dir=/home/jackas5/dev.jackasstheology.com/wp-content/uploads/2019/02
+2019-02-26 03:38:20#67 - SyncModel::remove_all_sync_data() sql=DELETE FROM `wp_spectrom_sync`
+			WHERE (`source_content_id`=830 AND `site_key`='d64a2be83811595dcc0473bc0fbc3d2f') OR
+				(`target_content_id`=830 AND `target_site_key`='d64a2be83811595dcc0473bc0fbc3d2f')
