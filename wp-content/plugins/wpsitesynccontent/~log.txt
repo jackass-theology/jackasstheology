@@ -273,3 +273,27 @@
 2019-02-26 03:38:20#67 - SyncModel::remove_all_sync_data() sql=DELETE FROM `wp_spectrom_sync`
 			WHERE (`source_content_id`=830 AND `site_key`='d64a2be83811595dcc0473bc0fbc3d2f') OR
 				(`target_content_id`=830 AND `target_site_key`='d64a2be83811595dcc0473bc0fbc3d2f')
+2019-02-26 16:11:08#11 - WPSiteSyncContent::filter_unique_filename() filename=10-Limitless.jpg ext=.jpg dir=/home/jackas5/dev.jackasstheology.com/wp-content/uploads/2019/02
+2019-02-26 16:12:23#24 - WPSiteSyncContent::filter_unique_filename() filename=10-Superhero.jpg ext=.jpg dir=/home/jackas5/dev.jackasstheology.com/wp-content/uploads/2019/02
+2019-02-26 22:48:09#67 - WPSiteSyncContent::filter_unique_filename() filename=07-architecture-auditorium-chairs-109669-2.jpg ext=.jpg dir=/home/jackas5/dev.jackasstheology.com/wp-content/uploads/2019/02
+2019-02-26 22:52:19#37 - SyncModel::remove_all_sync_data() sql=DELETE FROM `wp_spectrom_sync`
+			WHERE (`source_content_id`=844 AND `site_key`='d64a2be83811595dcc0473bc0fbc3d2f') OR
+				(`target_content_id`=844 AND `target_site_key`='d64a2be83811595dcc0473bc0fbc3d2f')
+2019-02-26 23:18:53#47 - WPSiteSyncContent::filter_upgrader_download() package='https://downloads.wordpress.org/plugin/easy-pull-quotes.1.2.2.zip'
+2019-02-26 23:18:53#47 - WPSiteSyncContent::filter_unique_filename() filename=easy-pull-quotes.1.2.2-p6Zyoy.tmp ext=.tmp dir=/tmp/
+2019-02-26 23:21:36#39 - WPSiteSyncContent::filter_unique_filename() filename=06-Søren-Kierkegaard-2-2.jpg ext=.jpg dir=/home/jackas5/dev.jackasstheology.com/wp-content/uploads/2019/02
+2019-02-26 23:21:39#90 - WPSiteSyncContent::filter_unique_filename() filename=06-Søren-Kierkegaard-2-1.jpg ext=.jpg dir=/home/jackas5/dev.jackasstheology.com/wp-content/uploads/2019/02
+2019-02-26 23:21:50#12 - WPSiteSyncContent::filter_unique_filename() filename=06-Søren-Kierkegaard_3.jpg ext=.jpg dir=/home/jackas5/dev.jackasstheology.com/wp-content/uploads/2019/02
+2019-02-26 23:28:13#54 - WPSiteSyncContent::filter_unique_filename() filename=06-Søren-Kierkegaard-2-2-1.jpg ext=.jpg dir=/home/jackas5/dev.jackasstheology.com/wp-content/uploads/2019/02
+2019-02-26 23:28:44#68 - WPSiteSyncContent::filter_unique_filename() filename=06-Søren-Kierkegaard-2-2-2.jpg ext=.jpg dir=/home/jackas5/dev.jackasstheology.com/wp-content/uploads/2019/02
+2019-02-26 23:31:32#52 - SyncModel::remove_all_sync_data() sql=DELETE FROM `wp_spectrom_sync`
+			WHERE (`source_content_id`=852 AND `site_key`='d64a2be83811595dcc0473bc0fbc3d2f') OR
+				(`target_content_id`=852 AND `target_site_key`='d64a2be83811595dcc0473bc0fbc3d2f')
+2019-02-26 23:32:36#28 - SyncModel::remove_all_sync_data() sql=DELETE FROM `wp_spectrom_sync`
+			WHERE (`source_content_id`=881 AND `site_key`='d64a2be83811595dcc0473bc0fbc3d2f') OR
+				(`target_content_id`=881 AND `target_site_key`='d64a2be83811595dcc0473bc0fbc3d2f')
+2019-02-26 23:34:00#64 - WPSiteSyncContent::filter_unique_filename() filename=06-rawpixel-780506-unsplash.jpg ext=.jpg dir=/home/jackas5/dev.jackasstheology.com/wp-content/uploads/2019/02
+2019-02-26 23:35:01#30 - WPSiteSyncContent::filter_unique_filename() filename=06-rawpixel-780506-unsplash.jpg ext=.jpg dir=/home/jackas5/dev.jackasstheology.com/wp-content/uploads/2019/02
+2019-02-27 00:17:51#55 - SyncModel::remove_all_sync_data() sql=DELETE FROM `wp_spectrom_sync`
+			WHERE (`source_content_id`=896 AND `site_key`='d64a2be83811595dcc0473bc0fbc3d2f') OR
+				(`target_content_id`=896 AND `target_site_key`='d64a2be83811595dcc0473bc0fbc3d2f')
