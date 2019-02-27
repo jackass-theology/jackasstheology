@@ -297,3 +297,9 @@
 2019-02-27 00:17:51#55 - SyncModel::remove_all_sync_data() sql=DELETE FROM `wp_spectrom_sync`
 			WHERE (`source_content_id`=896 AND `site_key`='d64a2be83811595dcc0473bc0fbc3d2f') OR
 				(`target_content_id`=896 AND `target_site_key`='d64a2be83811595dcc0473bc0fbc3d2f')
+2019-02-27 00:36:06#15 - SyncModel::remove_all_sync_data() sql=DELETE FROM `wp_spectrom_sync`
+			WHERE (`source_content_id`=902 AND `site_key`='d64a2be83811595dcc0473bc0fbc3d2f') OR
+				(`target_content_id`=902 AND `target_site_key`='d64a2be83811595dcc0473bc0fbc3d2f')
+2019-02-27 00:40:56#15 - SyncModel::remove_all_sync_data() sql=DELETE FROM `wp_spectrom_sync`
+			WHERE (`source_content_id`=905 AND `site_key`='d64a2be83811595dcc0473bc0fbc3d2f') OR
+				(`target_content_id`=905 AND `target_site_key`='d64a2be83811595dcc0473bc0fbc3d2f')
