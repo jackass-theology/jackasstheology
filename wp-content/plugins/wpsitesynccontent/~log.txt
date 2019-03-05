@@ -303,3 +303,18 @@
 2019-02-27 00:40:56#15 - SyncModel::remove_all_sync_data() sql=DELETE FROM `wp_spectrom_sync`
 			WHERE (`source_content_id`=905 AND `site_key`='d64a2be83811595dcc0473bc0fbc3d2f') OR
 				(`target_content_id`=905 AND `target_site_key`='d64a2be83811595dcc0473bc0fbc3d2f')
+2019-03-05 15:14:24#31 - WPSiteSyncContent::filter_unique_filename() filename=Artboard-1.png ext=.png dir=/home/jackas5/dev.jackasstheology.com/wp-content/uploads/2019/03
+2019-03-05 21:57:42#66 - SyncModel::remove_all_sync_data() sql=DELETE FROM `wp_spectrom_sync`
+			WHERE (`source_content_id`=940 AND `site_key`='3cb2fc1fda978f1e530350025f841ac4') OR
+				(`target_content_id`=940 AND `target_site_key`='3cb2fc1fda978f1e530350025f841ac4')
+2019-03-05 22:12:23#17 - SyncModel::remove_all_sync_data() sql=DELETE FROM `wp_spectrom_sync`
+			WHERE (`source_content_id`=942 AND `site_key`='3cb2fc1fda978f1e530350025f841ac4') OR
+				(`target_content_id`=942 AND `target_site_key`='3cb2fc1fda978f1e530350025f841ac4')
+2019-03-05 22:18:38#22 - SyncModel::remove_all_sync_data() sql=DELETE FROM `wp_spectrom_sync`
+			WHERE (`source_content_id`=944 AND `site_key`='3cb2fc1fda978f1e530350025f841ac4') OR
+				(`target_content_id`=944 AND `target_site_key`='3cb2fc1fda978f1e530350025f841ac4')
+2019-03-05 22:23:44#97 - SyncModel::remove_all_sync_data() sql=DELETE FROM `wp_spectrom_sync`
+			WHERE (`source_content_id`=948 AND `site_key`='3cb2fc1fda978f1e530350025f841ac4') OR
+				(`target_content_id`=948 AND `target_site_key`='3cb2fc1fda978f1e530350025f841ac4')
+2019-03-05 22:41:17#35 - WPSiteSyncContent::filter_upgrader_download() package='https://downloads.wordpress.org/release/wordpress-5.1-no-content.zip'
+2019-03-05 22:41:17#35 - WPSiteSyncContent::filter_unique_filename() filename=wordpress-5.1-no-content-hRl6bV.tmp ext=.tmp dir=/tmp/
