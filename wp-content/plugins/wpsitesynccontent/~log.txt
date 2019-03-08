@@ -318,3 +318,5 @@
 				(`target_content_id`=948 AND `target_site_key`='3cb2fc1fda978f1e530350025f841ac4')
 2019-03-05 22:41:17#35 - WPSiteSyncContent::filter_upgrader_download() package='https://downloads.wordpress.org/release/wordpress-5.1-no-content.zip'
 2019-03-05 22:41:17#35 - WPSiteSyncContent::filter_unique_filename() filename=wordpress-5.1-no-content-hRl6bV.tmp ext=.tmp dir=/tmp/
+2019-03-08 00:46:43#72 - WPSiteSyncContent::filter_upgrader_download() package='https://downloads.wordpress.org/plugin/google-analytics-dashboard-for-wp.5.3.7.zip'
+2019-03-08 00:46:43#72 - WPSiteSyncContent::filter_unique_filename() filename=google-analytics-dashboard-for-wp.5.3.7-PSe6pl.tmp ext=.tmp dir=/tmp/
