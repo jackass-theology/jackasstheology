@@ -95,10 +95,14 @@ min-height: 100vh !important;
 /*ZERO MOBILE MARGINS*/
 @media (max-width: 767px) {
 
-.tdc-row.td-stretch-content {
-    padding-left: 0px !important;
-    padding-right: 0px !important;
-}
-
+    .tdc-row.td-stretch-content {
+        padding-left: 0px !important;
+        padding-right: 0px !important;
     }
 
+}
+
+/* Easy Pull Quotes twitter icon hover styles */
+.td-post-content a.epq-twitter:hover {
+    text-decoration: none;
+}
