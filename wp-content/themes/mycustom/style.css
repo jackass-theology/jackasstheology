@@ -107,6 +107,6 @@ min-height: 100vh !important;
     text-decoration: none;
 }
 
-.td-md-is-safari .td_module_slide:before {
-    bottom: 0;
+.td-md-is-safari .td_module_slide::before {
+    bottom: 0 !important;
 }
