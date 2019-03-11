@@ -106,3 +106,7 @@ min-height: 100vh !important;
 .td-post-content a.epq-twitter:hover {
     text-decoration: none;
 }
+
+.td-md-is-safari .td_module_slide:before {
+    bottom: 0;
+}
