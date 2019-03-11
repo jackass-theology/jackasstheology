@@ -140,3 +140,832 @@ min-height: 100vh !important;
 .td-md-is-safari .td_module_slide::before {
     bottom: 0 !important;
 }
+
+
+
+
+/***********************************************************************************************/
+/***********************************************************************************************/
+/***********************************************************************************************/
+/***********************************************************************************************/
+/***********************************************************************************************/
+/***********************************************************************************************/
+
+/**
+ From Live CSS
+*/
+
+
+
+/* <<<<MAIN MENU>>>>> */
+
+/* MOBILE LOGO*/
+
+.td-mobile-logo img {
+    margin-top: 0px;
+    height: 150;
+    width: auto;
+}
+
+
+/* <<<<<<HOMEPAGE>>>>> */
+
+#jackass-hero {
+    
+    height: 100vh;
+    min-height: 600px;
+}
+
+.jat-hero {
+    margin-top: 300px;
+    font-size: 0px;
+    height: 100%;
+    width: 100%;
+    
+}
+
+@media (min-width: 1140px), all  {
+.td-md-is-safari {
+margin-left: 0px;
+}
+}
+
+@media (max-width: 767px) {
+    
+    #jackass-hero {
+ 
+    font-size: 0px;
+    height: 100%;
+    width: 100%;
+
+    
+}
+    .jat-hero  {
+        font-size: 0px;
+        margin-top: 20px;
+        margin-left: 0px;
+        margin-right: 0px;
+
+    }
+    
+    
+}
+
+
+/*SPECIFICITY WORK TO FIX HOMEPAGE*/
+
+.home-slider .td-slide-meta {
+    
+}
+
+.home-slider .slide-meta-cat {
+ 
+    width: 50%;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+} 
+
+.home-slider .td-module-title {
+ 
+    font-size: 3em;
+    background: black;
+    width: 50%;
+    padding: .75em;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+} 
+
+.home-slider .td-module-meta-info {
+ 
+    width: 50%;
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+} 
+
+
+@media (min-width: 1019px) and (max-width: 1140px) {
+ 
+ .home-slider .slide-meta-cat {
+ 
+    width: 50%;
+    position: absolute;
+    margin-top: 50%;
+    top: 50%;
+    left: 25%;
+    /*left: 50%;
+    transform: translate(-50%, -50%);*/
+    
+} 
+
+.home-slider .td-module-title {
+ 
+    font-size: 3em;
+    background: black;
+    width: 60%;
+    padding: .75em;
+    margin-top: 15%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /*transform: translate(-50%, -50%);*/
+    
+} 
+
+.home-slider .td-module-meta-info {
+ 
+    width: 50%;
+    margin-top: 20%;
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+} 
+
+}
+
+@media (min-width: 768px) and (max-width: 1018px) {
+ 
+ .home-slider .slide-meta-cat {
+ 
+    width: 50%;
+    position: absolute;
+    margin-top: 5%;
+    top: 50%;
+    /*left: 50%;*/
+    /*left: 50%;
+    transform: translate(-50%, -50%);*/
+    
+} 
+
+.home-slider .td-module-title {
+ 
+    font-size: 3em;
+    background: black;
+    width: 60%;
+    padding: .75em;
+    margin-top: 15%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /*left: 50%;
+    transform: translate(-50%, -50%);*/
+    
+} 
+
+.home-slider .td-module-meta-info {
+ 
+    width: 50%;
+    margin-top: 200px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+} 
+
+}
+@media (min-width: 1px) and (max-width: 767px) {
+ 
+  .home-slider .slide-meta-cat {
+ 
+    width: 50%;
+    position: absolute;
+    margin-top: 100px;
+    top: 50%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+    
+} 
+
+.home-slider .td-module-title {
+ 
+    font-size: 36px;
+    line-height: 1.1em;
+    background: black;
+    width: 85%;
+    padding: .75em;
+    margin-top: 200px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+   /* left: 50%;
+    transform: translate(-50%, -50%);*/
+    
+} 
+
+.home-slider .td-module-meta-info {
+ 
+    width: 80%;
+    margin-top: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+} 
+
+ 
+} 
+
+
+
+@media (max-width: 767px) {
+    
+.tdc-row.td-stretch-content {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+.td-stretch-content .td_block_single_image {
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+.home-block-image {
+    padding-bottom: 20% !important;
+}
+    
+}
+
+
+
+/* ATTEMPT AT FIXING THE HOMESLIDER WHEN SIZING DOWN. I QUIT! */
+/*
+@media (max-width: 1140px) and (min-width: 1019px) {
+
+.home-slider .element.style {
+
+    position: relative;
+    top: 0px;
+    left: 0px;
+    overflow: hidden;
+    z-index: 1;
+    perspective: 1000px;
+    backface-visibility: hidden;
+    width: 896px;
+    height: 500px;
+}
+}*/
+
+
+
+/* POST TITLE */
+
+.td-post-title .td-category {
+    margin-top: 1em;
+    position: absolute;
+    width: 60%;
+    top: -50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-bottom: 4em;
+}
+
+.td-post-template-7 .td-post-header-holder {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    width: 100%;
+}
+
+.td-post-title .entry-title {
+    
+    background: black;
+    padding: .5em;
+    position: relative;
+    top: 1%;
+    width: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.td-post-title .td-module-meta-info {
+    margin-top: 1em;
+    position: absolute;
+    top: 50%;
+    width: 80%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+   
+}
+
+.td-post-template-7 .td-read-down {
+    bottom: 0;
+    z-index: 1;
+    text-align: center;
+}
+
+@media (max-width: 767px) {
+    
+    #td-full-screen-header-image {
+
+    font-size: 0px;
+    z-index: 0;
+    height: 100%;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+   
+}
+    
+    #td-full-screen-header-image .td-image-gradient-style7 {
+
+    font-size: 0px;
+    z-index: 0;
+    height: 100%;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  
+}
+    
+}
+
+
+
+/*<<<<<POST CONTENT>>>>>>*/
+
+.td-post-content {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90vw;
+    max-width:700px;
+}
+
+
+
+/* PULLQUOTE PLUGIN */
+
+.epq-pull-quote-default {
+    border-top: 2px solid #000;
+    margin-top: 1.2%;
+    margin-bottom: 2%;
+    padding: .5em 0 0;
+    font-size: 1.125em;
+    margin-right: 0;
+    border-bottom: 2px solid #000
+    
+}
+
+.epq-pull-quote {
+    width: 35%;
+    min-width: 90px;
+    display: block;
+    float:right;
+    margin: 20px 0px 20px 20px;
+    text-align:center;
+    padding: 30px 10px 1px 10px;
+    font-weight: 200;
+    font-style: italic; 
+    }
+    
+.epq-twitter {
+    display: block;
+    float: right;
+    width: 100%;
+    padding: 1.2em;
+    margin-top: 5px;
+    color: #000;
+    }
+
+@media (max-width: 767px) {
+
+.epq-pull-quote {
+    width: 100%;
+    min-width: 90px;
+    display: block;
+    float:right;
+    margin: 20px 0px 30px 20px;
+    text-align:center;
+    padding: 30px 10px 1px 10px;
+    font-weight: 200;
+    font-style: italic; 
+    }
+    
+}
+
+    
+/*POSTS BOTTOM PAGE*/
+
+.td-post-source-tags {
+    font-size: 11px;
+     width: 80vw;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 700px;
+}
+
+
+/* POSTS AUTHOR BOX*/
+
+/*.author-box-wrap {
+        display: flex;
+        align-items: left;
+        justify-content: left;
+        flex-direction: column;
+        width: 100%;
+        text-align: left;
+        margin: 10% 0px;
+        min-height: 200px;
+        background-color: rgba(33, 33, 33, .0);
+        border: 0px solid #333;
+        border-radius: 10px;
+        align-items: center;
+
+    } */
+
+
+.author-box-wrap {
+    background: white;
+    color: black;
+    border: 1px solid #ededed;
+    padding: 21px;
+    margin-bottom: 48px;
+    width: 80vw;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 800px;
+    border: 0px solid #bbb;
+    
+    
+} 
+
+.author-box-wrap img {
+   display: inline-block;
+   border: 0px solid black;
+   border-radius: 50px; 
+}
+
+
+.td-author-name a {
+    text-align: center;
+    font-weight: 600;
+    font-size: 20px;
+    font-family: 'open sans';
+    color: black;
+    background: white;
+    padding: 20px;
+    display: block;
+    max-width: 300px;
+    border: 1px solid black;
+    text-transform: uppercase;
+}
+
+.td-author-description {
+    text-align: left;
+    font-family: 'open sans';
+    font-size: 14px;
+    font-weight: 100;
+    line-height: 30px;
+    padding: 20px 20px 20px 0px;
+
+    
+}
+
+
+/* <<<<<<THE AUTHORS>>>>> */
+
+/*column*/
+.believe-wrap {
+    background-attachment: fixed;
+} 
+
+.believe-wrapper {
+    margin-top: 90px;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 0px;
+ 
+}
+.what-believe {
+    font-family: Teko;
+    color: white;
+    font-size: 68px;
+    line-height: 70px;
+    font-weight: 400;
+    text-align:center;
+    padding: .7em 0 .7em 0;
+    margin: 0px;
+    
+    
+}
+.all-the-belief {
+    color: white;
+    width: 50%;
+    max-width: 700px;
+    border: 1px solid white;
+    padding: 3%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 5%;
+
+}
+
+@media (max-width: 767px) {
+    
+.all-the-belief {
+    color: white;
+    width: 85%;
+    border: 1px solid white;
+    padding: 3%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 20%;
+
+}
+
+    
+    
+}
+
+.people {
+    font-family: 'open sans';
+    font-weight: 100;
+    font-size: 18px;
+    line-height: 30px;
+}
+
+/* <<<< TABLE PAGE>>>>*/
+
+.td-main-page-wrap {
+    padding-top: 0px;
+    padding-bottom: 50px;
+}
+
+.td_uid_2_5c8194e525e96_rand {
+    padding-top: 0;
+}
+
+/* <<<<<ARTICLES PAGE>>>>>> */
+
+/* Articles Title */
+.Jackass-title {
+    font-family: Teko;
+    font-size: 3.5em;
+    line-height: 45px;
+    font-weight: 500;
+    text-transform: uppercase;
+    text-align:center;
+    padding: 1.2em 0 0em 0;
+    margin: 0px;
+}
+
+.articles-grid {
+    
+     /*background-color: black;*/
+}
+
+.articles-grid .td-block-row [class*="td-block-span"] {
+    display: block;
+    min-height: 1px;
+    float: left;
+    padding-right: 0px;
+    padding-left: 0px;
+    padding-top: 0px;
+    margin: 0px;
+}
+
+/* TITLES OVER IMAGES */
+
+.articles-grid .td-block-span4 {
+    
+height: 100%;
+
+}
+
+.articles-grid .td_module_1 .td_module_wrap {
+
+    position: relative;
+    text-align: center;
+  
+}
+
+.articles-grid .td-module-image {
+ 
+   background-image: linear-gradient(to bottom, #000, #000);
+   position: relative;
+   padding: 0px;
+  
+   z-index: 1; 
+}
+
+.articles-grid .td-module-thumb {
+   
+    padding: 0px;
+    margin: 0px;
+    opacity: .8;
+    
+}
+
+
+
+/*Title Under Each Article*/
+
+.articles-grid .td_module_wrap .entry-title {
+ background: black;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 4;
+  margin-bottom: 0px;
+    
+}
+
+.articles-grid .td-module-title {
+    
+    font-family: 'Merriweather', serif;
+    font-weight: 100;
+    font-size: 22px;
+    /*font-size: calc(14px + (40 - 14) * ((100vw - 300px) / (1700 - 300)));*/
+    max-height: 12vw;
+    width: 22vw;
+    display: block;
+    text-align: center;
+    border: 0px solid #000;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-right: 1em;
+    padding-left: 1em;
+    
+}
+
+.articles-grid .entry-title a {
+  
+  color: white;
+
+} 
+
+/* Meta Data Under Each Article */
+
+.articles-grid .td_module_1 {
+    padding-bottom: 0px;
+}
+
+.articles-grid .td-module-meta-info {
+   
+    font-family: 'Open Sans', arial, sans-serif;
+    font-size: 12px;
+   /* margin-bottom: 5em;*/
+    line-height: 1;
+    min-height: 17px;
+    text-align: center;
+    position: absolute;
+    width: 90%;
+    top: 85%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+}
+
+.articles-grid .td-module-meta-info a {
+   
+   color: white;
+  
+}
+
+.articles-grid .td-post-author-name {
+    font-weight: bold;
+    display: inline-block;
+    position: relative;
+    top: 2px;
+}
+
+.articles-grid .td-post-date {
+    color: white;
+    display: inline-block;
+    position: relative;
+    top: 2px;
+}
+
+.articles-grid .td-module-comments {
+    display: inline-block;
+    float: none;
+    font-family: 'Open Sans', arial, sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1;
+    margin-left: 10px;
+}
+
+.articles-grid .entry-thumb {
+   
+    height: 16.6vw;
+ 
+}
+
+@media (max-width: 1200px) {
+    
+.articles-grid .td-module-title {
+    
+  
+    font-family: 'Merriweather', serif;
+    font-weight: 100;
+    font-size: 20px;
+    width: 24vw;
+    display: block;
+    text-align: center;
+    border: 0px solid #000;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-right: 1em;
+    padding-left: 1em;
+    
+}
+    
+}
+
+@media (max-width: 950px) {
+    
+.articles-grid .td-module-title {
+    
+  
+    font-family: 'Merriweather', serif;
+    font-weight: 100;
+    font-size: 18px;
+    width: 26vw;
+    display: block;
+    text-align: center;
+    border: 0px solid #000;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-right: 1em;
+    padding-left: 1em;
+    
+}
+    
+}
+
+
+@media (max-width: 767px) {
+    
+.articles-grid .td-module-title {
+    
+  
+    font-family: 'Merriweather', serif;
+    font-weight: 100;
+    font-size: 24px;
+    max-height: 40vw;
+    width: 60vw;
+    display: block;
+    text-align: center;
+    border: 0px solid #000;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-right: 1em;
+    padding-left: 1em;
+    
+}
+
+    
+    
+.articles-grid .entry-thumb {
+   
+    height: 55vw;
+ 
+}
+    
+}
+
+/* <<<<<REINTEGRATING LOVE PAGE>>>>> */
+
+.reintegrating-title {
+    
+    max-height:100px !important;
+}
+
+
+/* <<<<<<FOOTER>>>>>> */
+
+.td-footer-wrapper .td-fix-index {
+    
+    height: 0px;
+    
+}
+
+.tdm_block_testimonial .tds-testimonial4 .tdm-testimonial-descr {
+    margin-bottom: 14px;
+    min-height: 72px;
+}
+
+
+/* Fix Coloring for Footer Wrapper */
+.td-footer-wrapper a {
+    color: White;
+}
+
