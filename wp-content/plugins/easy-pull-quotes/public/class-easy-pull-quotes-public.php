@@ -111,6 +111,7 @@ class Easy_Pull_Quotes_Public {
 		$sanitized_url     = esc_url_raw( wp_get_shortlink() );
 
 		return '<span class="epq-pull-quote epq-pull-quote-default epq-' . esc_attr($epq['align']) . '">' . do_shortcode($content) . '<a href="https://twitter.com/intent/tweet?text='. urlencode( $sanitized_text ) .'&url='.$sanitized_url.'" class="epq-twitter"><span class="dashicons dashicons-twitter"></span></a></span>';
+		return '<span class="epq-pull-quote epq-pull-quote-default epq-' . esc_attr($epq['align']) . '">' . do_shortcode($content) . '<a href="https://twitter.com/intent/tweet?text='. urlencode( $sanitized_text ) .'&url='.$sanitized_url.'" class="epq-twitter" target="_blank"><span class="dashicons dashicons-twitter"></span></a><a href="https://www.facebook.com/sharer/sharer.php?u='.$sanitized_url.'&t='. urlencode( $sanitized_text ) .'" class="epq-facebook" target="_blank"><span class="dashicons dashicons-facebook-alt"></span></a></span>';
 	}
 
 	public function truncate($string,$length=240,$append="&hellip;") {
