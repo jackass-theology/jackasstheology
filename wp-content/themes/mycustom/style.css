@@ -103,8 +103,38 @@ min-height: 100vh !important;
 }
 
 /* Easy Pull Quotes twitter icon hover styles */
-.td-post-content a.epq-twitter:hover {
+.epq-social-share-icons {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    padding: 1.2em;
+    width: 100%;
+    margin-top: 5px;
+}
+
+.epq-social-share-icons a {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    color: #fff;
+    background-color: #000;
+    border-radius: 2px;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    margin: 0 3px;
+    transition: opacity 0.2s;
+    opacity: 1;
+}
+
+.epq-social-share-icons a:hover {
+    color: #fff;
+    opacity: .8;
     text-decoration: none;
+    transition: opacity 0.2s;
 }
 
 .td-md-is-safari .td_module_slide::before {
