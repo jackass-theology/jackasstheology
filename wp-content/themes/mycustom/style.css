@@ -119,11 +119,11 @@ min-height: 100vh !important;
     justify-content: center;
     align-content: center;
     align-items: center;
-    color: #fff;
-    background-color: #000;
+    color: #000;
+    background-color: #fff;
     border-radius: 2px;
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     padding: 0;
     margin: 0 3px;
     transition: opacity 0.2s;
@@ -131,7 +131,7 @@ min-height: 100vh !important;
 }
 
 .epq-social-share-icons a:hover {
-    color: #fff;
+    color: #000;
     opacity: .8;
     text-decoration: none;
     transition: opacity 0.2s;
