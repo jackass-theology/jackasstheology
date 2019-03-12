@@ -13,7 +13,57 @@ Template: Newspaper
 
 @import url('../Newspaper/style.css');
 
-/*BLOCK TEXT HOMEPAGE*/ 
+
+/* <<<<<<<<<<<<<<<<<<<<<<<<<<HOMEPAGE>>>>>>>>>>>>>>>>>>>>>>>> */
+
+/*height of Homepage Hero Element*/
+
+#jackass-hero {
+    
+    height: 100vh;
+    min-height: 600px;
+    max-height: 2000px;
+}
+
+.jat-hero {
+    margin-top: 300px;
+    font-size: 0px;
+    height: 100%;
+    width: 100%;
+    
+}
+
+.jat-hero-descr {
+    
+    max-width: 700px;
+}
+
+@media (min-width: 1140px), all  {
+.td-md-is-safari {
+margin-left: 0px;
+}
+}
+
+@media (max-width: 767px) {
+    
+    #jackass-hero {
+ 
+    font-size: 0px;
+    height: 100%;
+    width: 100%;
+
+    
+}
+    .jat-hero  {
+        font-size: 0px;
+        margin-top: 20px;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+}
+
+
+/* <<older>> BLOCK TEXT HOMEPAGE*/ 
 .tdm_block.tdm_block_inline_text 
     .tdm-descr  {
         
@@ -41,55 +91,6 @@ Template: Newspaper
     line-height: 75px;
     font-weight: 100;
     text-align:center; 
-}
-
-/* <<<<<<HOMEPAGE>>>>> */
-
-/*height of Homepage Hero Element*/
-#jackass-hero {
-    
-min-height: 100vh !important;
-}
-
-#jackass-hero {
-    
-    height: 100vh;
-    min-height: 600px;
-}
-
-.jat-hero {
-    margin-top: 300px;
-    font-size: 0px;
-    height: 100%;
-    width: 100%;
-    
-}
-
-@media (min-width: 1140px), all  {
-.td-md-is-safari {
-margin-left: 0px;
-}
-}
-
-@media (max-width: 767px) {
-    
-    #jackass-hero {
- 
-    font-size: 0px;
-    height: 100%;
-    width: 100%;
-
-    
-}
-    .jat-hero  {
-        font-size: 0px;
-        margin-top: 20px;
-        margin-left: 0px;
-        margin-right: 0px;
-
-    }
-    
-    
 }
 
 
@@ -299,59 +300,10 @@ margin-left: 0px;
 }*/
 
 
-/*POSTS*/
-
-	.td-pb-span8 {
-    width:100%;
-	}
-
-	.td-post-content {
-	margin-left:auto;
-	margin-right:auto;
-	width:50em; 
-
-	}
-
-	.td-post-sharing-visible {
-    position: relative;
-    display: block;
-    text-align: center;
-	}
-
-    .td-post-content p {
-        
-    font-family: Merriweather;
-    font-weight: 200; 
-    line-height: 2.1em;
-    padding-left: 0px;
-    
-    }
-    
- /*LIKE COUNTER BOTTOM*/
-
-.td-post-sharing-classic
-
-{
-    text-align:center;
-    margin-left: auto;
-    margin-right: auto;
-    width: 6em;
-}
-
- 
-/*ZERO MOBILE MARGINS*/
-@media (max-width: 767px) {
-
-    .tdc-row.td-stretch-content {
-        padding-left: 0px !important;
-        padding-right: 0px !important;
-    }
-
-}
 
 
 
-/*<<<<<POSTS>>>>>>*/
+/*<<<<<<<<<<<<<<<<<<<<<<<POSTS>>>>>>>>>>>>>>>>>>>>>>>*/
 
 
 /* POST TITLE */
@@ -427,13 +379,48 @@ margin-left: 0px;
     text-align: center;
   
 }
-    
-}
-
+   
 
 
 /*<<<<<POST CONTENT>>>>>>*/
 
+/*older fixes*/
+	.td-pb-span8 {
+    width:100%;
+	}
+
+	.td-post-content {
+	margin-left:auto;
+	margin-right:auto;
+	width:50em; 
+
+	}
+
+	.td-post-sharing-visible {
+    position: relative;
+    display: block;
+    text-align: center;
+	}
+
+    .td-post-content p {
+        
+    font-family: Merriweather;
+    font-weight: 200; 
+    line-height: 2.1em;
+    padding-left: 0px;
+    
+    }
+    
+/*ZERO MOBILE MARGINS*/
+@media (max-width: 767px) {
+
+    .tdc-row.td-stretch-content {
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+}
+
+/*most recent*/
 .td-post-content {
     margin-left: auto;
     margin-right: auto;
@@ -542,6 +529,16 @@ margin-left: 0px;
     max-width: 700px;
 }
 
+ /*LIKE COUNTER BOTTOM*/
+
+.td-post-sharing-classic
+
+{
+    text-align:center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 6em;
+}
 
 /* POSTS AUTHOR BOX*/
 
