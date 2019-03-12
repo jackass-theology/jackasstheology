@@ -14,7 +14,7 @@ Template: Newspaper
 @import url('../Newspaper/style.css');
 
 /*BLOCK TEXT HOMEPAGE*/ 
-.tdm_block.tdm_block_inline_text 
+/*.tdm_block.tdm_block_inline_text 
     .tdm-descr  {
         
     font-family: open sans;
@@ -25,7 +25,7 @@ Template: Newspaper
     
 .tdm-header-style-1 .td-main-menu-logo img, .tdm-header-style-2 .td-main-menu-logo img, .tdm-header-style-3 .td-main-menu-logo img {
     max-height: 90px;
-}
+}*/
 
 /*.td_block_slide .iosSlider-col-1 */.entry-title {
     padding-top: 30px;
