@@ -21,7 +21,7 @@ Template: Newspaper
 #jackass-hero {
     
     height: 100vh;
-    min-height: 600px;
+    min-height: 800px;
     max-height: 2000px;
 }
 
@@ -42,6 +42,7 @@ Template: Newspaper
     
    margin-top: 0;
 }
+
 
 @media (min-width: 1140px), all  {
 .td-md-is-safari {
@@ -65,6 +66,12 @@ margin-left: 0px;
         margin-left: 0px;
         margin-right: 0px;
     }
+    
+    .hero-title .tdm-title {
+    
+    margin-right: 15px;
+    margin-left: 15px;
+}
 }
 
 
@@ -73,7 +80,7 @@ margin-left: 0px;
     .tdm-descr  {
         
     font-family: open sans;
-    font-size: 16px !important;
+    font-size: 18px !important;
     font-weight: 100; 
     line-height: 1.5em;
     }
