@@ -16,7 +16,7 @@ Template: Newspaper
 
 /* <<<<<<<<<<<<<<<<<<<<<<<<<<HOMEPAGE>>>>>>>>>>>>>>>>>>>>>>>> */
 
-/*height of Homepage Hero Element*/
+/*<<<HERO>>>*/
 
 #jackass-hero {
     
@@ -26,7 +26,7 @@ Template: Newspaper
 }
 
 .jat-hero {
-    margin-top: 300px;
+    margin-top: 50vh;
     font-size: 0px;
     height: 100%;
     width: 100%;
@@ -36,6 +36,11 @@ Template: Newspaper
 .jat-hero-descr {
     
     max-width: 700px;
+}
+
+.hero-title {
+    
+   margin-top: 0;
 }
 
 @media (min-width: 1140px), all  {
