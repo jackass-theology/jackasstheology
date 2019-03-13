@@ -26,11 +26,9 @@ Template: Newspaper
     font-weight: 100; 
     line-height: 1.5em;
     }
-    
 .tdm-header-style-1 .td-main-menu-logo img, .tdm-header-style-2 .td-main-menu-logo img, .tdm-header-style-3 .td-main-menu-logo img {
     max-height: 90px;
 }
-
 /*.td_block_slide .iosSlider-col-1 */.entry-title {
     padding-top: 30px;
     font-family: Merriweather;
@@ -38,7 +36,6 @@ Template: Newspaper
     line-height: 1.4em;
     font-size: 30px;
 }  
-
 .td-post-template-7 .td-post-header .entry-title {
     font-family: Merriweather;
     font-size: 60px;
@@ -272,7 +269,6 @@ Template: Newspaper
     }
 }*/
 
-
 /*<<<<<POST CONTENT>>>>>>*/
 /*older fixes*/
 .td-pb-span8 {
@@ -356,7 +352,7 @@ Template: Newspaper
         margin-left: auto;
         margin-right: auto;
         text-align: center;
-}
+    }
     #td-full-screen-header-image .td-image-gradient-style7 {
         font-size: 0px;
         z-index: 0;
@@ -365,11 +361,8 @@ Template: Newspaper
         margin-left: auto;
         margin-right: auto;
         text-align: center;
+    }
 }
-    
-}
-
-
 
 /*<<<<<POST CONTENT>>>>>>*/
 
