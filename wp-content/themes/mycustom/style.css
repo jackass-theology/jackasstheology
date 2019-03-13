@@ -798,28 +798,19 @@ Template: Newspaper
     }
 }
 
-
-/* <<<<<REINTEGRATING LOVE PAGE>>>>> */
-
+/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<REINTEGRATING LOVE PAGE>>>>>>>>>>>>>>>>>>>>>>>>> */
 .reintegrating-title {
-    
     max-height:100px !important;
 }
 
-
-/* <<<<<<FOOTER>>>>>> */
-
+/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<FOOTER>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
 .td-footer-wrapper .td-fix-index {
-    
     height: 0px;
-    
 }
-
 .tdm_block_testimonial .tds-testimonial4 .tdm-testimonial-descr {
     margin-bottom: 14px;
     min-height: 72px;
 }
-
 
 /* Fix Coloring for Footer Wrapper */
 .td-footer-wrapper a {
