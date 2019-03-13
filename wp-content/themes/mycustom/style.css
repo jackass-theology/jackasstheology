@@ -1,5 +1,6 @@
 @charset "UTF-8";
 /* CSS Document */
+
 /*
 Theme Name: mycustom
 Author: Ryan MacDiarmid
@@ -8,68 +9,20 @@ Template: Newspaper
 
 @import url('../Newspaper/style.css');
 
-/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<MAIN MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
-/* MOBILE LOGO*/
-.td-mobile-logo img {
-    margin-top: 0px;
-    height: 150;
-    width: auto;
-}
-
-/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<HOMEPAGE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
-/*<<<HERO>>>*/
-#jackass-hero {
-    height: 100vh;
-    min-height: 800px;
-    max-height: 2000px;
-}
-.jat-hero {
-    margin-top: 50vh;
-    font-size: 0px;
-    height: 100%;
-    width: 100%;
-}
-.jat-hero-descr {
-    max-width: 700px;
-}
-.hero-title {
-    margin-top: 0;
-}
-@media (min-width: 1140px) {
-    .td-md-is-safari {
-        margin-left: 0px;
-    }
-}
-@media (max-width: 767px) {
-    #jackass-hero {
-        font-size: 0px;
-        height: 100%;
-        width: 100%;
-    }
-    .jat-hero  {
-        font-size: 0px;
-        margin-top: 20px;
-        margin-left: 0px;
-        margin-right: 0px;
-    }
-    .hero-title .tdm-title {
-        margin-right: 15px;
-        margin-left: 15px;
-    }
-}
-
-/* <<older>> BLOCK TEXT HOMEPAGE*/ 
-.tdm_block.tdm_block_inline_text .tdm-descr  {
-    font-family: "open sans";
-    font-size: 18px !important;
+/*BLOCK TEXT HOMEPAGE*/ 
+.tdm_block.tdm_block_inline_text 
+    .tdm-descr  {
+        
+    font-family: open sans;
+    font-size: 16px !important;
     font-weight: 100; 
     line-height: 1.5em;
-}
-.tdm-header-style-1 .td-main-menu-logo img, 
-.tdm-header-style-2 .td-main-menu-logo img, 
-.tdm-header-style-3 .td-main-menu-logo img {
+    }
+    
+.tdm-header-style-1 .td-main-menu-logo img, .tdm-header-style-2 .td-main-menu-logo img, .tdm-header-style-3 .td-main-menu-logo img {
     max-height: 90px;
 }
+
 /*.td_block_slide .iosSlider-col-1 */.entry-title {
     padding-top: 30px;
     font-family: Merriweather;
@@ -77,6 +30,7 @@ Template: Newspaper
     line-height: 1.4em;
     font-size: 30px;
 }  
+
 .td-post-template-7 .td-post-header .entry-title {
     font-family: Merriweather;
     font-size: 60px;
@@ -85,176 +39,317 @@ Template: Newspaper
     text-align:center; 
 }
 
+/* <<<<<<HOMEPAGE>>>>> */
+
+/*height of Homepage Hero Element*/
+#jackass-hero {
+    
+min-height: 100vh !important;
+}
+
+#jackass-hero {
+    
+    height: 100vh;
+    min-height: 600px;
+}
+
+.jat-hero {
+    margin-top: 300px;
+    font-size: 0px;
+    height: 100%;
+    width: 100%;
+    
+}
+
+@media (min-width: 1140px), all  {
+.td-md-is-safari {
+margin-left: 0px;
+}
+}
+
+@media (max-width: 767px) {
+    
+    #jackass-hero {
+ 
+    font-size: 0px;
+    height: 100%;
+    width: 100%;
+
+    
+}
+    .jat-hero  {
+        font-size: 0px;
+        margin-top: 20px;
+        margin-left: 0px;
+        margin-right: 0px;
+
+    }
+    
+    
+}
+
+
 /*SPECIFICITY WORK TO FIX HOMEPAGE*/
+
+.home-slider .td-slide-meta {
+    
+}
+
 .home-slider .slide-meta-cat {
+ 
     width: 50%;
-    margin-top: 0px;
     position: absolute;
-    top: 125px;
+    top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
+    
 } 
+
 .home-slider .td-module-title {
+ 
     font-size: 3em;
     background: black;
     width: 50%;
-    margin-top: 0px;
     padding: .75em;
     position: absolute;
-    top: 275px;
+    top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
+    
 } 
+
 .home-slider .td-module-meta-info {
+ 
     width: 50%;
     position: absolute;
-    margin-top: 0px;
-    top: 450px;
+    top: 90%;
     left: 50%;
     transform: translate(-50%, -50%);
+    
 } 
 
-/* SAFARI and IOS Fixes */
-.td-md-is-safari .td_module_slide .td-module-title {
--webkit-transform: translate(-50%, -50%);
-}
-.td-md-is-ios .td_module_slide .td-module-title {
--webkit-transform:translate(-50%, -50%);
+
+@media (min-width: 1019px) and (max-width: 1140px) {
+ 
+ .home-slider .slide-meta-cat {
+ 
+    width: 50%;
+    position: absolute;
+    margin-top: 50%;
+    top: 50%;
+    left: 25%;
+    /*left: 50%;
+    transform: translate(-50%, -50%);*/
+    
+} 
+
+.home-slider .td-module-title {
+ 
+    font-size: 3em;
+    background: black;
+    width: 60%;
+    padding: .75em;
+    margin-top: 15%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /*transform: translate(-50%, -50%);*/
+    
+} 
+
+.home-slider .td-module-meta-info {
+ 
+    width: 50%;
+    margin-top: 20%;
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+} 
+
 }
 
-/* HOME-SLIDER MEDIA QUERIES */
-@media (min-width: 1019px) and (max-width: 1140px) {
-    .home-slider .slide-meta-cat {
-        width: 50%;
-        position: absolute;
-        margin-top: 0;
-        top: 125px;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    } 
-    .home-slider .td-module-title {
-        font-size: 3em;
-        background: black;
-        width: 50%;
-        padding: .75em;
-        margin-top: 0;
-        position: absolute;
-        top: 275px;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-    .home-slider .td-module-meta-info {
-        width: 50%;
-        margin-top: 0;
-        position: absolute;
-        top: 450px;
-        left: 50%;
-        transform: translate(-50%, -50%); 
-    } 
-}
 @media (min-width: 768px) and (max-width: 1018px) {
-    .home-slider .slide-meta-cat {
-        width: 50%;
-        position: absolute;
-        margin-top: 0;
-        top: 75px;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    } 
-    .home-slider .td-module-title {
-        font-size: 3em;
-        background: black;
-        width: 50%;
-        padding: .75em;
-        margin-top: 0;
-        position: absolute;
-        top: 200px;
-        left: 50%;
-        transform: translate(-50%, -50%);*/
-    } 
-    .home-slider .td-module-meta-info {
-        width: 50%;
-        margin-top: 0;
-        position: absolute;
-        top: 325px;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    } 
+ 
+ .home-slider .slide-meta-cat {
+ 
+    width: 50%;
+    position: absolute;
+    margin-top: 5%;
+    top: 50%;
+    /*left: 50%;*/
+    /*left: 50%;
+    transform: translate(-50%, -50%);*/
+    
+} 
+
+.home-slider .td-module-title {
+ 
+    font-size: 3em;
+    background: black;
+    width: 60%;
+    padding: .75em;
+    margin-top: 15%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /*left: 50%;
+    transform: translate(-50%, -50%);*/
+    
+} 
+
+.home-slider .td-module-meta-info {
+ 
+    width: 50%;
+    margin-top: 200px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+} 
+
 }
 @media (min-width: 1px) and (max-width: 767px) {
-    .home-slider .slide-meta-cat {
-        width: 50%;
-        position: absolute;
-        margin-top: 0;
-        top: 75px;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    } 
-    .home-slider .td-module-title {
-        font-size: 36px;
-        line-height: 1.1em;
-        background: black;
-        width: 75%;
-        padding: 30px 10px 30px 10px;
-        margin-top: 200px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    } 
-    .home-slider .td-module-meta-info {
-        width: 80%;
-        margin-top: 0;
-        position: absolute;
-        top: 375px;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    } 
+ 
+  .home-slider .slide-meta-cat {
+ 
+    width: 50%;
+    position: absolute;
+    margin-top: 100px;
+    top: 50%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+    
 } 
-@media (max-width: 767px) {  
+
+.home-slider .td-module-title {
+ 
+    font-size: 36px;
+    line-height: 1.1em;
+    background: black;
+    width: 85%;
+    padding: .75em;
+    margin-top: 200px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+   /* left: 50%;
+    transform: translate(-50%, -50%);*/
+    
+} 
+
+.home-slider .td-module-meta-info {
+ 
+    width: 80%;
+    margin-top: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+} 
+
+ 
+} 
+
+
+
+@media (max-width: 767px) {
+    
+.tdc-row.td-stretch-content {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+.td-stretch-content .td_block_single_image {
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+.home-block-image {
+    padding-bottom: 20% !important;
+}
+    
+}
+
+
+
+/* ATTEMPT AT FIXING THE HOMESLIDER WHEN SIZING DOWN. I QUIT! */
+/*
+@media (max-width: 1140px) and (min-width: 1019px) {
+.home-slider .element.style {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    overflow: hidden;
+    z-index: 1;
+    perspective: 1000px;
+    backface-visibility: hidden;
+    width: 896px;
+    height: 500px;
+}
+}*/
+
+
+/*POSTS*/
+
+	.td-pb-span8 {
+    width:100%;
+	}
+
+	.td-post-content {
+	margin-left:auto;
+	margin-right:auto;
+	width:50em; 
+
+	}
+
+	.td-post-sharing-visible {
+    position: relative;
+    display: block;
+    text-align: center;
+	}
+
+    .td-post-content p {
+        
+    font-family: Merriweather;
+    font-weight: 200; 
+    line-height: 2.1em;
+    padding-left: 0px;
+    
+    }
+    
+ /*LIKE COUNTER BOTTOM*/
+
+.td-post-sharing-classic
+
+{
+    text-align:center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 6em;
+}
+
+ 
+/*ZERO MOBILE MARGINS*/
+@media (max-width: 767px) {
+
     .tdc-row.td-stretch-content {
         padding-left: 0px !important;
         padding-right: 0px !important;
     }
-    .td-stretch-content .td_block_single_image {
-        margin-right: 0px;
-        margin-left: 0px;
-    }
-    .home-block-image {
-        padding-bottom: 20% !important;
-    }  
+
 }
 
-/*ATTEMPT AT FIXING THE HOMESLIDER WHEN SIZING DOWN. I QUIT!*/
-/*
-@media (max-width: 1140px) and (min-width: 1019px) {
-    .home-slider .element.style {
-        position: relative;
-        top: 0px;
-        left: 0px;
-        overflow: hidden;
-        z-index: 1;
-        perspective: 1000px;
-        backface-visibility: hidden;
-        width: 896px;
-        height: 500px;
-    }
-}*/
-/*<<HOME PAGE CONTENT>>>*/
-/*dev.jackasstheology.com:2018.td_uid_19_5c888e0272631_rand, .td_uid_19_5c888e0272631_rand .tdc-columns*/
-/*@media (max-width: 767px) {
-    style.td_uid_19_5c8891bf8c38d_rand .tdc-columns {
-        flex-direction: column-reverse !important;
-    }
-}*/
-/*@media (max-width: 767px) {
-  .whateverclass {
-    order: -1;
-  }
-}*/
 
-/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<POSTS>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+
+/*<<<<<POSTS>>>>>>*/
+
+
 /* POST TITLE */
+
 .td-post-title .td-category {
     margin-top: 1em;
     position: absolute;
@@ -264,6 +359,7 @@ Template: Newspaper
     transform: translate(-50%, -50%);
     margin-bottom: 4em;
 }
+
 .td-post-template-7 .td-post-header-holder {
     position: absolute;
     top: 60%;
@@ -272,7 +368,9 @@ Template: Newspaper
     z-index: 1;
     width: 100%;
 }
+
 .td-post-title .entry-title {
+    
     background: black;
     padding: .5em;
     position: relative;
@@ -281,6 +379,7 @@ Template: Newspaper
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
 .td-post-title .td-module-meta-info {
     margin-top: 1em;
     position: absolute;
@@ -288,63 +387,47 @@ Template: Newspaper
     width: 80%;
     left: 60%;
     transform: translate(-50%, -50%);
+   
 }
+
 .td-post-template-7 .td-read-down {
     bottom: 0;
     z-index: 1;
     text-align: center;
 }
+
 @media (max-width: 767px) {
+    
     #td-full-screen-header-image {
-        font-size: 0px;
-        z-index: 0;
-        height: 100%;
-        width: 100%;
-        margin-left: auto;
-        margin-right: auto;
-        text-align: center;
-}
-    #td-full-screen-header-image .td-image-gradient-style7 {
-        font-size: 0px;
-        z-index: 0;
-        height: 100%;
-        width: 100%;
-        margin-left: auto;
-        margin-right: auto;
-        text-align: center;
-}
-   
-/*<<<<<POST CONTENT>>>>>>*/
-/*older fixes*/
-.td-pb-span8 {
-    width:100%;
-}
-.td-post-content {
-    margin-left:auto;
-    margin-right:auto;
-    width:50em; 
-}
-.td-post-sharing-visible {
-    position: relative;
-    display: block;
+
+    font-size: 0px;
+    z-index: 0;
+    height: 100%;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
+   
 }
-.td-post-content p {
-    font-family: Merriweather;
-    font-weight: 200; 
-    line-height: 2.1em;
-    padding-left: 0px;
+    
+    #td-full-screen-header-image .td-image-gradient-style7 {
+
+    font-size: 0px;
+    z-index: 0;
+    height: 100%;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  
+}
+    
 }
 
-/*ZERO MOBILE MARGINS*/
-@media (max-width: 767px) {
-    .tdc-row.td-stretch-content {
-        padding-left: 0px !important;
-        padding-right: 0px !important;
-    }
-}
 
-/*most recent*/
+
+/*<<<<<POST CONTENT>>>>>>*/
+
 .td-post-content {
     margin-left: auto;
     margin-right: auto;
@@ -352,7 +435,10 @@ Template: Newspaper
     max-width:700px;
 }
 
+
+
 /* PULLQUOTE PLUGIN */
+
 .epq-pull-quote-default {
     border-top: 2px solid #000;
     margin-top: 1.2%;
@@ -361,7 +447,9 @@ Template: Newspaper
     font-size: 1.125em;
     margin-right: 0;
     border-bottom: 2px solid #000
+    
 }
+
 .epq-pull-quote {
     width: 35%;
     min-width: 90px;
@@ -372,7 +460,8 @@ Template: Newspaper
     padding: 30px 10px 1px 10px;
     font-weight: 200;
     font-style: italic; 
-}
+    }
+    
 .epq-twitter {
     display: block;
     float: right;
@@ -380,19 +469,22 @@ Template: Newspaper
     padding: 1.2em;
     margin-top: 5px;
     color: #000;
-}
-@media (max-width: 767px) {
-    .epq-pull-quote {
-        width: 100%;
-        min-width: 90px;
-        display: block;
-        float:right;
-        margin: 20px 0px 30px 20px;
-        text-align:center;
-        padding: 30px 10px 1px 10px;
-        font-weight: 200;
-        font-style: italic; 
     }
+
+@media (max-width: 767px) {
+
+.epq-pull-quote {
+    width: 100%;
+    min-width: 90px;
+    display: block;
+    float:right;
+    margin: 20px 0px 30px 20px;
+    text-align:center;
+    padding: 30px 10px 1px 10px;
+    font-weight: 200;
+    font-style: italic; 
+    }
+    
 }
 
 /* Easy Pull Quotes twitter icon hover styles */
@@ -405,6 +497,7 @@ Template: Newspaper
     width: 100%;
     margin-top: 5px;
 }
+
 .epq-social-share-icons a {
     display: flex;
     flex-flow: row nowrap;
@@ -421,34 +514,31 @@ Template: Newspaper
     transition: opacity 0.2s;
     opacity: 1;
 }
+
 .epq-social-share-icons a:hover {
     color: #000;
     opacity: .8;
     text-decoration: none;
     transition: opacity 0.2s;
 }
+
 .td-md-is-safari .td_module_slide::before {
     bottom: 0 !important;
 }
     
 /*POSTS BOTTOM PAGE*/
+
 .td-post-source-tags {
     font-size: 11px;
-    width: 80vw;
+     width: 80vw;
     margin-left: auto;
     margin-right: auto;
     max-width: 700px;
 }
 
- /*LIKE COUNTER BOTTOM*/
-.td-post-sharing-classic {
-    text-align:center;
-    margin-left: auto;
-    margin-right: auto;
-    width: 6em;
-}
 
 /* POSTS AUTHOR BOX*/
+
 /*.author-box-wrap {
         display: flex;
         align-items: left;
@@ -462,8 +552,9 @@ Template: Newspaper
         border: 0px solid #333;
         border-radius: 10px;
         align-items: center;
-
     } */
+
+
 .author-box-wrap {
     background: white;
     color: black;
@@ -475,12 +566,17 @@ Template: Newspaper
     margin-right: auto;
     max-width: 800px;
     border: 0px solid #bbb;
+    
+    
 } 
+
 .author-box-wrap img {
-    display: inline-block;
-    border: 0px solid black;
-    border-radius: 50px; 
+   display: inline-block;
+   border: 0px solid black;
+   border-radius: 50px; 
 }
+
+
 .td-author-name a {
     text-align: center;
     font-weight: 600;
@@ -494,6 +590,7 @@ Template: Newspaper
     border: 1px solid black;
     text-transform: uppercase;
 }
+
 .td-author-description {
     text-align: left;
     font-family: 'open sans';
@@ -501,18 +598,51 @@ Template: Newspaper
     font-weight: 100;
     line-height: 30px;
     padding: 20px 20px 20px 0px;
+
+    
 }
 
+
+
+/***********************************************************************************************/
+/***********************************************************************************************/
+/***********************************************************************************************/
+/***********************************************************************************************/
+/***********************************************************************************************/
+/***********************************************************************************************/
+
+/**
+ From Live CSS
+*/
+
+
+
+/* <<<<MAIN MENU>>>>> */
+
+/* MOBILE LOGO*/
+
+.td-mobile-logo img {
+    margin-top: 0px;
+    height: 150;
+    width: auto;
+}
+
+
+
+
 /* <<<<<<THE AUTHORS>>>>> */
+
 /*column*/
 .believe-wrap {
     background-attachment: fixed;
 } 
+
 .believe-wrapper {
     margin-top: 90px;
     width: 100%;
     height: 100%;
     margin-bottom: 0px;
+ 
 }
 .what-believe {
     font-family: Teko;
@@ -523,6 +653,8 @@ Template: Newspaper
     text-align:center;
     padding: .7em 0 .7em 0;
     margin: 0px;
+    
+    
 }
 .all-the-belief {
     color: white;
@@ -533,18 +665,26 @@ Template: Newspaper
     margin-right: auto;
     margin-left: auto;
     margin-bottom: 5%;
+
 }
-@media (max-width: 767px) { 
-    .all-the-belief {
-        color: white;
-        width: 85%;
-        border: 1px solid white;
-        padding: 3%;
-        margin-right: auto;
-        margin-left: auto;
-        margin-bottom: 20%;
-    }
+
+@media (max-width: 767px) {
+    
+.all-the-belief {
+    color: white;
+    width: 85%;
+    border: 1px solid white;
+    padding: 3%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 20%;
+
 }
+
+    
+    
+}
+
 .people {
     font-family: 'open sans';
     font-weight: 100;
@@ -553,15 +693,18 @@ Template: Newspaper
 }
 
 /* <<<< TABLE PAGE>>>>*/
+
 .td-main-page-wrap {
     padding-top: 0px;
     padding-bottom: 50px;
 }
+
 .td_uid_2_5c8194e525e96_rand {
     padding-top: 0;
 }
 
 /* <<<<<ARTICLES PAGE>>>>>> */
+
 /* Articles Title */
 .Jackass-title {
     font-family: Teko;
@@ -573,9 +716,12 @@ Template: Newspaper
     padding: 1.2em 0 0em 0;
     margin: 0px;
 }
+
 .articles-grid {
+    
      /*background-color: black;*/
 }
+
 .articles-grid .td-block-row [class*="td-block-span"] {
     display: block;
     min-height: 1px;
@@ -587,37 +733,54 @@ Template: Newspaper
 }
 
 /* TITLES OVER IMAGES */
+
 .articles-grid .td-block-span4 {
-    height: 100%;
+    
+height: 100%;
+
 }
+
 .articles-grid .td_module_1 .td_module_wrap {
+
     position: relative;
     text-align: center;
+  
 }
+
 .articles-grid .td-module-image {
-    background-image: linear-gradient(to bottom, #000, #000);
-    position: relative;
-    padding: 0px;
-    z-index: 1; 
+ 
+   background-image: linear-gradient(to bottom, #000, #000);
+   position: relative;
+   padding: 0px;
+  
+   z-index: 1; 
 }
+
 .articles-grid .td-module-thumb {
+   
     padding: 0px;
     margin: 0px;
     opacity: .8;
+    
 }
+
+
 
 /*Title Under Each Article*/
 
 .articles-grid .td_module_wrap .entry-title {
-    background: black;
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 4;
-    margin-bottom: 0px;
+ background: black;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 4;
+  margin-bottom: 0px;
+    
 }
+
 .articles-grid .td-module-title {
+    
     font-family: 'Merriweather', serif;
     font-weight: 100;
     font-size: 22px;
@@ -630,17 +793,24 @@ Template: Newspaper
     padding-top: 1em;
     padding-bottom: 1em;
     padding-right: 1em;
-    padding-left: 1em;   
+    padding-left: 1em;
+    
 }
+
 .articles-grid .entry-title a {
+  
   color: white;
+
 } 
 
 /* Meta Data Under Each Article */
+
 .articles-grid .td_module_1 {
     padding-bottom: 0px;
 }
+
 .articles-grid .td-module-meta-info {
+   
     font-family: 'Open Sans', arial, sans-serif;
     font-size: 12px;
    /* margin-bottom: 5em;*/
@@ -654,21 +824,27 @@ Template: Newspaper
     transform: translate(-50%, -50%);
     z-index: 5;
 }
+
 .articles-grid .td-module-meta-info a {
-    color: white;
+   
+   color: white;
+  
 }
+
 .articles-grid .td-post-author-name {
     font-weight: bold;
     display: inline-block;
     position: relative;
     top: 2px;
 }
+
 .articles-grid .td-post-date {
     color: white;
     display: inline-block;
     position: relative;
     top: 2px;
 }
+
 .articles-grid .td-module-comments {
     display: inline-block;
     float: none;
@@ -679,72 +855,107 @@ Template: Newspaper
     line-height: 1;
     margin-left: 10px;
 }
+
 .articles-grid .entry-thumb {
+   
     height: 16.6vw;
+ 
 }
+
 @media (max-width: 1200px) {
-    .articles-grid .td-module-title {
-        font-family: 'Merriweather', serif;
-        font-weight: 100;
-        font-size: 20px;
-        width: 24vw;
-        display: block;
-        text-align: center;
-        border: 0px solid #000;
-        padding-top: 1em;
-        padding-bottom: 1em;
-        padding-right: 1em;
-        padding-left: 1em;
-    }  
+    
+.articles-grid .td-module-title {
+    
+  
+    font-family: 'Merriweather', serif;
+    font-weight: 100;
+    font-size: 20px;
+    width: 24vw;
+    display: block;
+    text-align: center;
+    border: 0px solid #000;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-right: 1em;
+    padding-left: 1em;
+    
 }
+    
+}
+
 @media (max-width: 950px) {
-    .articles-grid .td-module-title {
-        font-family: 'Merriweather', serif;
-        font-weight: 100;
-        font-size: 18px;
-        width: 26vw;
-        display: block;
-        text-align: center;
-        border: 0px solid #000;
-        padding-top: 1em;
-        padding-bottom: 1em;
-        padding-right: 1em;
-        padding-left: 1em;
-    }  
+    
+.articles-grid .td-module-title {
+    
+  
+    font-family: 'Merriweather', serif;
+    font-weight: 100;
+    font-size: 18px;
+    width: 26vw;
+    display: block;
+    text-align: center;
+    border: 0px solid #000;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-right: 1em;
+    padding-left: 1em;
+    
 }
+    
+}
+
+
 @media (max-width: 767px) {
-    .articles-grid .td-module-title {
-        font-family: 'Merriweather', serif;
-        font-weight: 100;
-        font-size: 24px;
-        max-height: 40vw;
-        width: 60vw;
-        display: block;
-        text-align: center;
-        border: 0px solid #000;
-        padding-top: 1em;
-        padding-bottom: 1em;
-        padding-right: 1em;
-        padding-left: 1em;
-    }
-    .articles-grid .entry-thumb {
-        height: 55vw;
-    }
+    
+.articles-grid .td-module-title {
+    
+  
+    font-family: 'Merriweather', serif;
+    font-weight: 100;
+    font-size: 24px;
+    max-height: 40vw;
+    width: 60vw;
+    display: block;
+    text-align: center;
+    border: 0px solid #000;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-right: 1em;
+    padding-left: 1em;
+    
+}
+
+    
+    
+.articles-grid .entry-thumb {
+   
+    height: 55vw;
+ 
+}
+    
 }
 
 /* <<<<<REINTEGRATING LOVE PAGE>>>>> */
+
 .reintegrating-title {
+    
     max-height:100px !important;
 }
 
+
 /* <<<<<<FOOTER>>>>>> */
+
 .td-footer-wrapper .td-fix-index {
+    
     height: 0px;
+    
 }
+
 .tdm_block_testimonial .tds-testimonial4 .tdm-testimonial-descr {
     margin-bottom: 14px;
     min-height: 72px;
 }
+
 
 /* Fix Coloring for Footer Wrapper */
 .td-footer-wrapper a {
