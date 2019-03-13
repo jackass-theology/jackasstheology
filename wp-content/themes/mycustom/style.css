@@ -163,8 +163,7 @@ margin-left: 0px;
     margin-top: 50%;
     top: 50%;
     left: 25%;
-    /*left: 50%;
-    transform: translate(-50%, -50%);*/
+    transform: translate(-50%, -50%);
     
 } 
 
@@ -320,6 +319,24 @@ margin-left: 0px;
 }*/
 
 
+
+/*<<HOME PAGE CONTENT>>>*/
+
+
+/*dev.jackasstheology.com:2018.td_uid_19_5c888e0272631_rand, .td_uid_19_5c888e0272631_rand .tdc-columns*/
+
+ @media (max-width: 767px) {
+
+    style.td_uid_19_5c8891bf8c38d_rand .tdc-columns {
+	       flex-direction: column-reverse !important;
+        }
+    }
+
+/*@media (max-width: 767px) {
+  .whateverclass {
+    order: -1;
+  }
+}*/
 
 
 
