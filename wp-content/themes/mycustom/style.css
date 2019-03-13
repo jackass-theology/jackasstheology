@@ -149,6 +149,11 @@ margin-left: 0px;
 -webkit-transform:translate(-50%, -50%);
 }
 
+
+.td-md-is-ios .td_module_slide .td-module-title {
+-webkit-transform:translate(-50%, -50%);
+}
+
 @media (min-width: 1019px) and (max-width: 1140px) {
  
  .home-slider .slide-meta-cat {
