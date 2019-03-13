@@ -300,8 +300,6 @@ Template: Newspaper
 }
 
 
-/*<<<<<POSTS>>>>>>*/
-
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<POSTS>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 /* POST TITLE */
 .td-post-title .td-category {
@@ -594,9 +592,17 @@ Template: Newspaper
     padding: 1.2em 0 0em 0;
     margin: 0px;
 }
+#articles-grid-page{
+    margin-top: 20px !important;
+}
 .articles-grid {
      /*background-color: black;*/
 }
+
+.td-footer-wrapper #td_uid_19_5c899573667b6 {
+    Margin: 0px;    
+}
+
 .articles-grid .td-block-row [class*="td-block-span"] {
     display: block;
     min-height: 1px;
