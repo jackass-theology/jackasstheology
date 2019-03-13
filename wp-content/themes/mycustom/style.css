@@ -273,56 +273,35 @@ Template: Newspaper
 }*/
 
 
-/*POSTS*/
-
-	.td-pb-span8 {
+/*<<<<<POST CONTENT>>>>>>*/
+/*older fixes*/
+.td-pb-span8 {
     width:100%;
-	}
-
-	.td-post-content {
-	margin-left:auto;
-	margin-right:auto;
-	width:50em; 
-
-	}
-
-	.td-post-sharing-visible {
+}
+.td-post-content {
+    margin-left:auto;
+    margin-right:auto;
+    width:50em; 
+}
+.td-post-sharing-visible {
     position: relative;
     display: block;
     text-align: center;
-	}
-
-    .td-post-content p {
-        
+}
+.td-post-content p {
     font-family: Merriweather;
     font-weight: 200; 
     line-height: 2.1em;
     padding-left: 0px;
-    
-    }
-    
- /*LIKE COUNTER BOTTOM*/
-
-.td-post-sharing-classic
-
-{
-    text-align:center;
-    margin-left: auto;
-    margin-right: auto;
-    width: 6em;
 }
 
- 
 /*ZERO MOBILE MARGINS*/
 @media (max-width: 767px) {
-
     .tdc-row.td-stretch-content {
         padding-left: 0px !important;
         padding-right: 0px !important;
     }
-
 }
-
 
 
 /*<<<<<POSTS>>>>>>*/
@@ -414,8 +393,6 @@ Template: Newspaper
     width: 90vw;
     max-width:700px;
 }
-
-
 
 /* PULLQUOTE PLUGIN */
 .epq-pull-quote-default {
