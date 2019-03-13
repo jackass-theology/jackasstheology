@@ -418,7 +418,6 @@ Template: Newspaper
 
 
 /* PULLQUOTE PLUGIN */
-
 .epq-pull-quote-default {
     border-top: 2px solid #000;
     margin-top: 1.2%;
@@ -427,9 +426,7 @@ Template: Newspaper
     font-size: 1.125em;
     margin-right: 0;
     border-bottom: 2px solid #000
-    
 }
-
 .epq-pull-quote {
     width: 35%;
     min-width: 90px;
@@ -440,8 +437,7 @@ Template: Newspaper
     padding: 30px 10px 1px 10px;
     font-weight: 200;
     font-style: italic; 
-    }
-    
+}
 .epq-twitter {
     display: block;
     float: right;
@@ -449,22 +445,19 @@ Template: Newspaper
     padding: 1.2em;
     margin-top: 5px;
     color: #000;
-    }
-
+}
 @media (max-width: 767px) {
-
-.epq-pull-quote {
-    width: 100%;
-    min-width: 90px;
-    display: block;
-    float:right;
-    margin: 20px 0px 30px 20px;
-    text-align:center;
-    padding: 30px 10px 1px 10px;
-    font-weight: 200;
-    font-style: italic; 
+    .epq-pull-quote {
+        width: 100%;
+        min-width: 90px;
+        display: block;
+        float:right;
+        margin: 20px 0px 30px 20px;
+        text-align:center;
+        padding: 30px 10px 1px 10px;
+        font-weight: 200;
+        font-style: italic; 
     }
-    
 }
 
 /* Easy Pull Quotes twitter icon hover styles */
@@ -477,7 +470,6 @@ Template: Newspaper
     width: 100%;
     margin-top: 5px;
 }
-
 .epq-social-share-icons a {
     display: flex;
     flex-flow: row nowrap;
@@ -494,18 +486,137 @@ Template: Newspaper
     transition: opacity 0.2s;
     opacity: 1;
 }
-
 .epq-social-share-icons a:hover {
     color: #000;
     opacity: .8;
     text-decoration: none;
     transition: opacity 0.2s;
 }
-
 .td-md-is-safari .td_module_slide::before {
     bottom: 0 !important;
 }
-    
+  /*POSTS BOTTOM PAGE*/
+.td-post-source-tags {
+    font-size: 11px;
+    width: 80vw;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 700px;
+}
+
+ /*LIKE COUNTER BOTTOM*/
+.td-post-sharing-classic {
+    text-align:center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 6em;
+}
+
+/* POSTS AUTHOR BOX*/
+/*.author-box-wrap {
+        display: flex;
+        align-items: left;
+        justify-content: left;
+        flex-direction: column;
+        width: 100%;
+        text-align: left;
+        margin: 10% 0px;
+        min-height: 200px;
+        background-color: rgba(33, 33, 33, .0);
+        border: 0px solid #333;
+        border-radius: 10px;
+        align-items: center;
+
+    } */
+.author-box-wrap {
+    background: white;
+    color: black;
+    border: 1px solid #ededed;
+    padding: 21px;
+    margin-bottom: 48px;
+    width: 80vw;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 800px;
+    border: 0px solid #bbb;
+} 
+.author-box-wrap img {
+    display: inline-block;
+    border: 0px solid black;
+    border-radius: 50px; 
+}
+.td-author-name a {
+    text-align: center;
+    font-weight: 600;
+    font-size: 20px;
+    font-family: 'open sans';
+    color: black;
+    background: white;
+    padding: 20px;
+    display: block;
+    max-width: 300px;
+    border: 1px solid black;
+    text-transform: uppercase;
+}
+.td-author-description {
+    text-align: left;
+    font-family: 'open sans';
+    font-size: 14px;
+    font-weight: 100;
+    line-height: 30px;
+    padding: 20px 20px 20px 0px;
+}
+
+/* <<<<<<THE AUTHORS>>>>> */
+/*column*/
+.believe-wrap {
+    background-attachment: fixed;
+} 
+.believe-wrapper {
+    margin-top: 90px;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 0px;
+}
+.what-believe {
+    font-family: Teko;
+    color: white;
+    font-size: 68px;
+    line-height: 70px;
+    font-weight: 400;
+    text-align:center;
+    padding: .7em 0 .7em 0;
+    margin: 0px;
+}
+.all-the-belief {
+    color: white;
+    width: 50%;
+    max-width: 700px;
+    border: 1px solid white;
+    padding: 3%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 5%;
+}
+@media (max-width: 767px) { 
+    .all-the-belief {
+        color: white;
+        width: 85%;
+        border: 1px solid white;
+        padding: 3%;
+        margin-right: auto;
+        margin-left: auto;
+        margin-bottom: 20%;
+    }
+}
+.people {
+    font-family: 'open sans';
+    font-weight: 100;
+    font-size: 18px;
+    line-height: 30px;
+}
+ 
+/*--------------- OLD_----------*/
 /*POSTS BOTTOM PAGE*/
 
 .td-post-source-tags {
