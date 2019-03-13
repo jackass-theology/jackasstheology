@@ -306,9 +306,8 @@ Template: Newspaper
 
 /*<<<<<POSTS>>>>>>*/
 
-
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<POSTS>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 /* POST TITLE */
-
 .td-post-title .td-category {
     margin-top: 1em;
     position: absolute;
@@ -318,7 +317,6 @@ Template: Newspaper
     transform: translate(-50%, -50%);
     margin-bottom: 4em;
 }
-
 .td-post-template-7 .td-post-header-holder {
     position: absolute;
     top: 60%;
@@ -327,9 +325,7 @@ Template: Newspaper
     z-index: 1;
     width: 100%;
 }
-
 .td-post-title .entry-title {
-    
     background: black;
     padding: .5em;
     position: relative;
@@ -338,7 +334,6 @@ Template: Newspaper
     left: 50%;
     transform: translate(-50%, -50%);
 }
-
 .td-post-title .td-module-meta-info {
     margin-top: 1em;
     position: absolute;
@@ -346,39 +341,30 @@ Template: Newspaper
     width: 80%;
     left: 60%;
     transform: translate(-50%, -50%);
-   
 }
-
 .td-post-template-7 .td-read-down {
     bottom: 0;
     z-index: 1;
     text-align: center;
 }
-
 @media (max-width: 767px) {
-    
     #td-full-screen-header-image {
-
-    font-size: 0px;
-    z-index: 0;
-    height: 100%;
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-   
+        font-size: 0px;
+        z-index: 0;
+        height: 100%;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
 }
-    
     #td-full-screen-header-image .td-image-gradient-style7 {
-
-    font-size: 0px;
-    z-index: 0;
-    height: 100%;
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-  
+        font-size: 0px;
+        z-index: 0;
+        height: 100%;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
 }
     
 }
