@@ -13,176 +13,36 @@ Template: Newspaper
 
 @import url('../Newspaper/style.css');
 
-/*BLOCK TEXT HOMEPAGE*/ 
-.tdm_block.tdm_block_inline_text 
-    .tdm-descr  {
-        
-    font-family: open sans;
-    font-size: 16px;
-    font-weight: 100; 
-    line-height: 1.5em;
-    }
-    
-.tdm-header-style-1 .td-main-menu-logo img, .tdm-header-style-2 .td-main-menu-logo img, .tdm-header-style-3 .td-main-menu-logo img {
-    max-height: 90px;
-}
 
-/*.td_block_slide .iosSlider-col-1 */.entry-title {
-    padding-top: 30px;
-    font-family: Merriweather;
-    font-weight: 200; 
-    line-height: 1.4em;
-    font-size: 30px;
-}  
+/* <<<<<<<<<<<<<<<<<<<<<<<<<<HOMEPAGE>>>>>>>>>>>>>>>>>>>>>>>> */
 
-.td-post-template-7 .td-post-header .entry-title {
-    font-family: Merriweather;
-    font-size: 60px;
-    line-height: 75px;
-    font-weight: 100;
-    text-align:center; 
-}
- 
-/*HOMEPAGE*/
-
-/*height of Homepage Hero Element*/
-#jackass-hero {
-    
-min-height: 100vh !important;
-}
-
-
-/*POSTS*/
-
-	.td-pb-span8 {
-    width:100%;
-	}
-
-	.td-post-content {
-	margin-left:auto;
-	margin-right:auto;
-	width:50em; 
-
-	}
-
-	.td-post-sharing-visible {
-    position: relative;
-    display: block;
-    text-align: center;
-	}
-
-    .td-post-content p {
-        
-    font-family: Merriweather;
-    font-weight: 200; 
-    line-height: 2.1em;
-    padding-left: 0px;
-    
-    }
-    
- /*LIKE COUNTER BOTTOM*/
-
-.td-post-sharing-classic
-
-{
-    text-align:center;
-    margin-left: auto;
-    margin-right: auto;
-    width: 6em;
-}
-
- 
-/*ZERO MOBILE MARGINS*/
-@media (max-width: 767px) {
-
-    .tdc-row.td-stretch-content {
-        padding-left: 0px !important;
-        padding-right: 0px !important;
-    }
-
-}
-
-/* Easy Pull Quotes twitter icon hover styles */
-.epq-social-share-icons {
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-    padding: 1.2em;
-    width: 100%;
-    margin-top: 5px;
-}
-
-.epq-social-share-icons a {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-    color: #000;
-    background-color: #fff;
-    border-radius: 2px;
-    width: 30px;
-    height: 30px;
-    padding: 0;
-    margin: 0 3px;
-    transition: opacity 0.2s;
-    opacity: 1;
-}
-
-.epq-social-share-icons a:hover {
-    color: #000;
-    opacity: .8;
-    text-decoration: none;
-    transition: opacity 0.2s;
-}
-
-.td-md-is-safari .td_module_slide::before {
-    bottom: 0 !important;
-}
-
-
-
-
-/***********************************************************************************************/
-/***********************************************************************************************/
-/***********************************************************************************************/
-/***********************************************************************************************/
-/***********************************************************************************************/
-/***********************************************************************************************/
-
-/**
- From Live CSS
-*/
-
-
-
-/* <<<<MAIN MENU>>>>> */
-
-/* MOBILE LOGO*/
-
-.td-mobile-logo img {
-    margin-top: 0px;
-    height: 150;
-    width: auto;
-}
-
-
-/* <<<<<<HOMEPAGE>>>>> */
+/*<<<HERO>>>*/
 
 #jackass-hero {
     
     height: 100vh;
-    min-height: 600px;
+    min-height: 800px;
+    max-height: 2000px;
 }
 
 .jat-hero {
-    margin-top: 300px;
+    margin-top: 50vh;
     font-size: 0px;
     height: 100%;
     width: 100%;
     
 }
+
+.jat-hero-descr {
+    
+    max-width: 700px;
+}
+
+.hero-title {
+    
+   margin-top: 0;
+}
+
 
 @media (min-width: 1140px), all  {
 .td-md-is-safari {
@@ -205,10 +65,44 @@ margin-left: 0px;
         margin-top: 20px;
         margin-left: 0px;
         margin-right: 0px;
-
     }
     
+    .hero-title .tdm-title {
     
+    margin-right: 15px;
+    margin-left: 15px;
+}
+}
+
+
+/* <<older>> BLOCK TEXT HOMEPAGE*/ 
+.tdm_block.tdm_block_inline_text 
+    .tdm-descr  {
+        
+    font-family: open sans;
+    font-size: 18px !important;
+    font-weight: 100; 
+    line-height: 1.5em;
+    }
+    
+.tdm-header-style-1 .td-main-menu-logo img, .tdm-header-style-2 .td-main-menu-logo img, .tdm-header-style-3 .td-main-menu-logo img {
+    max-height: 90px;
+}
+
+/*.td_block_slide .iosSlider-col-1 */.entry-title {
+    padding-top: 30px;
+    font-family: Merriweather;
+    font-weight: 200; 
+    line-height: 1.4em;
+    font-size: 30px;
+}  
+
+.td-post-template-7 .td-post-header .entry-title {
+    font-family: Merriweather;
+    font-size: 60px;
+    line-height: 75px;
+    font-weight: 100;
+    text-align:center; 
 }
 
 
@@ -251,6 +145,9 @@ margin-left: 0px;
     
 } 
 
+.td-md-is-safari .td_module_slide .td-module-title {
+-webkit-transform:translate(-50%, -50%);
+}
 
 @media (min-width: 1019px) and (max-width: 1140px) {
  
@@ -419,6 +316,11 @@ margin-left: 0px;
 
 
 
+
+
+/*<<<<<<<<<<<<<<<<<<<<<<<POSTS>>>>>>>>>>>>>>>>>>>>>>>*/
+
+
 /* POST TITLE */
 
 .td-post-title .td-category {
@@ -492,13 +394,48 @@ margin-left: 0px;
     text-align: center;
   
 }
-    
-}
-
+   
 
 
 /*<<<<<POST CONTENT>>>>>>*/
 
+/*older fixes*/
+	.td-pb-span8 {
+    width:100%;
+	}
+
+	.td-post-content {
+	margin-left:auto;
+	margin-right:auto;
+	width:50em; 
+
+	}
+
+	.td-post-sharing-visible {
+    position: relative;
+    display: block;
+    text-align: center;
+	}
+
+    .td-post-content p {
+        
+    font-family: Merriweather;
+    font-weight: 200; 
+    line-height: 2.1em;
+    padding-left: 0px;
+    
+    }
+    
+/*ZERO MOBILE MARGINS*/
+@media (max-width: 767px) {
+
+    .tdc-row.td-stretch-content {
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+}
+
+/*most recent*/
 .td-post-content {
     margin-left: auto;
     margin-right: auto;
@@ -558,6 +495,44 @@ margin-left: 0px;
     
 }
 
+/* Easy Pull Quotes twitter icon hover styles */
+.epq-social-share-icons {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    padding: 1.2em;
+    width: 100%;
+    margin-top: 5px;
+}
+
+.epq-social-share-icons a {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    color: #000;
+    background-color: #fff;
+    border-radius: 2px;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    margin: 0 3px;
+    transition: opacity 0.2s;
+    opacity: 1;
+}
+
+.epq-social-share-icons a:hover {
+    color: #000;
+    opacity: .8;
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+
+.td-md-is-safari .td_module_slide::before {
+    bottom: 0 !important;
+}
     
 /*POSTS BOTTOM PAGE*/
 
@@ -569,6 +544,16 @@ margin-left: 0px;
     max-width: 700px;
 }
 
+ /*LIKE COUNTER BOTTOM*/
+
+.td-post-sharing-classic
+
+{
+    text-align:center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 6em;
+}
 
 /* POSTS AUTHOR BOX*/
 
@@ -635,6 +620,33 @@ margin-left: 0px;
 
     
 }
+
+
+
+/***********************************************************************************************/
+/***********************************************************************************************/
+/***********************************************************************************************/
+/***********************************************************************************************/
+/***********************************************************************************************/
+/***********************************************************************************************/
+
+/**
+ From Live CSS
+*/
+
+
+
+/* <<<<MAIN MENU>>>>> */
+
+/* MOBILE LOGO*/
+
+.td-mobile-logo img {
+    margin-top: 0px;
+    height: 150;
+    width: auto;
+}
+
+
 
 
 /* <<<<<<THE AUTHORS>>>>> */
