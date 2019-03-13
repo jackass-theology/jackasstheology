@@ -9,6 +9,14 @@ Template: Newspaper
 
 @import url('../Newspaper/style.css');
 
+/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<MAIN MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+/* MOBILE LOGO*/
+.td-mobile-logo img {
+    margin-top: 0px;
+    height: 150;
+    width: auto;
+}
+
 /*BLOCK TEXT HOMEPAGE*/ 
 .tdm_block.tdm_block_inline_text 
     .tdm-descr  {
@@ -39,10 +47,246 @@ Template: Newspaper
     text-align:center; 
 }
 
-/* <<<<<<HOMEPAGE>>>>> */
+/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<HOMEPAGE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+/*<<<HERO>>>*/
+#jackass-hero {
+    height: 100vh;
+    min-height: 800px;
+    max-height: 2000px;
+}
+.jat-hero {
+    margin-top: 50vh;
+    font-size: 0px;
+    height: 100%;
+    width: 100%;
+}
+.jat-hero-descr {
+    max-width: 700px;
+}
+.hero-title {
+    margin-top: 0;
+}
+@media (min-width: 1140px) {
+    .td-md-is-safari {
+        margin-left: 0px;
+    }
+}
+@media (max-width: 767px) {
+    #jackass-hero {
+        font-size: 0px;
+        height: 100%;
+        width: 100%;
+    }
+    .jat-hero  {
+        font-size: 0px;
+        margin-top: 20px;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    .hero-title .tdm-title {
+        margin-right: 15px;
+        margin-left: 15px;
+    }
+}
+
+/* <<older>> BLOCK TEXT HOMEPAGE*/ 
+.tdm_block.tdm_block_inline_text .tdm-descr  {
+    font-family: "open sans";
+    font-size: 18px !important;
+    font-weight: 100; 
+    line-height: 1.5em;
+}
+.tdm-header-style-1 .td-main-menu-logo img, 
+.tdm-header-style-2 .td-main-menu-logo img, 
+.tdm-header-style-3 .td-main-menu-logo img {
+    max-height: 90px;
+}
+/*.td_block_slide .iosSlider-col-1 */.entry-title {
+    padding-top: 30px;
+    font-family: Merriweather;
+    font-weight: 200; 
+    line-height: 1.4em;
+    font-size: 30px;
+}  
+.td-post-template-7 .td-post-header .entry-title {
+    font-family: Merriweather;
+    font-size: 60px;
+    line-height: 75px;
+    font-weight: 100;
+    text-align:center; 
+}
+
+/*SPECIFICITY WORK TO FIX HOMEPAGE*/
+.home-slider .slide-meta-cat {
+    width: 50%;
+    margin-top: 0px;
+    position: absolute;
+    top: 125px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+} 
+.home-slider .td-module-title {
+    font-size: 3em;
+    background: black;
+    width: 50%;
+    margin-top: 0px;
+    padding: .75em;
+    position: absolute;
+    top: 275px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+} 
+.home-slider .td-module-meta-info {
+    width: 50%;
+    position: absolute;
+    margin-top: 0px;
+    top: 450px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+} 
+
+/* SAFARI and IOS Fixes */
+.td-md-is-safari .td_module_slide .td-module-title {
+-webkit-transform: translate(-50%, -50%);
+}
+.td-md-is-ios .td_module_slide .td-module-title {
+-webkit-transform:translate(-50%, -50%);
+}
+
+/* HOME-SLIDER MEDIA QUERIES */
+@media (min-width: 1019px) and (max-width: 1140px) {
+    .home-slider .slide-meta-cat {
+        width: 50%;
+        position: absolute;
+        margin-top: 0;
+        top: 125px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    } 
+    .home-slider .td-module-title {
+        font-size: 3em;
+        background: black;
+        width: 50%;
+        padding: .75em;
+        margin-top: 0;
+        position: absolute;
+        top: 275px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .home-slider .td-module-meta-info {
+        width: 50%;
+        margin-top: 0;
+        position: absolute;
+        top: 450px;
+        left: 50%;
+        transform: translate(-50%, -50%); 
+    } 
+}
+@media (min-width: 768px) and (max-width: 1018px) {
+    .home-slider .slide-meta-cat {
+        width: 50%;
+        position: absolute;
+        margin-top: 0;
+        top: 75px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    } 
+    .home-slider .td-module-title {
+        font-size: 3em;
+        background: black;
+        width: 50%;
+        padding: .75em;
+        margin-top: 0;
+        position: absolute;
+        top: 200px;
+        left: 50%;
+        transform: translate(-50%, -50%);*/
+    } 
+    .home-slider .td-module-meta-info {
+        width: 50%;
+        margin-top: 0;
+        position: absolute;
+        top: 325px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    } 
+}
+@media (min-width: 1px) and (max-width: 767px) {
+    .home-slider .slide-meta-cat {
+        width: 50%;
+        position: absolute;
+        margin-top: 0;
+        top: 75px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    } 
+    .home-slider .td-module-title {
+        font-size: 36px;
+        line-height: 1.1em;
+        background: black;
+        width: 75%;
+        padding: 30px 10px 30px 10px;
+        margin-top: 200px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    } 
+    .home-slider .td-module-meta-info {
+        width: 80%;
+        margin-top: 0;
+        position: absolute;
+        top: 375px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    } 
+} 
+@media (max-width: 767px) {  
+    .tdc-row.td-stretch-content {
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+    .td-stretch-content .td_block_single_image {
+        margin-right: 0px;
+        margin-left: 0px;
+    }
+    .home-block-image {
+        padding-bottom: 20% !important;
+    }  
+}
+
+/*ATTEMPT AT FIXING THE HOMESLIDER WHEN SIZING DOWN. I QUIT!*/
+/*
+@media (max-width: 1140px) and (min-width: 1019px) {
+    .home-slider .element.style {
+        position: relative;
+        top: 0px;
+        left: 0px;
+        overflow: hidden;
+        z-index: 1;
+        perspective: 1000px;
+        backface-visibility: hidden;
+        width: 896px;
+        height: 500px;
+    }
+}*/
+/*<<HOME PAGE CONTENT>>>*/
+/*dev.jackasstheology.com:2018.td_uid_19_5c888e0272631_rand, .td_uid_19_5c888e0272631_rand .tdc-columns*/
+/*@media (max-width: 767px) {
+    style.td_uid_19_5c8891bf8c38d_rand .tdc-columns {
+        flex-direction: column-reverse !important;
+    }
+}*/
+/*@media (max-width: 767px) {
+  .whateverclass {
+    order: -1;
+  }
+}*/
+
 
 /*height of Homepage Hero Element*/
-#jackass-hero {
+/*#jackass-hero {
     
 min-height: 100vh !important;
 }
@@ -86,7 +330,7 @@ margin-left: 0px;
     }
     
     
-}
+}*/
 
 
 /*SPECIFICITY WORK TO FIX HOMEPAGE*/
@@ -617,16 +861,15 @@ margin-left: 0px;
 
 
 
-/* <<<<MAIN MENU>>>>> */
+/* <<<<MAIN MENU>>>>> 
 
-/* MOBILE LOGO*/
+/* MOBILE LOGO
 
 .td-mobile-logo img {
     margin-top: 0px;
     height: 150;
     width: auto;
-}
-
+}*/
 
 
 
