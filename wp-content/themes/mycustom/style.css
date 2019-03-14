@@ -143,11 +143,10 @@ Template: Newspaper
 } 
 
 /* SAFARI and IOS Fixes */
-.td-md-is-safari .td_module_slide .td-module-title {
--webkit-transform: translate(-50%, -50%);
-}
+.td-md-is-safari .td_module_slide .td-module-title,
 .td-md-is-ios .td_module_slide .td-module-title {
--webkit-transform:translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
 
 /* HOME-SLIDER MEDIA QUERIES */
@@ -198,7 +197,7 @@ Template: Newspaper
         position: absolute;
         top: 200px;
         left: 50%;
-        transform: translate(-50%, -50%);*/
+        transform: translate(-50%, -50%);
     } 
     .home-slider .td-module-meta-info {
         width: 50%;
@@ -580,7 +579,6 @@ Template: Newspaper
 }
 
 
-<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<ARTICLES PAGE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
 /* Articles Title */
 .Jackass-title {
     font-family: Teko;
@@ -594,9 +592,6 @@ Template: Newspaper
 }
 #articles-grid-page{
     margin-top: 20px !important;
-}
-.articles-grid {
-     /*background-color: black;*/
 }
 
 .td-footer-wrapper #td_uid_19_5c899573667b6 {
