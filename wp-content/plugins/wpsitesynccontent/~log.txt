@@ -3,3 +3,9 @@
 2019-03-13 03:10:39#22 - WPSiteSyncContent::filter_unique_filename() filename=12-Grumpy-Old-Man-Edit.jpg ext=.jpg dir=/home/jackas5/dev.jackasstheology.com/wp-content/uploads/2019/03
 2019-03-13 03:14:06#37 - WPSiteSyncContent::filter_unique_filename() filename=12-Grumpy-Old-Man.jpg ext=.jpg dir=/home/jackas5/dev.jackasstheology.com/wp-content/uploads/2019/03
 2019-03-13 23:10:32#65 - WPSiteSyncContent::filter_unique_filename() filename=14-Rembrandt-Good-Samaritan.jpg ext=.jpg dir=/home/jackas5/dev.jackasstheology.com/wp-content/uploads/2019/03
+2019-03-13 23:16:08#23 - WPSiteSyncContent::filter_unique_filename() filename=15-Rembrandt-Prodigal-Son.jpg ext=.jpg dir=/home/jackas5/dev.jackasstheology.com/wp-content/uploads/2019/03
+2019-03-13 23:19:45#16 - WPSiteSyncContent::filter_unique_filename() filename=16-Bible-Reading.jpg ext=.jpg dir=/home/jackas5/dev.jackasstheology.com/wp-content/uploads/2019/03
+2019-03-13 23:25:24#56 - WPSiteSyncContent::filter_upgrader_download() package='https://downloads.wordpress.org/plugin/duplicate-page.zip'
+2019-03-13 23:25:24#56 - WPSiteSyncContent::filter_unique_filename() filename=duplicate-page-uK494J.tmp ext=.tmp dir=/tmp/
+2019-03-13 23:41:52#22 - WPSiteSyncContent::filter_unique_filename() filename=17-Prayer.jpg ext=.jpg dir=/home/jackas5/dev.jackasstheology.com/wp-content/uploads/2019/03
+2019-03-13 23:45:14#70 - WPSiteSyncContent::filter_unique_filename() filename=18-Prayer.jpg ext=.jpg dir=/home/jackas5/dev.jackasstheology.com/wp-content/uploads/2019/03
