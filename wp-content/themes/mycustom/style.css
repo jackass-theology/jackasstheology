@@ -776,3 +776,9 @@ Template: Newspaper
 .td-footer-wrapper a {
     color: White;
 }
+
+@media (max-width: 767px) {
+    .image-top--mobile .td-pb-span6:last-child {
+        order: -1;
+    }
+}
