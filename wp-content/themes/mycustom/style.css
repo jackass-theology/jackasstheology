@@ -20,7 +20,8 @@ Template: Newspaper
 /*BLOCK TEXT HOMEPAGE*/ 
 .tdm_block.tdm_block_inline_text 
     .tdm-descr  {
-    font-family: 'open sans';
+        
+    font-family: open sans;
     font-size: 16px !important;
     font-weight: 100; 
     line-height: 1.5em;
@@ -142,10 +143,11 @@ Template: Newspaper
 } 
 
 /* SAFARI and IOS Fixes */
-.td-md-is-safari .td_module_slide .td-module-title,
+.td-md-is-safari .td_module_slide .td-module-title {
+-webkit-transform: translate(-50%, -50%);
+}
 .td-md-is-ios .td_module_slide .td-module-title {
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+-webkit-transform:translate(-50%, -50%);
 }
 
 /* HOME-SLIDER MEDIA QUERIES */
@@ -196,7 +198,7 @@ Template: Newspaper
         position: absolute;
         top: 200px;
         left: 50%;
-        transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);*/
     } 
     .home-slider .td-module-meta-info {
         width: 50%;
@@ -297,6 +299,8 @@ Template: Newspaper
     }
 }
 
+
+/*<<<<<POSTS>>>>>>*/
 
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<POSTS>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 /* POST TITLE */
@@ -578,6 +582,7 @@ Template: Newspaper
 }
 
 
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<ARTICLES PAGE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
 /* Articles Title */
 .Jackass-title {
     font-family: Teko;
@@ -589,14 +594,9 @@ Template: Newspaper
     padding: 1.2em 0 0em 0;
     margin: 0px;
 }
-#articles-grid-page{
-    margin-top: 20px !important;
+.articles-grid {
+     /*background-color: black;*/
 }
-
-.td-footer-wrapper #td_uid_19_5c899573667b6 {
-    Margin: 0px;    
-}
-
 .articles-grid .td-block-row [class*="td-block-span"] {
     display: block;
     min-height: 1px;
@@ -769,10 +769,4 @@ Template: Newspaper
 /* Fix Coloring for Footer Wrapper */
 .td-footer-wrapper a {
     color: White;
-}
-
-@media (max-width: 767px) {
-    .image-top--mobile .td-pb-span6:last-child {
-        order: -1;
-    }
 }
