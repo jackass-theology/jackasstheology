@@ -4,7 +4,7 @@ Plugin Name: Duplicate Page
 Plugin URI: https://wordpress.org/plugins/duplicate-page/
 Description: Duplicate Posts, Pages and Custom Posts using single click.
 Author: mndpsingh287
-Version: 3.2
+Version: 3.3
 Author URI: https://profiles.wordpress.org/mndpsingh287/
 License: GPLv2
 Text Domain: duplicate-page
@@ -255,15 +255,15 @@ if (!class_exists('duplicate_page')):
             }
              </style>       
              <script>
-			  jQuery(window).load(function(e){
+              jQuery(window).load(function(e){
                 var dp_post_id = "<?php echo $post->ID; ?>";
                 var dp_post_title = "Duplicate this as <?php echo $post_status; ?>";
                 var dp_duplicate_link = '<div class="duplicate_page_link_guten">';
-				    dp_duplicate_link += '<a href="admin.php?action=dt_duplicate_post_as_draft&amp;post='+dp_post_id+'" title="'+dp_post_title+'">Duplicate This</a>';
-				    dp_duplicate_link += '</div>';
+                    dp_duplicate_link += '<a href="admin.php?action=dt_duplicate_post_as_draft&amp;post='+dp_post_id+'" title="'+dp_post_title+'">Duplicate This</a>';
+                    dp_duplicate_link += '</div>';
                 jQuery('.edit-post-post-status').append(dp_duplicate_link);
-				});
-			  </script>
+                });
+              </script>
             <?php
                 }
             }

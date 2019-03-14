@@ -9,3 +9,5 @@
 2019-03-13 23:25:24#56 - WPSiteSyncContent::filter_unique_filename() filename=duplicate-page-uK494J.tmp ext=.tmp dir=/tmp/
 2019-03-13 23:41:52#22 - WPSiteSyncContent::filter_unique_filename() filename=17-Prayer.jpg ext=.jpg dir=/home/jackas5/dev.jackasstheology.com/wp-content/uploads/2019/03
 2019-03-13 23:45:14#70 - WPSiteSyncContent::filter_unique_filename() filename=18-Prayer.jpg ext=.jpg dir=/home/jackas5/dev.jackasstheology.com/wp-content/uploads/2019/03
+2019-03-14 14:06:52#80 - WPSiteSyncContent::filter_upgrader_download() package='https://downloads.wordpress.org/plugin/duplicate-page.zip'
+2019-03-14 14:06:52#80 - WPSiteSyncContent::filter_unique_filename() filename=duplicate-page-rpk2Sr.tmp ext=.tmp dir=/tmp/
