@@ -20,8 +20,7 @@ Template: Newspaper
 /*BLOCK TEXT HOMEPAGE*/ 
 .tdm_block.tdm_block_inline_text 
     .tdm-descr  {
-        
-    font-family: open sans;
+    font-family: 'open sans';
     font-size: 16px !important;
     font-weight: 100; 
     line-height: 1.5em;
