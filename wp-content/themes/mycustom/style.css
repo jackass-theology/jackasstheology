@@ -784,5 +784,5 @@ Template: Newspaper
 
 /* Override for Article page px differences at certain breakpoints */
 .td-container-wrap {
-    background-color: #000 !important;
+/*     background-color: #000 !important; */
 }
