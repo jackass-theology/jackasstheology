@@ -920,8 +920,26 @@ Template: Newspaper
 }
 
 @media (max-width: 767px) {
-    .image-top--mobile /*.td-pb-span6:last-child*/ {
-        /*order: -1;*/
+    .image-top--mobile {
         flex-direction: column-reverse !important;
+    }
+}
+
+/* Overrides Newspaper theme's 1px thin bar on hero element */
+.tdc-row[class*="stretch_row"] > .td-pb-row > .td-element-style {
+    width: calc(100vw + 1px) !important;
+}
+
+/* Override for Page page px differences at certain breakpoints */
+.td-full-screen-header-image-wrap {
+    width: 100%;
+}
+
+@media (max-width: 767px) {
+    #td-header-menu {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
     }
 }
