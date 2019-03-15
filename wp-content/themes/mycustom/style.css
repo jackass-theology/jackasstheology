@@ -594,6 +594,7 @@ Template: Newspaper
     color: white;
     font-weight: 400 !important;
     font-size: 60px !important;
+    line-height: 1.5em !important;
     text-transform: uppercase; 
     padding: 20px !important;
     text-align: center;
