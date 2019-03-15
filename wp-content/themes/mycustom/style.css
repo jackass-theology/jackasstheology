@@ -772,8 +772,11 @@ Template: Newspaper
 }
 
 @media (max-width: 767px) {
-    .image-top--mobile /*.td-pb-span6:last-child*/ {
-        /*order: -1;*/
+    .image-top--mobile {
         flex-direction: column-reverse !important;
     }
+}
+
+.tdc-row[class*="stretch_row"] > .td-pb-row > .td-element-style {
+    width: calc(100vw + 1px) !important;
 }
