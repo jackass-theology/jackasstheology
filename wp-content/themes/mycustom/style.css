@@ -681,9 +681,16 @@ Template: Newspaper
     padding: 15px 40px 15px 40px !important;
     width: 300px !important;
     text-align: center !important;
-    margin: auto !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
     height: auto !important;
 }
+
+#mc-embedded-subscribe-form .clear {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
 #mc-embed_signup .button {
 }
 @media (max-width: 767px) {
@@ -697,7 +704,7 @@ Template: Newspaper
     order: -1;
     height: 33.33% !important;
     flex-basis: 100% !important;
-    margin: auto;
+    margin-left: auto;
     }
     #mc-embedded-subscribe-form .button{
         margin-top: 30px !important;
