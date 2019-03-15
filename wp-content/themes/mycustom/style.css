@@ -48,8 +48,9 @@ Template: Newspaper
 /*<<<HERO>>>*/
 #jackass-hero {
     height: 100vh;
-    min-height: 800px;
+    min-height: 1000px;
     max-height: 2000px;
+    overflow: visible !important;
 }
 .jat-hero {
     margin-top: 50vh;
@@ -585,6 +586,12 @@ Template: Newspaper
 /*
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<SUBSCRIBE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
 
+#mc-embedded-subscribe-form {
+    padding: 0px !important;
+    margin: 0px;
+    width: 100%;
+}
+
 .subscribe-form {
     height: 100% !important;
 }
@@ -594,56 +601,108 @@ Template: Newspaper
     color: white;
     font-weight: 400 !important;
     font-size: 60px !important;
-    line-height: 1.5em !important;
+    line-height: 1em !important;
     text-transform: uppercase; 
     padding: 20px !important;
     text-align: center;
 }
 .subscribe-form .people {
-   padding-left: 40px;
-    padding-right: 40px;
+    padding-left: 10%;
+    padding-right: 10%;
+    margin: auto;
     margin-bottom: 0px !important;
+    width: 100% !important;
+    max-width: 700px;
+}
+@media (max-width: 767px){
+    .subscribe-form H2 {
+    padding: 5px !important;
+    text-align: center;
+    width: 100% !important;
+    margin: 0;
+    }
+    .subscribe-form .people {
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 0px !important;
+    width: 100% !important;
+    margin: 0;
+    }
 }
 
 .field-container {
     display: flex !important;
     width: 100% !important;
-    height: 200px !important;
+    max-width: 600px;
+    height: 400px !important;
     flex-direction: row !important;
-    flex-wrap: wrap !important;
+    flex-wrap: wrap!important;
     flex-basis: auto !important;
     justify-content: flex-start!important;
-    align-items: stretch !important;
-    padding: 20px;
+    align-items: baseline !important;
+    align-content: space-between!important;
     margin: auto;
     margin-bottom: 100px;
     margin-top: 0px;
 }
 .field-email {
-    order:1;
-    height: 100px !important;
+    order: -3;
+    height: 33.33% !important;
     flex-basis: 100% !important;
     margin: auto;
 }
 .field-first {
-    order:2;
-    height: 100px !important;
-    flex-basis: 40% !important;
+    order: -2;
+    height: 33.33% !important;
+    flex-basis: 50% !important;
     margin: auto;
 }
 .field-last {
-    order:3;
-    height: 100px !important;
-    flex-basis: 40% !important;
+    order: -1;
+    height: 33.33% !important;
+    flex-basis: 50% !important;
     margin: auto;
 }
-.field-birth {
-    order:4;
-    height: 100px !important;
-    flex-basis: 20% !important;
+/*.field-birth {
+    order:-1;
+    height: 33.33% !important;
+    flex-basis: auto !important;
     margin: auto;
+}*/
+#mc-embedded-subscribe-form .button {
+    order: 99 !important;
+    flex-basis: 100% !important;
+    background-color: rgba(0,0,0,0.1) !important;    
+    font-family: 'open sans', sans-serif;
+    font-weight: 400 !important;
+    font-size: 18px !important;
+    border-radius: 0px !important;
+    border: 1px solid white !important;
+    padding: 15px 40px 15px 40px !important;
+    width: 300px !important;
+    text-align: center !important;
+    margin: auto !important;
+    height: auto !important;
 }
-
+#mc-embed_signup .button {
+}
+@media (max-width: 767px) {
+    .field-first {
+    order: -2;
+    height: 33.33% !important;
+    flex-basis: 100% !important;
+    margin: auto;
+    }
+    .field-last {
+    order: -1;
+    height: 33.33% !important;
+    flex-basis: 100% !important;
+    margin: auto;
+    }
+    #mc-embedded-subscribe-form .button{
+        margin-top: 30px !important;
+    }
+}
 #mc_embed_signup { 
     background: none !important;
     font-family: 'open sans', sans-serif;
@@ -651,8 +710,9 @@ Template: Newspaper
     color: white;
     position: absolute;
     padding: 20px;
-    border: 1px solid white;
-    width: 60vw !important;
+    border: 0px solid white;
+    width: 70vw !important;
+    max-width: 800px !important;
     top: 10px;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -660,7 +720,6 @@ Template: Newspaper
 }
 
 @media (max-width: 767px) {
-
     #mc_embed_signup {
         width: 85vw !important;
     }
@@ -668,7 +727,9 @@ Template: Newspaper
 #mc_embed_signup_scroll{
 }
 .indicates-required{
-    
+    width: 80% !important;
+    max-width: 600px !important;
+    margin: 10px auto 20px auto !important;
 }
 .asterisk{
     color: #bf9f60 !important; 
@@ -681,7 +742,7 @@ Template: Newspaper
     font-family: 'open sans', sans-serif;
     font-weight: 100 !important;
     background-color: none !important;
-    padding: 10px 0px 5px 0px !important;
+    padding: 0px 0px 5px 0px !important;
     display: inline-block !important;
     border-bottom: 0px solid #bf9f60;
     margin-bottom: 0px;
@@ -692,18 +753,18 @@ Template: Newspaper
     font-family: 'open sans', sans-serif !important;
     font-weight: 100 !important;
     font-size: 18px !important;
-    padding: 20px 0px 30px 0px !important;
+    padding: 30px 0px 30px 0px !important;
     border-radius: 0px !important;
     border: 1px solid #bf9f60 !important;
     margin: 0px !important;
 }
-.field-birth input {
+/*.field-birth input {
     background-color: rgba(255,255,255,0.1) !important;
     color: white;
     font-family: 'open sans', sans-serif !important;
     font-weight: 100 !important;
     font-size: 18px !important;
-    padding: 20px 10px 30px 10px !important;
+    padding: 30px 10px 30px 10px !important;
     border-radius: 0px !important;
     border: 1px solid #bf9f60 !important;
     margin: 0px !important;
@@ -718,16 +779,8 @@ Template: Newspaper
     border-bottom: 0px solid #bf9f60;
     margin-bottom: 0px;
 }
-.mc-field-group size1of2{
-}
-.datefield {
-}
-.subfield monthfield {
-    
-}
-.subscribe-form .clear{
-    align-content: center;
-}
+
+*/
 /*
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<ARTICLES PAGE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
 /* Articles Title */
