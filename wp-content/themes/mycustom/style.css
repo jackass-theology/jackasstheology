@@ -777,6 +777,7 @@ Template: Newspaper
     }
 }
 
+/* Overrides Newspaper theme's 1px thin bar on hero element */
 .tdc-row[class*="stretch_row"] > .td-pb-row > .td-element-style {
     width: calc(100vw + 1px) !important;
 }
