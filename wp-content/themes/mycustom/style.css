@@ -52,6 +52,12 @@ Template: Newspaper
     max-height: 2000px;
     overflow: visible !important;
 }
+@media (max-width: 767px) {
+    #jackass-hero {
+    min-height: 1200px;
+    overflow: visible !important;
+    }
+}
 .jat-hero {
     margin-top: 50vh;
     font-size: 0px;
