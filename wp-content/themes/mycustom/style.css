@@ -601,41 +601,44 @@ Template: Newspaper
 .subscribe-form .people {
    padding-left: 40px;
     padding-right: 40px;
+    margin-bottom: 0px !important;
 }
 
 .field-container {
     display: flex !important;
     width: 100% !important;
-    height: 300px !important;
+    height: 200px !important;
     flex-direction: row !important;
     flex-wrap: wrap !important;
     flex-basis: auto !important;
     justify-content: flex-start!important;
-    align-items: center !important;
+    align-items: stretch !important;
     padding: 20px;
     margin: auto;
+    margin-bottom: 100px;
+    margin-top: 0px;
 }
 .field-email {
     order:1;
-    height: 80px !important;
+    height: 100px !important;
     flex-basis: 100% !important;
     margin: auto;
 }
 .field-first {
     order:2;
-    height: 80px !important;
+    height: 100px !important;
     flex-basis: 40% !important;
     margin: auto;
 }
 .field-last {
     order:3;
-    height: 80px !important;
+    height: 100px !important;
     flex-basis: 40% !important;
     margin: auto;
 }
 .field-birth {
     order:4;
-    height: 80px !important;
+    height: 100px !important;
     flex-basis: 20% !important;
     margin: auto;
 }
@@ -664,6 +667,7 @@ Template: Newspaper
 #mc_embed_signup_scroll{
 }
 .indicates-required{
+    
 }
 .asterisk{
     color: #bf9f60 !important; 
@@ -678,38 +682,39 @@ Template: Newspaper
     background-color: none !important;
     padding: 10px 0px 5px 0px !important;
     display: inline-block !important;
-    border-bottom: 5px solid #bf9f60;
+    border-bottom: 0px solid #bf9f60;
     margin-bottom: 0px;
 }
 .mc-field-group input {
-    background-color: black !important;
+    background-color: rgba(255,255,255,0.1) !important;
     color: white;
     font-family: 'open sans', sans-serif !important;
     font-weight: 100 !important;
     font-size: 18px !important;
     padding: 20px 0px 30px 0px !important;
     border-radius: 0px !important;
-    border: 0px solid white !important;
+    border: 1px solid #bf9f60 !important;
     margin: 0px !important;
 }
 .field-birth input {
-    background-color: black !important;
+    background-color: rgba(255,255,255,0.1) !important;
     color: white;
     font-family: 'open sans', sans-serif !important;
     font-weight: 100 !important;
     font-size: 18px !important;
     padding: 20px 10px 30px 10px !important;
     border-radius: 0px !important;
-    border: 0px solid white !important;
+    border: 1px solid #bf9f60 !important;
     margin: 0px !important;
 }
 .field-birth label {
+    
     font-family: 'open sans', sans-serif;
     font-weight: 100 !important;
     background-color: none !important;
     padding: 10px 10px 5px 10px !important;
     display: inline-block !important;
-    border-bottom: 5px solid #bf9f60;
+    border-bottom: 0px solid #bf9f60;
     margin-bottom: 0px;
 }
 .mc-field-group size1of2{
