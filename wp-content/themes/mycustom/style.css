@@ -53,8 +53,8 @@ Template: Newspaper
     overflow: visible !important;
 }
 @media (max-width: 767px) {
-    #jackass-hero {
-    min-height: 1400px;
+    #jackass-hero  {
+    min-height: 1200px;
     overflow: visible !important;
     }
 }
