@@ -782,7 +782,16 @@ Template: Newspaper
     width: calc(100vw + 1px) !important;
 }
 
-/* Override for Article page px differences at certain breakpoints */
-.td-container-wrap {
-/*     background-color: #000 !important; */
+/* Override for Page page px differences at certain breakpoints */
+.td-full-screen-header-image-wrap {
+    width: 100%;
+}
+
+@media (max-width: 767px) {
+    #td-header-menu {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
 }
