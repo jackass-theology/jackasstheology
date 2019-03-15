@@ -781,3 +781,8 @@ Template: Newspaper
 .tdc-row[class*="stretch_row"] > .td-pb-row > .td-element-style {
     width: calc(100vw + 1px) !important;
 }
+
+/* Override for Article page px differences at certain breakpoints */
+.td-container-wrap {
+    background-color: #000 !important;
+}
