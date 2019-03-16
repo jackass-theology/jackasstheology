@@ -215,7 +215,7 @@ Template: Newspaper
         position: absolute;
         top: 200px;
         left: 50%;
-        transform: translate(-50%, -50%);*/
+        transform: translate(-50%, -50%);
     } 
     .home-slider .td-module-meta-info {
         width: 50%;
