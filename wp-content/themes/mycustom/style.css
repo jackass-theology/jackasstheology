@@ -48,22 +48,32 @@ Template: Newspaper
 /*<<<HERO>>>*/
 #jackass-hero {
     height: 100vh;
-    min-height: 1000px;
+    padding-top: 25%;
+    min-height: 900px;
     max-height: 2000px;
     overflow: visible !important;
 }
 @media (max-width: 767px) {
     #jackass-hero  {
-    min-height: 1200px;
+    min-height: 1000px;
     overflow: visible !important;
     }
 }
 .jat-hero {
-    margin-top: 50vh;
     font-size: 0px;
     height: 100%;
     width: 100%;
 }
+
+#jat-hero-devo {
+    height: 90vh;
+    padding-top: auto;
+    padding-bottom: auto;
+    min-height: 700px;
+    max-height: 1200px;
+    overflow: visible !important;
+}
+
 .jat-hero-descr {
     max-width: 700px;
 }
@@ -591,7 +601,18 @@ Template: Newspaper
 
 /*
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<SUBSCRIBE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
-
+#jat-hero-subscribe {
+    height: 100vh;
+    min-height: 1000px;
+    max-height: 2000px;
+    overflow: visible !important;
+}
+@media (max-width: 767px) {
+    #jat-hero-subscribe  {
+    min-height: 1400px;
+    overflow: visible !important;
+    }
+}
 #mc-embedded-subscribe-form {
     padding: 0px !important;
     margin: 0px;
