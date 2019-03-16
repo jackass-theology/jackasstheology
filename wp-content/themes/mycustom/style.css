@@ -815,6 +815,18 @@ Template: Newspaper
 }
 
 */
+
+/*>>>>>>>>>>>>>>>>>>>>>>>> SOLUTIONS>>>>>>>>>>>>>>>*/
+
+/*>>>Articles On The Table>>>>>*/
+
+#jat-hero-solution {
+    max-height: 50% !important;
+}
+
+.believe-wrapper2 {
+    margin-top: 0px !important;
+}
 /*
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<ARTICLES PAGE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
 /* Articles Title */
