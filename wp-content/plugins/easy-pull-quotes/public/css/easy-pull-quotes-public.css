@@ -1,0 +1,35 @@
+/**
+ * All of the CSS for your public-facing functionality should be
+ * included in this file.
+ */
+.epq-pull-quote {
+  width: 35%;
+  display: block; }
+  .epq-pull-quote.epq-align-center {
+    width: 100%;
+    padding-left: 1em;
+    padding-right: 1em;
+    margin-top: 1em; }
+
+.epq-align-left {
+  float: left;
+  margin-right: 1em; }
+
+.epq-align-right {
+  float: right;
+  margin-left: 1em; }
+
+.epq-twitter {
+  display: block;
+  float: right;
+  margin-top: 5px;
+  color: #ccd6dd; }
+  .epq-twitter:hover {
+    color: #55acee; }
+
+.epq-pull-quote-default {
+  border-top: 3px solid #000;
+  margin-top: 1.2%;
+  margin-bottom: 2%;
+  padding: .5em 0 0;
+  font-size: 1.125em; }

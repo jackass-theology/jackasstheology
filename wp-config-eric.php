@@ -19,6 +19,7 @@
  */
 
 // ** MySQL settings - You can get this info from your web host ** //
+define('REVISR_GIT_PATH', ''); // Added by Revisr
 define('DB_NAME',     'wordpress'); // The name of the database for WordPress
 define('DB_USER',     'root');      // MySQL database username
 define('DB_PASSWORD', 'root');      // MySQL database password
@@ -61,7 +62,7 @@ define('WP_HOME', 'http://localhost:8888/jackasstheology');
  *
  * @link https://codex.wordpress.org/Debugging_in_WordPress
  */
-define('WP_DEBUG', true);
+define('WP_DEBUG', false);
 
 /* That's all, stop editing! Happy blogging. */
 

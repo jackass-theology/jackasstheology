@@ -8,9 +8,12 @@
 *_notes/*
 dwsync.xml
 */**/_notes/*
+backup/*
 # Hidden files
 *.DS_Store
 *Thumbs.db
 *.sass-cache*
 *~imageoptim*
 .vscode
+*.sem
+.htaccess
