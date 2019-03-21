@@ -18,7 +18,6 @@
     <link rel="profile" href="http://gmpg.org/xfn/11">
 
     <?php wp_head(); ?>
-	<script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/c5c049f1d3ee884a3235fc7d2/1918f78a533226b044ba048a6.js");</script>
 </head>
 
 <body <?php body_class(); ?>>

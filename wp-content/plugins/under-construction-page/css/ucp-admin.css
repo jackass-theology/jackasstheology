@@ -229,7 +229,8 @@ div.ucp-thumb img, .ucp-thumb-special img {
 .ucp-list {
 	list-style-type: circle;
 	list-style-position: outside;
-    margin-left: 14px;
+  margin-left: 14px;
+  line-height: 150%;
 }
 
 input[type=url]:invalid, input[type=email]:invalid, input[type=tel]:invalid {
@@ -917,5 +918,44 @@ option.mailoptin-promo {
   vertical-align: top;
   position: relative;
   border-top: 1px solid #2980b9;
+}
+/* upsell dialog */
+
+/* weglot upsell dialog */
+.weglot-upsell-dialog .ui-dialog-titlebar {
+  background: linear-gradient(140deg, #335ee2 10%, #271f50 90%);
+  text-align: center;
+  height: 55px;
+}
+.weglot-upsell-dialog .ui-dialog-titlebar img {
+  height: 32px;
+  display: inline-block;
+  margin: 11px 0 0 0;
+}
+.weglot-upsell-dialog .ui-dialog-titlebar-close {
+  color: #fff;
+  height: 55px;
+}
+.weglot-upsell-dialog .ui-dialog-titlebar-close:hover {
+  color: #333;
+}
+.weglot-upsell-dialog .ui-dialog-content {
+  padding: 0;
+}
+.weglot-upsell-dialog .ui-tabs-nav {
+  text-align: center;
+}
+.weglot-upsell-dialog .ui-tabs .upsell-tab {
+  padding: 20px 15px;
+  text-align: center;
+}
+.weglot-upsell-dialog a {
+  color: #333;
+}
+.weglot-upsell-dialog a:hover {
+  color: #000;
+}
+option.weglot-promo {
+  color: #2980b9;
 }
 /* upsell dialog */
