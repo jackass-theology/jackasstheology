@@ -80,6 +80,10 @@ class Jetpack_WordAds_Gutenblock {
 			return '';
 		}
 
+		if ( ! empty( $attr['hideMobile'] ) && $wordads->params->is_mobile() ) {
+			return '';
+		}
+
 		if ( ! self::is_wpcom() && $wordads->option( 'wordads_house' ) ) {
 			return $wordads->get_ad( 'inline', 'house' );
 		}
@@ -101,7 +105,7 @@ class Jetpack_WordAds_Gutenblock {
 
 		$height  = $ad_tag_ids[ $format ]['height'];
 		$width   = $ad_tag_ids[ $format ]['width'];
-		$snippet = $wordads->get_ad_snippet( $section_id, $height, $width, 'inline', $wordads->get_solo_unit_css() );
+		$snippet = $wordads->get_ad_snippet( $section_id, $height, $width, 'gutenberg', $wordads->get_solo_unit_css() );
 		return $wordads->get_ad_div( 'inline', $snippet, array( $align ) );
 	}
 }

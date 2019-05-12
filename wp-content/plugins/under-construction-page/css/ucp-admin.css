@@ -229,7 +229,8 @@ div.ucp-thumb img, .ucp-thumb-special img {
 .ucp-list {
 	list-style-type: circle;
 	list-style-position: outside;
-    margin-left: 14px;
+  margin-left: 14px;
+  line-height: 150%;
 }
 
 input[type=url]:invalid, input[type=email]:invalid, input[type=tel]:invalid {
@@ -439,7 +440,7 @@ span.select2-container .select2-search--inline .select2-search__field {
   font-weight: 600;
   line-height: 32px;
   color: #AAAAAA;
-  padding: 15px 30px;
+  padding: 10px 20px;
   display: block;
   letter-spacing: 1px;
 }
@@ -503,6 +504,28 @@ span.select2-container .select2-search--inline .select2-search__field {
   -webkit-box-shadow: none;
 }
 
+@media screen and (max-width: 782px) {
+  .settings_page_ucp .ui-tabs ul.ui-tabs-nav li .label {
+    display: none;
+  }
+  .settings_page_ucp .ui-tabs .ui-tabs-nav li a {
+    padding: 8px 15px 0px 14px;
+  }
+  .settings_page_ucp .ui-tabs ul.ui-tabs-nav li {
+    margin: 5px 2px -5px 2px;
+    min-width: inherit;
+  }
+}
+
+@media screen and (max-width: 1150px) {
+  .settings_page_ucp .ui-tabs .ui-tabs-nav li a {
+    padding: 10px 15px 10px 15px;
+  }
+  .settings_page_ucp .ui-tabs ul.ui-tabs-nav li {
+    min-width: inherit;
+  }
+}
+
 #ucp_tabs li span.dashicons-star-filled {
   color: #FFC107;
 }
@@ -549,16 +572,6 @@ s.settings_page_ucp .ucp-tabs-2nd-level li.ui-state-active a:before {
 .ucp-tabs-2nd-level .form-table {
   margin: 0;
 }
-
-@media screen and (max-width: 782px) {
-  .settings_page_ucp .ui-tabs .ui-tabs-nav li a {
-    padding: 5px 10px;
-  }
-  .settings_page_ucp .ui-tabs ul.ui-tabs-nav li {
-    margin: 5px 2px -5px 2px;
-  }
-}
-
 /* tabs */
 
 
@@ -919,3 +932,122 @@ option.mailoptin-promo {
   border-top: 1px solid #2980b9;
 }
 /* upsell dialog */
+
+/* weglot upsell dialog */
+.weglot-upsell-dialog .ui-dialog-titlebar {
+  background: linear-gradient(140deg, #335ee2 10%, #271f50 90%);
+  text-align: center;
+  height: 55px;
+}
+.weglot-upsell-dialog .ui-dialog-titlebar img {
+  height: 32px;
+  display: inline-block;
+  margin: 11px 0 0 0;
+}
+.weglot-upsell-dialog .ui-dialog-titlebar-close {
+  color: #fff;
+  height: 55px;
+}
+.weglot-upsell-dialog .ui-dialog-titlebar-close:hover {
+  color: #333;
+}
+.weglot-upsell-dialog .ui-dialog-content {
+  padding: 0;
+}
+.weglot-upsell-dialog .ui-tabs-nav {
+  text-align: center;
+}
+.weglot-upsell-dialog .ui-tabs .upsell-tab {
+  padding: 20px 15px;
+  text-align: center;
+}
+.weglot-upsell-dialog a {
+  color: #333;
+}
+.weglot-upsell-dialog a:hover {
+  color: #000;
+}
+option.weglot-promo {
+  color: #2980b9;
+}
+/* upsell dialog */
+
+.nordvpn {
+  font-variant: normal;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-style: italic;
+}
+
+#ucp_security_ninja .button-primary {
+  text-decoration: none;
+  border-radius: 0px !important;
+  border-width: 0px !important;
+  border-color: transparent !important;
+  background: #499ed7;
+  color: #fff;
+  font-weight: bold !important;
+  box-shadow: none !important;
+  padding: 11px 40px;
+  height: auto !important;
+  text-transform: uppercase;
+  display: inline-block;
+  box-shadow: none !important;
+  outline: none !important;
+  white-space: inherit;
+}
+
+.sn-box p {
+  font-size: 15px;
+  text-align: left;
+  max-width: 800px;
+  display: inline-block;
+  line-height: 1.8;
+}
+
+.sn-box {
+  margin: 10px 5px 20px 5px;
+  text-align: center;
+  background: #f9f9f9;
+  padding: 30px 50px;
+  border: 1px solid #e5e5e5;
+}
+
+.sn-box h2 {
+  border-bottom: none;
+  font-size: 2em;
+  line-height: 1.1;
+}
+
+.sn-box h2 span {
+  position: relative;
+}
+
+.sn-box h2 span:after {
+  border-bottom: 3px solid #499ed7;
+  background-color: #499ed7;
+  content: "";
+  width: 100%;
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+}
+
+#ucp_security_ninja .ucp-tab-content {
+  max-width: 800px;
+}
+
+#ucp_security_ninja .textcenter {
+  text-align: center;
+}
+
+.security-ninja-logo {
+  margin: 10px 0 20px 0;
+  display: block;
+  text-align: center;
+}
+
+.security-ninja-logo img {
+  height: 80px;
+}

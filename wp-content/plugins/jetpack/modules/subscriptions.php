@@ -2,14 +2,13 @@
 /**
  * Module Name: Subscriptions
  * Module Description: Allow users to subscribe to your posts and comments and receive notifications via email
- * Jumpstart Description: Give visitors two easy subscription options — while commenting, or via a separate email subscription widget you can display.
  * Sort Order: 9
  * Recommendation Order: 8
  * First Introduced: 1.2
  * Requires Connection: Yes
- * Auto Activate: Yes
+ * Auto Activate: No
  * Module Tags: Social
- * Feature: Engagement, Jumpstart
+ * Feature: Engagement
  * Additional Search Queries: subscriptions, subscription, email, follow, followers, subscribers, signup
  */
 
@@ -17,12 +16,6 @@ add_action( 'jetpack_modules_loaded', 'jetpack_subscriptions_load' );
 
 function jetpack_subscriptions_load() {
 	Jetpack::enable_module_configurable( __FILE__ );
-	Jetpack::module_configuration_load( __FILE__, 'jetpack_subscriptions_configuration_load' );
-}
-
-function jetpack_subscriptions_configuration_load() {
-	wp_safe_redirect( admin_url( 'options-discussion.php#jetpack-subscriptions-settings' ) );
-	exit;
 }
 
 /**
@@ -86,7 +79,7 @@ class Jetpack_Subscriptions {
 			add_action( 'template_redirect', array( $this, 'widget_submit' ) );
 
 		// Set up the comment subscription checkboxes
-		add_filter( 'comment_form_submit_button', array( $this, 'comment_subscribe_init' ), 10, 2 );
+		add_filter( 'comment_form_submit_field', array( $this, 'comment_subscribe_init' ), 10, 2 );
 
 		// Catch comment posts and check for subscriptions.
 		add_action( 'comment_post', array( $this, 'comment_subscribe_submit' ), 50, 2 );
@@ -603,7 +596,7 @@ class Jetpack_Subscriptions {
 	 *
 	 * Set up and add the comment subscription checkbox to the comment form.
 	 *
-	 * @param string $submit_button HTML markup for the submit button.
+	 * @param string $submit_button HTML markup for the submit field.
 	 * @param array  $args          Arguments passed to `comment_form()`.
 	 */
 	function comment_subscribe_init( $submit_button, $args ) {
@@ -677,7 +670,7 @@ class Jetpack_Subscriptions {
 		 */
 		$str = apply_filters( 'jetpack_comment_subscription_form', $str );
 
-		return $str . $submit_button;
+		return $submit_button . $str;
 	}
 
 	/**

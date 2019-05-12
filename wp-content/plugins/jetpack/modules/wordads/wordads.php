@@ -45,6 +45,22 @@ class WordAds {
 		),
 	);
 
+	/**
+	 * Mapping array of location slugs to placement ids
+	 *
+	 * @var array
+	 */
+	public static $ad_location_ids = array(
+		'top'           => 110,
+		'belowpost'     => 120,
+		'belowpost2'    => 130,
+		'sidebar'       => 140,
+		'widget'        => 150,
+		'gutenberg'     => 200,
+		'inline'        => 310,
+		'inline-plugin' => 320,
+	);
+
 	public static $SOLO_UNIT_CSS = 'float:left;margin-right:5px;margin-top:0px;';
 
 	/**
@@ -99,15 +115,10 @@ class WordAds {
 	 * @since 4.5.0
 	 */
 	function init() {
-		// bail on infinite scroll
-		if ( self::is_infinite_scroll() ) {
-			return;
-		}
-
 		require_once WORDADS_ROOT . '/php/params.php';
 		$this->params = new WordAds_Params();
 
-		if ( $this->should_bail() ) {
+		if ( $this->should_bail() || self::is_infinite_scroll() ) {
 			return;
 		}
 
@@ -440,11 +451,11 @@ HTML;
 				$snippet = $this->get_ad_snippet( $section_id, $height, $width, $spot, self::$SOLO_UNIT_CSS );
 				if ( $this->option( 'wordads_second_belowpost', true ) ) {
 					$section_id2 = 0 === $this->params->blog_id ? WORDADS_API_TEST_ID2 : $this->params->blog_id . '4';
-					$snippet    .= $this->get_ad_snippet( $section_id2, $height, $width, $spot, 'float:left;margin-top:0px;' );
+					$snippet    .= $this->get_ad_snippet( $section_id2, $height, $width, $spot . '2', 'float:left;margin-top:0px;' );
 				}
 			} elseif ( 'inline' === $spot ) {
 				$section_id = 0 === $this->params->blog_id ? WORDADS_API_TEST_ID : $this->params->blog_id . '5';
-				$snippet    = $this->get_ad_snippet( $section_id, $height, $width, $spot, 'mrec', self::$SOLO_UNIT_CSS );
+				$snippet    = $this->get_ad_snippet( $section_id, $height, $width, $spot, self::$SOLO_UNIT_CSS );
 			}
 		} elseif ( 'house' == $type ) {
 			$leaderboard = 'top' == $spot && ! $this->params->mobile_device;
@@ -476,10 +487,15 @@ HTML;
 			'width'    => $width,
 			'height'   => $height,
 		);
-		$ad_number   = count( $this->ads );
+		$ad_number   = count( $this->ads ) . '-' . uniqid();
 
 		$data_tags = $this->params->cloudflare ? ' data-cfasync="false"' : '';
 		$css = esc_attr( $css );
+
+		$loc_id = 100;
+		if ( ! empty( self::$ad_location_ids[ $location ] ) ) {
+			$loc_id = self::$ad_location_ids[ $location ];
+		}
 
 		return <<<HTML
 		<div style="padding-bottom:15px;width:{$width}px;height:{$height}px;$css">
@@ -489,7 +505,7 @@ HTML;
 					__ATA.initSlot('atatags-{$ad_number}',  {
 						collapseEmpty: 'before',
 						sectionId: '{$section_id}',
-						location: '{$location}',
+						location: {$loc_id},
 						width: {$width},
 						height: {$height}
 					});

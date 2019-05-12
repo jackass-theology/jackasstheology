@@ -4,7 +4,7 @@ Plugin Name: Duplicate Page
 Plugin URI: https://wordpress.org/plugins/duplicate-page/
 Description: Duplicate Posts, Pages and Custom Posts using single click.
 Author: mndpsingh287
-Version: 3.3
+Version: 3.5
 Author URI: https://profiles.wordpress.org/mndpsingh287/
 License: GPLv2
 Text Domain: duplicate-page
@@ -17,8 +17,8 @@ if (!class_exists('duplicate_page')):
     {
         /*
         * AutoLoad Hooks
-        */
-        public function __construct()
+        */        
+        public function __construct() 
         {
             $opt = get_option('duplicate_page_options');
             register_activation_hook(__FILE__, array(&$this, 'duplicate_page_install'));
@@ -99,6 +99,17 @@ if (!class_exists('duplicate_page')):
         */
         public function dt_duplicate_post_as_draft()
         {
+           /*
+           * get Nonce value
+           */
+           $nonce = $_REQUEST['nonce'];
+            /*
+            * get the original post id
+            */
+           $post_id = (isset($_GET['post']) ? intval($_GET['post']) : intval($_POST['post']));
+
+           if(wp_verify_nonce( $nonce, 'dt-duplicate-page-'.$post_id) && current_user_can('edit_posts')) {
+           // verify Nonce  
             global $wpdb;
             $opt = get_option('duplicate_page_options');
             $suffix = isset($opt['duplicate_post_suffix']) && !empty($opt['duplicate_post_suffix']) ? ' -- '.$opt['duplicate_post_suffix'] : '';
@@ -107,11 +118,7 @@ if (!class_exists('duplicate_page')):
             if (!(isset($_GET['post']) || isset($_POST['post']) || (isset($_REQUEST['action']) && 'dt_duplicate_post_as_draft' == $_REQUEST['action']))) {
                 wp_die('No post to duplicate has been supplied!');
             }
-            $returnpage = '';
-            /*
-            * get the original post id
-            */
-            $post_id = (isset($_GET['post']) ? $_GET['post'] : $_POST['post']);
+            $returnpage = '';            
             /*
             * and all the original post data then
             */
@@ -133,7 +140,7 @@ if (!class_exists('duplicate_page')):
                      'comment_status' => $post->comment_status,
                      'ping_status' => $post->ping_status,
                      'post_author' => $new_post_author,
-                     'post_content' => $post->post_content,
+                     'post_content' => (isset($opt['duplicate_post_editor']) && $opt['duplicate_post_editor'] == 'gutenberg') ? wp_slash($post->post_content) : $post->post_content,
                      'post_excerpt' => $post->post_excerpt,
                      'post_name' => $post->post_name,
                      'post_parent' => $post->post_parent,
@@ -187,6 +194,9 @@ if (!class_exists('duplicate_page')):
             } else {
                 wp_die('Error! Post creation failed, could not find original post: '.$post_id);
             }
+          } else {
+            wp_die('Security check issue, Please try again.');
+          }
         }
 
         /*
@@ -197,7 +207,7 @@ if (!class_exists('duplicate_page')):
             $opt = get_option('duplicate_page_options');
             $post_status = !empty($opt['duplicate_post_status']) ? $opt['duplicate_post_status'] : 'draft';
             if (current_user_can('edit_posts')) {
-                $actions['duplicate'] = '<a href="admin.php?action=dt_duplicate_post_as_draft&amp;post='.$post->ID.'" title="Duplicate this as '.$post_status.'" rel="permalink">'.__('Duplicate This', 'duplicate-page').'</a>';
+                $actions['duplicate'] = '<a href="admin.php?action=dt_duplicate_post_as_draft&amp;post='.$post->ID.'&amp;nonce='.wp_create_nonce( 'dt-duplicate-page-'.$post->ID ).'" title="Duplicate this as '.$post_status.'" rel="permalink">'.__('Duplicate This', 'duplicate-page').'</a>';
             }
 
             return $actions;
@@ -213,7 +223,7 @@ if (!class_exists('duplicate_page')):
             $post_status = !empty($opt['duplicate_post_status']) ? $opt['duplicate_post_status'] : 'draft';
             $html = '<div id="major-publishing-actions">';
             $html .= '<div id="export-action">';
-            $html .= '<a href="admin.php?action=dt_duplicate_post_as_draft&amp;post='.$post->ID.'" title="Duplicate this as '.$post_status.'" rel="permalink">'.__('Duplicate This', 'duplicate-page').'</a>';
+            $html .= '<a href="admin.php?action=dt_duplicate_post_as_draft&amp;post='.$post->ID.'&amp;nonce='.wp_create_nonce( 'dt-duplicate-page-'.$post->ID ).'" title="Duplicate this as '.$post_status.'" rel="permalink">'.__('Duplicate This', 'duplicate-page').'</a>';
             $html .= '</div>';
             $html .= '</div>';
             echo $html;
@@ -257,9 +267,10 @@ if (!class_exists('duplicate_page')):
              <script>
               jQuery(window).load(function(e){
                 var dp_post_id = "<?php echo $post->ID; ?>";
+                var dtnonce = "<?php echo wp_create_nonce( 'dt-duplicate-page-'.$post->ID );?>"; 
                 var dp_post_title = "Duplicate this as <?php echo $post_status; ?>";
                 var dp_duplicate_link = '<div class="duplicate_page_link_guten">';
-                    dp_duplicate_link += '<a href="admin.php?action=dt_duplicate_post_as_draft&amp;post='+dp_post_id+'" title="'+dp_post_title+'">Duplicate This</a>';
+                    dp_duplicate_link += '<a href="admin.php?action=dt_duplicate_post_as_draft&amp;post='+dp_post_id+'&amp;nonce='+dtnonce+'" title="'+dp_post_title+'">Duplicate This</a>';
                     dp_duplicate_link += '</div>';
                 jQuery('.edit-post-post-status').append(dp_duplicate_link);
                 });
@@ -288,7 +299,7 @@ if (!class_exists('duplicate_page')):
                 'parent' => 'edit',
                 'id' => 'duplicate_this',
                 'title' => __('Duplicate This as '.$post_status.'', 'duplicate-page'),
-                'href' => admin_url().'admin.php?action=dt_duplicate_post_as_draft&amp;post='.$post->ID,
+                'href' => admin_url().'admin.php?action=dt_duplicate_post_as_draft&amp;post='.$post->ID.'&amp;nonce='.wp_create_nonce( 'dt-duplicate-page-'.$post->ID )
                 ));
             }
         }

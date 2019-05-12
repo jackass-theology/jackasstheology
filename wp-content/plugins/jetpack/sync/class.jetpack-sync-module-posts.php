@@ -26,11 +26,7 @@ class Jetpack_Sync_Module_Posts extends Jetpack_Sync_Module {
 	public function init_listeners( $callable ) {
 		$this->action_handler = $callable;
 
-		// Core < 4.7 doesn't deal with nested wp_insert_post calls very well
-		global $wp_version;
-		$priority = version_compare( $wp_version, '4.7-alpha', '<' ) ? 0 : 11;
-
-		add_action( 'wp_insert_post', array( $this, 'wp_insert_post' ), $priority, 3 );
+		add_action( 'wp_insert_post', array( $this, 'wp_insert_post' ), 11, 3 );
 		add_action( 'jetpack_sync_save_post', $callable, 10, 4 );
 
 		add_action( 'deleted_post', $callable, 10 );
@@ -185,6 +181,7 @@ class Jetpack_Sync_Module_Posts extends Jetpack_Sync_Module {
 			$non_existant_post->post_modified     = $post->post_modified;
 			$non_existant_post->post_modified_gmt = $post->post_modified_gmt;
 			$non_existant_post->post_status       = 'jetpack_sync_non_registered_post_type';
+			$non_existant_post->post_type         = $post->post_type;
 
 			return $non_existant_post;
 		}
@@ -209,6 +206,7 @@ class Jetpack_Sync_Module_Posts extends Jetpack_Sync_Module {
 			$blocked_post->post_modified     = $post->post_modified;
 			$blocked_post->post_modified_gmt = $post->post_modified_gmt;
 			$blocked_post->post_status       = 'jetpack_sync_blocked';
+			$blocked_post->post_type         = $post->post_type;
 
 			return $blocked_post;
 		}
@@ -297,8 +295,7 @@ class Jetpack_Sync_Module_Posts extends Jetpack_Sync_Module {
 			isset( $_POST['action'], $_GET['classic-editor'], $_GET['meta_box'] ) &&
 			'editpost' === $_POST['action'] &&
 			'1' === $_GET['classic-editor'] &&
-			'1' === $_GET['meta_box'] &&
-			Jetpack_Gutenberg::is_gutenberg_available()
+			'1' === $_GET['meta_box']
 		);
 	}
 
@@ -418,7 +415,7 @@ class Jetpack_Sync_Module_Posts extends Jetpack_Sync_Module {
 	}
 
 	public function expand_post_ids( $args ) {
-		$post_ids = $args[0];
+		list( $post_ids, $previous_interval_end) = $args;
 
 		$posts = array_filter( array_map( array( 'WP_Post', 'get_instance' ), $post_ids ) );
 		$posts = array_map( array( $this, 'filter_post_content_and_add_links' ), $posts );
@@ -428,6 +425,7 @@ class Jetpack_Sync_Module_Posts extends Jetpack_Sync_Module {
 			$posts,
 			$this->get_metadata( $post_ids, 'post', Jetpack_Sync_Settings::get_setting( 'post_meta_whitelist' ) ),
 			$this->get_term_relationships( $post_ids ),
+			$previous_interval_end
 		);
 	}
 }

@@ -41,7 +41,6 @@ class Sharing_Service {
 	 * Gets a list of all available service names and classes
 	 */
 	public function get_all_services( $include_custom = true ) {
-		global $wp_version;
 		// Default services
 		// if you update this list, please update the REST API tests
 		// in bin/tests/api/suites/SharingTest.php
@@ -57,9 +56,6 @@ class Sharing_Service {
 			'telegram'         => 'Share_Telegram',
 			'jetpack-whatsapp' => 'Jetpack_Share_WhatsApp',
 			'skype'            => 'Share_Skype',
-
-			// Deprecated
-			'google-plus-1'    => 'Share_GooglePlus1',
 		);
 
 		/**
@@ -76,7 +72,7 @@ class Sharing_Service {
 			$services['email'] = 'Share_Email';
 		}
 
-		if ( is_multisite() && ( version_compare( $wp_version, '4.9-RC1-42107', '<' ) || is_plugin_active( 'press-this/press-this-plugin.php' ) ) ) {
+		if ( is_multisite() && is_plugin_active( 'press-this/press-this-plugin.php' ) ) {
 			$services['press-this'] = 'Share_PressThis';
 		}
 
@@ -579,7 +575,10 @@ function sharing_maybe_enqueue_scripts() {
 }
 
 function sharing_add_footer() {
-	if ( Jetpack_AMP_Support::is_amp_request() ) {
+	if (
+		class_exists( 'Jetpack_AMP_Support' )
+		&& Jetpack_AMP_Support::is_amp_request()
+	) {
 		return;
 	}
 
@@ -749,8 +748,25 @@ function sharing_display( $text = '', $echo = false ) {
 		$show = false;
 	}
 
-	// Allow to be used on P2 ajax requests for latest posts.
-	if ( defined( 'DOING_AJAX' ) && DOING_AJAX && isset( $_REQUEST['action'] ) && 'get_latest_posts' == $_REQUEST['action'] ) {
+	/**
+	 * Filter the Sharing buttons' Ajax action name Jetpack checks for.
+	 * This allows the use of the buttons with your own Ajax implementation.
+	 *
+	 * @module sharedaddy
+	 *
+	 * @since 7.3.0
+	 *
+	 * @param string $sharing_ajax_action_name Name of the Sharing buttons' Ajax action.
+	 */
+	$ajax_action = apply_filters( 'sharing_ajax_action', 'get_latest_posts' );
+
+	// Allow to be used in ajax requests for latest posts.
+	if (
+		defined( 'DOING_AJAX' )
+		&& DOING_AJAX
+		&& isset( $_REQUEST['action'] )
+		&& $ajax_action === $_REQUEST['action']
+	) {
 		$show = true;
 	}
 

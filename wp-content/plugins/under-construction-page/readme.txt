@@ -1,14 +1,14 @@
 === Under Construction ===
 Contributors: WebFactory, UnderConstructionPage, googlemapswidget, securityninja, wpreset
-Tags: maintenance mode, maintenance page, coming soon page, landing page, under construction, under construction page, coming soon, launch page, coming soon mode, maintenance mode page, offline page, maintenance
+Tags: maintenance mode, maintenance page, coming soon page, landing page, under construction, under construction page, coming soon, launch page, coming soon mode, maintenance mode page, offline page, maintenance, multilingual, multilanguage
 Requires at least: 4.0
 Requires PHP: 5.2
-Tested up to: 5.0
-Stable tag: 3.31
+Tested up to: 5.2
+Stable tag: 3.40
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-The fastest & simplest Under Construction Page, Landing Page, Maintenance Mode & Coming Soon WordPress plugin. Super-easy to use!
+Super-easy to use Under Construction Page, Landing Page, Maintenance Mode & Coming Soon WordPress plugin.
 
 
 == Description ==
@@ -23,6 +23,9 @@ A simple, no-nonsense plugin for all those situations when you have to hide the 
 
 UCP has full support for collecting leads and subscribers via optin boxes in content, and optin popups. We've integrated <a href="https://wordpress.org/plugins/mailoptin/">MailOptin</a> a great, free plugin into UCP that connects to MailChimp and numerous other autoresponder services allowing you to easily collect emails.
 
+Thanks to our partnership with <a href="https://wordpress.org/plugins/weglot/">Weglot</a>, UCP is fully multilanguage ready and you can instantly translate your under construction page to 100+ languages with one click.
+
+Under Construction Page is proudly sponsored by <a href="https://nordvpn.com/">NordVPN</a>. The days of "hoping for the best" while surfing are long gone. NordVPN gives you peace of mind every time you use the public Wi-Fi, access personal and work accounts on the road, or want to keep your browsing history to yourself.
 
 **Options**
 
@@ -134,6 +137,17 @@ Or if needed, upload manually;
 
 
 == Changelog ==
+
+= 3.40 =
+* 2019/04/17
+* bug fixes
+* partnership with NordVPN
+
+= 3.35 =
+* 2019/03/18
+* 300,000 installs hit on 2019/01/18 with 2,151,500 downloads
+* bug fixes
+* partnership with Weglot
 
 = 3.31 =
 * 2019/01/15

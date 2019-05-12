@@ -4,7 +4,7 @@
   Plugin URI: https://underconstructionpage.com/
   Description: Put your site behind a great looking under construction, coming soon, maintenance mode or landing page.
   Author: WebFactory Ltd
-  Version: 3.31
+  Version: 3.40
   Author URI: https://www.webfactoryltd.com/
   Text Domain: under-construction-page
   Domain Path: lang
@@ -87,9 +87,11 @@ class UCP {
       add_action('admin_action_ucp_change_status', array(__CLASS__, 'change_status'));
       add_action('admin_action_ucp_reset_settings', array(__CLASS__, 'reset_settings'));
       add_action('admin_action_install_mailoptin', array(__CLASS__, 'install_mailoptin'));
+      add_action('admin_action_install_weglot', array(__CLASS__, 'install_weglot'));
+      add_action('admin_action_install_security_ninja', array(__CLASS__, 'install_security_ninja'));
 
       // enqueue admin scripts
-      add_action('admin_enqueue_scripts', array(__CLASS__, 'admin_enqueue_scripts'));
+      add_action('admin_enqueue_scripts', array(__CLASS__, 'admin_enqueue_scripts'), 100, 1);
 
       // AJAX endpoints
       add_action('wp_ajax_ucp_dismiss_pointer', array(__CLASS__, 'dismiss_pointer_ajax'));
@@ -325,7 +327,9 @@ class UCP {
                          'is_activated' => UCP_license::is_activated(),
                          'dialog_upsell_title' => '<img alt="' . __('UnderConstructionPage PRO', 'under-construction-page') . '" title="' . __('UnderConstructionPage PRO', 'under-construction-page') . '" src="' . UCP_PLUGIN_URL . 'images/ucp_pro_logo_white.png' . '">',
                          'mailoptin_dialog_upsell_title' => '<img alt="' . __('MailOptin', 'under-construction-page') . '" title="' . __('MailOptin', 'under-construction-page') . '" src="' . UCP_PLUGIN_URL . 'images/mailoptin-logo-white.png' . '">',
+                         'weglot_dialog_upsell_title' => '<img alt="' . __('Weglot', 'under-construction-page') . '" title="' . __('Weglot', 'under-construction-page') . '" src="' . UCP_PLUGIN_URL . 'images/weglot-logo-white.png' . '">',
                          'mailoptin_install_url' => add_query_arg(array('action' => 'install_mailoptin'), admin_url('admin.php')),
+                         'weglot_install_url' => add_query_arg(array('action' => 'install_weglot'), admin_url('admin.php')),
                          'nonce_dismiss_survey' => wp_create_nonce('ucp_dismiss_survey'),
                          'nonce_submit_survey' => wp_create_nonce('ucp_submit_survey'),
                          'nonce_submit_earlybird' => wp_create_nonce('ucp_submit_earlybird'),
@@ -633,6 +637,11 @@ class UCP {
     $out .= '<link rel="stylesheet" href="' . trailingslashit(UCP_PLUGIN_URL . 'themes/css') . 'font-awesome.min.css?v=' . self::$version . '" type="text/css">' . "\n";
 
     $out .= '<link rel="shortcut icon" type="image/png" href="' . trailingslashit(UCP_PLUGIN_URL . 'themes/images') . 'favicon.png" />';
+
+    if (self::is_weglot_setup()) {
+      $out .= '<link rel="stylesheet" href="' . WEGLOT_URL_DIST . '/css/front-css.css?v=' . WEGLOT_VERSION . '" type="text/css">';
+      $out .= '<script src="' . WEGLOT_URL_DIST . '/front-js.js?v=' . WEGLOT_VERSION . '"></script>';
+    }
 
     if (self::is_mailoptin_active()) {
       $out .= '<script src="' . includes_url('/js/jquery/jquery.js') . '"></script>';
@@ -1502,7 +1511,54 @@ class UCP {
     $default_options = self::default_options();
 
     echo '<div class="ucp-tab-content">';
+
+    if (!self::is_weglot_active()) {
+      echo '<div class="ucp-notice-small"><p><b>NEW</b> - Make your under construction page and your website <b>multilingual</b> with the Weglot Translate plugin.<br>To enable this feature, <a href="#" class="open-weglot-upsell">install the Weglot Translate freemium plugin</a>.';
+      echo '</p></div>';
+    }
+
     echo '<table class="form-table">';
+
+  if (self::is_weglot_active()) {
+    echo '<tr id="weglot-settings">';
+    echo '<th><label for="weglot_lang">Multilingual Support</label></th>';
+    echo '<td>';
+
+
+    if (self::is_weglot_setup()) {
+      $tmp = '';
+      $active_languages = weglot_get_destination_language();
+      $languages = weglot_get_languages_available();
+      $original_language = weglot_get_original_language();
+
+      echo '<p>Your under construction page is currently available in the following languages.<br>To add more languages and configure translations open <a href="' . admin_url('admin.php?page=weglot-settings') . '">Weglot settings</a>.</p>';
+      echo '<ul class="ucp-list">';
+      foreach ($languages as $language) {
+        if ($language->getIso639() == $original_language) {
+          $tmp = '<li>' . esc_html($language->getEnglishName()) . ' - original language</li>' . $tmp;
+        }
+        if (in_array($language->getIso639(), $active_languages, true )) {
+          $tmp .= '<li>' . esc_html($language->getLocalName()) . '</li>';
+        }
+      } // foreach language
+      echo $tmp;
+      echo '</ul>';
+    } else {
+      echo '<p>Your under construction page is currently not translated.<br>Open <a href="' . admin_url('admin.php?page=weglot-settings') . '">Weglot settings</a> to select languages you want to translate to.</p>';
+    }
+    echo '</td>';
+    echo '</tr>';
+    } else {
+      echo '<tr>';
+      echo '<th><label for="weglot_support">Multilingual Support</label></th>';
+      echo '<td>';
+      echo '<div class="toggle-wrapper">
+      <input type="checkbox" id="weglot_support" type="checkbox" value="1" class="skip-save open-weglot-upsell">
+      <label for="weglot_support" class="toggle"><span class="toggle_handler"></span></label></div>';
+      echo '<p class="description">55% of online visitors prefer to browse in their mother tongue. If you have an audience speaking multiple languages, making your website multilingual is a must-have. To instantly translate your website and your under construction page, <a href="#" class="open-weglot-upsell">install the Weglot plugin</a> (free plan and free trial available). It seamlessly integrates with UCP and is compatible with all themes &amp; plugins.</p>';
+      echo '</td>';
+      echo '</tr>';
+    } // weglot not active
 
     // todo: translate
     echo '<tr valign="top">
@@ -1801,7 +1857,6 @@ class UCP {
 
   static function tab_design() {
     $options = self::get_options();
-    $default_options = self::default_options();
 
     $img_path = UCP_PLUGIN_URL . 'images/thumbnails/';
     $themes = self::get_themes();
@@ -1933,6 +1988,18 @@ class UCP {
   } // tab_access
 
 
+  // security ninja tab
+  static function tab_security_ninja() {
+    echo '<div class="ucp-tab-content">';
+    echo '<h3 class="security-ninja-logo"><a href="https://wpsecurityninja.com/?utm_source=ucp-free&utm_medium=plugin&utm_content=sn-tab-logo&utm_campaign=ucp-free-v3.40" target="_blank"><img src="' . UCP_PLUGIN_URL . 'images/security-ninja-logo.png" alt="Security Ninja" title="Security Ninja"></a></h3>';
+
+    echo '<div class="sn-box"><h2>Protect your site from hackers <span>from day one</span>! Perform 50+ tests to see how secure it is</h2>';
+    echo '<p>Getting hacked sucks! We created <b>Security Ninja</b> more than seven years ago to <b>save you money, time &amp; nerves</b>. Security Ninja will give you a clear understanding of what\'s going on if an attack occurs, and cleaning up a site in a worse-case scenario will be a breeze. Save yourself hours of frustration and <b>hundreds of dollars in repair fees</b> by installing Security Ninja for free.</p>';
+    echo '<p class="textcenter"><a href="' . add_query_arg(array('action' => 'install_security_ninja'), admin_url('admin.php')), '" target="_blank" class="button button-primary button-large">Install &amp; activate Security Ninja for FREE and perform 50+ tests on your site</a><br>or visit <a href="https://wpsecurityninja.com/?utm_source=ucp-free&utm_medium=plugin&utm_content=sn-tab-more&utm_campaign=ucp-free-v3.40" target="_blank">wpsecurityninja.com</a> to find out more</p>';
+    echo '</div>';
+    echo '</div>';
+  } // tab_security_ninja
+
   // support tab - FAQ and links
   static function tab_support() {
     $user = wp_get_current_user();
@@ -2048,6 +2115,7 @@ class UCP {
       }
       echo '</div>';
     }
+    echo '</div>';
 
 
     echo '<div class="ucp-tab-content">';
@@ -2107,11 +2175,8 @@ class UCP {
       wp_die('You do not have sufficient permissions to access this page.');
     }
 
-    $options = self::get_options();
-    $default_options = self::default_options();
-
     echo '<div class="wrap">
-          <h1 class="ucp-logo"><a href="' . admin_url('options-general.php?page=ucp') . '"><img src="' . UCP_PLUGIN_URL . 'images/ucp_logo.png" class="rotate" alt="UnderConstructionPage" title="UnderConstructionPage"><img src="' . UCP_PLUGIN_URL . 'images/ucp_logo_2.png" class="ucp-logo-text" alt="UnderConstructionPage" title="UnderConstructionPage"></a></h1>';
+          <h1 class="ucp-logo"><a href="' . admin_url('options-general.php?page=ucp') . '"><img src="' . UCP_PLUGIN_URL . 'images/ucp_logo.png" class="rotate" alt="UnderConstructionPage" title="UnderConstructionPage"><img src="' . UCP_PLUGIN_URL . 'images/ucp_logo_2.png" class="ucp-logo-text" alt="UnderConstructionPage" title="UnderConstructionPage"></a> <span class="nordvpn">proudly sponsored by <a href="http://nordvpn.org/webfactory" title="NordVPN" target="_blank"><img src="' . UCP_PLUGIN_URL . '/images/nordvpn-logo.png" alt="NordVPN" title="NordVPN"></a></span></h1>';
 
     echo '<form action="options.php" method="post" id="ucp_form">';
     settings_fields(UCP_OPTIONS_KEY);
@@ -2123,25 +2188,28 @@ class UCP {
     $tabs[] = array('id' => 'ucp_access', 'icon' => 'dashicons-shield', 'class' => '', 'label' => __('Access', 'under-construction-page'), 'callback' => array(__CLASS__, 'tab_access'));
     $tabs[] = array('id' => 'ucp_support', 'icon' => 'dashicons-sos', 'class' => '', 'label' => __('Support', 'under-construction-page'), 'callback' => array(__CLASS__, 'tab_support'));
     $tabs[] = array('id' => 'ucp_pro', 'icon' => 'dashicons-star-filled', 'class' => '', 'label' => __('PRO', 'under-construction-page'), 'callback' => array(__CLASS__, 'tab_pro'));
+    if (!defined('WF_SN_BASE_FILE')) {
+      $tabs[] = array('id' => 'ucp_security_ninja', 'icon' => 'dashicons-shield-alt', 'class' => '', 'label' => __('Security Ninja', 'under-construction-page'), 'callback' => array(__CLASS__, 'tab_security_ninja'));
+    }
+
     $tabs = apply_filters('ucp_tabs', $tabs);
 
     echo '<div id="ucp_tabs" class="ui-tabs" style="display: none;">';
     echo '<ul class="ucp-main-tab">';
     foreach ($tabs as $tab) {
-      if(!empty($tab['label'])){
+      if (!empty($tab['label'])){
           echo '<li><a href="#' . $tab['id'] . '" class="' . $tab['class'] . '"><span class="icon"><span class="dashicons ' . $tab['icon'] . '"></span></span><span class="label">' . $tab['label'] . '</span></a></li>';
       }
     }
     echo '</ul>';
 
     foreach ($tabs as $tab) {
-      if(is_callable($tab['callback'])) {
+      if (is_callable($tab['callback'])) {
         echo '<div style="display: none;" id="' . $tab['id'] . '">';
         call_user_func($tab['callback']);
         echo '</div>';
       }
     } // foreach
-
     echo '</div>'; // ucp_tabs
 
     echo '</form>'; // ucp_tabs
@@ -2160,7 +2228,24 @@ class UCP {
     echo '</ul>';
     echo '<p class="upsell-footer"><a class="button button-primary" id="install-mailoptin">Install &amp; activate MailOptin to start collecting leads</a></p>';
     echo '</div>';
-    echo '</div>'; // mailoptin install dialog
+    echo '</div>';
+    // mailoptin install dialog
+
+    // weglot install dialog
+    echo '<div id="weglot-upsell-dialog" style="display: none;" title="Weglot"><span class="ui-helper-hidden-accessible"><input type="text"/></span>';
+    echo '<div style="padding: 20px; font-size: 15px;">';
+    echo '<ul class="ucp-list">';
+    echo '<li>Best-rated WordPress multilingual plugin</li>';
+    echo '<li>Simple 5-minute set-up. No coding required</li>';
+    echo '<li>Accelerated translation management: Machine & human translations with access to professional translators</li>';
+    echo '<li>Compatible with any WordPress theme or plugin</li>';
+    echo '<li>Optimized for multilingual SEO</li>';
+    echo '<li>10-day Free trial and free plan available</li>';
+    echo '</ul>';
+    echo '<p class="upsell-footer"><a class="button button-primary" id="install-weglot">Install &amp; activate Weglot to make your website multilingual</a></p>';
+    echo '</div>';
+    echo '</div>';
+    // weglot install dialog
 
     $promo = self::is_promo_active();
     if ($promo == 'welcome') {
@@ -2336,6 +2421,10 @@ class UCP {
 
   // auto download / install / activate MailOptin plugin
   static function install_mailoptin() {
+    if (false === current_user_can('administrator')) {
+      wp_die('Sorry, you have to be an admin to run this action.');
+    }
+
     $plugin_slug = 'mailoptin/mailoptin.php';
     $plugin_zip = 'https://downloads.wordpress.org/plugin/mailoptin.latest-stable.zip';
 
@@ -2388,6 +2477,122 @@ class UCP {
   } // install_mailoptin
 
 
+  // auto download / install / activate Weglot plugin
+  static function install_weglot() {
+    if (false === current_user_can('administrator')) {
+      wp_die('Sorry, you have to be an admin to run this action.');
+    }
+
+    $plugin_slug = 'weglot/weglot.php';
+    $plugin_zip = 'https://downloads.wordpress.org/plugin/weglot.latest-stable.zip';
+
+    @include_once ABSPATH . 'wp-admin/includes/plugin.php';
+    @include_once ABSPATH . 'wp-admin/includes/class-wp-upgrader.php';
+    @include_once ABSPATH . 'wp-admin/includes/plugin-install.php';
+    @include_once ABSPATH . 'wp-admin/includes/file.php';
+    @include_once ABSPATH . 'wp-admin/includes/misc.php';
+		echo '<style>
+		body{
+			font-family: sans-serif;
+			font-size: 14px;
+			line-height: 1.5;
+			color: #444;
+		}
+		</style>';
+
+    echo '<div style="margin: 20px; color:#444;">';
+    echo 'If things are not done in a minute <a target="_parent" href="' . admin_url('plugin-install.php?s=weglot&tab=search&type=term') .'">install the plugin manually via Plugins page</a><br><br>';
+    echo 'Starting ...<br><br>';
+
+		wp_cache_flush();
+    $upgrader = new Plugin_Upgrader();
+    echo 'Check if Weglot is already installed ... <br />';
+    if (self::is_plugin_installed($plugin_slug)) {
+      echo 'Weglot is already installed! <br /><br />Making sure it\'s the latest version.<br />';
+      $upgrader->upgrade($plugin_slug);
+      $installed = true;
+    } else {
+      echo 'Installing Weglot.<br />';
+      $installed = $upgrader->install($plugin_zip);
+    }
+    wp_cache_flush();
+
+    if (!is_wp_error($installed) && $installed) {
+      echo 'Activating Weglot.<br />';
+      $activate = activate_plugin($plugin_slug);
+
+      if (is_null($activate)) {
+        echo 'Weglot Activated.<br />';
+
+        echo '<script>setTimeout(function() { top.location = "options-general.php?page=ucp"; }, 1000);</script>';
+        echo '<br>If you are not redirected in a few seconds - <a href="options-general.php?page=ucp" target="_parent">click here</a>.';
+      }
+    } else {
+      echo 'Could not install Weglot. You\'ll have to <a target="_parent" href="' . admin_url('plugin-install.php?s=weglot&tab=search&type=term') .'">download and install manually</a>.';
+    }
+
+    echo '</div>';
+  } // install_weglot
+
+
+  // auto download / install / activate Security Ninja
+  static function install_security_ninja() {
+    if (false === current_user_can('administrator')) {
+      wp_die('Sorry, you have to be an admin to run this action.');
+    }
+
+    $plugin_slug = 'security-ninja/security-ninja.php';
+    $plugin_zip = 'https://downloads.wordpress.org/plugin/security-ninja.latest-stable.zip';
+
+    @include_once ABSPATH . 'wp-admin/includes/plugin.php';
+    @include_once ABSPATH . 'wp-admin/includes/class-wp-upgrader.php';
+    @include_once ABSPATH . 'wp-admin/includes/plugin-install.php';
+    @include_once ABSPATH . 'wp-admin/includes/file.php';
+    @include_once ABSPATH . 'wp-admin/includes/misc.php';
+		echo '<style>
+		body{
+			font-family: sans-serif;
+			font-size: 14px;
+			line-height: 1.5;
+			color: #444;
+		}
+		</style>';
+
+    echo '<div style="margin: 20px; color:#444;">';
+    echo 'If things are not done in a minute <a target="_parent" href="' . admin_url('plugin-install.php?s=security+ninja&tab=search&type=term') .'">install the plugin manually via Plugins page</a><br><br>';
+    echo 'Starting ...<br><br>';
+
+    wp_cache_flush();
+    $upgrader = new Plugin_Upgrader();
+    echo 'Check if Security Ninja is already installed ... <br />';
+    if (self::is_plugin_installed($plugin_slug)) {
+      echo 'Security Ninja is already installed! <br /><br />Making sure it\'s the latest version.<br />';
+      $upgrader->upgrade($plugin_slug);
+      $installed = true;
+    } else {
+      echo 'Installing Security Ninja.<br />';
+      $installed = $upgrader->install($plugin_zip);
+    }
+    wp_cache_flush();
+
+    if (!is_wp_error($installed) && $installed) {
+      echo 'Activating Security Ninja.<br />';
+      $activate = activate_plugin($plugin_slug);
+
+      if (is_null($activate)) {
+        echo 'Security Ninja Activated.<br />';
+
+        echo '<script>setTimeout(function() { top.location = "tools.php?page=wf-sn"; }, 500);</script>';
+        echo '<br>If you are not redirected in a few seconds - <a href="tools.php?page=wf-sn" target="_parent">click here</a>.';
+      }
+    } else {
+      echo 'Could not install Security Ninja. You\'ll have to <a target="_parent" href="' . admin_url('plugin-install.php?s=security+ninja&tab=search&type=term') .'">download and install manually</a>.';
+    }
+
+    echo '</div>';
+  } // install_security_ninja
+
+
   static function is_plugin_installed($slug) {
 		if (!function_exists('get_plugins')) {
 			require_once ABSPATH . 'wp-admin/includes/plugin.php';
@@ -2409,7 +2614,7 @@ class UCP {
     }
 
     if (is_plugin_active('mailoptin/mailoptin.php')) {
-      $mailoptin_info = get_plugin_data(ABSPATH.'wp-content/plugins/mailoptin/mailoptin.php');
+      $mailoptin_info = get_plugin_data(ABSPATH . 'wp-content/plugins/mailoptin/mailoptin.php');
       if( version_compare($mailoptin_info['Version'], '1.2.10.1', '<')) {
         return false;
       } else {
@@ -2419,6 +2624,40 @@ class UCP {
       return false;
     }
   } // is_mailoptin_active
+
+
+  // check if Weglot plugin is active and min version installed
+  static function is_weglot_active() {
+    if (!function_exists('is_plugin_active') || !function_exists('get_plugin_data')) {
+     require_once ABSPATH . 'wp-admin/includes/plugin.php';
+    }
+
+    if (is_plugin_active('weglot/weglot.php')) {
+      $weglot_info = get_plugin_data(ABSPATH . 'wp-content/plugins/weglot/weglot.php');
+      if( version_compare($weglot_info['Version'], '2.5', '<')) {
+        return false;
+      } else {
+        return true;
+      }
+    } else {
+      return false;
+    }
+  } // is_weglot_active
+
+
+  // check if Weglot is completely set up
+  static function is_weglot_setup() {
+    if (!self::is_weglot_active()) {
+      return false;
+    }
+
+    $active_languages = weglot_get_destination_language();
+    if (!empty($active_languages)) {
+      return true;
+    } else {
+      return false;
+    }
+  } // is_weglot_setup
 
 
   // helper function for adding plugins to fav list
@@ -2433,7 +2672,7 @@ class UCP {
   static function add_plugin_favs($plugin_slug, $res) {
     if (!empty($res->plugins) && is_array($res->plugins)) {
       foreach ($res->plugins as $plugin) {
-        if ($plugin->slug == $plugin_slug) {
+        if (is_object($plugin) && $plugin->slug == $plugin_slug) {
           return $res;
         }
       } // foreach
