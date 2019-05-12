@@ -179,7 +179,23 @@ $wp_customize->add_control( 'global_content_alignment',
         'priority'    => 130,
     ));
 
+// Setting - related posts.
+$wp_customize->add_setting('single_show_featured_image',
+    array(
+        'default'           => $default['single_show_featured_image'],
+        'capability'        => 'edit_theme_options',
+        'sanitize_callback' => 'magazine_7_sanitize_checkbox',
+    )
+);
 
+$wp_customize->add_control( 'single_show_featured_image',
+    array(
+        'label'    => __( 'Show Featured Image in single post', 'magazine-7' ),
+        'section'  => 'site_layout_settings',
+        'type'     => 'checkbox',
+        'priority' => 130,
+    )
+);
 
 /**
  * Archive options section

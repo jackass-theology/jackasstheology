@@ -63,6 +63,7 @@ function magazine_7_get_default_theme_options() {
     //layout options
     $defaults['global_content_layout'] = 'default-content-layout';
     $defaults['global_content_alignment'] = 'align-content-left';
+    $defaults['single_show_featured_image'] = 1;
     $defaults['global_image_alignment'] = 'full-width-image';
     $defaults['global_excerpt_length'] = 20;
     $defaults['global_read_more_texts'] = __('Read more', 'magazine-7');

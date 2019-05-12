@@ -25,3 +25,5 @@
 2019-05-12 03:34:42#47 - WPSiteSyncContent::filter_unique_filename() filename=5cd794529d394-nofqEZ.tmp ext=.tmp dir=/tmp/
 2019-05-12 03:39:22#73 - WPSiteSyncContent::filter_upgrader_download() package='https://downloads.wordpress.org/release/wordpress-5.2-no-content.zip'
 2019-05-12 03:39:22#73 - WPSiteSyncContent::filter_unique_filename() filename=wordpress-5.2-no-content-sTKSGf.tmp ext=.tmp dir=/tmp/
+2019-05-12 03:40:54#23 - WPSiteSyncContent::filter_upgrader_download() package='https://downloads.wordpress.org/theme/magazine-7.1.1.7.zip'
+2019-05-12 03:40:54#23 - WPSiteSyncContent::filter_unique_filename() filename=magazine-7.1.1.7-iYRMXB.tmp ext=.tmp dir=/tmp/

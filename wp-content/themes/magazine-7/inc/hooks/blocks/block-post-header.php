@@ -6,9 +6,11 @@
  */
 
 ?>
-<header class="entry-header">
-    <?php magazine_7_post_thumbnail(); ?>
+<header class="entry-header">    
     <?php 
+    $single_show_featured_image = magazine_7_get_option('single_show_featured_image');
+    if($single_show_featured_image == true):
+    magazine_7_post_thumbnail(); 
     if(has_post_thumbnail()):
         if($aft_image_caption = get_post( get_post_thumbnail_id() )->post_excerpt): ?>
             <div class="aft-image-caption col-sm-12">
@@ -16,7 +18,8 @@
                     <?php echo $aft_image_caption; ?>
                 </p>
             </div>
-    <?php 
+        <?php 
+        endif; 
         endif; 
     endif; 
     ?>
