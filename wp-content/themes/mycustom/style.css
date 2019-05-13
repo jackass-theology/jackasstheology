@@ -48,7 +48,7 @@ Template: Newspaper
 /*<<<HERO>>>*/
 #jackass-hero {
     height: 100vh;
-    padding-top: 25%;
+    padding-top: 25vh;
     min-height: 900px;
     max-height: 2000px;
     overflow: visible !important;
@@ -609,8 +609,9 @@ Template: Newspaper
 }
 @media (max-width: 767px) {
     #jat-hero-subscribe  {
-    min-height: 1400px;
+    min-height: 2000px !important;
     overflow: visible !important;
+	padding-bottom: 100px !important;
     }
 }
 #mc-embedded-subscribe-form {
@@ -661,7 +662,7 @@ Template: Newspaper
     display: flex !important;
     width: 100% !important;
     max-width: 600px;
-    height: 400px !important;
+    height: 300px !important;
     flex-direction: row !important;
     flex-wrap: wrap!important;
     flex-basis: auto !important;

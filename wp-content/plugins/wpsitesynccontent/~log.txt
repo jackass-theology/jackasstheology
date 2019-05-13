@@ -11,19 +11,3 @@
 2019-03-13 23:45:14#70 - WPSiteSyncContent::filter_unique_filename() filename=18-Prayer.jpg ext=.jpg dir=/home/jackas5/dev.jackasstheology.com/wp-content/uploads/2019/03
 2019-03-14 14:06:52#80 - WPSiteSyncContent::filter_upgrader_download() package='https://downloads.wordpress.org/plugin/duplicate-page.zip'
 2019-03-14 14:06:52#80 - WPSiteSyncContent::filter_unique_filename() filename=duplicate-page-rpk2Sr.tmp ext=.tmp dir=/tmp/
-2019-05-12 03:34:25#47 - WPSiteSyncContent::filter_upgrader_download() package='https://downloads.wordpress.org/plugin/duplicate-page.zip'
-2019-05-12 03:34:25#47 - WPSiteSyncContent::filter_unique_filename() filename=duplicate-page-S0X3Hu.tmp ext=.tmp dir=/tmp/
-2019-05-12 03:34:25#47 - WPSiteSyncContent::filter_upgrader_download() package='https://downloads.wordpress.org/plugin/google-analytics-dashboard-for-wp.5.3.8.zip'
-2019-05-12 03:34:25#47 - WPSiteSyncContent::filter_unique_filename() filename=google-analytics-dashboard-for-wp.5.3.8-FAU2di.tmp ext=.tmp dir=/tmp/
-2019-05-12 03:34:26#47 - WPSiteSyncContent::filter_upgrader_download() package='https://downloads.wordpress.org/plugin/jetpack.7.3.zip'
-2019-05-12 03:34:26#47 - WPSiteSyncContent::filter_unique_filename() filename=jetpack.7.3-VV0EF9.tmp ext=.tmp dir=/tmp/
-2019-05-12 03:34:40#47 - WPSiteSyncContent::filter_upgrader_download() package='https://downloads.wordpress.org/plugin/under-construction-page.3.40.zip'
-2019-05-12 03:34:40#47 - WPSiteSyncContent::filter_unique_filename() filename=under-construction-page.3.40-NoTq50.tmp ext=.tmp dir=/tmp/
-2019-05-12 03:34:41#47 - WPSiteSyncContent::filter_upgrader_download() package='https://api.deliciousbrains.com/?wc-api=delicious-brains&request=download&licence_key=43bd757f-7e76-45f3-a475-8d3ae47c0653&slug=wp-migrate-db-pro&site_url=http://jackasstheology.com'
-2019-05-12 03:34:41#47 - WPSiteSyncContent::filter_unique_filename() filename=5cd7945153572-tJIy1s.tmp ext=.tmp dir=/tmp/
-2019-05-12 03:34:42#47 - WPSiteSyncContent::filter_upgrader_download() package='https://api.deliciousbrains.com/?wc-api=delicious-brains&request=download&licence_key=43bd757f-7e76-45f3-a475-8d3ae47c0653&slug=wp-migrate-db-pro-media-files&site_url=http://jackasstheology.com'
-2019-05-12 03:34:42#47 - WPSiteSyncContent::filter_unique_filename() filename=5cd794529d394-nofqEZ.tmp ext=.tmp dir=/tmp/
-2019-05-12 03:39:22#73 - WPSiteSyncContent::filter_upgrader_download() package='https://downloads.wordpress.org/release/wordpress-5.2-no-content.zip'
-2019-05-12 03:39:22#73 - WPSiteSyncContent::filter_unique_filename() filename=wordpress-5.2-no-content-sTKSGf.tmp ext=.tmp dir=/tmp/
-2019-05-12 03:40:54#23 - WPSiteSyncContent::filter_upgrader_download() package='https://downloads.wordpress.org/theme/magazine-7.1.1.7.zip'
-2019-05-12 03:40:54#23 - WPSiteSyncContent::filter_unique_filename() filename=magazine-7.1.1.7-iYRMXB.tmp ext=.tmp dir=/tmp/
