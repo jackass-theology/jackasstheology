@@ -4,7 +4,7 @@ Tags: maintenance mode, maintenance page, coming soon page, landing page, under 
 Requires at least: 4.0
 Requires PHP: 5.2
 Tested up to: 5.2
-Stable tag: 3.40
+Stable tag: 3.45
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -25,7 +25,6 @@ UCP has full support for collecting leads and subscribers via optin boxes in con
 
 Thanks to our partnership with <a href="https://wordpress.org/plugins/weglot/">Weglot</a>, UCP is fully multilanguage ready and you can instantly translate your under construction page to 100+ languages with one click.
 
-Under Construction Page is proudly sponsored by <a href="https://nordvpn.com/">NordVPN</a>. The days of "hoping for the best" while surfing are long gone. NordVPN gives you peace of mind every time you use the public Wi-Fi, access personal and work accounts on the road, or want to keep your browsing history to yourself.
 
 **Options**
 
@@ -137,6 +136,11 @@ Or if needed, upload manually;
 
 
 == Changelog ==
+
+= 3.45 =
+* 2019/05/21
+* bug fixes
+* lower monthly prices
 
 = 3.40 =
 * 2019/04/17

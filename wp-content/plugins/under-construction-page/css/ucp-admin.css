@@ -972,14 +972,6 @@ option.weglot-promo {
 }
 /* upsell dialog */
 
-.nordvpn {
-  font-variant: normal;
-  font-size: 14px;
-  font-weight: 400;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-  font-style: italic;
-}
-
 #ucp_security_ninja .button-primary {
   text-decoration: none;
   border-radius: 0px !important;

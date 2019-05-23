@@ -4,7 +4,7 @@
   Plugin URI: https://underconstructionpage.com/
   Description: Put your site behind a great looking under construction, coming soon, maintenance mode or landing page.
   Author: WebFactory Ltd
-  Version: 3.40
+  Version: 3.45
   Author URI: https://www.webfactoryltd.com/
   Text Domain: under-construction-page
   Domain Path: lang
@@ -2176,7 +2176,7 @@ class UCP {
     }
 
     echo '<div class="wrap">
-          <h1 class="ucp-logo"><a href="' . admin_url('options-general.php?page=ucp') . '"><img src="' . UCP_PLUGIN_URL . 'images/ucp_logo.png" class="rotate" alt="UnderConstructionPage" title="UnderConstructionPage"><img src="' . UCP_PLUGIN_URL . 'images/ucp_logo_2.png" class="ucp-logo-text" alt="UnderConstructionPage" title="UnderConstructionPage"></a> <span class="nordvpn">proudly sponsored by <a href="http://nordvpn.org/webfactory" title="NordVPN" target="_blank"><img src="' . UCP_PLUGIN_URL . '/images/nordvpn-logo.png" alt="NordVPN" title="NordVPN"></a></span></h1>';
+          <h1 class="ucp-logo"><a href="' . admin_url('options-general.php?page=ucp') . '"><img src="' . UCP_PLUGIN_URL . 'images/ucp_logo.png" class="rotate" alt="UnderConstructionPage" title="UnderConstructionPage"><img src="' . UCP_PLUGIN_URL . 'images/ucp_logo_2.png" class="ucp-logo-text" alt="UnderConstructionPage" title="UnderConstructionPage"></a></h1>';
 
     echo '<form action="options.php" method="post" id="ucp_form">';
     settings_fields(UCP_OPTIONS_KEY);
@@ -2249,20 +2249,20 @@ class UCP {
 
     $promo = self::is_promo_active();
     if ($promo == 'welcome') {
-      $header = 'A <b>welcoming discount</b> has been applied to all packages! It\'s <b>time limited</b> and available for only another <b class="ucp-countdown">59min 30sec</b>.';
+      $header = 'A <b>welcoming discount</b> has been applied to selected packages! It\'s <b>time limited</b> and available for only another <b class="ucp-countdown">59min 30sec</b>.';
       $products['agency'] = array('link' => self::generate_web_link('pricing-table', 'buy/', array('p' => 'agency-lifetime-welcome', 'r' => 'UCP v' . self::$version)), 'price' => 'BUY NOW <u>$51 OFF</u><br><del>$250</del> $199<br><small>Discount ends in <b class="ucp-countdown">59min 30sec</b></small>');
       $products['pro-lifetime'] = array('link' => self::generate_web_link('pricing-table', 'buy/', array('p' => 'pro-lifetime-welcome', 'r' => 'UCP v' . self::$version)), 'price' => 'BUY NOW <u>20% OFF</u><br><del>$69</del> $55<br><small>Discount ends in <b class="ucp-countdown">59min 30sec</b></small>');
-      $products['pro-yearly'] = array('link' => self::generate_web_link('pricing-table', 'buy/', array('p' => 'pro-yearly-welcome', 'r' => 'UCP v' . self::$version)), 'price' => 'BUY NOW <u>20% OFF</u><br><del>$39</del> $31<small>/year</small><br><small>Discount ends in <b class="ucp-countdown">59min 30sec</b></small>');
+      $products['pro-yearly'] = array('link' => self::generate_web_link('pricing-table', 'buy/', array('p' => 'pro-monthly', 'r' => 'UCP v' . self::$version)), 'price' => 'BUY NOW<br>$8.99<small>/month</small>');
     } elseif ($promo == 'olduser') {
-      $header = 'A special <b>discount for long-term users</b> has been applied to all packages!';
+      $header = 'A special <b>discount for long-term users</b> has been applied to selected packages!';
       $products['agency'] = array('link' => self::generate_web_link('pricing-table', 'buy/', array('p' => 'agency-lifetime-olduser', 'r' => 'UCP v' . self::$version)), 'price' => 'BUY NOW <u>$51 OFF</u><br><del>$250</del> $199');
       $products['pro-lifetime'] = array('link' => self::generate_web_link('pricing-table', 'buy/', array('p' => 'pro-lifetime-olduser', 'r' => 'UCP v' . self::$version)), 'price' => 'BUY NOW <u>20% OFF</u><br><del>$69</del> $55');
-      $products['pro-yearly'] = array('link' => self::generate_web_link('pricing-table', 'buy/', array('p' => 'pro-yearly-olduser', 'r' => 'UCP v' . self::$version)), 'price' => 'BUY NOW <u>20% OFF</u><br><del>$39</del> $31<small>/year</small>');
+      $products['pro-yearly'] = array('link' => self::generate_web_link('pricing-table', 'buy/', array('p' => 'pro-monthly', 'r' => 'UCP v' . self::$version)), 'price' => 'BUY NOW<br>$8.99<small>/month</small>');
     } else {
       $header = '';
       $products['agency'] = array('link' => self::generate_web_link('pricing-table', 'buy/', array('p' => 'agency-lifetime', 'r' => 'UCP v' . self::$version)), 'price' => 'BUY NOW<br>$250');
       $products['pro-lifetime'] = array('link' => self::generate_web_link('pricing-table', 'buy/', array('p' => 'pro-lifetime', 'r' => 'UCP v' . self::$version)), 'price' => 'BUY NOW<br>$69');
-      $products['pro-yearly'] = array('link' => self::generate_web_link('pricing-table', 'buy/', array('p' => 'pro-yearly', 'r' => 'UCP v' . self::$version)), 'price' => 'BUY NOW<br>$39 <small>/year</small>');
+      $products['pro-yearly'] = array('link' => self::generate_web_link('pricing-table', 'buy/', array('p' => 'pro-monthly', 'r' => 'UCP v' . self::$version)), 'price' => 'BUY NOW<br>$8.99<small>/month</small>');
     }
 
     // upsell dialog
@@ -2280,12 +2280,12 @@ class UCP {
     echo '</div>';
 
     echo '<div class="gmw-pro-feature">';
-    echo '<span>400,000+ Stunning Searchable Images</span>';
+    echo '<span>1 Million+ Stunning Searchable Images</span>';
     echo '<p>There\'s nothing worse than googling for hours just to find that the perfect image you need is either copyrighted or too small. Enjoy a vast library of 4K+ sized images - categorized &amp; copyright free!</p>';
     echo '</div>';
 
     echo '<div class="gmw-pro-feature">';
-    echo '<span>100+ Templates</span>';
+    echo '<span>160+ Templates</span>';
     echo '<p>Building your own page from scratch is fun, but often you don\'t have time to do it! Use one of our purpose-built templates, change a few lines of text and you\'re ready to rock!</p>';
     echo '</div>';
 
@@ -2321,13 +2321,13 @@ class UCP {
         <h3>Lifetime<br>PRO License</h3>
       </td>
       <td>
-        <h3>Yearly<br>PRO License</h3>
+        <h3>Personal<br>PRO License</h3>
       </td>
     </tr>
     <tr>
       <td>One Time Payment</td>
       <td><span class="dashicons dashicons-yes"></span> One Time Payment</td>
-      <td>Yearly Payment</td>
+      <td>Monthly/Yearly Payment</td>
     </tr>
     <tr>
       <td>Unlimited Client &amp; Personal Sites</td>
@@ -2337,24 +2337,24 @@ class UCP {
     <tr>
       <td>Lifetime Priority Support &amp; Updates</td>
       <td><span class="dashicons dashicons-yes"></span> Lifetime Support &amp; Updates</td>
-      <td>1 Year of Support &amp; Updates</td>
+      <td>1 Month/Year of Support &amp; Updates</td>
     </tr>
     <tr style="display: none;">
-      <td>400,000+ Hi-Res Images</td>
-      <td><span class="dashicons dashicons-yes"></span> 400,000+ Hi-Res Images</td>
-      <td>400,000+ Hi-Res Images</td>
+      <td>1 Million+ Hi-Res Images</td>
+      <td><span class="dashicons dashicons-yes"></span> 1 Million+ Hi-Res Images</td>
+      <td>1 Million+ Hi-Res Images</td>
     </tr>
     <tr>
-      <td>50+ Templates + Drag&amp;Drop Builder</td>
-      <td><span class="dashicons dashicons-yes"></span> 50+ Templates + Drag&amp;Drop Builder</td>
-      <td>50+ Templates + Drag&amp;Drop Builder</td>
+      <td>Drag&amp;Drop Builder</td>
+      <td><span class="dashicons dashicons-yes"></span>Drag&amp;Drop Builder</td>
+      <td>Drag&amp;Drop Builder</td>
     </tr>
     <tr>
-      <td>50+ Extra Templates = 100+ Templates</td>
-      <td><span class="dashicons dashicons-no"></td>
-      <td><span class="dashicons dashicons-no"></td>
+      <td>160+ Templates</td>
+      <td><span class="dashicons dashicons-yes"></span>100+ Templates</td>
+      <td>100+ Templates</td>
     </tr>
-    <tr style="display: none;">
+    <tr>
       <td>Zapier Integration + Extra Modules</td>
       <td><span class="dashicons dashicons-no"></td>
       <td><span class="dashicons dashicons-no"></td>
