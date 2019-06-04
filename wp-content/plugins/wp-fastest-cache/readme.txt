@@ -3,8 +3,8 @@ Contributors: emrevona
 Donate link: http://profiles.wordpress.org/emrevona/
 Tags: cache, caching, performance, wp-cache, total cache, super cache, cdn
 Requires at least: 3.3
-Tested up to: 5.1
-Stable tag: 0.8.9.3
+Tested up to: 5.2
+Stable tag: 0.8.9.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -102,6 +102,16 @@ Wpfc supports Wordpress Multisite [<a target="_blank" href="https://www.wpfastes
 18. Database Cleanup
 
 == Changelog ==
+
+= 0.8.9.4 =
+* to clear cache of parent categories after clearing category cache [<a target="_blank" href="https://wordpress.org/support/topic/cache-of-mother-categories-not-auto-deleting/">Details</a>]
+* to fix PHP Notice:  Undefined variable: preg_match_rule in preload.php on line 418
+* to show cloudflare integration warning if it has not been added
+* to fix Preload visiting page urls without end slashes problem [<a target="_blank" href="https://wordpress.org/support/topic/preload-visiting-page-urls-without-end-slashes/">Details</a>]
+* <strong>[FEATURE]</strong> to add Buffer Callback Filter [<a target="_blank" href="https://www.wpfastestcache.com/tutorial/buffer-callback-filter/">Details</a>]
+* to add application/x-font-opentype and application/x-font-truetype for browser caching
+* <strong>[FEATURE]</strong> Widget Cache is compatible with WPML Multilingual Plugin
+* to fix 403 forbidden error when the cdn-url is checking
 
 = 0.8.9.3 =
 * to exclude urls on preload
@@ -884,7 +894,7 @@ Yes, it is compatible with WP-PostRatings.
 No, it is NOT compatible with AdRotate.
 
 = Is this plugin compatible with WP Hide & Security Enhancer? =
-No, it is NOT compatible with WP Hide & Security Enhancer.
+Yes, it is compatible with WP Hide & Security Enhancer.
 
 = Is this plugin compatible with WP-PostViews? =
 Yes, it is compatible with WP-PostViews. The current post views appear on the admin panel. The visitors cannot see the current post views. The developer of WP-PostViews needs to fix this issue.

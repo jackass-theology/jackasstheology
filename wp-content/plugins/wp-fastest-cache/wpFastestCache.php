@@ -3,7 +3,7 @@
 Plugin Name: WP Fastest Cache
 Plugin URI: http://wordpress.org/plugins/wp-fastest-cache/
 Description: The simplest and fastest WP Cache system
-Version: 0.8.9.3
+Version: 0.8.9.4
 Author: Emre Vona
 Author URI: http://tr.linkedin.com/in/emrevona
 Text Domain: wp-fastest-cache
@@ -758,9 +758,18 @@ GNU General Public License for more details.
 			/cache/testWpFc/
 
 			/cache/all/testWpFc/
+			
+			/cache/wpfc-widget-cache/
+			/cache/wpfc-widget-cache
+			/cache/wpfc-widget-cache/".$args["widget_id"].".html
 			*/
 			
 			if($path){
+				if($current_language = apply_filters('wpml_current_language', false)){
+					//https://wpml.org/forums/topic/wpml-language-switch-wp-fastest-cache-issue/
+					$path = preg_replace("/(\/cache\/wpfc-widget-cache\/)(.+\.html)$/", "$1/$current_language-$2", $path);
+				}
+
 				if(is_multisite()){
 					$path = preg_replace("/\/cache\/(all|wpfc-minified|wpfc-widget-cache|wpfc-mobile-cache)/", "/cache/".$_SERVER['HTTP_HOST']."/$1", $path);
 				}
@@ -998,6 +1007,11 @@ GNU General Public License for more details.
 				// to remove the cache of the pages
 				$this->rm_folder_recursively($this->getWpContentDir("/cache/all/").$path."/page");
 				$this->rm_folder_recursively($this->getWpContentDir("/cache/wpfc-mobile-cache/").$path."/page");
+			}
+
+			if($term->parent > 0){
+				$parent = get_term_by("id", $term->parent, $term->taxonomy);
+				$this->delete_cache_of_term($parent->term_taxonomy_id);
 			}
 
 

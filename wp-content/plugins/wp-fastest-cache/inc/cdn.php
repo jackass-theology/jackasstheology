@@ -254,7 +254,7 @@
 					$_GET["url"] = "http://".$_GET["url"];
 				}
 				
-				$response = wp_remote_get($_GET["url"], array('timeout' => 20 ) );
+				$response = wp_remote_get($_GET["url"], array('timeout' => 20, 'user-agent' => "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.11; rv:64.0) Gecko/20100101 Firefox/64.0"));
 
 				$header = wp_remote_retrieve_headers($response);
 

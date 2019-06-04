@@ -214,14 +214,12 @@
 
 					if(count($pages) > 0){
 						foreach ($pages as $key => $page) {
-							$page_url = get_option("home")."/".get_page_uri($page->ID);
-
 		    				if($mobile_theme){
-		    					array_push($urls, array("url" => $page_url, "user-agent" => "mobile"));
+		    					array_push($urls, array("url" => get_page_link($page->ID), "user-agent" => "mobile"));
 		    					$number--;
 		    				}
 
-	    					array_push($urls, array("url" => $page_url, "user-agent" => "desktop"));
+	    					array_push($urls, array("url" => get_page_link($page->ID), "user-agent" => "desktop"));
 	    					$number--;
 
 		    				$pre_load->page = $pre_load->page + 1;
@@ -414,9 +412,11 @@
 					}else if($value->prefix == "contain"){
 						$preg_match_rule = preg_quote($value->content, "/");
 					}
-
-					if(preg_match("/".$preg_match_rule."/i", $request_url)){
-						return true;
+					
+					if(isset($preg_match_rule)){
+						if(preg_match("/".$preg_match_rule."/i", $request_url)){
+							return true;
+						}
 					}
 				}
 			}

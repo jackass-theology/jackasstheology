@@ -543,9 +543,10 @@
 
 
 			$data = "# BEGIN LBCWpFastestCache"."\n".
-					'<FilesMatch "\.(webm|ogg|mp4|ico|pdf|flv|jpg|jpeg|png|gif|webp|js|css|swf|x-html|css|xml|js|woff|woff2|ttf|svg|eot)(\.gz)?$">'."\n".
+					'<FilesMatch "\.(webm|ogg|mp4|ico|pdf|flv|jpg|jpeg|png|gif|webp|js|css|swf|x-html|css|xml|js|woff|woff2|otf|ttf|svg|eot)(\.gz)?$">'."\n".
 					'<IfModule mod_expires.c>'."\n".
 					'AddType application/font-woff2 .woff2'."\n".
+					'AddType application/x-font-opentype .otf'."\n".
 					'ExpiresActive On'."\n".
 					'ExpiresDefault A0'."\n".
 					'ExpiresByType video/webm A10368000'."\n".
@@ -563,6 +564,8 @@
 					'ExpiresByType application/javascript A10368000'."\n".
 					'ExpiresByType application/x-javascript A10368000'."\n".
 					'ExpiresByType application/font-woff2 A10368000'."\n".
+					'ExpiresByType application/x-font-opentype A10368000'."\n".
+					'ExpiresByType application/x-font-truetype A10368000'."\n".
 					'</IfModule>'."\n".
 					'<IfModule mod_headers.c>'."\n".
 					'Header set Expires "max-age=A10368000, public"'."\n".
@@ -2089,17 +2092,29 @@
 
 				    <?php include_once(WPFC_MAIN_PATH."templates/permission_error.html"); ?>
 
+				    <?php
+				    	if(isset($this->options->wpFastestCacheStatus)){
+					    	if(isset($_SERVER["HTTP_CDN_LOOP"]) && $_SERVER["HTTP_CDN_LOOP"] && $_SERVER["HTTP_CDN_LOOP"] == "cloudflare"){
+								$cloudflare_integration_exist = false;
+					    		$cdn_values = get_option("WpFastestCacheCDN");
 
+								if($cdn_values){
+									$std_obj = json_decode($cdn_values);
+									
+									foreach($std_obj as $key => $value){
+										if($value->id == "cloudflare"){
+											$cloudflare_integration_exist = true;
+											break;
+										}
+									}
+								}
 
-
-
-
-
-
-
-
-
-
+								if(!$cloudflare_integration_exist){
+									include_once(WPFC_MAIN_PATH."templates/cloudflare_warning.html"); 
+								}
+					    	}
+				    	}
+				    ?>
 			</div>
 
 			<div class="omni_admin_sidebar">

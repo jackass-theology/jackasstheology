@@ -1,0 +1,133 @@
+/*
+  Author Name: Renzo Johnson <renzo.johnson@gmail.com>
+  Plugin Name: Contact Form 7 MailChimp Extension
+  Plugin URI: http://renzojohnson.com/contributions/contact-form-7-mailchimp-extension
+
+  Copyright 2013-2017 Renzo Johnson (email: renzojohnson at gmail.com)
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program; if not, write to the Free Software
+  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+*/
+
+
+
+
+.donate {
+  border: 1px solid #46b450 !important;
+  background-color: #46b450 !important;
+  display: inline-block;
+  padding: 3px 10px;
+  text-decoration: none;
+  color: #fff;
+  border-radius: 3px;
+  border-color: #43ab4b #3c9943 #3c9943 !important;
+  box-shadow: 0 2px 0 #3c9943 !important;
+  text-shadow: 0 -1px 1px #3c9943, 1px 0 1px #3c9943, 0 1px 1px #3c9943, -1px 0 1px #3c9943 !important;
+
+
+}
+
+.vc-notice {
+  position: relative;
+  z-index: 0;
+  padding-top: 32px;
+  padding-bottom: 22px;
+
+}
+
+.vc-notice:before {
+    display: block;
+    position: absolute;
+    right: 0;
+    left: 0;
+    background: #fff url('../images/newsletter-stripe.svg') repeat-x;
+    background-size: 70px 9px;
+    width: 100%;
+    // height: .5625rem;
+    height: 9px;
+    content: '';
+    top: 0;
+}
+
+.welcome-panel-content {
+  position: relative;
+  z-index: 2;
+}
+
+.vc-notice:after {
+  content: "\f488";
+  color: #ddd;
+  display: inline-block;
+  position: absolute;
+  z-index: 1;
+  right: 5%;
+  bottom: 10%;
+  font-size: 7em;
+
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH;
+  -ms-filter: "FlipH";
+
+  line-height: 1;
+  font-family: dashicons;
+  text-decoration: inherit;
+  font-weight: 400;
+  font-style: normal;
+  vertical-align: top;
+  text-align: center;
+  -webkit-transition: color .1s ease-in 0;
+  transition: color .1s ease-in 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+}
+
+.dev-cta .welcome-panel-content {
+  padding-left: 9em;
+
+}
+
+.dev-cta .welcome-panel-content:before {
+
+  content: "\f488";
+  color: #ddd;
+  display: inline-block;
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 50%;
+  margin-top: -0.5em;
+  font-size: 7em;
+
+  line-height: 1;
+  font-family: dashicons;
+  text-decoration: inherit;
+  font-weight: 400;
+  font-style: normal;
+  vertical-align: top;
+  text-align: center;
+  -webkit-transition: color .1s ease-in 0;
+  transition: color .1s ease-in 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+}
+
+.donate:hover {
+  background-color: #4cc255;
+  color:#fff;
+}

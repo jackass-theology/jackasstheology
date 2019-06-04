@@ -722,22 +722,14 @@
 						}
 					}
 
-
 					$content = $this->cdn_rewrite($content);
-
-
-					// WP Hide & Security Enhancer
-					if($this->isPluginActive('wp-hide-security-enhancer/wp-hide.php')){
-						global $wph;
-						$content = $wph->functions->content_urls_replacement($content, $wph->functions->get_replacement_list());
-					}
 
 					$content = $this->fix_pre_tag($content, $buffer);
 
 					if($this->cacheFilePath){
+
 						$this->createFolder($this->cacheFilePath, $content);
 
-						
 						do_action('wpfc_is_cacheable_action');
 					}
 
@@ -906,6 +898,8 @@
 						if(is_writable($this->getWpContentDir()) || ((is_dir($this->getWpContentDir()."/cache")) && (is_writable($this->getWpContentDir()."/cache")))){
 							if (@mkdir($cachFilePath, 0755, true)){
 
+								$buffer = (string) apply_filters('wpfc_buffer_callback_filter', $buffer, $extension);
+
 								file_put_contents($cachFilePath."/".$file_name.$extension, $buffer);
 								
 								if(class_exists("WpFastestCacheStatics")){
@@ -938,7 +932,8 @@
 						if(file_exists($cachFilePath."/".$file_name.$extension)){
 
 						}else{
-
+							$buffer = (string) apply_filters('wpfc_buffer_callback_filter', $buffer, $extension);
+							
 							file_put_contents($cachFilePath."/".$file_name.$extension, $buffer);
 							
 							if(class_exists("WpFastestCacheStatics")){
