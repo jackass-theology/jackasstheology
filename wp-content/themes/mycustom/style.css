@@ -48,7 +48,7 @@ Template: Newspaper
 /*<<<HERO>>>*/
 #jackass-hero {
     height: 100vh;
-    padding-top: 25vh;
+    padding-top: 26vh;
     min-height: 900px;
     max-height: 2000px;
     overflow: visible !important;
