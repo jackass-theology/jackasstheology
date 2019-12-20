@@ -1,14 +1,14 @@
-<?php
+<?php // phpcs:ignore WordPress.Files.FileName.InvalidClassFileName
+/**
+ * Grunion Contact Form
+ * Add a contact form to any post, page or text widget.
+ * Emails will be sent to the post's author by default, or any email address you choose.
+ *
+ * @package Jetpack
+ */
 
-/*
-Plugin Name: Grunion Contact Form
-Description: Add a contact form to any post, page or text widget.  Emails will be sent to the post's author by default, or any email address you choose.  As seen on WordPress.com.
-Plugin URI: http://automattic.com/#
-AUthor: Automattic, Inc.
-Author URI: http://automattic.com/
-Version: 2.4
-License: GPLv2 or later
-*/
+use Automattic\Jetpack\Assets;
+use Automattic\Jetpack\Sync\Settings;
 
 define( 'GRUNION_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'GRUNION_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
@@ -50,7 +50,7 @@ class Grunion_Contact_Form_Plugin {
 		static $instance = false;
 
 		if ( ! $instance ) {
-			$instance = new Grunion_Contact_Form_Plugin;
+			$instance = new Grunion_Contact_Form_Plugin();
 
 			// Schedule our daily cleanup
 			add_action( 'wp_scheduled_delete', array( $instance, 'daily_akismet_meta_cleanup' ) );
@@ -186,7 +186,7 @@ class Grunion_Contact_Form_Plugin {
 				'show_in_rest'          => true,
 				'rest_controller_class' => 'Grunion_Contact_Form_Endpoint',
 				'capabilities'          => array(
-					'create_posts'        => false,
+					'create_posts'        => 'do_not_allow',
 					'publish_posts'       => 'publish_pages',
 					'edit_posts'          => 'edit_pages',
 					'edit_others_posts'   => 'edit_others_pages',
@@ -1402,7 +1402,7 @@ class Grunion_Contact_Form_Plugin {
 	 *
 	 * Additionally, Excel exposes the ability to launch arbitrary commands through the DDE protocol.
 	 *
-	 * @see http://www.contextis.com/resources/blog/comma-separated-vulnerabilities/
+	 * @see https://www.contextis.com/en/blog/comma-separated-vulnerabilities
 	 *
 	 * @param string $field
 	 *
@@ -1834,12 +1834,16 @@ class Grunion_Contact_Form extends Crunion_Contact_Form_Shortcode {
 		self::$current_form = $this;
 
 		$this->defaults = array(
-			'to'                 => $default_to,
-			'subject'            => $default_subject,
-			'show_subject'       => 'no', // only used in back-compat mode
-			'widget'             => 0,    // Not exposed to the user. Works with Grunion_Contact_Form_Plugin::widget_atts()
-			'id'                 => null, // Not exposed to the user. Set above.
-			'submit_button_text' => __( 'Submit', 'jetpack' ),
+			'to'                     => $default_to,
+			'subject'                => $default_subject,
+			'show_subject'           => 'no', // only used in back-compat mode
+			'widget'                 => 0,    // Not exposed to the user. Works with Grunion_Contact_Form_Plugin::widget_atts()
+			'id'                     => null, // Not exposed to the user. Set above.
+			'submit_button_text'     => __( 'Submit', 'jetpack' ),
+			// These attributes come from the block editor, so use camel case instead of snake case.
+			'customThankyou'         => '', // Whether to show a custom thankyou response after submitting a form. '' for no, 'message' for a custom message, 'redirect' to redirect to a new URL.
+			'customThankyouMessage'  => __( 'Thank you for your submission!', 'jetpack' ), // The message to show when customThankyou is set to 'message'.
+			'customThankyouRedirect' => '', // The URL to redirect to when customThankyou is set to 'redirect'.
 		);
 
 		$attributes = shortcode_atts( $this->defaults, $attributes, 'contact-form' );
@@ -1935,8 +1939,7 @@ class Grunion_Contact_Form extends Crunion_Contact_Form_Shortcode {
 	 * @return string HTML for the concat form.
 	 */
 	static function parse( $attributes, $content ) {
-		require_once JETPACK__PLUGIN_DIR . '/sync/class.jetpack-sync-settings.php';
-		if ( Jetpack_Sync_Settings::is_syncing() ) {
+		if ( Settings::is_syncing() ) {
 			return '';
 		}
 		// Create a new Grunion_Contact_Form object (this class)
@@ -2076,6 +2079,10 @@ class Grunion_Contact_Form extends Crunion_Contact_Form_Shortcode {
 			if ( is_user_logged_in() ) {
 				$r .= "\t\t" . wp_nonce_field( 'contact-form_' . $id, '_wpnonce', true, false ) . "\n"; // nonce and referer
 			}
+
+			if ( isset( $attributes['hasFormSettingsSet'] ) && $attributes['hasFormSettingsSet'] ) {
+				$r .= "\t\t<input type='hidden' name='is_block' value='1' />\n";
+			}
 			$r .= "\t\t<input type='hidden' name='contact-form-id' value='$id' />\n";
 			$r .= "\t\t<input type='hidden' name='action' value='grunion-contact-form' />\n";
 			$r .= "\t\t<input type='hidden' name='contact-form-hash' value='" . esc_attr( $form->hash ) . "' />\n";
@@ -2097,10 +2104,16 @@ class Grunion_Contact_Form extends Crunion_Contact_Form_Shortcode {
 	 * @return string $message
 	 */
 	static function success_message( $feedback_id, $form ) {
+		if ( 'message' === $form->get_attribute( 'customThankyou' ) ) {
+			$message = wpautop( $form->get_attribute( 'customThankyouMessage' ) );
+		} else {
+			$message = '<blockquote class="contact-form-submission">'
+			. '<p>' . join( '</p><p>', self::get_compiled_form( $feedback_id, $form ) ) . '</p>'
+			. '</blockquote>';
+		}
+
 		return wp_kses(
-			'<blockquote class="contact-form-submission">'
-			. '<p>' . join( self::get_compiled_form( $feedback_id, $form ), '</p><p>' ) . '</p>'
-			. '</blockquote>',
+			$message,
 			array(
 				'br'         => array(),
 				'blockquote' => array( 'class' => array() ),
@@ -2540,6 +2553,10 @@ class Grunion_Contact_Form extends Crunion_Contact_Form_Shortcode {
 			$i++; // Increment prefix counter for the next extra field
 		}
 
+		if ( isset( $_REQUEST['is_block'] ) && $_REQUEST['is_block'] ) {
+			$extra_values['is_block'] = true;
+		}
+
 		$contact_form_subject = trim( $contact_form_subject );
 
 		$comment_author_IP = Grunion_Contact_Form_Plugin::get_ip_address();
@@ -2616,7 +2633,7 @@ class Grunion_Contact_Form extends Crunion_Contact_Form_Shortcode {
 			$to[ $to_key ] = self::add_name_to_address( $to_value );
 		}
 
-		$blog_url        = parse_url( site_url() );
+		$blog_url        = wp_parse_url( site_url() );
 		$from_email_addr = 'wordpress@' . $blog_url['host'];
 
 		if ( ! empty( $comment_author_email ) ) {
@@ -2724,7 +2741,7 @@ class Grunion_Contact_Form extends Crunion_Contact_Form_Shortcode {
 			array_push( $message, '<p>' . __( 'Sent by an unverified visitor to your site.', 'jetpack' ) . '</p>' );
 		}
 
-		$message = join( $message, '' );
+		$message = join( '', $message );
 
 		/**
 		 * Filters the message sent via email after a successful form submission.
@@ -2813,21 +2830,36 @@ class Grunion_Contact_Form extends Crunion_Contact_Form_Shortcode {
 			return self::success_message( $post_id, $this );
 		}
 
-		$redirect = wp_get_referer();
-		if ( ! $redirect ) { // wp_get_referer() returns false if the referer is the same as the current page
-			$redirect = $_SERVER['REQUEST_URI'];
+		$redirect = '';
+		$custom_redirect = false;
+		if ( 'redirect' === $this->get_attribute( 'customThankyou' ) ) {
+			$custom_redirect = true;
+			$redirect        = esc_url( $this->get_attribute( 'customThankyouRedirect' ) );
 		}
 
-		$redirect = add_query_arg(
-			urlencode_deep(
-				array(
-					'contact-form-id'   => $id,
-					'contact-form-sent' => $post_id,
-					'contact-form-hash' => $this->hash,
-					'_wpnonce'          => wp_create_nonce( "contact-form-sent-{$post_id}" ), // wp_nonce_url HTMLencodes :(
-				)
-			), $redirect
-		);
+		if ( ! $redirect ) {
+			$custom_redirect = false;
+			$redirect        = wp_get_referer();
+		}
+
+		if ( ! $redirect ) { // wp_get_referer() returns false if the referer is the same as the current page.
+			$custom_redirect = false;
+			$redirect        = $_SERVER['REQUEST_URI'];
+		}
+
+		if ( ! $custom_redirect ) {
+			$redirect = add_query_arg(
+				urlencode_deep(
+					array(
+						'contact-form-id'   => $id,
+						'contact-form-sent' => $post_id,
+						'contact-form-hash' => $this->hash,
+						'_wpnonce'          => wp_create_nonce( "contact-form-sent-{$post_id}" ), // wp_nonce_url HTMLencodes :( .
+					)
+				),
+				$redirect
+			);
+		}
 
 		/**
 		 * Filter the URL where the reader is redirected after submitting a form.
@@ -2842,7 +2874,8 @@ class Grunion_Contact_Form extends Crunion_Contact_Form_Shortcode {
 		 */
 		$redirect = apply_filters( 'grunion_contact_form_redirect_url', $redirect, $id, $post_id );
 
-		wp_safe_redirect( $redirect );
+		// phpcs:ignore WordPress.Security.SafeRedirect.wp_redirect_wp_redirect -- We intentially allow external redirects here.
+		wp_redirect( $redirect );
 		exit;
 	}
 
@@ -3363,12 +3396,23 @@ class Grunion_Contact_Form_Field extends Crunion_Contact_Form_Shortcode {
 	}
 
 	function render_date_field( $id, $label, $value, $class, $required, $required_field_text, $placeholder ) {
+
 		$field = $this->render_label( 'date', $id, $label, $required, $required_field_text );
 		$field .= $this->render_input_field( 'text', $id, $value, $class, $placeholder, $required );
 
+		/* For AMP requests, use amp-date-picker element: https://amp.dev/documentation/components/amp-date-picker */
+		if ( class_exists( 'Jetpack_AMP_Support' ) && Jetpack_AMP_Support::is_amp_request() ) {
+			return sprintf(
+				'<%1$s mode="overlay" layout="container" type="single" input-selector="[name=%2$s]">%3$s</%1$s>',
+				'amp-date-picker',
+				esc_attr( $id ),
+				$field
+			);
+		}
+
 		wp_enqueue_script(
 			'grunion-frontend',
-			Jetpack::get_file_url_for_environment(
+			Assets::get_file_url_for_environment(
 				'_inc/build/contact-form/js/grunion-frontend.min.js',
 				'modules/contact-form/js/grunion-frontend.js'
 			),
@@ -3499,3 +3543,61 @@ function grunion_delete_old_spam() {
 		wp_schedule_single_event( time() + 700, 'grunion_scheduled_delete' );
 	}
 }
+
+/**
+ * Send an event to Tracks on form submission.
+ *
+ * @param int   $post_id - the post_id for the CPT that is created.
+ * @param array $all_values - fields from the default contact form.
+ * @param array $extra_values - extra fields added to from the contact form.
+ *
+ * @return null|void
+ */
+function jetpack_tracks_record_grunion_pre_message_sent( $post_id, $all_values, $extra_values ) {
+	// Do not do anything if the submission is not from a block.
+	if (
+		! isset( $extra_values['is_block'] )
+		|| ! $extra_values['is_block']
+	) {
+		return;
+	}
+
+	/*
+	 * Event details.
+	 */
+	$event_user  = wp_get_current_user();
+	$event_name  = 'contact_form_block_message_sent';
+	$event_props = array(
+		'entry_permalink' => esc_url( $all_values['entry_permalink'] ),
+		'feedback_id'     => esc_attr( $all_values['feedback_id'] ),
+	);
+
+	/*
+	 * Record event.
+	 * We use different libs on wpcom and Jetpack.
+	 */
+	if ( defined( 'IS_WPCOM' ) && IS_WPCOM ) {
+		$event_name             = 'wpcom_' . $event_name;
+		$event_props['blog_id'] = get_current_blog_id();
+		// If the form was sent by a logged out visitor, record event with blog owner.
+		if ( empty( $event_user->ID ) ) {
+			$event_user_id = wpcom_get_blog_owner( $event_props['blog_id'] );
+			$event_user    = get_userdata( $event_user_id );
+		}
+
+		require_lib( 'tracks/client' );
+		tracks_record_event( $event_user, $event_name, $event_props );
+	} else {
+		// If the form was sent by a logged out visitor, record event with Jetpack master user.
+		if ( empty( $event_user->ID ) ) {
+			$master_user_id = Jetpack_Options::get_option( 'master_user' );
+			if ( ! empty( $master_user_id ) ) {
+				$event_user = get_userdata( $master_user_id );
+			}
+		}
+
+		$tracking = new Automattic\Jetpack\Tracking();
+		$tracking->record_user_event( $event_name, $event_props, $event_user );
+	}
+}
+add_action( 'grunion_pre_message_sent', 'jetpack_tracks_record_grunion_pre_message_sent', 12, 3 );

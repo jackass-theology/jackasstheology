@@ -1,5 +1,7 @@
 <?php
 
+use Automattic\Jetpack\Connection\Client;
+
 /**
  * We won't have any videos less than sixty pixels wide. That would be silly.
  */
@@ -69,7 +71,7 @@ function videopress_get_video_details( $guid ) {
 /**
  * Get an attachment ID given a URL.
  *
- * Modified from http://wpscholar.com/blog/get-attachment-id-from-wp-image-url/
+ * Modified from https://wpscholar.com/blog/get-attachment-id-from-wp-image-url/
  *
  * @todo: Add some caching in here.
  *
@@ -490,7 +492,7 @@ function videopress_make_video_get_path( $guid ) {
 		'%s://%s/rest/v%s/videos/%s',
 		'https',
 		JETPACK__WPCOM_JSON_API_HOST,
-		Jetpack_Client::WPCOM_JSON_API_VERSION,
+		Client::WPCOM_JSON_API_VERSION,
 		$guid
 	);
 }

@@ -1,5 +1,7 @@
 <?php
 
+use Automattic\Jetpack\Constants;
+
 if ( ! class_exists( 'Featured_Content' ) && isset( $GLOBALS['pagenow'] ) && 'plugins.php' !== $GLOBALS['pagenow'] ) {
 
 	/**
@@ -501,7 +503,7 @@ if ( ! class_exists( 'Featured_Content' ) && isset( $GLOBALS['pagenow'] ) && 'pl
 			Add Featured Content settings.
 			 *
 			 * Sanitization callback registered in Featured_Content::validate_settings().
-			 * See http://themeshaper.com/2013/04/29/validation-sanitization-in-customizer/comment-page-1/#comment-12374
+			 * See https://themeshaper.com/2013/04/29/validation-sanitization-in-customizer/comment-page-1/#comment-12374
 			 */
 			$wp_customize->add_setting(
 				'featured-content[tag-name]',
@@ -714,7 +716,7 @@ if ( ! class_exists( 'Featured_Content' ) && isset( $GLOBALS['pagenow'] ) && 'pl
 		return $request;
 	}
 
-	if ( Jetpack_Constants::is_true( 'IS_WPCOM' ) && Jetpack_Constants::is_true( 'REST_API_REQUEST' ) ) {
+	if ( Constants::is_true( 'IS_WPCOM' ) && Constants::is_true( 'REST_API_REQUEST' ) ) {
 		add_filter( 'rest_request_before_callbacks', 'wpcom_rest_request_before_callbacks');
 	}
 

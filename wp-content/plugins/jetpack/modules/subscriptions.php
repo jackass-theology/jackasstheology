@@ -1,7 +1,7 @@
 <?php
 /**
  * Module Name: Subscriptions
- * Module Description: Allow users to subscribe to your posts and comments and receive notifications via email
+ * Module Description: Let visitors subscribe to new posts and comments via email
  * Sort Order: 9
  * Recommendation Order: 8
  * First Introduced: 1.2
@@ -443,7 +443,6 @@ class Jetpack_Subscriptions {
 		}
 
 		if ( !$async ) {
-			Jetpack::load_xml_rpc_client();
 			$xml = new Jetpack_IXR_ClientMulticall();
 		}
 

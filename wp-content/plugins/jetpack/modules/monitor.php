@@ -2,14 +2,13 @@
 /**
  * Module Name: Monitor
  * Module Description: Jetpack’s downtime monitoring will continuously watch your site, and alert you the moment that downtime is detected.
- * Jumpstart Description: Receive immediate notifications if your site goes down, 24/7.
  * Sort Order: 28
  * Recommendation Order: 10
  * First Introduced: 2.6
  * Requires Connection: Yes
  * Auto Activate: No
  * Module Tags: Recommended
- * Feature: Security, Jumpstart
+ * Feature: Security
  * Additional Search Queries: monitor, uptime, downtime, monitoring, maintenance, maintenance mode, offline, site is down, site down, down, repair, error
  */
 
@@ -33,7 +32,6 @@ class Jetpack_Monitor {
 	}
 
 	public function is_active() {
-		Jetpack::load_xml_rpc_client();
 		$xml = new Jetpack_IXR_Client( array(
 			'user_id' => get_current_user_id()
 		) );
@@ -45,7 +43,6 @@ class Jetpack_Monitor {
 	}
 
 	public function update_option_receive_jetpack_monitor_notification( $value ) {
-		Jetpack::load_xml_rpc_client();
 		$xml = new Jetpack_IXR_Client( array(
 			'user_id' => get_current_user_id()
 		) );
@@ -72,7 +69,6 @@ class Jetpack_Monitor {
 	 * @return boolean|WP_Error
 	 */
 	static function user_receives_notifications( $die_on_error = true ) {
-		Jetpack::load_xml_rpc_client();
 		$xml = new Jetpack_IXR_Client( array(
 			'user_id' => get_current_user_id()
 		) );
@@ -89,7 +85,6 @@ class Jetpack_Monitor {
 	}
 
 	public function activate_monitor() {
-		Jetpack::load_xml_rpc_client();
 		$xml = new Jetpack_IXR_Client( array(
 			'user_id' => get_current_user_id()
 		) );
@@ -103,7 +98,6 @@ class Jetpack_Monitor {
 	}
 
 	public function deactivate_monitor() {
-		Jetpack::load_xml_rpc_client();
 		$xml = new Jetpack_IXR_Client( array(
 			'user_id' => get_current_user_id()
 		) );
@@ -127,7 +121,6 @@ class Jetpack_Monitor {
 //			return $last_down;
 //		}
 
-		Jetpack::load_xml_rpc_client();
 		$xml = new Jetpack_IXR_Client( array(
 			'user_id' => get_current_user_id()
 		) );

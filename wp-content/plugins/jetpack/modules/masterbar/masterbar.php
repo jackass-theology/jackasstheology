@@ -1,5 +1,7 @@
 <?php // phpcs:ignore WordPress.Files.FileName.InvalidClassFileName
 
+use Automattic\Jetpack\Assets;
+
 require_once dirname( __FILE__ ) . '/rtl-admin-bar.php';
 
 /**
@@ -207,7 +209,13 @@ class A8C_WPCOM_Masterbar {
 	 * Remove the default Admin Bar CSS.
 	 */
 	public function remove_core_styles() {
-		wp_dequeue_style( 'admin-bar' );
+		/*
+		 * Notifications need the admin bar styles,
+		 * so let's not remove them when the module is active.
+		 */
+		if ( ! Jetpack::is_module_active( 'notes' ) ) {
+			wp_dequeue_style( 'admin-bar' );
+		}
 	}
 
 	/**
@@ -240,14 +248,14 @@ class A8C_WPCOM_Masterbar {
 
 		wp_enqueue_script(
 			'jetpack-accessible-focus',
-			Jetpack::get_file_url_for_environment( '_inc/build/accessible-focus.min.js', '_inc/accessible-focus.js' ),
+			Assets::get_file_url_for_environment( '_inc/build/accessible-focus.min.js', '_inc/accessible-focus.js' ),
 			array(),
 			JETPACK__VERSION,
 			false
 		);
 		wp_enqueue_script(
 			'a8c_wpcom_masterbar_tracks_events',
-			Jetpack::get_file_url_for_environment(
+			Assets::get_file_url_for_environment(
 				'_inc/build/masterbar/tracks-events.min.js',
 				'modules/masterbar/tracks-events.js'
 			),
@@ -595,7 +603,7 @@ class A8C_WPCOM_Masterbar {
 
 		$user_info  = get_avatar( $this->user_email, 128, 'mm', '', array( 'force_display' => true ) );
 		$user_info .= '<span class="display-name">' . $this->display_name . '</span>';
-		$user_info .= '<a class="username" href="http://gravatar.com/' . $this->user_login . '">@' . $this->user_login . '</a>';
+		$user_info .= '<a class="username" href="https://gravatar.com/' . $this->user_login . '">@' . $this->user_login . '</a>';
 
 		$user_info .= sprintf(
 			'<div><a href="%s" class="ab-sign-out">%s</a></div>',
@@ -859,7 +867,7 @@ class A8C_WPCOM_Masterbar {
 		}
 
 		// Stats.
-		if ( Jetpack::is_module_active( 'stats' ) ) {
+		if ( Jetpack::is_module_active( 'stats' ) && current_user_can( 'view_stats' ) ) {
 			$wp_admin_bar->add_menu(
 				array(
 					'parent' => 'blog',
@@ -888,7 +896,7 @@ class A8C_WPCOM_Masterbar {
 		}
 
 		// Add Calypso plans link and plan type indicator.
-		if ( is_user_member_of_blog( $current_user->ID ) ) {
+		if ( is_user_member_of_blog( $current_user->ID ) && current_user_can( 'manage_options' ) ) {
 			$plans_url = 'https://wordpress.com/plans/' . esc_attr( $this->primary_site_slug );
 			$label     = esc_html__( 'Plan', 'jetpack' );
 			$plan      = Jetpack_Plan::get();

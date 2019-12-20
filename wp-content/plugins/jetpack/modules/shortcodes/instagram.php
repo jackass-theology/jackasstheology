@@ -13,6 +13,8 @@
  * @package Jetpack
  */
 
+use Automattic\Jetpack\Assets;
+
 /**
  * Embed Reversal for Instagram
  *
@@ -107,7 +109,7 @@ function jetpack_instagram_handler( $matches, $atts, $url ) {
 	if ( is_feed() ) {
 		// Instagram offers direct links to images, but not to videos.
 		if ( 'p' === $matches[1] ) {
-			$media_url = sprintf( 'http://instagr.am/p/%1$s/media/?size=l', $matches[2] );
+			$media_url = sprintf( 'https://instagr.am/p/%1$s/media/?size=l', $matches[2] );
 			return sprintf(
 				'<a href="%1$s" title="%2$s" target="_blank"><img src="%3$s" alt="%4$s" /></a>',
 				esc_url( $url ),
@@ -207,7 +209,7 @@ function jetpack_instagram_handler( $matches, $atts, $url ) {
 	if ( ! empty( $response_body->html ) ) {
 		wp_enqueue_script(
 			'jetpack-instagram-embed',
-			Jetpack::get_file_url_for_environment( '_inc/build/shortcodes/js/instagram.min.js', 'modules/shortcodes/js/instagram.js' ),
+			Assets::get_file_url_for_environment( '_inc/build/shortcodes/js/instagram.min.js', 'modules/shortcodes/js/instagram.js' ),
 			array( 'jquery' ),
 			JETPACK__VERSION,
 			true
@@ -258,6 +260,27 @@ function jetpack_shortcode_instagram( $atts ) {
 
 	if ( empty( $atts['url'] ) ) {
 		return '';
+	}
+
+	if ( class_exists( 'Jetpack_AMP_Support' ) && Jetpack_AMP_Support::is_amp_request() ) {
+		$url_pattern = '#http(s?)://(www\.)?instagr(\.am|am\.com)/p/([^/?]+)#i';
+		preg_match( $url_pattern, $atts['url'], $matches );
+		if ( ! $matches ) {
+			return sprintf(
+				'<a href="%1$s" class="amp-wp-embed-fallback">%1$s</a>',
+				esc_url( $atts['url'] )
+			);
+		}
+
+		$shortcode_id = end( $matches );
+		$width        = ! empty( $atts['width'] ) ? $atts['width'] : 600;
+		$height       = ! empty( $atts['height'] ) ? $atts['height'] : 600;
+		return sprintf(
+			'<amp-instagram data-shortcode="%1$s" layout="responsive" width="%2$d" height="%3$d" data-captioned></amp-instagram>',
+			esc_attr( $shortcode_id ),
+			absint( $width ),
+			absint( $height )
+		);
 	}
 
 	return $wp_embed->shortcode( $atts, $atts['url'] );
