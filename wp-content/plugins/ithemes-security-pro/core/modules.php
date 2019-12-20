@@ -251,7 +251,8 @@ final class ITSEC_Modules {
 	/**
 	 * Update a single setting in a module.
 	 *
-	 * The new value will be validated, updated- in-memory, and persisted.
+	 * The new value will be validated and updated in memory. The change isn't persisted until
+	 * the end of the request or a manual call to {@see ITSEC_Storage::save()}.
 	 *
 	 * @param string $slug The module slug.
 	 * @param string $name The setting name to updated.

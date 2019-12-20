@@ -63,7 +63,7 @@ class ITSEC_Recaptcha_API {
 	 *
 	 * @return string
 	 */
-	public static function render( array $args ) {
+	public static function render( array $args = array() ) {
 
 		if ( ! self::is_available() ) {
 			return '';
@@ -92,9 +92,13 @@ class ITSEC_Recaptcha_API {
 	 *
 	 * @param array $args
 	 *
-	 * @return bool|WP_Error
+	 * @return true|WP_Error
 	 */
 	public static function validate( array $args = array() ) {
-		return self::is_available() && self::$recaptcha->validate_captcha( $args );
+		if ( ! self::is_available() ) {
+			return new WP_Error( 'itsec-recaptcha-not-configured', __( 'Recaptcha not properly configured.', 'it-l10n-ithemes-security-pro' ) );
+		}
+
+		return self::$recaptcha->validate_captcha( $args );
 	}
 }

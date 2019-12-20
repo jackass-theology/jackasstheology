@@ -5,7 +5,11 @@ final class ITSEC_Settings_Page {
 	private static $instance;
 
 	private $self_url = '';
+
+	/** @var ITSEC_Module_Settings_Page[] */
 	private $modules = array();
+
+	/** @var ITSEC_Settings_Page_Sidebar_Widget[] */
 	private $widgets = array();
 	private $translations = array();
 

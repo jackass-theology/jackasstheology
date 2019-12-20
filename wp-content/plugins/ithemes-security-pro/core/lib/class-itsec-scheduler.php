@@ -233,6 +233,15 @@ abstract class ITSEC_Scheduler {
 	}
 
 	/**
+	 * Get a registered custom schedules.
+	 *
+	 * @return array
+	 */
+	public function get_custom_schedules() {
+		return $this->custom_schedules;
+	}
+
+	/**
 	 * Register an event loop.
 	 *
 	 * This allows for splitting up a long running process across multiple page loads.

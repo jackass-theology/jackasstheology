@@ -290,11 +290,11 @@
     array (
       0 => 'vendors/dashboard/dashboard~widget.js',
     ),
-    'hash' => '1c975f9b310cf5c6a2e2a9687d822206',
+    'hash' => 'cc341a91b9992dbe843452662188a85a',
     'contentHash' => 
     array (
       'css/mini-extract' => '31d6cfe0d16ae931b73c',
-      'javascript' => '1830875252e3be07b391',
+      'javascript' => 'f03a4e7075634a64a399',
     ),
     'vendors' => 
     array (

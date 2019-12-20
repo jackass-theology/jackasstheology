@@ -5,9 +5,9 @@
  *
  * Various static functions to provide information to modules and other areas throughout the plugin.
  *
+ * @since   4.0.0
  * @package iThemes_Security
  *
- * @since   4.0.0
  */
 final class ITSEC_Lib {
 	/**
@@ -160,6 +160,8 @@ final class ITSEC_Lib {
 	 *
 	 * @since 4.0.0
 	 *
+	 * @param bool $use_cache Whether to check the cache, or force the retrieval of a new value.
+	 *
 	 * @return  String The IP address of the user
 	 */
 	public static function get_ip( $use_cache = true ) {
@@ -172,82 +174,23 @@ final class ITSEC_Lib {
 		if ( false !== $ip ) {
 			$ip = filter_var( $ip, FILTER_VALIDATE_IP, FILTER_FLAG_NO_RES_RANGE | FILTER_FLAG_NO_PRIV_RANGE );
 
-			if ( ! empty( $ip ) ) {
+			if ( $ip ) {
 				$GLOBALS['__itsec_remote_ip'] = $ip;
 
 				return $ip;
 			}
 		}
 
-		unset( $ip );
+		self::load( 'ip-detector' );
+		$ip = ITSEC_Lib_IP_Detector::build()->get();
 
-		$headers = array(
-			'HTTP_CF_CONNECTING_IP', // CloudFlare
-			'HTTP_X_FORWARDED_FOR',  // Squid and most other forward and reverse proxies
-			'REMOTE_ADDR',           // Default source of remote IP
-		);
-
-		$headers = (array) apply_filters( 'itsec_filter_remote_addr_headers', $headers );
-		$proxy   = ITSEC_Modules::get_setting( 'global', 'proxy' );
-
-		switch ( $proxy ) {
-			case 'disabled':
-				return $GLOBALS['__itsec_remote_ip'] = $_SERVER['REMOTE_ADDR'];
-			case 'manual':
-				$header = ITSEC_Modules::get_setting( 'global', 'proxy_header' );
-
-				if ( in_array( $header, $headers, true ) ) {
-					$headers = array( $header );
-				}
-				break;
-		}
-
-		if ( ! in_array( 'REMOTE_ADDR', $headers, true ) ) {
-			$headers[] = 'REMOTE_ADDR';
-		}
-
-		// Loop through twice. The first run won't accept a reserved or private range IP. If an acceptable IP is not
-		// found, try again while accepting reserved or private range IPs.
-		for ( $x = 0; $x < 2; $x ++ ) {
-			foreach ( $headers as $header ) {
-				if ( ! isset( $_SERVER[ $header ] ) ) {
-					continue;
-				}
-
-				$ip = trim( $_SERVER[ $header ] );
-
-				if ( empty( $ip ) ) {
-					continue;
-				}
-
-				if ( false !== ( $comma_index = strpos( $_SERVER[ $header ], ',' ) ) ) {
-					$ip = substr( $ip, 0, $comma_index );
-				}
-
-				if ( 0 === $x ) {
-					// First run through. Only accept an IP not in the reserved or private range.
-					$ip = filter_var( $ip, FILTER_VALIDATE_IP, FILTER_FLAG_NO_RES_RANGE | FILTER_FLAG_NO_PRIV_RANGE );
-				} else {
-					$ip = filter_var( $ip, FILTER_VALIDATE_IP );
-				}
-
-				if ( ! empty( $ip ) ) {
-					break;
-				}
-			}
-
-			if ( ! empty( $ip ) ) {
-				break;
-			}
-		}
-
-		if ( empty( $ip ) ) {
+		if ( ! $ip ) {
 			// If an IP is not found, force it to a localhost IP that would not be blacklisted as this typically
 			// indicates a local request that does not provide the localhost IP.
 			$ip = '127.0.0.1';
 		}
 
-		$GLOBALS['__itsec_remote_ip'] = (string) $ip;
+		$GLOBALS['__itsec_remote_ip'] = $ip;
 
 		return $GLOBALS['__itsec_remote_ip'];
 	}
@@ -274,9 +217,9 @@ final class ITSEC_Lib {
 	/**
 	 * Determines whether a given IP address is whiteliste
 	 *
-	 * @param  string  $ip              ip to check (can be in CIDR notation)
-	 * @param  array   $whitelisted_ips ip list to compare to if not yet saved to options
-	 * @param  boolean $current         whether to whitelist the current ip or not (due to saving, etc)
+	 * @param string  $ip              ip to check (can be in CIDR notation)
+	 * @param array   $whitelisted_ips ip list to compare to if not yet saved to options
+	 * @param boolean $current         whether to whitelist the current ip or not (due to saving, etc)
 	 *
 	 * @return boolean true if whitelisted or false
 	 */
@@ -522,6 +465,56 @@ final class ITSEC_Lib {
 	}
 
 	/**
+	 * Print a WP core notice styled inline.
+	 *
+	 * @param string|WP_Error $message
+	 * @param string          $type
+	 *
+	 * @return string
+	 */
+	public static function inline_styled_notice( $message, $type = 'error' ) {
+		switch ( $type ) {
+			case 'error':
+				$bkg = '#dc3232';
+				$bdr = '#fbeaea';
+				break;
+			case 'warning':
+				$bkg = '#fff8e5';
+				$bdr = '#ffb900';
+				break;
+			case 'info':
+				$bkg = '#e5f5fa';
+				$bdr = '#00a0d2';
+				break;
+			case 'success':
+			default:
+				$bkg = '#ecf7ed';
+				$bdr = '#46b450';
+				break;
+		}
+
+		if ( is_wp_error( $message ) ) {
+			$messages = array();
+
+			foreach ( $message->get_error_codes() as $code ) {
+				foreach ( $message->get_error_messages( $code ) as $str ) {
+					$messages[] = $str;
+				}
+			}
+
+			$message = wp_sprintf( '%l', $messages );
+		}
+
+		$html = "<div style=\"background: {$bkg};border-left: 4px solid {$bdr};padding: 1px 12px; margin: 5px 0 15px;\">";
+		$html .= '<p style="margin: 0.5em 6px 0.5em 0;padding: 2px;vertical-align: bottom;">';
+		$html .= is_wp_error( $message ) ? $message->get_error_message() : $message;
+		$html .= '</p>';
+		$html .= '</div>';
+
+		return $html;
+	}
+
+	/**
 	 * Get a WordPress user object.
 	 *
 	 * @param int|string|WP_User|bool $user Either the user ID ( must be an int ), the username, a WP_User object,
@@ -549,9 +542,9 @@ final class ITSEC_Lib {
 				$type = gettype( $user );
 			}
 
-			trigger_error( "ITSEC_Lib::get_user() called with an invalid \$user argument. Received \$user variable of type: $type", E_USER_ERROR );
+			error_log( 'ITSEC_Lib::get_user() called with an invalid $user argument. Received $user variable of type: ' . $type );
 
-			return false;
+			wp_die( 'Internal Server Error' );
 		}
 
 		if ( $user instanceof WP_User ) {
@@ -587,10 +580,12 @@ final class ITSEC_Lib {
 	 */
 	public static function get_trace_ip_link( $ip = false ) {
 		if ( empty( $ip ) ) {
-			return 'https://www.iptrackeronline.com/ithemes.php';
+			$link = 'https://www.iptrackeronline.com/ithemes.php';
 		} else {
-			return 'http://www.iptrackeronline.com/ithemes.php?ip_address=' . urlencode( $ip );
+			$link = 'http://www.iptrackeronline.com/ithemes.php?ip_address=' . urlencode( $ip );
 		}
+
+		return apply_filters( 'itsec_ip_details_link', $link, $ip );
 	}
 
 	/**
@@ -1189,7 +1184,7 @@ final class ITSEC_Lib {
 	 *
 	 * @return array
 	 */
-	public static function array_insert_before( $key, $array, $new_key, $new_value) {
+	public static function array_insert_before( $key, $array, $new_key, $new_value ) {
 		if ( array_key_exists( $key, $array ) ) {
 			$new = array();
 			foreach ( $array as $k => $value ) {
@@ -1272,6 +1267,9 @@ final class ITSEC_Lib {
 	/**
 	 * Parse a complex header that has attributes like quality values.
 	 *
+	 * @param string $header
+	 *
+	 * @return string[]
 	 * @example Parsing the Accept-Language header.
 	 *
 	 * "en-US,en;q=0.9,de;q=0.8" transforms to:
@@ -1282,9 +1280,6 @@ final class ITSEC_Lib {
 	 *     'de'    => [ 'q' => 0.8' ],
 	 * ]
 	 *
-	 * @param string $header
-	 *
-	 * @return string[]
 	 */
 	public static function parse_header_with_attributes( $header ) {
 
@@ -1444,7 +1439,7 @@ final class ITSEC_Lib {
 			return false;
 		}
 
-		return hash_equals( self::hash_token( $provided_token ), $hashed_token );
+		return hash_equals( $hashed_token, self::hash_token( $provided_token ) );
 	}
 
 	/**
@@ -1755,5 +1750,94 @@ final class ITSEC_Lib {
 	 */
 	public static function load( $name ) {
 		require_once( dirname( __FILE__ ) . "/lib/class-itsec-lib-{$name}.php" );
+	}
+
+	/**
+	 * Combine multiple WP_Error instances.
+	 *
+	 * @param WP_Error|null ...$errors
+	 *
+	 * @return WP_Error
+	 */
+	public static function combine_wp_error( $errors ) {
+		$combined = new WP_Error();
+
+		self::add_to_wp_error( $combined, $errors );
+
+		return $combined;
+	}
+
+	/**
+	 * Add the subsequent WP Error data to the first WP Error instance.
+	 *
+	 * @param WP_Error          $add_to
+	 * @param WP_Error[]|null[] ...$errors
+	 */
+	public static function add_to_wp_error( WP_Error $add_to, $errors ) {
+		if ( ! is_array( $errors ) ) {
+			$errors = func_get_args();
+			array_shift( $errors );
+		}
+
+		foreach ( $errors as $error ) {
+			if ( $error ) {
+				foreach ( $error->get_error_codes() as $code ) {
+					$add_to->add( $code, $error->get_error_message( $code ) );
+				}
+			}
+		}
+	}
+
+	/**
+	 * Render a file with only the given vars in context.
+	 *
+	 * @param string $file
+	 * @param array  $context
+	 * @param bool   $echo
+	 *
+	 * @return string|void
+	 */
+	public static function render( $file, $context = array(), $echo = true ) {
+		$__echo = $echo;
+		$__file = $file;
+
+		extract( $context, EXTR_OVERWRITE );
+		unset( $file, $context, $echo );
+
+		if ( ! $__echo ) {
+			ob_start();
+		}
+
+		require( $__file );
+
+		if ( ! $__echo ) {
+			return ob_get_clean() ?: '';
+		}
+	}
+
+	/**
+	 * Utility to mark this page as not cacheable.
+	 */
+	public static function no_cache() {
+		nocache_headers();
+
+		if ( ! defined( 'DONOTCACHEPAGE' ) ) {
+			define( 'DONOTCACHEPAGE', true );
+		}
+	}
+
+	/**
+	 * Get the WordPress branch version.
+	 *
+	 * @example 5.2.4 => 5.2
+	 *
+	 * @return string
+	 */
+	public static function get_wp_branch() {
+		$version = get_bloginfo( 'version' );
+
+		list( $major, $minor ) = explode( '.', $version );
+
+		return $major . '.' . $minor;
 	}
 }

@@ -1,5 +1,8 @@
 <?php
 
+use iThemesSecurity\Lib\Lockout\Execute_Lock\Host_Context;
+use iThemesSecurity\Lib\Lockout\Execute_Lock\Source\Configurable;
+
 /**
  * iThemes IPCheck API Wrapper.
  *
@@ -28,14 +31,23 @@ class ITSEC_IPCheck {
 
 		$enable_ban = ITSEC_Modules::get_setting( 'network-brute-force', 'enable_ban' );
 
+		$context = new Host_Context( new Configurable( 'network-brute-force' ), ITSEC_Lib::get_ip() );
+		$context->set_network_brute_force();
+
+		if ( $user instanceof WP_User ) {
+			$context->set_login_user_id( $user->ID );
+		} elseif ( $exists = username_exists( $username ) ) {
+			$context->set_login_user_id( $exists );
+		}
+
 		if ( is_wp_error( $user ) || null == $user ) {
 			if ( ITSEC_Network_Brute_Force_Utilities::report_ip() && $enable_ban ) {
 				ITSEC_Log::add_notice( 'ipcheck', 'failed-login-by-blocked-ip', array( 'details' => ITSEC_Lib::get_login_details() ) );
-				$itsec_lockout->execute_lock( array( 'network_lock' => true ) );
+				$itsec_lockout->execute_lock( $context );
 			}
 		} elseif ( $enable_ban && ITSEC_Network_Brute_Force_Utilities::is_ip_banned() ) {
 			ITSEC_Log::add_critical_issue( 'ipcheck', 'successful-login-by-blocked-ip', array( 'details' => ITSEC_Lib::get_login_details() ) );
-			$itsec_lockout->execute_lock( array( 'network_lock' => true ) );
+			$itsec_lockout->execute_lock( $context );
 		}
 
 		return $user;

@@ -51,6 +51,7 @@ CREATE TABLE {$wpdb->base_prefix}itsec_lockouts (
 	lockout_user bigint(20) UNSIGNED,
 	lockout_username varchar(60),
 	lockout_active int(1) NOT NULL DEFAULT 1,
+	lockout_context TEXT,
 	PRIMARY KEY  (lockout_id),
 	KEY lockout_expire_gmt (lockout_expire_gmt),
 	KEY lockout_host (lockout_host),
@@ -113,6 +114,16 @@ CREATE TABLE {$wpdb->base_prefix}itsec_fingerprints (
 	PRIMARY KEY  (fingerprint_id),
 	UNIQUE KEY fingerprint_user__hash (fingerprint_user,fingerprint_hash),
 	UNIQUE KEY fingerprint_uuid (fingerprint_uuid)
+) $charset_collate;
+
+CREATE TABLE {$wpdb->base_prefix}itsec_opaque_tokens (
+    token_id char(64) NOT NULL,
+    token_hashed char(64) NOT NULL,
+    token_type VARCHAR(32) NOT NULL,
+    token_data TEXT NOT NULL,
+    token_created_at DATETIME NOT NULL,
+    PRIMARY KEY  (token_id),
+    UNIQUE KEY token_hashed (token_hashed)
 ) $charset_collate;
 ";
 

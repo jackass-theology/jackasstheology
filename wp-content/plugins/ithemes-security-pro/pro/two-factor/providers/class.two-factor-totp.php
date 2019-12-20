@@ -205,12 +205,15 @@ class Two_Factor_Totp extends Two_Factor_Provider implements ITSEC_Two_Factor_Pr
 
 	public function ajax_verify_code() {
 		check_ajax_referer( 'user_two_factor_totp_options', '_nonce_user_two_factor_totp_options' );
-		if ( ! current_user_can( 'edit_user', $_POST['user_id'] ) ) {
+
+		$user_id = (int) $_POST['user_id'];
+
+		if ( ! $user_id || ! current_user_can( 'edit_user', $user_id ) ) {
 			wp_send_json_error( __('You do not have permission to edit this user.', 'it-l10n-ithemes-security-pro') );
 		}
 
 		if ( $this->_is_valid_authcode( $_POST['key'], $_POST['authcode'] ) ) {
-			if ( ! update_user_meta( $_POST['user_id'], self::SECRET_META_KEY, $_POST['key'] ) ) {
+			if ( ! update_user_meta( $user_id, self::SECRET_META_KEY, $_POST['key'] ) ) {
 				wp_send_json_error( __( 'Unable to save two-factor secret.', 'it-l10n-ithemes-security-pro' ) );
 			}
 			wp_send_json_success( __( 'Success!', 'it-l10n-ithemes-security-pro' ) );

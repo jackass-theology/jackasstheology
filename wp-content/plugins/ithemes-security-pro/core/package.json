@@ -109,6 +109,9 @@
     "test-unit:coverage": "npm run test-unit -- --coverage",
     "test-unit:update": "npm run test-unit -- --updateSnapshot",
     "test-unit:watch": "npm run test-unit -- --watch",
-    "watch": "./node_modules/.bin/webpack --watch"
+    "watch": "./node_modules/.bin/webpack --watch",
+    "test-wpunit": "docker-compose exec -T -w /var/www/html/wp-content/plugins/ithemes-security-pro wordpress ./vendor/bin/codecept run wpunit",
+    "test-acceptance": "docker-compose exec -T -w /var/www/html/wp-content/plugins/ithemes-security-pro wordpress ./vendor/bin/codecept run acceptance",
+    "test-acceptance:build": "docker-compose exec -T -w /var/www/html/wp-content/plugins/ithemes-security-pro wordpress ./vendor/bin/codecept build"
   }
 }

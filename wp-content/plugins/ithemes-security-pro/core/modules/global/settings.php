@@ -84,6 +84,12 @@ final class ITSEC_Global_Settings_New extends ITSEC_Settings {
 
 		$new->uninstall();
 
+		foreach ( $current->get_custom_schedules() as $slug => $interval ) {
+			$new->register_custom_schedule( $slug, $interval );
+		}
+
+		$new->run();
+
 		foreach ( $current->get_recurring_events() as $event ) {
 			$new->schedule( $event['schedule'], $event['id'], $event['data'], array(
 				'fire_at' => $event['fire_at'],

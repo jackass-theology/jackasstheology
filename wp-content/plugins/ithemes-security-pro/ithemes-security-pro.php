@@ -6,13 +6,24 @@
  * Description: Take the guesswork out of WordPress security. iThemes Security offers 30+ ways to lock down WordPress in an easy-to-use WordPress security plugin.
  * Author: iThemes
  * Author URI: https://ithemes.com
- * Version: 6.0.3
+ * Version: 6.3.2
  * Text Domain: it-l10n-ithemes-security-pro
  * Domain Path: /lang
  * Network: True
  * License: GPLv2
+ * Requires PHP: 5.5
  * iThemes Package: ithemes-security-pro
  */
+
+if ( version_compare( phpversion(), '5.5.0', '<' ) ) {
+	function itsec_minimum_php_version_notice() {
+		echo '<div class="notice notice-error"><p>' . esc_html__( 'iThemes Security Pro requires PHP 5.5 or higher.', 'it-l10n-ithemes-security-pro' ) . '</p></div>';
+	}
+
+	add_action( 'admin_notices', 'itsec_minimum_php_version_notice' );
+
+	return;
+}
 
 function itsec_pro_load_textdomain() {
 
@@ -49,6 +60,7 @@ if ( ! function_exists( 'itsec_pro_register_modules' ) ) {
 		ITSEC_Modules::register_module( 'magic-links', "$path/pro/magic-links", 'default-active' );
 		ITSEC_Modules::register_module( 'malware-scheduling', "$path/pro/malware-scheduling", 'default-active' );
 		ITSEC_Modules::register_module( 'online-files', "$path/pro/online-files", 'always-active' );
+		ITSEC_Modules::register_module( 'passwordless-login', "$path/pro/passwordless-login" );
 		ITSEC_Modules::register_module( 'password-expiration', "$path/pro/password-expiration", 'always-active' );
 		ITSEC_Modules::register_module( 'privilege', "$path/pro/privilege" );
 		ITSEC_Modules::register_module( 'recaptcha', "$path/pro/recaptcha" );
@@ -58,7 +70,6 @@ if ( ! function_exists( 'itsec_pro_register_modules' ) ) {
 		ITSEC_Modules::register_module( 'user-logging', "$path/pro/user-logging", 'default-active' );
 		ITSEC_Modules::register_module( 'user-security-check', "$path/pro/user-security-check", 'always-active' );
 		ITSEC_Modules::register_module( 'version-management', "$path/pro/version-management", 'default-active' );
-		ITSEC_Modules::register_module( 'security-check-pro', "$path/pro/security-check-pro", 'always-active' );
 		ITSEC_Modules::register_module( 'fingerprinting', "$path/pro/fingerprinting" );
 		ITSEC_Modules::register_module( 'geolocation', "$path/pro/geolocation", 'always-active' );
 

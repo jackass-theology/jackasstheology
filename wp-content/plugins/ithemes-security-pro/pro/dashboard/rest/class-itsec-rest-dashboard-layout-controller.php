@@ -9,7 +9,7 @@ class ITSEC_REST_Dashboard_Layout_Controller extends ITSEC_REST_Dashboard_Contro
 	private $parent_base;
 
 	/** @var array */
-	private $schema;
+	protected $schema;
 
 	public function __construct() {
 		$this->namespace   = 'ithemes-security/v1';

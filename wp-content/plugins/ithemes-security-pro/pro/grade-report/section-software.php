@@ -598,7 +598,7 @@ class ITSEC_Grading_System_Section_Software extends ITSEC_Grading_System_Section
 					),
 					'5.6' => array(
 						'eol'    => '2018-12-31',
-						'latest' => '5.6.39'
+						'latest' => '5.6.40'
 					),
 					'7.0' => array(
 						'eol'    => '2018-12-03',
@@ -606,15 +606,15 @@ class ITSEC_Grading_System_Section_Software extends ITSEC_Grading_System_Section
 					),
 					'7.1' => array(
 						'eol'    => '2019-12-01',
-						'latest' => '7.1.24'
+						'latest' => '7.1.33'
 					),
 					'7.2' => array(
 						'eol'    => '2020-11-30',
-						'latest' => '7.2.13'
+						'latest' => '7.2.24'
 					),
 					'7.3' => array(
 						'eol'    => '2021-12-06',
-						'latest' => '7.3.0',
+						'latest' => '7.3.11',
 					),
 				),
 				'versions' => array(),
@@ -769,100 +769,121 @@ class ITSEC_Grading_System_Section_Software extends ITSEC_Grading_System_Section
 						'dangerous' => false,
 						'old_branch' => true,
 						'eol' => true,
-						'last_release' => 1530814586,
-						'latest' => '3.7.27'
+						'last_release' => 1571085425,
+						'latest' => '3.7.31'
 					),
 					'3.8' => array(
 						'dangerous' => false,
 						'old_branch' => true,
 						'eol' => true,
-						'last_release' => 1530814575,
-						'latest' => '3.8.27'
+						'last_release' => 1571085306,
+						'latest' => '3.8.31'
 					),
 					'3.9' => array(
 						'dangerous' => false,
 						'old_branch' => true,
 						'eol' => true,
-						'last_release' => 1530814564,
-						'latest' => '3.9.25'
+						'last_release' => 1571085011,
+						'latest' => '3.9.29'
 					),
 					'4.0' => array(
 						'dangerous' => false,
 						'old_branch' => true,
 						'eol' => true,
-						'last_release' => 1530814549,
-						'latest' => '4.0.24'
+						'last_release' => 1571085005,
+						'latest' => '4.0.28'
 					),
 					'4.1' => array(
 						'dangerous' => false,
 						'old_branch' => true,
 						'eol' => true,
-						'last_release' => 1530814535,
-						'latest' => '4.1.24'
+						'last_release' => 1571084951,
+						'latest' => '4.1.28'
 					),
 					'4.2' => array(
 						'dangerous' => false,
 						'old_branch' => true,
 						'eol' => true,
-						'last_release' => 1530814517,
-						'latest' => '4.2.21'
+						'last_release' => 1571084945,
+						'latest' => '4.2.25'
 					),
 					'4.3' => array(
 						'dangerous' => false,
 						'old_branch' => true,
 						'eol' => true,
-						'last_release' => 1530814460,
-						'latest' => '4.3.17'
+						'last_release' => 1571084898,
+						'latest' => '4.3.21'
 					),
 					'4.4' => array(
 						'dangerous' => false,
 						'old_branch' => true,
 						'eol' => true,
-						'last_release' => 1530814439,
-						'latest' => '4.4.16'
+						'last_release' => 1571084892,
+						'latest' => '4.4.20'
 					),
 					'4.5' => array(
 						'dangerous' => false,
 						'old_branch' => true,
 						'eol' => true,
-						'last_release' => 1530814420,
-						'latest' => '4.5.15'
+						'last_release' => 1571084886,
+						'latest' => '4.5.19'
 					),
 					'4.6' => array(
 						'dangerous' => false,
 						'old_branch' => true,
 						'eol' => true,
-						'last_release' => 1530814401,
-						'latest' => '4.6.12'
+						'last_release' => 1571084834,
+						'latest' => '4.6.16'
 					),
 					'4.7' => array(
 						'dangerous' => false,
 						'old_branch' => true,
 						'eol' => true,
-						'last_release' => 1530814382,
-						'latest' => '4.7.11'
+						'last_release' => 1571084827,
+						'latest' => '4.7.15'
 					),
 					'4.8' => array(
 						'dangerous' => false,
 						'old_branch' => true,
 						'eol' => true,
-						'last_release' => 1530814364,
-						'latest' => '4.8.7'
+						'last_release' => 1571084775,
+						'latest' => '4.8.11'
 					),
 					'4.9' => array(
 						'dangerous' => false,
-						'old_branch' => false,
-						'eol' => false,
-						'last_release' => 1533245593,
-						'latest' => '4.9.6'
+						'old_branch' => true,
+						'eol' => true,
+						'last_release' => 1571084767,
+						'latest' => '4.9.12'
 					),
 					'5.0' => array(
 						'dangerous' => false,
+						'old_branch' => true,
+						'eol' => true,
+						'last_release' => 1571084707,
+						'latest' => '5.0.7'
+					),
+					'5.1' => array(
+						'dangerous' => false,
+						'old_branch' => true,
+						'eol' => true,
+						'last_release' => 1571084657,
+						'latest' => '5.1.3'
+					),
+					'5.2' => array(
+						'dangerous' => false,
+						'old_branch' => true,
+						'eol' => true,
+						'last_release' => 1571084649,
+						'latest' => '5.2.4'
+					),
+					'5.3' => array(
+						'dangerous' => false,
 						'old_branch' => false,
 						'eol' => false,
-						'last_release' => 1544123596,
-						'latest' => '5.0.0'
-					)
+						'last_release' => 1573590610,
+						'latest' => '5.3'
+					),
 				),
 				'versions' => array(),
 			);

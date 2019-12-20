@@ -1296,3 +1296,47 @@
 	Bug Fix: Hide Backend Bypass.
 	Bug Fix: Strict Standards error during Sync request.
 	Bug Fix: wp_die() if a login interstitial session fails to be created instead of throwing a fatal error.
+6.1.0 - 2019-09-04 - Timothy Jacobs
+	Breaking Change: iThemes Security requires PHP 5.4 or later.
+	New Feature: Make WordPress Security Easy With Passwordless Logins
+	Enhancement: Make Magic Links work in a wider variety of situations.
+	Enhancement: New Lockout Template screen.
+	Bug Fix: WordPress 5.3 Compatibility
+	Bug Fix: Brute Force module reporting invalid logins using an email address incorrectly.
+	Developer Note: There were significant changes to the internals of the iThemes Security Lockout API in this release. If you are using the ITSEC_Lockout class directly, all the API functions will continue to work, but will emit deprecation notices. Please update your integrations.
+6.1.1 - 2019-09-05 - Timothy Jacobs
+	Bug Fix: PHP Warning while logging interstitial updates.
+6.1.2 - 2019-09-09 - Timothy Jacobs
+	Enhancement: Add confirmation button to Passwordless Login or One-Click Two-Factor when on a different device than you started with. When Trusted Devices is active, include information about the device the login will be processed on.
+	Bug Fix: Fix Passwordless Login release notice not being dismissed due to a REST API route that was more narrowly defined than necessary.
+6.1.3 - 2019-10-01 - Timothy Jacobs
+	Bug Fix: Strong Passwords zxcvbn Library was not evaluating penalty strings correctly.
+6.2.0 - 2019-10-29 - Timothy Jacobs
+	New Feature: Integrate Passwordless Login with WooCommerce, Easy Digital Downloads, and Lifter LMS.
+	Enhancement: Add filter to "Lookup IP" link.
+	Bug Fix: PHP warning when inserting lockouts.
+	Bug Fix: WooCommerce Shop Managers were unable to verify their Two-Factor Mobile App code via their WP-Admin profile.
+	Bug Fix: WordPress 5.3 compatibility with Passwordless Login.
+6.2.1 - 2019-11-01 - Timothy Jacobs
+	Bug Fix: Error when saving Passwordless Login settings page when no integrations are available.
+6.2.2 - 2019-11-12 - Timothy Jacobs
+	Bug Fix: Improve lockout compatibility with caching plugins.
+	Bug Fix: Admin Notices list did not refresh after dismissing a notice.
+	Bug Fix: Fix PHP warning if there are multiple detected proxy headers.
+6.2.3 - 2019-11-14 - Timothy Jacobs
+	Tweak: Add stub Passwordless Login settings page for WordPress.org users.
+	Bug Fix: PHP warning if lockout_active field is missing.
+6.2.4 - 2019-11-18 - Timothy Jacobs
+	Bug Fix: The username first Passwordless Login flow was not working on WordPress 5.3
+6.3.0 - 2019-12-09 - Timothy Jacobs
+	Enhancement: Run Security Check Pro IP Detection automatically once a day.
+	Enhancement: Manually re-run Security Check Pro IP Detection from the Global Settings page.
+6.3.1 - 2019-12-10 - Timothy Jacobs
+	Bug Fix: Properly notate that iThemes Security requires PHP 5.5 or greater.
+6.3.2 - 2019-12-12 - Timothy Jacobs
+	Enhancement: Allow LastPass to autofill password fields.
+	Bug Fix: Passwordless Login would trip some ModSecurity rules when used with LastPass autofill.
+	Bug Fix: The username first Passwordless Login flow was not working on WordPress 5.3 if the user did not have permission to use Passwordless Login.
+	Bug Fix: Harden Version Management against plugins that were populating invalid update API data.
+	Bug Fix: The "Mulisite Tweaks -> Hide Updates" setting prevented auto-updates from running with WP Cron.
+	Bug Fix: Remove "get_magic_quotes()" call that existed for backwards compatibility with PHP versions 5.3 and earlier. This function call was causing a warning on PHP 7.4.

@@ -9,7 +9,7 @@ class ITSEC_REST_Core_Admin_Notices_Controller extends WP_REST_Controller {
 			'permission_callback' => array( $this, 'get_items_permissions_check' ),
 		) );
 
-		register_rest_route( 'ithemes-security/v1', 'admin-notices/(?P<notice>[\w\-]+)/(?P<action>[\w\-]+)', array(
+		register_rest_route( 'ithemes-security/v1', 'admin-notices/(?P<notice>[\w\-\.]+)/(?P<action>[\w\-]+)', array(
 			'methods'             => WP_REST_Server::EDITABLE,
 			'callback'            => array( $this, 'update_item' ),
 			'permission_callback' => array( $this, 'update_item_permissions_check' ),
@@ -104,7 +104,7 @@ class ITSEC_REST_Core_Admin_Notices_Controller extends WP_REST_Controller {
 			return $error;
 		}
 
-		return null;
+		return new WP_REST_Response( null, WP_Http::NO_CONTENT );
 	}
 
 	public function update_item_permissions_check( $request ) {

@@ -8,7 +8,7 @@ class ITSEC_Magic_Links_Validator extends ITSEC_Validator {
 	protected function sanitize_settings() {
 		parent::sanitize_settings();
 
-		$this->sanitize_setting( 'bool', 'brute_force_login_page', __( 'Email Login Link During Brute Force', 'it-l10n-ithemes-security-pro' ) );
+		$this->sanitize_setting( 'bool', 'lockout_bypass', __( 'Enable Lockout Bypass', 'it-l10n-ithemes-security-pro' ) );
 	}
 }
 

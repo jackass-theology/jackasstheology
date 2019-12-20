@@ -27,10 +27,6 @@ final class ITSEC_Form {
 			parse_str( $data['data']['--itsec-form-serialized-data'], $data );
 		}
 
-		if ( get_magic_quotes_gpc() ) {
-			$data = stripslashes_deep( $data );
-		}
-
 		$defaults = array(
 			'booleans' => false,
 			'strings'  => '',

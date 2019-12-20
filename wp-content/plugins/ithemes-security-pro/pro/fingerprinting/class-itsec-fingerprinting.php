@@ -67,6 +67,10 @@ class ITSEC_Fingerprinting {
 		add_action( 'personal_options_update', array( $this, 'save_user_profile_manager' ) );
 		add_action( 'edit_user_profile_update', array( $this, 'save_user_profile_manager' ) );
 
+		// Login Interstitials
+		add_action( 'itsec_login_interstitial_initialize_same_browser', array( $this, 'login_interstitial_initialize_same_browser' ) );
+		add_action( 'itsec_login_interstitial_async_action_confirmation_before_confirm', array( $this, 'login_interstitial_async_action_confirmation' ) );
+
 		// Logging
 		add_action( 'itsec_fingerprint_created', array( $this, 'log_create' ), 10, 3 );
 		add_action( 'itsec_fingerprint_approved', array( $this, 'log_status' ), 10, 3 );
@@ -1108,6 +1112,92 @@ class ITSEC_Fingerprinting {
 					}
 					break;
 			}
+		}
+	}
+
+	/**
+	 * Record the fingerprint of the session that initialized the same browser status.
+	 *
+	 * @param ITSEC_Login_Interstitial_Session $session
+	 */
+	public function login_interstitial_initialize_same_browser( ITSEC_Login_Interstitial_Session $session ) {
+		ITSEC_Lib::load( 'fingerprinting' );
+		$fingerprint = ITSEC_Lib_Fingerprinting::calculate_fingerprint_from_global_state( $session->get_user() );
+
+		$session->set_state( array_merge( $session->get_state(), array( 'fingerprint' => wp_json_encode( $fingerprint ) ) ) );
+		$session->save();
+	}
+
+	/**
+	 * Display a summary of the fingerprint that will be logged in on the async action confirmation.
+	 *
+	 * @param ITSEC_Login_Interstitial_Session $session
+	 */
+	public function login_interstitial_async_action_confirmation( ITSEC_Login_Interstitial_Session $session ) {
+		$state = $session->get_state();
+
+		if ( ! isset( $state['fingerprint'] ) ) {
+			return;
+		}
+
+		ITSEC_Lib::load( 'fingerprinting' );
+
+		if ( ! $fingerprint = ITSEC_Fingerprint::from_json( $state['fingerprint'] ) ) {
+			return;
+		}
+
+		$info     = $this->get_fingerprint_info( $fingerprint, array( 'maps' => array( 'small' ) ) );
+		$rows     = array();
+		$location = '';
+
+		if ( $info['ip'] ) {
+			require_once( ITSEC_Core::get_core_dir() . 'lib/class-itsec-lib-geolocation.php' );
+			$headers[] = esc_html__( 'Location', 'it-l10n-ithemes-security-pro' );
+
+			if ( $info['location'] ) {
+				$rows[] = array(
+					esc_html__( 'Location', 'it-l10n-ithemes-security-pro'),
+					$location = $info['location'] . " ({$info['ip']})"
+				);
+			} else {
+				$rows[] = array(
+					esc_html__( 'Location', 'it-l10n-ithemes-security-pro' ),
+					$location = $info['ip']
+				);
+			}
+		}
+
+		if ( ITSEC_Lib_Browser::BROWSER_UNKNOWN !== $info['browser'] ) {
+			$rows[] = array(
+				esc_html__( 'Browser', 'it-l10n-ithemes-security-pro' ),
+				$info['browser'],
+			);
+		}
+
+		if ( ITSEC_Lib_Browser::PLATFORM_UNKNOWN !== $info['platform'] ) {
+			$rows[] = array(
+				esc_html__( 'Platform', 'it-l10n-ithemes-security-pro' ),
+				$info['platform'],
+			);
+		}
+
+		if ( $info['map-small'] ) {
+			if ( $location ) {
+				$alt = esc_attr( sprintf( __( 'Map of %s', 'it-l10n-ithemes-security-pro' ), $location ) );
+			} else {
+				$alt = esc_attr__( 'Map of login location', 'it-l10n-ithemes-security-pro' );
+			}
+
+			echo "<img src=\"{$info['map-small']}\" alt='{$alt}' style='width: 100%'>";
+		}
+
+		if ( $rows ) {
+			echo '<dl style="grid-template: auto / min-content 1fr;grid-gap: .25em .5em;display: grid;margin: 1em 0;">';
+			foreach ( $rows as list( $label, $value ) ) {
+				echo '<dt style="color: #606A73;">' . $label . '</dt>';
+				echo '<dd style="color: #7E8993;">' . esc_html( $value ) . '</dd>';
+			}
+			echo '</dl>';
 		}
 	}
 

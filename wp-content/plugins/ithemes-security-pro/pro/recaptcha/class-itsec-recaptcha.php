@@ -1,5 +1,7 @@
 <?php
 
+use iThemesSecurity\Lib\Lockout\Host_Context;
+
 class ITSEC_Recaptcha {
 	const A_LOGIN = 'login';
 	const A_REGISTER = 'register';
@@ -23,7 +25,9 @@ class ITSEC_Recaptcha {
 
 		// Check for the opt-in and set the cookie.
 		if ( isset( $_REQUEST['recaptcha-opt-in'] ) && 'true' === $_REQUEST['recaptcha-opt-in'] ) {
-			setcookie( $this->cookie_name, 'true', time() + MONTH_IN_SECONDS, ITSEC_Lib::get_home_root(), COOKIE_DOMAIN, is_ssl(), true );
+			ITSEC_Lib::set_cookie( $this->cookie_name, 'true', array(
+				'length' => MONTH_IN_SECONDS,
+			) );
 		}
 	}
 
@@ -63,7 +67,7 @@ class ITSEC_Recaptcha {
 
 			add_action( 'login_form', array( $this, 'login_form' ) );
 			add_filter( 'login_form_middle', array( $this, 'wp_login_form' ), 100 );
-			add_filter( 'authenticate', array( $this, 'filter_authenticate' ), 30 );
+			add_filter( 'authenticate', array( $this, 'filter_authenticate' ), 30, 2 );
 
 		}
 
@@ -109,7 +113,7 @@ class ITSEC_Recaptcha {
 	}
 
 	public function print_login_styles() {
-		echo '<style type="text/css">#login { min-width: 350px !important; } </style>';
+		echo '<style type="text/css">#login { min-width: 350px !important; } .grecaptcha-badge { z-index: 1; } </style>';
 	}
 
 	/**
@@ -554,7 +558,7 @@ class ITSEC_Recaptcha {
 				return $GLOBALS['__itsec_recaptcha_cached_result'];
 			}
 
-			$GLOBALS['__itsec_recaptcha_cached_result'] = new WP_Error( 'itsec-recaptcha-form-not-submitted', esc_html__( 'You must submit the reCAPTCHA to proceed. Please try again.', 'it-l10n-ithemes-security-pro' ) );
+			$GLOBALS['__itsec_recaptcha_cached_result'] = new WP_Error( 'itsec-recaptcha-form-not-submitted', esc_html__( 'You must submit the reCAPTCHA to proceed. Please try again.', 'it-l10n-ithemes-security-pro' ), compact( 'args' ) );
 
 			$this->log_failed_validation( $GLOBALS['__itsec_recaptcha_cached_result'] );
 
@@ -670,25 +674,25 @@ class ITSEC_Recaptcha {
 		$error = new WP_Error( 'itsec-recaptcha-incorrect', esc_html__( 'The captcha response you submitted does not appear to be valid. Please try again.', 'it-l10n-ithemes-security-pro' ) );
 
 		if ( ! $response['success'] ) {
-			$error->add_data( array( 'validate_error' => 'invalid-token' ) );
+			$error->add_data( array( 'validate_error' => 'invalid-token', 'args' => $args ) );
 
 			return $error;
 		}
 
 		if ( ! $this->validate_host( $response ) ) {
-			$error->add_data( array( 'validate_error' => 'host-mismatch' ) );
+			$error->add_data( array( 'validate_error' => 'host-mismatch', 'args' => $args ) );
 
 			return $error;
 		}
 
 		if ( ! $this->validate_action( $response, $args ) ) {
-			$error->add_data( array( 'validate_error' => 'action-mismatch' ) );
+			$error->add_data( array( 'validate_error' => 'action-mismatch', 'args' => $args ) );
 
 			return $error;
 		}
 
 		if ( ! $this->validate_score( $response ) ) {
-			$error->add_data( array( 'validate_error' => 'insufficient_score' ) );
+			$error->add_data( array( 'validate_error' => 'insufficient_score', 'args' => $args ) );
 
 			return $error;
 		}
@@ -763,15 +767,24 @@ class ITSEC_Recaptcha {
 	/**
 	 * Log when Recaptcha fails to validate.
 	 *
-	 * @param WP_Error $data
+	 * @param WP_Error $error
 	 */
-	private function log_failed_validation( $data ) {
+	private function log_failed_validation( $error ) {
 		/** @var ITSEC_Lockout $itsec_lockout */
 		global $itsec_lockout;
 
-		ITSEC_Log::add_notice( 'recaptcha', 'failed-validation', $data );
+		ITSEC_Log::add_notice( 'recaptcha', 'failed-validation', $error );
 
-		$itsec_lockout->do_lockout( 'recaptcha' );
+		$data = $error->get_error_data();
+		$context = new Host_Context( 'recaptcha' );
+
+		if ( ! empty( $data['args']['user'] ) ) {
+			$context->set_login_user_id( $data['args']['user'] );
+		} elseif ( ! empty( $data['args']['username'] ) ) {
+			$context->set_login_username( $data['args']['username'] );
+		}
+
+		$itsec_lockout->do_lockout( $context );
 	}
 
 	/**
@@ -779,25 +792,35 @@ class ITSEC_Recaptcha {
 	 *
 	 * @since 1.13
 	 *
-	 * @param null|WP_User|WP_Error $user     WP_User if the user is authenticated.
-	 *                                        WP_Error or null otherwise.
+	 * @param WP_User|WP_Error|null $user WP_User if the user is authenticated, WP_Error or null otherwise.
+	 * @param string                $username
 	 *
-	 * @return null|WP_User|WP_Error $user     WP_User if the user is authenticated.
-	 *                                         WP_Error or null otherwise.
+	 * @return WP_User|WP_Error|null
 	 */
-	public function filter_authenticate( $user ) {
+	public function filter_authenticate( $user, $username ) {
 		if ( empty( $_POST ) || ITSEC_Core::is_api_request() ) {
 			return $user;
 		}
 
-		$result = $this->validate_captcha( array( 'action' => self::A_LOGIN ) );
+		ITSEC_Lib::load( 'login' );
+
+		$args = array( 'action' => self::A_LOGIN );
+
+		if ( $user instanceof WP_User ) {
+			$args['user'] = $user->ID;
+		} elseif ( $found_user = ITSEC_Lib_Login::get_user( $username ) ) {
+			$args['user'] = $found_user->ID;
+		} else {
+			$args['username'] = $username;
+		}
+
+		$result = $this->validate_captcha( $args );
 
 		if ( is_wp_error( $result ) ) {
 			return $result;
 		}
 
 		return $user;
-
 	}
 
 	/**

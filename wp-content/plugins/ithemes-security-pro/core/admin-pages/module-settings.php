@@ -2,6 +2,18 @@
 
 /**
  * The iThemes Security Module Settings Page API parent class.
+ *
+ * @property-read string $id
+ * @property-read string $title
+ * @property-read string $description
+ * @property-read string $type
+ * @property-read string $pro
+ * @property-read bool $can_save
+ * @property-read bool $redraw_on_save
+ * @property-read bool $upsell
+ * @property-read string $upsell_url
+ * @property-read bool $information_only
+ * @property-read string $status
  */
 class ITSEC_Module_Settings_Page {
 	/**

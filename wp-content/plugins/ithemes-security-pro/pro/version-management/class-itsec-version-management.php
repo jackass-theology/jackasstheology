@@ -217,9 +217,13 @@ final class ITSEC_Version_Management {
 			return true;
 		}
 
+		if ( empty( $item->plugin ) ) {
+			return $update;
+		}
+
 		require_once( dirname( __FILE__ ) . '/utility.php' );
 
-		return ITSEC_VM_Utility::should_auto_update_plugin( $item->plugin, $item->new_version );
+		return ITSEC_VM_Utility::should_auto_update_plugin( $item->plugin, isset( $item->new_version ) ? $item->new_version : '' );
 	}
 
 	/**
@@ -235,9 +239,13 @@ final class ITSEC_Version_Management {
 			return true;
 		}
 
+		if ( empty( $item->theme ) ) {
+			return $update;
+		}
+
 		require_once( dirname( __FILE__ ) . '/utility.php' );
 
-		return ITSEC_VM_Utility::should_auto_update_theme( $item->theme, $item->new_version );
+		return ITSEC_VM_Utility::should_auto_update_theme( $item->theme, isset( $item->new_version ) ? $item->new_version : '' );
 	}
 
 	/**

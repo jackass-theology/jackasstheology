@@ -811,3 +811,34 @@
 	Bug Fix: Hide Backend Bypass.
 	Bug Fix: Strict Standards error during Sync request.
 	Bug Fix: wp_die() if a login interstitial session fails to be created instead of throwing a fatal error.
+5.3.0 - 2019-09-04 - Timothy Jacobs
+	Breaking Change: iThemes Security requires PHP 5.4 or later.
+	Enhancement: New Lockout Template screen.
+	Bug Fix: Brute Force module reporting invalid logins using an email address incorrectly.
+	Developer Note: There were significant changes to the internals of the iThemes Security Lockout API in this release. If you are using the ITSEC_Lockout class directly, all the API functions will continue to work, but will emit deprecation notices.
+5.3.1 - 2019-09-05 - Timothy Jacobs
+	Bug Fix: PHP Warning while logging interstitial updates.
+5.3.2 - 2019-09-09 - Timothy Jacobs
+	Enhancement: Add confirmation button to Login Interstitial Async Actions when on a different device.
+	Bug Fix: Fix admin notice not being dismissed due to a REST API route that was more narrowly defined than necessary.
+5.3.3 - 2019-10-01 - Timothy Jacobs
+	Bug Fix: Strong Passwords zxcvbn Library was not evaluating penalty strings correctly.
+5.4.0 - 2019-10-29 - Timothy Jacobs
+	Enhancement: Add filter to "Lookup IP" link.
+	Bug Fix: PHP warning when inserting lockouts.
+5.4.1 - 2019-11-12 - Timothy Jacobs
+	Bug Fix: Improve lockout compatibility with caching plugins.
+	Bug Fix: Admin Notices list did not refresh after dismissing a notice.
+	Bug Fix: Fix PHP warning if there are multiple detected proxy headers.
+5.4.2 - 2019-11-14 - Timothy Jacobs
+	Tweak: Add stub Passwordless Login settings page.
+	Bug Fix: PHP warning if lockout_active field is missing.
+5.4.3 - 2019-11-18 - Timothy Jacobs
+	Tweak: Introduce ITSEC_Lib method to retrieve WP branch version.
+5.5.0 - 2019-12-09 - Timothy Jacobs
+	New Feature: iThemes Security now includes Security Check Pro to automatically and correctly determine your visitors IP addresses. Enable this scan by running Security Check and opting in to Security Check Pro or activate the Security Check Pro module in Advanced Modules. H/t Jeremy Voisin
+	Enhancement: Run Security Check Pro IP Detection automatically once a day.
+	Enhancement: Manually re-run Security Check Pro IP Detection from the Global Settings page.
+5.5.1 - 2019-12-18 - Timothy Jacobs
+	Bug Fix: The "Mulisite Tweaks -> Hide Updates" setting prevented auto-updates from running with WP Cron.
+	Bug Fix: Remove "get_magic_quotes()" call that existed for backwards compatibility with PHP versions 5.3 and earlier. This function call was causing a warning on PHP 7.4.

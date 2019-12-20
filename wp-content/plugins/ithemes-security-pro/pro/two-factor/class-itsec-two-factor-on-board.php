@@ -192,8 +192,7 @@ class ITSEC_Two_Factor_On_Board extends ITSEC_Login_Interstitial {
 		$session->save();
 
 		return array(
-			'message'            => esc_html__( 'Email confirmed. Please continue setting up Two-Factor in your original browser window.', 'it-l10n-ithemes-security-pro' ),
-			'allow_same_browser' => false,
+			'message' => esc_html__( 'Email confirmed. Please continue setting up Two-Factor in your original browser window.', 'it-l10n-ithemes-security-pro' ),
 		);
 	}
 

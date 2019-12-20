@@ -18,6 +18,7 @@ final class ITSEC_Security_Check_Scanner {
 			'magic-links'         => __( 'Magic Links', 'it-l10n-ithemes-security-pro' ),
 			'malware-scheduling'  => __( 'Malware Scan Scheduling', 'it-l10n-ithemes-security-pro' ),
 			'network-brute-force' => __( 'Network Brute Force Protection', 'it-l10n-ithemes-security-pro' ),
+			'passwordless-login'  => __( 'Passwordless Login', 'it-l10n-ithemes-security-pro' ),
 			'strong-passwords'    => __( 'Strong Passwords', 'it-l10n-ithemes-security-pro' ),
 			'two-factor'          => __( 'Two-Factor Authentication', 'it-l10n-ithemes-security-pro' ),
 			'user-logging'        => __( 'User Logging', 'it-l10n-ithemes-security-pro' ),
@@ -78,6 +79,7 @@ final class ITSEC_Security_Check_Scanner {
 
 		self::add_network_brute_force_signup();
 
+		self::enforce_activation( 'passwordless-login', __( 'Passwordless Login', 'it-l10n-ithemes-security-pro' ) );
 		self::enforce_password_requirement_enabled( 'strength', __( 'Strong Password Enforcement', 'it-l10n-ithemes-security-pro' ) );
 		self::enforce_activation( 'two-factor', __( 'Two-Factor Authentication', 'it-l10n-ithemes-security-pro' ) );
 		self::enforce_setting( 'two-factor', 'available_methods', 'all', esc_html__( 'Changed the Authentication Methods Available to Users setting in Two-Factor Authentication to "All Methods".', 'it-l10n-ithemes-security-pro' ) );

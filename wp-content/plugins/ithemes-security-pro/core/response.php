@@ -153,6 +153,15 @@ final class ITSEC_Response {
 		return $self->js_function_calls;
 	}
 
+	public static function remove_js_function_call( $js_function, $args = null ) {
+		$self = self::get_instance();
+		$call = is_null( $args ) ? array( $js_function ) : array( $js_function, $args );
+
+		$self->js_function_calls = array_values( array_filter( $self->js_function_calls, static function ( $maybe_call ) use ( $call ) {
+			return $maybe_call !== $call;
+		} ) );
+	}
+
 	public static function set_show_default_success_message( $show_default_success_message ) {
 		$self = self::get_instance();
 

@@ -179,20 +179,28 @@ class ITSEC_Lockout_Command extends WP_CLI_Command {
 	 *
 	 * ## OPTIONS
 	 *
-	 * <id>
-	 * : The id of the lockout
+	 * <id>...
+	 * : One or more IDs of lockouts to release.
 	 */
 	public function release( $args ) {
-		list( $id ) = $args;
+		$exit = 0;
 
-		if ( ! $lockout = $this->lockout->get_lockout( $id ) ) {
-			WP_CLI::error( 'Lockout not found.' );
+		foreach ( $args as $id ) {
+			if ( ! $lockout = $this->lockout->get_lockout( $id ) ) {
+				WP_CLI::warning( "Lockout not found with id {$id}." );
+				$exit = 1;
+			}
+
+			if ( $this->lockout->release_lockout( $id ) ) {
+				WP_CLI::success( "Released lockout {$id}." );
+			} else {
+				WP_CLI::warning( "Failed to release lockout {$id}." );
+				$exit = 1;
+			}
 		}
 
-		if ( $this->lockout->release_lockout( $id ) ) {
-			WP_CLI::success( 'Lockout released.' );
-		} else {
-			WP_CLI::error( 'Failed to release lockout.' );
+		if ( $exit ) {
+			WP_CLI::halt( $exit );
 		}
 	}
 
@@ -215,6 +223,9 @@ class ITSEC_Lockout_Command extends WP_CLI_Command {
 	 *
 	 * [--username=<username>]
 	 * : The username to lockout.
+	 *
+	 * [--porcelain]
+	 * : Output just the lockout ID.
 	 *
 	 * ## EXAMPLES
 	 *
@@ -239,17 +250,9 @@ class ITSEC_Lockout_Command extends WP_CLI_Command {
 			}
 		}
 
-		if ( \WP_CLI\Utils\get_flag_value( $assoc_args, 'host' ) ) {
-			$host = \WP_CLI\Utils\get_flag_value( $assoc_args, 'host' );
-		}
-
-		if ( \WP_CLI\Utils\get_flag_value( $assoc_args, 'user' ) ) {
-			$user = (int) \WP_CLI\Utils\get_flag_value( $assoc_args, 'user' );
-		}
-
-		if ( \WP_CLI\Utils\get_flag_value( $assoc_args, 'username' ) ) {
-			$username = \WP_CLI\Utils\get_flag_value( $assoc_args, 'username' );
-		}
+		$host     = \WP_CLI\Utils\get_flag_value( $assoc_args, 'host', $host );
+		$user     = \WP_CLI\Utils\get_flag_value( $assoc_args, 'user', $user );
+		$username = \WP_CLI\Utils\get_flag_value( $assoc_args, 'username', $username );
 
 		if ( $host && ! ITSEC_Lib_IP_Tools::validate( $host ) ) {
 			WP_CLI::error( 'Invalid host.' );
@@ -263,16 +266,30 @@ class ITSEC_Lockout_Command extends WP_CLI_Command {
 			WP_CLI::error( 'Invalid username.' );
 		}
 
-		$created = $this->lockout->create_lockout( array(
+		$create = array(
 			'module'   => $module,
 			'host'     => $host,
 			'user_id'  => $user,
 			'username' => $username,
-		) );
+		);
+
+		WP_CLI::debug( 'Creating Lockout: ' . json_encode( $create ), 'itsec' );
+		$created = $this->lockout->create_lockout( $create );
+		WP_CLI::debug( 'Created Lockout: ' . json_encode( $created ), 'itsec' );
+
+		$porcelain = \WP_CLI\Utils\get_flag_value( $assoc_args, 'porcelain' );
+
+		if ( $created['blacklisted'] && ! $porcelain ) {
+			WP_CLI::success( 'Lockout resulted in blacklist.' );
+		}
 
 		if ( $created['id'] ) {
-			WP_CLI::success( "Lockout created {$created['id']}." );
-		} else {
+			if ( \WP_CLI\Utils\get_flag_value( $assoc_args, 'porcelain' ) ) {
+				WP_CLI::log( $created['id'] );
+			} else {
+				WP_CLI::success( "Lockout created {$created['id']}." );
+			}
+		} elseif ( ! $created['blacklisted'] || ! $host ) {
 			WP_CLI::error( 'Failed to create lockout.' );
 		}
 	}

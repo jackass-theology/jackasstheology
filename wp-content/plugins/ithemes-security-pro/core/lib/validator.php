@@ -112,7 +112,7 @@ abstract class ITSEC_Validator {
 		}
 	}
 
-	final protected function sanitize_setting( $type, $var, $name, $prevent_save_on_error = true, $trim_value = true ) {
+	final protected function sanitize_setting( $type, $var, $name, $prevent_save_on_error = true, $trim_value = true, $custom_error = '' ) {
 		$id = $this->get_id();
 
 		if ( ! isset( $this->settings[$var] ) ) {
@@ -470,6 +470,10 @@ abstract class ITSEC_Validator {
 		}
 
 		if ( false !== $error ) {
+			if ( $custom_error ) {
+				$error = $custom_error;
+			}
+
 			$this->add_error( $this->generate_error( $id, $var, $type, $error ) );
 			$this->vars_to_skip_validate_matching_types[] = $var;
 

@@ -1,5 +1,6 @@
 <?php
 
-require_once( dirname( __FILE__ ) . '/class-magic-links.php' );
-$magic_links = new ITSEC_Magic_Links();
-$magic_links->run();
+if ( ITSEC_Modules::get_setting( 'magic-links', 'lockout_bypass' ) ) {
+	require_once( dirname( __FILE__ ) . '/class-magic-link-lockout-bypass.php' );
+	( new ITSEC_Magic_Link_Lockout_Bypass() )->run();
+}
