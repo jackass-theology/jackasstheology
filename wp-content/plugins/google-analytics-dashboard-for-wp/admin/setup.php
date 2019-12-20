@@ -30,6 +30,10 @@ if ( ! class_exists( 'GADWP_Backend_Setup' ) ) {
 			add_filter( "plugin_action_links_" . plugin_basename( GADWP_DIR . 'gadwp.php' ), array( $this, 'settings_link' ) );
 			// AM Notices
 			add_filter( "am_notifications_display", array( $this, 'notice_optout' ), 10, 1 );
+			// Beta testing menu item.
+			add_action( 'admin_menu', array( $this, 'add_external_link_admin_submenu' ), 9999 );
+			// Beta testing menu item for network.
+			add_action( 'network_admin_menu', array( $this, 'add_external_link_network_admin_submenu' ), 9999 );
 		}
 
 		/**
@@ -69,6 +73,32 @@ if ( ! class_exists( 'GADWP_Backend_Setup' ) ) {
 				add_submenu_page( 'gadwp_settings', __( "General Settings", 'google-analytics-dashboard-for-wp' ), __( "General Settings", 'google-analytics-dashboard-for-wp' ), 'manage_network', 'gadwp_settings', array( 'GADWP_Settings', 'general_settings_network' ) );
 				add_submenu_page( 'gadwp_settings', __( "Errors & Debug", 'google-analytics-dashboard-for-wp' ), __( "Errors & Debug", 'google-analytics-dashboard-for-wp' ), 'manage_network', 'gadwp_errors_debugging', array( 'GADWP_Settings', 'errors_debugging' ) );
 			}
+		}
+
+		public function add_external_link_admin_submenu() {
+
+			if ( current_user_can( 'manage_options' ) ) {
+				add_submenu_page( 'gadwp_settings', __( "Early Access Program", 'google-analytics-dashboard-for-wp' ), __( "Early Access Program", 'google-analytics-dashboard-for-wp' ), 'manage_options', 'https://exactmetrics.com/early-adopters-program/' );
+				add_action( 'admin_footer', array( $this, 'early_adopters_target_blank' ) );
+			}
+		}
+
+		public function add_external_link_network_admin_submenu() {
+
+			if ( current_user_can( 'manage_network' ) ) {
+				add_submenu_page( 'gadwp_settings', __( "Early Access Program", 'google-analytics-dashboard-for-wp' ), __( "Early Access Program", 'google-analytics-dashboard-for-wp' ), 'manage_options', 'https://exactmetrics.com/early-adopters-program/' );
+				add_action( 'admin_footer', array( $this, 'early_adopters_target_blank' ) );
+			}
+		}
+
+		public function early_adopters_target_blank() {
+			?>
+			<script type="text/javascript">
+				if ( 'undefined' !== typeof jQuery ) {
+					jQuery('a[href*="https://exactmetrics.com/early-adopters-program"]').attr( 'target', '_blank' );
+				}
+			</script>
+			<?php
 		}
 
 		/**
