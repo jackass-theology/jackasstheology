@@ -79,7 +79,7 @@ if (!class_exists('Magazine_7_Single_Col_Categorised_Posts')) :
                                 $url = '';
                                
                             }
-
+                            $img_class = '';
                             if($url == ''){
                                 $img_class = 'no-image';
                             }

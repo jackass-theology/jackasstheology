@@ -5,3 +5,7 @@
 2019-12-20 19:46:56#35 - SyncActivate::create_database_tables():316 sql=ALTER TABLE `wp_spectrom_sync_log`
 				ADD COLUMN `type` VARCHAR(4) NOT NULL DEFAULT 'recv' AFTER `target_user`
 2019-12-20 19:46:56#35 - SyncActivate::create_database_tables():320 - done
+2019-12-20 22:06:35#68 - WPSiteSyncContent::filter_upgrader_download() package='https://downloads.wordpress.org/theme/magazine-7.1.1.9.zip'
+2019-12-20 22:06:35#68 - WPSiteSyncContent::filter_unique_filename() filename=magazine-7.1.1.9-RB1OPM.tmp ext=.tmp dir=/tmp/
+2019-12-20 22:12:54#13 - WPSiteSyncContent::filter_upgrader_download() package='https://downloads.wordpress.org/release/wordpress-5.3.2-new-bundled.zip'
+2019-12-20 22:12:54#13 - WPSiteSyncContent::filter_unique_filename() filename=wordpress-5.3.2-new-bundled-ELyneJ.tmp ext=.tmp dir=/tmp/

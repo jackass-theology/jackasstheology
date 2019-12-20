@@ -4,7 +4,7 @@ Theme URI: https://afthemes.com/products/magazine-7/
 Author: AF themes
 Author URI: https://www.afthemes.com/
 Description: Magazine 7 is a clean, elegant and beautiful WordPress theme, which is typically designed for a web blog and magazine with an immense research on modern online news portals. With the help of available customizer options and widgets, you can implement layout as a fashion magazine, restaurant blogging & magazine, e-commerce magazine, personal blog, modern news journals, vibrant news sites and more. The theme is SEO friendly with optimized code and outstanding support. See our demos: https://demo.afthemes.com/magazine-7/, https://demo.afthemes.com/magazine-7/restro/, https://demo.afthemes.com/magazine-7/clean-blog/
-Version: 1.1.7
+Version: 1.1.9
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: magazine-7
@@ -5142,6 +5142,19 @@ article .em-posts-promotions .widget .widget-title {
 }
 .sp-arrow.fa-arrow-left:before, .sp-arrow.fa-arrow-right:before  {
     content: "\f060";
+}
+
+.entry-content > [class*="wp-block-"] a:not(.has-text-color),
+.entry-content > ul a, .entry-content > ul a:visited,
+.entry-content > ol a, .entry-content > ol a:visited,
+.entry-content > p a, .entry-content > p a:visited{color: #1e70cd;}
+
+.entry-content > [class*="wp-block-"] a:hover,
+.entry-content > ul a, .entry-content > ul a:hover,
+.entry-content > ol a, .entry-content > ol a:hover,
+.entry-content > p a, .entry-content > p a:hover {
+    
+    text-decoration: underline;
 }
 
 

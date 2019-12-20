@@ -2,8 +2,8 @@
 
 Contributors: AF themes
 Requires at least: 4.0
-Tested up to: 4.9
-Stable tag: 1.1.7
+Tested up to: 5
+Stable tag: 1.1.9
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: news, blog, e-commerce, one-column, two-columns, left-sidebar, right-sidebar, custom-background, custom-menu, featured-images, full-width-template, custom-header, translation-ready, theme-options, threaded-comments
@@ -37,6 +37,13 @@ Magazine 7 is a clean, elegant and beautiful WordPress theme, which is typically
 Magazine 7 includes support for Infinite Scroll in Jetpack.
 
 == Changelog ==
+= 1.1.9 - July 18 2019 =
+* WooCommerce template update.
+* Fixed some design glitches.
+
+= 1.1.8 - June 15 2019 =
+* Fixed some design glitches.
+
 = 1.1.7 - April 20 2019 =
 * New - Toggle Featured Image in Single Post has been faciliated
 
