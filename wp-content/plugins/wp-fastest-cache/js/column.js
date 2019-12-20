@@ -13,23 +13,24 @@ if(window.attachEvent) {
     }
 }
 function wpfc_column_button_action(){
-    jQuery("#wpfc_column_clear_cache").css('width', '50px');
-    jQuery("#wpfc_column_clear_cache").css('text-align', 'center');
-
 	jQuery(document).ready(function(){
-        jQuery("button.button.wpfc-clear-column-action:visible").click(function(e){
+        jQuery("a[id^='wpfc-clear-cache-link']").click(function(e){
+            var post_id = jQuery(e.target).attr("data-id");
+            var nonce = jQuery(e.target).attr("data-nonce");
 
-            jQuery(e.currentTarget).attr("disabled", true);
+            jQuery("#wpfc-clear-cache-link-" + post_id).css('cursor', 'wait');
 
             jQuery.ajax({
                 type: 'GET',
                 url: ajaxurl,
-                data : {"action": "wpfc_clear_cache_column", "id" : jQuery(e.currentTarget).attr("wpfc-clear-column")},
+                data : {"action": "wpfc_clear_cache_column", "id" : post_id, "nonce" : nonce},
                 dataType : "json",
                 cache: false, 
                 success: function(data){
+                    jQuery("#wpfc-clear-cache-link-" + post_id).css('cursor', 'pointer');
+
                     if(typeof data.success != "undefined" && data.success == true){
-                        jQuery(e.currentTarget).attr("disabled", false);
+                        //
                     }else{
                         alert("Clear Cache Error");
                     }

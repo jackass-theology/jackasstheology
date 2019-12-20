@@ -6,7 +6,7 @@
 			<table width="100%" height="100%">
 				<tbody>
 					<tr>
-						<td valign="middle" style="vertical-align: middle; font-weight: bold; color: rgb(255, 255, 255); text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.5); padding-left: 10px; font-size: 13px; cursor: move;">Lazy Load Settings</td>
+						<td valign="middle" style="vertical-align: middle; font-weight: bold; color: rgb(255, 255, 255); text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.5); padding-left: 10px; font-size: 13px; cursor: move;"><?php _e("Lazy Load Settings", "wp-fastest-cache"); ?></td>
 						<td width="20" align="center" style="vertical-align: middle;"></td>
 						<td width="20" align="center" style="vertical-align: middle; font-family: Arial,Helvetica,sans-serif; color: rgb(170, 170, 170); cursor: default;">
 							<div title="Close Window" class="close-wiz"></div>
@@ -64,7 +64,7 @@
 </div>
 <script type="text/javascript">
 	jQuery("#wpFastestCacheLazyLoad").click(function(){
-		if(typeof jQuery(this).attr("checked") != "undefined"){
+		if(jQuery(this).is(':checked')){
 			if(jQuery("div[id^='wpfc-modal-lazyload-']").length === 0){
 				Wpfc_New_Dialog.dialog("wpfc-modal-lazyload", {close: function(){
 					Wpfc_New_Dialog.clone.find("div.window-content input").each(function(){

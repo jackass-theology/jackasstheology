@@ -15,6 +15,7 @@
                         "pdf",
                         "png",
                         "svg",
+                        "swf",
                         "ttf",
                         "webm",
                         "woff",

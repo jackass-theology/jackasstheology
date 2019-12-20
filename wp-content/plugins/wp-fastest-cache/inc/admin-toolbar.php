@@ -66,19 +66,19 @@
 
 			$wp_admin_bar->add_node(array(
 				'id'    => 'wpfc-toolbar-parent',
-				'title' => 'Clear Cache'
+				'title' => __("Delete Cache", "wp-fastest-cache"),
 			));
 
 			$wp_admin_bar->add_menu( array(
 				'id'    => 'wpfc-toolbar-parent-delete-cache',
-				'title' => 'Delete Cache',
+				'title' => __("Clear All Cache", "wp-fastest-cache"),
 				'parent'=> 'wpfc-toolbar-parent',
 				'meta' => array("class" => "wpfc-toolbar-child")
 			));
 
 			$wp_admin_bar->add_menu( array(
 				'id'    => 'wpfc-toolbar-parent-delete-cache-and-minified',
-				'title' => 'Delete Cache and Minified CSS/JS',
+				'title' => __("Delete Cache and Minified CSS/JS", "wp-fastest-cache"),
 				'parent'=> 'wpfc-toolbar-parent',
 				'meta' => array("class" => "wpfc-toolbar-child")
 			));

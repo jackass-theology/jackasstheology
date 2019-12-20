@@ -135,7 +135,7 @@ var Wpfc_New_Dialog = {
 				jQuery("div.tab1 div[template-id='" + self.template_id + "'] div.window-content select[name='" + jQuery(this).attr("name") + "']").val(jQuery(this).val());
 			}else if(jQuery(this).prop("tagName") == "INPUT"){
 				if(jQuery(this).attr("type") == "checkbox"){
-					if(typeof jQuery(this).attr("checked") != "undefined"){
+					if(jQuery(this).is(':checked')){
 						jQuery("div.tab1 div[template-id='" + self.template_id + "'] div.window-content input[name='" + jQuery(this).attr("name") + "']").attr("checked", true);
 					}else{
 						jQuery("div.tab1 div[template-id='" + self.template_id + "'] div.window-content input[name='" + jQuery(this).attr("name") + "']").attr("checked", false);

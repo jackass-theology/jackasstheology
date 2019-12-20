@@ -6,14 +6,8 @@
 		private $jsLinksExcept = "";
 		private $url = "";
 		private $minify;
-		private $cache_wpfc_minified = "";
 
 		public function __construct($wpfc, $html, $minify = false){
-			if(is_multisite()){
-				$this->cache_wpfc_minified = "cache/".$_SERVER['HTTP_HOST']."/wpfc-minified";
-			}else{
-				$this->cache_wpfc_minified = "cache/wpfc-minified";
-			}
 
 			//$this->html = preg_replace("/\s+/", " ", ((string) $html));
 			$this->minify = $minify;
@@ -175,8 +169,9 @@
 
 			$md5 = $this->wpfc->create_name($url);
 
-			$cachFilePath = WPFC_WP_CONTENT_DIR."/".$this->cache_wpfc_minified."/".$md5;
-			$jsLink = WPFC_WP_CONTENT_URL."/".$this->cache_wpfc_minified."/".$md5;
+			$cachFilePath = $this->wpfc->getWpContentDir("/cache/wpfc-minified")."/".$md5;
+			$jsLink = $this->convert_path_to_link($cachFilePath);
+
 
 			if(is_dir($cachFilePath)){
 				return array("cachFilePath" => $cachFilePath, "jsContent" => "", "url" => $jsLink);
@@ -233,7 +228,8 @@
 
 			$name = base_convert(crc32($name), 20, 36);
 
-			$cachFilePath = WPFC_WP_CONTENT_DIR."/".$this->cache_wpfc_minified."/".$name;
+			$cachFilePath = $this->wpfc->getWpContentDir("/cache/wpfc-minified")."/".$name;
+			$jsLink = $this->convert_path_to_link($cachFilePath);
 
 			if(!is_dir($cachFilePath)){
 				$this->wpfc->createFolder($cachFilePath, $js_content, "js");
@@ -241,10 +237,7 @@
 
 			if($jsFiles = @scandir($cachFilePath, 1)){
 
-				$jsFiles[0] = preg_replace("/\.gz$/", "", $jsFiles[0]);
-				
-				$prefixLink = str_replace(array("http:", "https:"), "", WPFC_WP_CONTENT_URL);
-				$newLink = "<script src='".$prefixLink."/".$this->cache_wpfc_minified."/".$name."/".$jsFiles[0]."' type=\"text/javascript\"></script>";
+				$newLink = "<script src='".$jsLink."/".$jsFiles[0]."' type=\"text/javascript\"></script>";
 
 				$script_tag = substr($this->html, $value["start"], ($value["end"] - $value["start"] + 1));
 				
@@ -256,6 +249,13 @@
 
 				$this->html = substr_replace($this->html, $script_tag, $value["start"], ($value["end"] - $value["start"] + 1));
 			}
+		}
+
+		public function convert_path_to_link($path){
+			preg_match("/\/cache\/.+/", $path, $out);
+			$prefixLink = str_replace(array("http:", "https:"), "", WPFC_WP_CONTENT_URL);
+
+			return $prefixLink.$out[0];
 		}
 
 		public function file_get_contents_curl($url) {

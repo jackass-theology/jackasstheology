@@ -63,15 +63,83 @@
 			}
 		}
 
+		public static function statistic($pre_load = false){
+			$total = new stdClass();
+
+
+			if(isset($pre_load->homepage)){
+				$total->homepage = 1;
+			}
+
+			if(isset($pre_load->customposttypes)){
+				global $wpdb;
+				$post_types = get_post_types(array('public' => true), "names", "and"); 
+				$where_query = "";
+
+				foreach ($post_types as $post_type_key => $post_type_value) {
+					if(!in_array($post_type_key, array("post", "page", "attachment"))){
+						$where_query = $where_query.$wpdb->prefix."posts.post_type = '".$post_type_value."' OR ";
+					}
+
+				}
+
+				if($where_query){
+					$where_query = preg_replace("/(\s*OR\s*)$/", "", $where_query);
+		    		
+		    		$recent_custom_posts = $wpdb->get_results("SELECT SQL_CALC_FOUND_ROWS  COUNT(".$wpdb->prefix."posts.ID) as total FROM ".$wpdb->prefix."posts  WHERE 1=1  AND (".$where_query.") AND ((".$wpdb->prefix."posts.post_status = 'publish'))  ORDER BY ".$wpdb->prefix."posts.ID", ARRAY_A);
+		    		$total->customposttypes = $recent_custom_posts[0]["total"];
+		    	}
+			}
+
+			if(isset($pre_load->post)){
+				$count_posts = wp_count_posts("post", array('post_status' => 'publish', 'suppress_filters' => true));
+
+				$total->post = $count_posts->publish;
+			}
+
+			if(isset($pre_load->attachment)){
+				$total_attachments = wp_count_attachments();
+
+				$total->attachment = array_sum((array)$total_attachments) - $total_attachments->trash;
+			}
+
+
+
+
+			if(isset($pre_load->page)){
+				$count_pages = wp_count_posts("page", array('post_status' => 'publish', 'suppress_filters' => true));
+
+				$total->page = $count_pages->publish;
+			}
+
+			if(isset($pre_load->category)){
+				$total->category = wp_count_terms("category", array('hide_empty' => false));
+			}
+
+			if(isset($pre_load->tag)){
+				$total->tag = wp_count_terms("post_tag", array('hide_empty' => false));
+			}
+
+			if(isset($pre_load->customTaxonomies)){
+				$taxo = get_taxonomies(array('public' => true, '_builtin' => false), "names", "and");
+
+				if(count($taxo) > 0){
+					$total->customTaxonomies = wp_count_terms($taxo, array('hide_empty' => false));
+				}
+			}
+
+
+			foreach ($total as $key => $value) {
+				$pre_load->$key = $pre_load->$key == -1 ? $value : $pre_load->$key;
+				echo $key.": ".$pre_load->$key."/".$value."<br>";
+			}
+		}
+
 		public static function create_preload_cache($options){
 			if($data = get_option("WpFastestCachePreLoad")){
 				if(!isset($options->wpFastestCacheStatus)){
 					die("Cache System must be enabled");
 				}
-
-
-				$count_posts = wp_count_posts("post");
-				$count_pages = wp_count_posts('page');
 
 				$pre_load = json_decode($data);
 
@@ -201,25 +269,19 @@
 
 				// PAGE
 				if($number > 0 && isset($pre_load->page) && $pre_load->page > -1){
-					$pages = get_pages(array(
-							'sort_order' => 'DESC',
-							'sort_column' => 'ID',
-							'parent' => -1,
-							'hierarchical' => 0,
-							'number' => $number,
-							'offset' => $pre_load->page,
-							'post_type' => 'page',
-							'post_status' => 'publish'
-					));
+
+					global $wpdb;
+		    		$pages = $wpdb->get_results("SELECT SQL_CALC_FOUND_ROWS  ".$wpdb->prefix."posts.ID FROM ".$wpdb->prefix."posts  WHERE 1=1  AND (".$wpdb->prefix."posts.post_type = 'page') AND ((".$wpdb->prefix."posts.post_status = 'publish'))  ORDER BY ".$wpdb->prefix."posts.ID DESC LIMIT ".$pre_load->page.", ".$number, ARRAY_A);
+
 
 					if(count($pages) > 0){
 						foreach ($pages as $key => $page) {
 		    				if($mobile_theme){
-		    					array_push($urls, array("url" => get_page_link($page->ID), "user-agent" => "mobile"));
+		    					array_push($urls, array("url" => get_page_link($page["ID"]), "user-agent" => "mobile"));
 		    					$number--;
 		    				}
 
-	    					array_push($urls, array("url" => get_page_link($page->ID), "user-agent" => "desktop"));
+	    					array_push($urls, array("url" => get_page_link($page["ID"]), "user-agent" => "desktop"));
 	    					$number--;
 
 		    				$pre_load->page = $pre_load->page + 1;
@@ -231,28 +293,25 @@
 
 				// CATEGORY
 				if($number > 0 && isset($pre_load->category) && $pre_load->category > -1){
-					// $categories = get_terms(array(
-					// 							'taxonomy'          => array('category', 'product_cat'),
-					// 						    'orderby'           => 'id', 
-					// 						    'order'             => 'DESC',
-					// 						    'hide_empty'        => false, 
-					// 						    'number'            => $number, 
-					// 						    'fields'            => 'all', 
-					// 						    'pad_counts'        => false, 
-					// 						    'offset'            => $pre_load->category
-					// 						));
-
-					global $wpdb;
-		    		$categories = $wpdb->get_results("SELECT  t.*, tt.* FROM ".$wpdb->prefix."terms AS t  INNER JOIN ".$wpdb->prefix."term_taxonomy AS tt ON t.term_id = tt.term_id WHERE tt.taxonomy IN ('category', 'product_cat', 'hersteller', 'anschlussart', 'typ') ORDER BY t.term_id ASC LIMIT ".$pre_load->category.", ".$number, ARRAY_A);
+					$categories = get_terms(array(
+												'taxonomy'          => array('category'),
+											    'orderby'           => 'id', 
+											    'order'             => 'ASC',
+											    'hide_empty'        => false, 
+											    'number'            => $number, 
+											    'fields'            => 'all', 
+											    'pad_counts'        => false, 
+											    'offset'            => $pre_load->category
+											));
 
 					if(count($categories) > 0){
 						foreach ($categories as $key => $category) {
 							if($mobile_theme){
-								array_push($urls, array("url" => get_term_link($category["slug"], $category["taxonomy"]), "user-agent" => "mobile"));
+								array_push($urls, array("url" => get_term_link($category->slug, $category->taxonomy), "user-agent" => "mobile"));
 								$number--;
 							}
 
-							array_push($urls, array("url" => get_term_link($category["slug"], $category["taxonomy"]), "user-agent" => "desktop"));
+							array_push($urls, array("url" => get_term_link($category->slug, $category->taxonomy), "user-agent" => "desktop"));
 							$number--;
 
 							$pre_load->category = $pre_load->category + 1;
@@ -265,29 +324,25 @@
 
 				// TAG
 				if($number > 0 && isset($pre_load->tag) && $pre_load->tag > -1){
-					// $tags = get_terms(array(
-					// 							'taxonomy'          => array('post_tag', 'product_tag'),
-					// 						    'orderby'           => 'id', 
-					// 						    'order'             => 'DESC',
-					// 						    'hide_empty'        => false, 
-					// 						    'number'            => $number, 
-					// 						    'fields'            => 'all', 
-					// 						    'pad_counts'        => false, 
-					// 						    'offset'            => $pre_load->tag
-					// 						));
-
-					global $wpdb;
-		    		$tags = $wpdb->get_results("SELECT  t.*, tt.* FROM ".$wpdb->prefix."terms AS t  INNER JOIN ".$wpdb->prefix."term_taxonomy AS tt ON t.term_id = tt.term_id WHERE tt.taxonomy IN ('post_tag', 'product_tag') ORDER BY t.term_id ASC LIMIT ".$pre_load->tag.", ".$number, ARRAY_A);
-
+					$tags = get_terms(array(
+												'taxonomy'          => array('post_tag'),
+											    'orderby'           => 'id', 
+											    'order'             => 'ASC',
+											    'hide_empty'        => false, 
+											    'number'            => $number, 
+											    'fields'            => 'all', 
+											    'pad_counts'        => false, 
+											    'offset'            => $pre_load->tag
+											));
 
 					if(count($tags) > 0){
 						foreach ($tags as $key => $tag) {
 							if($mobile_theme){
-								array_push($urls, array("url" => get_term_link($tag["slug"], $tag["taxonomy"]), "user-agent" => "mobile"));
+								array_push($urls, array("url" => get_term_link($tag->slug, $tag->taxonomy), "user-agent" => "mobile"));
 								$number--;
 							}
 
-							array_push($urls, array("url" => get_term_link($tag["slug"], $tag["taxonomy"]), "user-agent" => "desktop"));
+							array_push($urls, array("url" => get_term_link($tag->slug, $tag->taxonomy), "user-agent" => "desktop"));
 							$number--;
 
 							$pre_load->tag = $pre_load->tag + 1;
@@ -298,8 +353,42 @@
 					}
 				}
 
+				// Custom Taxonomies
+				if($number > 0 && isset($pre_load->customTaxonomies) && $pre_load->customTaxonomies > -1){
+					$taxo = get_taxonomies(array('public'   => true, '_builtin' => false), "names", "and");
 
+					if(count($taxo) > 0){
+						$custom_taxos = get_terms(array(
+								'taxonomy'          => array_values($taxo),
+							    'orderby'           => 'id', 
+							    'order'             => 'ASC',
+							    'hide_empty'        => false, 
+							    'number'            => $number, 
+							    'fields'            => 'all', 
+							    'pad_counts'        => false, 
+							    'offset'            => $pre_load->customTaxonomies
+							));
 
+						if(count($custom_taxos) > 0){
+							foreach ($custom_taxos as $key => $custom_tax) {
+								if($mobile_theme){
+									array_push($urls, array("url" => get_term_link($custom_tax->slug, $custom_tax->taxonomy), "user-agent" => "mobile"));
+									$number--;
+								}
+
+								array_push($urls, array("url" => get_term_link($custom_tax->slug, $custom_tax->taxonomy), "user-agent" => "desktop"));
+								$number--;
+
+								$pre_load->customTaxonomies = $pre_load->customTaxonomies + 1;
+
+							}
+						}else{
+							$pre_load->customTaxonomies = -1;
+						}
+					}else{
+						$pre_load->customTaxonomies = -1;
+					}
+				}
 
 
 
@@ -336,27 +425,8 @@
 
 		    		echo "<br><br>";
 
-		    		// if(isset($pre_load->homepage)){
-		    		// 	if($pre_load->homepage == -1){
-		    		// 		echo "Homepage: 1/1"."<br>";
-		    		// 	}
-		    		// }
+		    		self::statistic($pre_load);
 
-		    		// if(isset($pre_load->post)){
-			    	// 	if($pre_load->post > -1){
-			    	// 		echo "Posts: ".$pre_load->post."/".$count_posts->publish."<br>";
-			    	// 	}else{
-			    	// 		echo "Posts: ".$count_posts->publish."/".$count_posts->publish."<br>";
-			    	// 	} 
-		    		// }
-
-		    		// if(isset($pre_load->page)){
-		    		// 	if($pre_load->page > -1){
-		    		// 		echo "Pages: ".$pre_load->page."/".$count_pages->publish."<br>";
-		    		// 	}else{
-		    		// 		echo "Pages: ".$count_pages->publish."/".$count_pages->publish."<br>";
-		    		// 	}
-		    		// }
 				}else{
 					if(isset($options->wpFastestCachePreload_restart)){
 						foreach ($pre_load as $pre_load_key => &$pre_load_value) {

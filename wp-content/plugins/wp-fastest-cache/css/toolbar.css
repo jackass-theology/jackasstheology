@@ -12,8 +12,10 @@
 	cursor: pointer;
 }
 
-#wp-admin-bar-wpfc-toolbar-parent > .ab-empty-item::before{
-	content: url("../images/icon-24x24.png");
+@supports not (-ms-high-contrast: none) {
+    #wp-admin-bar-wpfc-toolbar-parent > .ab-empty-item::before{
+    	content: url("../images/icon.svg");
+    }
 }
 
 #wp-admin-bar-wpfc-toolbar-parent .ab-empty-item:hover{

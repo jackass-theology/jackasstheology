@@ -65,7 +65,7 @@
 			<table width="100%" height="100%">
 				<tbody>
 					<tr>
-						<td valign="middle" style="vertical-align: middle; font-weight: bold; color: rgb(255, 255, 255); text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.5); padding-left: 10px; font-size: 13px; cursor: move;">Cache Timeout Wizard</td>
+						<td valign="middle" style="vertical-align: middle; font-weight: bold; color: rgb(255, 255, 255); text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.5); padding-left: 10px; font-size: 13px; cursor: move;"><?php _e("Cache Timeout Wizard", "wp-fastest-cache"); ?></td>
 						<td width="20" align="center" style="vertical-align: middle;"></td>
 						<td width="20" align="center" style="vertical-align: middle; font-family: Arial,Helvetica,sans-serif; color: rgb(170, 170, 170); cursor: default;">
 							<div title="Close Window" class="close-wiz"></div>
@@ -88,15 +88,15 @@
 										<table width="100%" cellspacing="0" cellpadding="5" border="0" class="cond-line active-line">
 											<tbody>
 												<tr>
-													<td width="100" height="30" class="" style="padding-left:10px;font-family: Verdana,Geneva,Arial,Helvetica,sans-serif;font-size: 12px;">If REQUEST_URI</td>
+													<td width="100" height="30" class="" style="padding-left:10px;font-family: Verdana,Geneva,Arial,Helvetica,sans-serif;font-size: 12px;"><?php _e("If REQUEST_URI", "wp-fastest-cache"); ?></td>
 													<td class="" width="95">
 														<select name="wpfc-timeout-rule-prefix">
 															<option selected="" value=""></option>
-															<option value="all">All</option>
-															<option value="homepage">Home Page</option>
-										    				<option value="startwith">Starts With</option>
-										    				<option value="exact">Is Equal To</option>
-										    				<!-- <option value="contain">Contains</option> -->
+															<option value="all"><?php _e("All", "wp-fastest-cache"); ?></option>
+															<option value="homepage"><?php _e("Home Page", "wp-fastest-cache"); ?></option>
+										    				<option value="startwith"><?php _e("Starts With", "wp-fastest-cache"); ?></option>
+										    				<option value="exact"><?php _e("Is Equal To", "wp-fastest-cache"); ?></option>
+										    				<!-- <option value="contain"><?php _e("Contains", "wp-fastest-cache"); ?></option> -->
 										    			</select>
 										    		</td>
 										    		<td width="300">
@@ -121,18 +121,27 @@
 										<table width="100%" cellspacing="0" cellpadding="5" border="0" class="cond-line active-line">
 											<tbody>
 												<tr>
-													<td width="10">Then</td>
+													<td width="10"><?php _e("Then", "wp-fastest-cache"); ?></td>
 													<td class="" width="95">
 														<select name="wpfc-timeout-rule-schedule">
 															<?php
 																$schedules = wp_get_schedules();
+
+																if(function_exists("wp_list_sort")){
+																	$schedules = wp_list_sort($schedules, "interval", "ASC", true);
+																}
+																
 																$first = true;
 																foreach ($schedules as $key => $value) {
+																	if(!isset($value["wpfc"])){
+																		continue;
+																	}
+																	
 																	if($first){
-																		echo "<option value=''>Choose One</option>";
+																		echo "<option value=''>".__("Choose One", 'wp-fastest-cache')."</option>";
 																		$first = false;
 																	}
-																	echo "<option value='{$key}'>{$value["display"]}</option>";
+																	echo "<option value='{$key}'>".__($value["display"], 'wp-fastest-cache')."</option>";
 																}
 															?>
 														</select> 
@@ -157,7 +166,7 @@
 																}
 															?>
 										    			</select>
-										    			<span>delete the files</span>
+										    			<span><?php _e("delete the files", "wp-fastest-cache"); ?></span>
 													</td>
 													<td width="100"></td>
 										    	</tr>
@@ -177,7 +186,7 @@
 											<tbody>
 												<tr>
 										    		<td class="" width="300" style="text-align: center;">
-														<label>Server Time: </label><label class="wpfc-server-time"><?php echo date("H:i:s"); ?></label>
+														<label><?php _e("Server Time", "wp-fastest-cache"); ?>: </label><label class="wpfc-server-time"><?php echo date("H:i:s"); ?></label>
 										    		</td>
 										    	</tr>
 										    </tbody>

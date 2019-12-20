@@ -287,7 +287,13 @@ var WpfcCDN = {
 			}
 
 			if(jQuery("#wpfc-modal-" + this.id).find(".wpfc-cdn-pages-container div.wiz-cont:visible").attr("wpfc-cdn-page") > 1){
-				self.show_button("back");
+				if(current_page.attr("wpfc-cdn-page") == 2){
+					if(self.id == "maxcdn"){
+						self.show_button("back");
+					}
+				}else{
+					self.show_button("back");
+				}
 			}
 		}else{
 			self.show_button("close");

@@ -15,7 +15,7 @@
 			<table width="100%" height="100%">
 				<tbody>
 					<tr>
-						<td valign="middle" style="vertical-align: middle; font-weight: bold; color: rgb(255, 255, 255); text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.5); padding-left: 10px; font-size: 13px; cursor: move;">Update Post</td>
+						<td valign="middle" style="vertical-align: middle; font-weight: bold; color: rgb(255, 255, 255); text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.5); padding-left: 10px; font-size: 13px; cursor: move;"><?php _e("Update Post", "wp-fastest-cache"); ?></td>
 						<td width="20" align="center" style="vertical-align: middle;"></td>
 						<td width="20" align="center" style="vertical-align: middle; font-family: Arial,Helvetica,sans-serif; color: rgb(170, 170, 170); cursor: default;">
 							<div title="Close Window" class="close-wiz"></div>
@@ -26,7 +26,7 @@
 		</div>
 		<div class="window-content-wrapper" style="padding: 15px;">
 			<div class="window-content" style="z-index: 1000; height: auto; position: relative; display: inline-block; width: 100%;">
-				<p style="color:#666;margin-top:0 !important;">What do you want to happen after update a post or a page?</p>
+				<p style="color:#666;margin-top:0 !important;"><?php _e("What do you want to happen after update a post or a page?", "wp-fastest-cache"); ?></p>
 
 				<?php
 					$wpFastestCacheUpdatePost_type_post = "";
@@ -46,14 +46,14 @@
 
 				<div class="wiz-input-cont">
 					<label class="mc-input-label" style="margin-right: 5px;"><input type="radio" <?php echo $wpFastestCacheUpdatePost_type_all; ?> action-id="wpFastestCacheUpdatePost_type_all" id="wpFastestCacheUpdatePost_type_all" name="wpFastestCacheUpdatePost_type" value="all"></label>
-					<label for="wpFastestCacheUpdatePost_type_all">Clear All Cache</label>
+					<label for="wpFastestCacheUpdatePost_type_all"><?php _e("Clear All Cache", "wp-fastest-cache"); ?></label>
 				</div>
 				<div class="wiz-input-cont">
 					<label class="mc-input-label" style="margin-right: 5px;"><input type="radio" <?php echo $wpFastestCacheUpdatePost_type_post; ?> action-id="wpFastestCacheUpdatePost_type_post" id="wpFastestCacheUpdatePost_type_post" name="wpFastestCacheUpdatePost_type" value="post"></label>
-					<label for="wpFastestCacheUpdatePost_type_post">Clear Cache of Post / Page</label><br>
-					<label style="margin-left:24px;" for="wpFastestCacheUpdatePost_type_post">Clear Cache of Post Categories</label><br>
-					<label style="margin-left:24px;" for="wpFastestCacheUpdatePost_type_post">Clear Cache of Post Tags</label><br>
-					<label style="margin-left:24px;" for="wpFastestCacheUpdatePost_type_post">Clear Cache of Homepage</label>
+					<label for="wpFastestCacheUpdatePost_type_post"><?php _e("Clear Cache of Post / Page", "wp-fastest-cache"); ?></label><br>
+					<label style="margin-left:24px;" for="wpFastestCacheUpdatePost_type_post"><?php _e("Clear Cache of Post Categories", "wp-fastest-cache"); ?></label><br>
+					<label style="margin-left:24px;" for="wpFastestCacheUpdatePost_type_post"><?php _e("Clear Cache of Post Tags", "wp-fastest-cache"); ?></label><br>
+					<label style="margin-left:24px;" for="wpFastestCacheUpdatePost_type_post"><?php _e("Clear Cache of Homepage", "wp-fastest-cache"); ?></label>
 				</div>
 
 			</div>
@@ -61,7 +61,7 @@
 		<div class="window-buttons-wrapper" style="padding: 0px; display: inline-block; width: 100%; border-top: 1px solid rgb(255, 255, 255); background: none repeat scroll 0px 0px rgb(222, 222, 222); z-index: 999; position: relative; text-align: right; border-radius: 0px 0px 3px 3px;">
 			<div style="padding: 12px; height: 23px;text-align: center;">
 				<button class="wpfc-dialog-buttons buttons" type="button" action="close">
-					<span>OK</span>
+					<span><?php _e("OK", "wp-fastest-cache"); ?></span>
 				</button>
 			</div>
 		</div>
@@ -69,7 +69,7 @@
 </div>
 <script type="text/javascript">
 	jQuery("#wpFastestCacheUpdatePost").click(function(){
-		if(typeof jQuery(this).attr("checked") != "undefined"){
+		if(jQuery(this).is(':checked')){
 			if(jQuery("div[id^='wpfc-modal-updatepost-']").length === 0){
 				Wpfc_New_Dialog.dialog("wpfc-modal-updatepost", {close: function(){
 					Wpfc_New_Dialog.clone.find("div.window-content input").each(function(){

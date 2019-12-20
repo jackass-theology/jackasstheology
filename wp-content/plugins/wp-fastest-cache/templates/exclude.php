@@ -63,7 +63,7 @@
 			<table width="100%" height="100%">
 				<tbody>
 					<tr>
-						<td valign="middle" style="vertical-align: middle; font-weight: bold; color: rgb(255, 255, 255); text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.5); padding-left: 10px; font-size: 13px; cursor: move;">Exclude Page Wizard</td>
+						<td valign="middle" style="vertical-align: middle; font-weight: bold; color: rgb(255, 255, 255); text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.5); padding-left: 10px; font-size: 13px; cursor: move;"><?php _e("Exclude Page Wizard", "wp-fastest-cache"); ?></td>
 						<td width="20" align="center" style="vertical-align: middle;"></td>
 						<td width="20" align="center" style="vertical-align: middle; font-family: Arial,Helvetica,sans-serif; color: rgb(170, 170, 170); cursor: default;">
 							<div title="Close Window" class="close-wiz"></div>
@@ -86,30 +86,30 @@
 										<table width="100%" cellspacing="0" cellpadding="5" border="0" class="cond-line active-line">
 											<tbody>
 												<tr>
-													<td width="100" height="35" class="wpfc-condition-text" style="padding-left:10px;font-family: Verdana,Geneva,Arial,Helvetica,sans-serif;font-size: 12px;">If REQUEST_URI</td>
+													<td width="100" height="35" class="wpfc-condition-text" style="padding-left:10px;font-family: Verdana,Geneva,Arial,Helvetica,sans-serif;font-size: 12px;"><?php _e("If REQUEST_URI", "wp-fastest-cache"); ?></td>
 													<td class="" width="95">
 														<select name="wpfc-exclude-rule-prefix" style="width: 98px !important;">
 															<option selected="" value=""></option>
-															<option value="homepage">Home Page</option>
-															<option value="category">Categories</option>
-															<option value="tag">Tags</option>
-															<option value="post">Posts</option>
-															<option value="page">Pages</option>
+															<option value="homepage"><?php _e("Home Page", "wp-fastest-cache"); ?></option>
+															<option value="category"><?php _e("Categories", "wp-fastest-cache"); ?></option>
+															<option value="tag"><?php _e("Tags", "wp-fastest-cache"); ?></option>
+															<option value="post"><?php _e("Posts", "wp-fastest-cache"); ?></option>
+															<option value="page"><?php _e("Pages", "wp-fastest-cache"); ?></option>
 
-															<option value="archive">Archives</option>
+															<option value="archive"><?php _e("Archives", "wp-fastest-cache"); ?></option>
 
-															<option value="attachment">Attachments</option>
-										    				<option value="startwith">Starts With</option>
-										    				<option value="contain">Contains</option>
-										    				<option value="exact">Is Equal To</option>
-										    				<option value="googleanalytics">has Google Analytics Parameters</option>
-										    				<option value="woocommerce_items_in_cart">has Woocommerce Items in Cart</option>
+															<option value="attachment"><?php _e("Attachments", "wp-fastest-cache"); ?></option>
+										    				<option value="startwith"><?php _e("Starts With", "wp-fastest-cache"); ?></option>
+										    				<option value="contain"><?php _e("Contains", "wp-fastest-cache"); ?></option>
+										    				<option value="exact"><?php _e("Is Equal To", "wp-fastest-cache"); ?></option>
+										    				<option value="googleanalytics"><?php _e("has Google Analytics Parameters", "wp-fastest-cache"); ?></option>
+										    				<option value="woocommerce_items_in_cart"><?php _e("has Woocommerce Items in Cart", "wp-fastest-cache"); ?></option>
 										    			</select>
 										    		</td>
 										    		<td width="300">
 										    			<div class="wpfc-exclude-rule-line-middle">
-										    				<input type="text" name="wpfc-exclude-rule-content" style="width:300px;">
-										    				<input type="hidden" name="wpfc-exclude-rule-type" style="width:300px;">
+										    				<input type="text" name="wpfc-exclude-rule-content" style="width:289px;">
+										    				<input type="hidden" name="wpfc-exclude-rule-type" style="width:289px;">
 										    			</div>
 										    		</td>
 										    	</tr>
