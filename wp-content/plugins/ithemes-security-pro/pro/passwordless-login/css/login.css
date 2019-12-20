@@ -1,0 +1,220 @@
+.itsec-pwls-login__logo {
+	margin: 0 auto 20px auto;
+	display: block;
+}
+
+.itsec-pwls-login__title,
+.itsec-pwls-login__description,
+.itsec-pwls-login__link-wrap,
+.itsec-pwls-login__or,
+.itsec-pwls-login-fallback__link-wrap {
+	text-align: center;
+}
+
+.itsec-pwls-login__title {
+	font-weight: bold;
+	margin-bottom: 10px !important;
+}
+
+.itsec-pwls-login__description {
+	margin-bottom: 10px !important;
+}
+
+.itsec-pwls-login__username-wrap {
+	margin: 10px 0;
+}
+
+.itsec-pwls-login__username-wrap input {
+	margin: 2px 0 0 0 !important;
+}
+
+.itsec-pwls-login__link {
+	margin: 20px 0 !important;
+}
+
+.itsec-pwls-login__link.button-primary {
+	float: none;
+}
+
+.itsec-pwls-login__link,
+.itsec-pwls-login__submit {
+	vertical-align: top;
+	display: block;
+	text-decoration: none;
+	height: 28px;
+	margin: 0;
+	cursor: pointer;
+	-webkit-appearance: none;
+	border-radius: 3px;
+	white-space: nowrap;
+	box-sizing: border-box;
+	background: #0083E3;
+	color: #fff;
+	text-shadow: none;
+	padding: 20px 30px;
+	line-height: 0;
+	box-shadow: none;
+	font-weight: 300;
+	font-size: 1.2em;
+	border: none;
+}
+
+.itsec-pwls-login__link::-moz-focus-inner,
+.itsec-pwls-login__submit::-moz-focus-inner {
+	border-width: 0;
+	border-style: none;
+	padding: 0;
+}
+
+.itsec-pwls-login__link:hover,
+.itsec-pwls-login__submit:hover {
+	background: #006799;
+	color: #fff;
+}
+
+.itsec-pwls-login__submit {
+	width: 100%;
+	margin-top: 10px;
+}
+
+.itsec-pwls-login__fields {
+	margin: 20px 0;
+}
+
+.itsec-pwls-login__fields .input {
+	margin: 2px 0 0 0 !important;;
+}
+
+.itsec-pwls-login__fields .button {
+	height: 40px !important;
+}
+
+.itsec-pwls-login-fallback__or {
+	width: 100%;
+	margin-bottom: 10px;
+	position: relative;
+	text-align: center;
+}
+
+.itsec-pwls-login-fallback__or:before {
+	background: #E5E5E5;
+	content: '';
+	height: 1px;
+	position: absolute;
+	left: 0;
+	top: 50%;
+	width: 100%;
+}
+
+.itsec-pwls-login-fallback__or span {
+	background: #fff;
+	color: #777;
+	position: relative;
+	padding: 0 8px;
+	text-transform: uppercase
+}
+
+.itsec-pwls-login--show.login #loginform,
+.login-action-itsec-passwordless-login-prompt form,
+.login-action-itsec-passwordless-login form {
+	padding: 26px 24px;
+}
+
+.itsec-pwls-login--show #loginform > * {
+	display: none;
+}
+
+.itsec-pwls-login--show #loginform .itsec-pwls-login-wrap,
+.itsec-pwls-login--show #loginform .itsec-pwls-login-fallback,
+.itsec-pwls-login--show #loginform .g-recaptcha,
+.itsec-pwls-login-form #loginform .itsec-recaptcha-opt-in {
+	display: block;
+}
+
+.itsec-pwls-login--show .itsec-pwls-login-fallback__link-wrap--type-ml,
+.login-action-itsec-passwordless-login-prompt .itsec-pwls-login-fallback__link-wrap--type-ml,
+.login-action-itsec-passwordless-login .itsec-pwls-login-fallback__link-wrap--type-ml {
+	display: none;
+}
+
+.itsec-pwls-login--hide .itsec-pwls-login-fallback__link-wrap--type-wp {
+	display: none;
+}
+
+.itsec-pwls-login--hide.login form {
+	position: relative !important;
+	padding-bottom: 88px;
+}
+
+.itsec-pwls-login--hide .itsec-pwls-login-wrap {
+	display: none;
+}
+
+.itsec-pwls-login--hide .itsec-pwls-login-fallback {
+	position: absolute;
+	bottom: 20px;
+	padding: 0 24px;
+	margin-left: -24px;
+	margin-right: -24px;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.itsec-pwls-login--flow-user-first.itsec-pwls-login--no-user #loginform > * {
+	display: none;
+}
+
+.itsec-pwls-login--flow-user-first.itsec-pwls-login--no-user #loginform p:first-child,
+.itsec-pwls-login--flow-user-first.itsec-pwls-login--no-user #loginform .submit,
+.itsec-pwls-login--flow-user-first.itsec-pwls-login--no-user #loginform .itsec-recaptcha-opt-in,
+.itsec-pwls-login--flow-user-first.itsec-pwls-login--no-user #loginform .g-recaptcha {
+	display: block;
+}
+
+.itsec-pwls-login--flow-user-first.itsec-pwls-login--is-available #loginform .itsec-recaptcha-opt-in,
+.itsec-pwls-login--flow-user-first.itsec-pwls-login--is-available #loginform .g-recaptcha {
+	display: block;
+}
+
+.itsec-pwls-login--flow-user-first.itsec-pwls-login--has-user.no-js #loginform > p:first-child {
+	display: none;
+}
+
+.itsec-pwls-login--flow-user-first.itsec-pwls-login--has-user.itsec-pwls-login--is-available.no-js #loginform {
+	position: relative !important;
+	padding-top: 334px;
+}
+
+.itsec-pwls-login--flow-user-first.no-js .itsec-pwls-login-wrap {
+	position: absolute;
+	top: 26px;
+}
+
+.itsec-pwls-login--flow-user-first.itsec-pwls-login--is-available.no-js .itsec-pwls-login-wrap {
+	width: 100%;
+	margin: 0 -24px;
+	padding: 0 24px;
+	box-sizing: border-box;
+}
+
+.itsec-pwls-login--flow-user-first.itsec-pwls-login--show .itsec-pwls-login-header {
+	display: none;
+}
+
+#itsec-magic-link-login-2fa-setting {
+	padding-bottom: 26px;
+}
+
+.itsec-pwls-login-2fa-setting h2 {
+	margin: 20px 0;
+	text-align: center;
+	font-size: 14px;
+}
+
+.itsec-pwls-login-2fa-setting p.description {
+	margin-bottom: 10px !important;
+}
+
+.itsec-pwls-login-2fa-setting p.description:last-of-type {
+	margin-bottom: 20px !important;
+}

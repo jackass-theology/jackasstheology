@@ -1,0 +1,79 @@
+.itsec-pwls-login-modal__bg {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: #000;
+	opacity: 0.7;
+	filter: alpha(opacity=70);
+	z-index: 1000010; /* needs to appear above .notification-dialog */
+}
+
+.itsec-pwls-login-modal__wrap {
+	position: fixed;
+	left: 50%;
+	overflow: hidden;
+	top: 40px;
+	bottom: 20px;
+	max-height: 415px;
+	width: 380px;
+	margin: 0 0 0 -190px;
+	padding: 30px 0 0;
+	background-color: #f1f1f1;
+	z-index: 1000011; /* needs to appear above .wp-auth-check-bg */
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+.itsec-pwls-login-modal__frame {
+	height: 98%; /* Scrollbar fix */
+	width: 100%;
+}
+
+.itsec-pwls-login-modal__frame-wrap {
+	height: 100%;
+	position: relative;
+	overflow: auto;
+	-webkit-overflow-scrolling: touch;
+}
+
+.itsec-pwls-login-modal .itsec-pwls-login-modal__close {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	height: 22px;
+	font-size: 13px;
+	text-transform: none;
+	margin: 0;
+	padding: 0;
+	box-shadow: none;
+	border: 0;
+	border-radius: 0;
+	background: none;
+	cursor: pointer;
+	text-align: left;
+	/* Mimics the default link style in common.css */
+	color: #0073aa;
+	text-decoration: underline;
+	transition-property: border, background, color;
+	transition-duration: .05s;
+	transition-timing-function: ease-in-out;
+}
+
+.itsec-pwls-login-modal__close:hover,
+.itsec-pwls-login-modal__close:active {
+	color: #00a0d2;
+}
+
+.itsec-pwls-login-modal__close:focus {
+	color: #124964;
+	outline: 1px dotted #555d66;
+}
+
+@media screen and (max-width: 380px) {
+	.itsec-pwls-login-modal {
+		left: 0;
+		width: 100%;
+		margin: 0;
+	}
+}

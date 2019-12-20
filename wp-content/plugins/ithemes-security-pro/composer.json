@@ -1,0 +1,37 @@
+{
+  "name": "ithemes/ithemes-security-pro",
+  "description": "Take the guesswork out of WordPress security. iThemes Security offers 30+ ways to lock down WordPress in an easy-to-use WordPress security plugin.",
+  "type": "wordpress-plugin",
+  "require-dev": {
+    "lucatume/wp-browser": "^2.2",
+    "rawr/cross-data-providers": "^1.0"
+  },
+  "license": "GPL-2.0-or-later",
+  "authors": [
+    {
+      "name": "Timothy Jacobs",
+      "email": "timothy@ithemes.com"
+    },
+    {
+      "name": "Chris Jean",
+      "email": "chris@ithemes.com"
+    }
+  ],
+  "minimum-stability": "stable",
+  "require": {
+    "php": "^5.4 | ^7.0"
+  },
+  "autoload-dev": {
+    "files": [
+      "tests/constants.php"
+    ],
+    "classmap": [
+      "tests/_support"
+    ]
+  },
+  "config": {
+    "platform": {
+      "php": "5.6.0"
+    }
+  }
+}
