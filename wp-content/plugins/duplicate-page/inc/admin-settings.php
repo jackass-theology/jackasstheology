@@ -1,8 +1,14 @@
 <?php if (!defined('ABSPATH')) {
     exit;
 } ?>
+<script>
+var dp_ajax_url = "<?php echo admin_url( 'admin-ajax.php' );?>";
+</script>
+<?php $this->custom_assets();
+?>
 <div class="wrap duplicate_page_settings">
-<h1><?php _e('Duplicate Page Settings ', 'duplicate-page'); ?><a href="http://www.webdesi9.com/product/duplicate-page-pro/" target="_blank" class="button button-primary"><?php _e('Buy PRO', 'duplicate-page'); ?></a></h1>
+<?php $this->load_help_desk(); ?>
+<h1><?php _e('Duplicate Page Settings ', 'duplicate-page'); ?><a href="https://duplicatepro.com/pro/" target="_blank" class="button button-primary"><?php _e('Buy PRO', 'duplicate-page'); ?></a></h1>
 <?php $duplicatepageoptions = array();
 $opt = get_option('duplicate_page_options');
 $msg = isset($_GET['msg']) ? $_GET['msg'] : '';
@@ -85,7 +91,7 @@ endif;
     <p><strong style="color:#F00"><?php _e('Contribute some donation, to make plugin more stable. You can pay amount of your choice.', 'duplicate-page'); ?></strong></p>
     <form name="_xclick" action="https://www.paypal.com/yt/cgi-bin/webscr" method="post">
     <input type="hidden" name="cmd" value="_xclick">
-    <input type="hidden" name="business" value="mndpsingh287@gmail.com">
+    <input type="hidden" name="business" value="yogesh72564@gmail.com">
     <input type="hidden" name="item_name" value="Duplicate Page Plugin - Donation">
     <input type="hidden" name="currency_code" value="USD">
     <code>$</code> <input type="text" name="amount" value="" required="required" placeholder="Enter amount">

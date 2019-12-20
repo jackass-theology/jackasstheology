@@ -4,7 +4,7 @@ Plugin Name: Duplicate Page
 Plugin URI: https://wordpress.org/plugins/duplicate-page/
 Description: Duplicate Posts, Pages and Custom Posts using single click.
 Author: mndpsingh287
-Version: 3.5
+Version: 4.0
 Author URI: https://profiles.wordpress.org/mndpsingh287/
 License: GPLv2
 Text Domain: duplicate-page
@@ -34,6 +34,7 @@ if (!class_exists('duplicate_page')):
             }
             add_action('wp_before_admin_bar_render', array(&$this, 'duplicate_page_admin_bar_link'));
             add_action('init', array(&$this, 'duplicate_page_load_text_domain'));
+            add_action('wp_ajax_mk_dp_close_dp_help', array($this, 'mk_dp_close_dp_help'));
         }
 
         /*
@@ -142,7 +143,7 @@ if (!class_exists('duplicate_page')):
                      'post_author' => $new_post_author,
                      'post_content' => (isset($opt['duplicate_post_editor']) && $opt['duplicate_post_editor'] == 'gutenberg') ? wp_slash($post->post_content) : $post->post_content,
                      'post_excerpt' => $post->post_excerpt,
-                     'post_name' => $post->post_name,
+                     //'post_name' => $post->post_name,
                      'post_parent' => $post->post_parent,
                      'post_password' => $post->post_password,
                      'post_status' => $post_status,
@@ -168,17 +169,17 @@ if (!class_exists('duplicate_page')):
                 /*
                 * duplicate all post meta
                 */
-                $post_meta_infos = $wpdb->get_results("SELECT meta_key, meta_value FROM $wpdb->postmeta WHERE post_id=$post_id");
-                if (count($post_meta_infos) != 0) {
-                    $sql_query = "INSERT INTO $wpdb->postmeta (post_id, meta_key, meta_value) ";
-                    foreach ($post_meta_infos as $meta_info) {
-                        $meta_key = $meta_info->meta_key;
+                    $post_meta_infos = $wpdb->get_results("SELECT meta_key, meta_value FROM $wpdb->postmeta WHERE post_id=$post_id");
+				 if (count($post_meta_infos)!=0) {
+				     $sql_query = "INSERT INTO $wpdb->postmeta (post_id, meta_key, meta_value) ";
+				     foreach ($post_meta_infos as $meta_info) {
+                        $meta_key = sanitize_text_field($meta_info->meta_key);
                         $meta_value = addslashes($meta_info->meta_value);
-                        $sql_query_sel[] = "SELECT $new_post_id, '$meta_key', '$meta_value'";
-                    }
-                    $sql_query .= implode(' UNION ALL ', $sql_query_sel);
-                    $wpdb->query($sql_query);
-                }
+                        $sql_query_sel[]= "SELECT $new_post_id, '$meta_key', '$meta_value'";
+                        }
+                        $sql_query.= implode(" UNION ALL ", $sql_query_sel);
+                        $wpdb->query($sql_query);
+					} 
                 /*
                 * finally, redirecting to your choice
                 */
@@ -310,6 +311,54 @@ if (!class_exists('duplicate_page')):
         public static function dp_redirect($url)
         {
             echo '<script>window.location.href="'.$url.'"</script>';
+        }
+        /*
+         Load Help Desk
+        */
+        public function load_help_desk()
+        {
+            $mkcontent = '';
+            $mkcontent .= '<div class="dpmrs">';
+            $mkcontent .= '<div class="l_dpmrs">';
+            $mkcontent .= '';
+            $mkcontent .= '</div>';
+            $mkcontent .= '<div class="r_dpmrs">';
+            $mkcontent .= '<a class="close_dp_help fm_close_btn" href="javascript:void(0)" data-ct="rate_later" title="close">X</a><strong>Duplicate Page</strong><p>We love and care about you. Our team is putting maximum efforts to provide you the best functionalities. It would be highly appreciable if you could spend a couple of seconds to give a Nice Review to the plugin to appreciate our efforts. So we can work hard to provide new features regularly :)</p><a class="close_dp_help fm_close_btn_1" href="javascript:void(0)" data-ct="rate_later" title="Remind me later">Later</a> <a class="close_dp_help fm_close_btn_2" href="https://wordpress.org/support/plugin/duplicate-page/reviews/?filter=5" data-ct="rate_now" title="Rate us now" target="_blank">Rate Us</a> <a class="close_dp_help fm_close_btn_3" href="javascript:void(0)" data-ct="rate_never" title="Not interested">Never</a>';
+            $mkcontent .= '</div></div>';
+            if (false === ($mk_dp_close_dp_help_c = get_option('mk_fm_close_fm_help_c'))) {
+                echo apply_filters('the_content', $mkcontent);
+            }
+        }
+        /*
+         Close Help
+        */
+        public function mk_dp_close_dp_help()
+        {
+            $what_to_do = sanitize_text_field($_POST['what_to_do']);
+            $expire_time = 15;
+            if ($what_to_do == 'rate_now' || $what_to_do == 'rate_never') {
+                $expire_time = 365;
+            } elseif ($what_to_do == 'rate_later') {
+                $expire_time = 15;
+            }
+            if (false === ($mk_fm_close_fm_help_c = get_option('mk_fm_close_fm_help_c'))) {
+                $set = update_option('mk_fm_close_fm_help_c', 'done');
+                if ($set) {
+                    echo 'ok';
+                } else {
+                    echo 'oh';
+                }
+            } else {
+                echo 'ac';
+            }
+            die;
+        }
+        /*
+        Custom Assets
+        */
+        public function custom_assets() {
+            wp_enqueue_style( 'duplicate-page', plugins_url( '/css/duplicate_page.css', __FILE__ ) );
+            wp_enqueue_script( 'duplicate-page', plugins_url( '/js/duplicate_page.js', __FILE__ ) );
         }
     }
 new duplicate_page();
