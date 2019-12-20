@@ -20,7 +20,7 @@ namespace FacebookPixelPlugin\Core;
 defined('ABSPATH') or die('Direct access not allowed');
 
 class FacebookPluginConfig {
-  const PLUGIN_VERSION = '1.7.25';
+  const PLUGIN_VERSION = '1.8.0';
   const SOURCE = 'wordpress';
   const TEXT_DOMAIN = 'official-facebook-pixel';
 
@@ -38,7 +38,7 @@ class FacebookPluginConfig {
   const PIXEL_ID_KEY = 'pixel_id';
   const SETTINGS_KEY = 'facebook_config';
   const USE_PII_KEY = 'use_pii';
-  const USE_ADVANCED_MATCHING_DEFAULT = false;
+  const USE_ADVANCED_MATCHING_DEFAULT = null;
 
   const IS_PIXEL_RENDERED = 'is_pixel_rendered';
   const IS_NOSCRIPT_RENDERED = 'is_noscript_rendered';
