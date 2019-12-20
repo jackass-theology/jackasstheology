@@ -1,0 +1,7 @@
+2019-12-20 19:46:56#35 - SyncActivate::plugin_activation(false):37
+2019-12-20 19:46:56#35 - SyncActivate::plugin_activation():38 multisite=FALSE
+2019-12-20 19:46:56#35 - SyncActivate::plugin_activation():61 single site activation
+2019-12-20 19:46:56#35 - SyncActivate::create_database_tables():275
+2019-12-20 19:46:56#35 - SyncActivate::create_database_tables():316 sql=ALTER TABLE `wp_spectrom_sync_log`
+				ADD COLUMN `type` VARCHAR(4) NOT NULL DEFAULT 'recv' AFTER `target_user`
+2019-12-20 19:46:56#35 - SyncActivate::create_database_tables():320 - done

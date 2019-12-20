@@ -1,0 +1,604 @@
+# Translation of Plugins - WP Fastest Cache - Development (trunk) in Chinese (Taiwan)
+# This file is distributed under the same license as the Plugins - WP Fastest Cache - Development (trunk) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2019-11-25 15:12:58+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: GlotPress/2.4.0-alpha\n"
+"Language: zh_TW\n"
+"Project-Id-Version: Plugins - WP Fastest Cache - Development (trunk)\n"
+
+#: inc/column.php:15
+msgid "Clear Cache"
+msgstr "清除快取"
+
+#: inc/admin.php:1287 inc/admin.php:1293 inc/admin.php:1300
+msgid "Eliminate render-blocking JavaScript resources"
+msgstr "清除禁止轉譯的 JavaScrpt 資源"
+
+#: inc/admin.php:429 inc/admin.php:432
+msgid "Options have been saved"
+msgstr "設定已儲存。"
+
+#: inc/admin.php:1755
+msgid "Download"
+msgstr "下載"
+
+#: inc/admin.php:1750
+msgid "Update"
+msgstr "更新"
+
+#: inc/admin.php:1744
+msgid "Please don't delete the free version. Premium version works with the free version."
+msgstr "請勿刪除免費版外掛，Premium 版需要與免費版搭配使用。"
+
+#: inc/admin.php:1743
+msgid "Get It Now!"
+msgstr "立即購買授權"
+
+#: inc/admin.php:1737
+msgid "You can download and update the premium when you want if you paid."
+msgstr "購買授權後，便可隨時下載或更新 Premium 版外掛。"
+
+#: inc/admin.php:1734
+msgid "Download & Update"
+msgstr "下載及更新"
+
+#: inc/admin.php:1721
+msgid "Buy"
+msgstr "購買授權"
+
+#: inc/admin.php:1706
+msgid "Purchased"
+msgstr "已購買"
+
+#: inc/admin.php:1701
+msgid "The download button will be available after paid. You can buy the premium version now."
+msgstr "付款完成後便會出現 [下載] 按鈕。請立即購買 Premium 版。"
+
+#: inc/admin.php:1700
+msgid "Just"
+msgstr "僅需"
+
+#: inc/admin.php:1686
+msgid "You need to pay before downloading the premium version."
+msgstr "必須先購買授權才能下載 Premium 版。"
+
+#: inc/admin.php:1683
+msgid "Checkout"
+msgstr "購買授權"
+
+#: inc/admin.php:1669
+msgid "New Features"
+msgstr "全新功能"
+
+#: inc/admin.php:1663
+msgid "In the premium version there are some new features which speed up the sites more."
+msgstr "Premium 版提供更多可以加速網站的新功能。"
+
+#: inc/admin.php:1660
+msgid "Discover Features"
+msgstr "進一步瞭解更多功能"
+
+#: templates/exclude.php:106 inc/admin.php:1806
+msgid "has Woocommerce Items in Cart"
+msgstr "包含購物車中的 Woocommerce 商品資料"
+
+#: templates/exclude.php:105 inc/admin.php:1805
+msgid "has Google Analytics Parameters"
+msgstr "包含 Google Analytics 參數"
+
+#: templates/exclude.php:99 inc/admin.php:1798
+msgid "Archives"
+msgstr "彙整"
+
+#: templates/timeout.php:189
+msgid "Server Time"
+msgstr "伺服器時間"
+
+#: templates/timeout.php:169
+msgid "delete the files"
+msgstr "刪除檔案"
+
+#: templates/timeout.php:99 templates/exclude.php:103 inc/admin.php:1529
+#: inc/admin.php:1803
+msgid "Contains"
+msgstr "包含"
+
+#: templates/timeout.php:98 templates/exclude.php:104 inc/admin.php:1530
+#: inc/admin.php:1804
+msgid "Is Equal To"
+msgstr "等於"
+
+#: templates/timeout.php:97 templates/exclude.php:102 inc/admin.php:1528
+#: inc/admin.php:1802
+msgid "Starts With"
+msgstr "開頭含有"
+
+#: templates/timeout.php:96 templates/exclude.php:93 inc/admin.php:1527
+#: inc/admin.php:1795
+msgid "Home Page"
+msgstr "首頁"
+
+#: templates/timeout.php:95 inc/admin.php:1526
+msgid "All"
+msgstr "全部"
+
+#: templates/exclude.php:66
+msgid "Exclude Page Wizard"
+msgstr "排除頁面小幫手"
+
+#: templates/timeout.php:124
+msgid "Then"
+msgstr "然後"
+
+#: templates/timeout.php:91 templates/exclude.php:89
+msgid "If REQUEST_URI"
+msgstr "如果 REQUEST_URI"
+
+#: templates/timeout.php:68
+msgid "Cache Timeout Wizard"
+msgstr "快取逾時小幫手"
+
+#: templates/lazy_load.php:9
+msgid "Lazy Load Settings"
+msgstr "延遲載入設定"
+
+#: templates/nginx_gzip.php:9
+msgid "Enable Gzip"
+msgstr "啟用 Gzip"
+
+#: templates/update_now.php:9
+msgid "Please Update"
+msgstr "請更新"
+
+#: templates/update_success.php:9
+msgid "Success"
+msgstr "成功"
+
+#: templates/disable_wp_cron.php:20
+msgid "Warning"
+msgstr "警告"
+
+#: inc/admin.php:1562 inc/admin.php:1827 inc/admin.php:1844 inc/admin.php:1863
+#: inc/admin.php:1881 inc/admin.php:1901
+msgid "Add New Rule"
+msgstr "新增規則"
+
+#: inc/admin.php:1498 inc/admin-toolbar.php:81
+msgid "Delete Cache and Minified CSS/JS"
+msgstr "刪除快取及已壓縮的 CSS/JS"
+
+#: inc/admin.php:1433 inc/admin.php:2061 inc/admin.php:2282
+msgid "Only available in Premium version"
+msgstr "這項功能僅於 Premium 版中提供"
+
+#: templates/timeout.php:141
+msgid "Choose One"
+msgstr "選取一項"
+
+#: inc/admin.php:1503
+msgid "All cache files will be removed as well"
+msgstr "這項操作會同時刪除全部快取檔案。"
+
+#: inc/admin.php:1502
+msgid "If you modify any css file, you have to delete minified css files"
+msgstr "如果對任何 CSS 檔案進行修改，修改完畢後必須刪除之前已壓縮的 CSS 檔案。"
+
+#: inc/admin.php:1490 inc/admin.php:1504 inc/admin.php:1505
+msgid "Target folder"
+msgstr "目標資料夾"
+
+#: inc/admin.php:1489
+msgid "You can delete all cache files"
+msgstr "這項操作會刪除全部快取。"
+
+#: inc/admin.php:1014
+msgid "Exclude"
+msgstr "排除"
+
+#: inc/admin.php:1012
+msgid "Image Optimization"
+msgstr "圖片最佳化"
+
+#: inc/admin.php:1009
+msgid "Settings"
+msgstr "設定"
+
+#: inc/admin.php:2046
+msgid "Database Cleanup"
+msgstr "清理資料庫"
+
+#: inc/admin.php:1934
+msgid "CDN Settings"
+msgstr "CDN 設定"
+
+#: inc/admin.php:1897
+msgid "Exclude JS"
+msgstr "排除 JS"
+
+#: inc/admin.php:1877
+msgid "Exclude CSS"
+msgstr "排除 CSS"
+
+#: inc/admin.php:1859
+msgid "Exclude Cookies"
+msgstr "排除 Cookie"
+
+#: inc/admin.php:1840
+msgid "Exclude User-Agents"
+msgstr "排除使用者代理程式"
+
+#: inc/admin.php:1823
+msgid "Exclude Pages"
+msgstr "排除頁面"
+
+#: inc/admin.php:1636
+msgid "Optimize Image Tool"
+msgstr "圖片最佳化工具"
+
+#: inc/admin.php:1519
+msgid "Timeout Rules"
+msgstr "逾時規則"
+
+#: inc/admin.php:1010 inc/admin.php:1480 inc/admin.php:1485
+#: inc/admin-toolbar.php:69
+msgid "Delete Cache"
+msgstr "刪除快取"
+
+#: inc/admin.php:1440
+msgid "Cache Statistics"
+msgstr "快取統計資料"
+
+#: templates/updatepost.php:53
+msgid "Clear Cache of Post / Page"
+msgstr "清除文章/頁面快取"
+
+#: templates/updatepost.php:29
+msgid "What do you want to happen after update a post or a page?"
+msgstr "更新內容後的快取處理方式:"
+
+#: templates/newpost.php:58
+msgid "Clear Cache of Pagination"
+msgstr "清除內容頁次快取"
+
+#: templates/updatepost.php:55 templates/newpost.php:57
+msgid "Clear Cache of Post Tags"
+msgstr "清除文章標籤快取"
+
+#: templates/updatepost.php:54 templates/newpost.php:56
+msgid "Clear Cache of Post Categories"
+msgstr "清除文章分類快取"
+
+#: templates/updatepost.php:56 templates/newpost.php:55
+msgid "Clear Cache of Homepage"
+msgstr "清除首頁快取"
+
+#: templates/updatepost.php:49 templates/newpost.php:51
+#: inc/admin-toolbar.php:74
+msgid "Clear All Cache"
+msgstr "清除全部快取"
+
+#: templates/newpost.php:29
+msgid "What do you want to happen after publishing the new post?"
+msgstr "發佈內容後的快取處理方式:"
+
+#: templates/updatepost.php:64 templates/preload.php:102
+#: templates/newpost.php:68
+msgid "OK"
+msgstr "確定"
+
+#: templates/preload.php:92
+msgid "Restart After Completed"
+msgstr "快取建立完畢後自動重新啟動預先載入程序"
+
+#: templates/preload.php:87
+msgid "pages per minute"
+msgstr "頁處理頁數/分鐘"
+
+#: templates/preload.php:63
+msgid "Custom Taxonomies"
+msgstr "自訂分類法"
+
+#: templates/preload.php:58
+msgid "Custom Post Types"
+msgstr "自訂內容類型"
+
+#: templates/preload.php:53 templates/exclude.php:101 inc/admin.php:1801
+msgid "Attachments"
+msgstr "附件"
+
+#: templates/preload.php:49 templates/exclude.php:95 inc/admin.php:1797
+msgid "Tags"
+msgstr "標籤"
+
+#: templates/preload.php:45 templates/exclude.php:97 inc/admin.php:1800
+msgid "Pages"
+msgstr "頁面"
+
+#: templates/preload.php:41 templates/exclude.php:94 inc/admin.php:1796
+msgid "Categories"
+msgstr "分類"
+
+#: templates/preload.php:37 templates/exclude.php:96 inc/admin.php:1799
+msgid "Posts"
+msgstr "文章"
+
+#: templates/preload.php:33
+msgid "Homepage"
+msgstr "首頁"
+
+#: inc/admin.php:1234 inc/admin.php:1242 inc/admin.php:1248 inc/admin.php:1254
+msgid "Reduce HTTP requests through combined js files"
+msgstr "合併 JS 檔案可以減少 HTTP 要求次數"
+
+#: inc/admin.php:1342 inc/admin.php:1356 inc/admin.php:1363
+msgid "Load images and iframes when they enter the browsers viewport"
+msgstr "當圖片及 iFrame 進入瀏覽器檢視區內才進行載入"
+
+#: inc/admin.php:1336 inc/admin.php:1355 inc/admin.php:1362
+msgid "Lazy Load"
+msgstr "延遲載入"
+
+#: inc/admin.php:1313 inc/admin.php:1319 inc/admin.php:1326
+msgid "Load Google Fonts asynchronously"
+msgstr "以非同步方式載入 Google Fonts 網頁字型"
+
+#: inc/admin.php:1312 inc/admin.php:1318 inc/admin.php:1325
+msgid "Google Fonts"
+msgstr "Google Fonts 網頁字型"
+
+#: inc/admin.php:1286 inc/admin.php:1292 inc/admin.php:1299
+msgid "Render Blocking Js"
+msgstr "禁止轉譯的 JS"
+
+#: inc/admin.php:1278
+msgid "You can remove the emoji inline css and wp-emoji-release.min.js"
+msgstr "這項功能可移除 Emoji 內嵌 CSS 及 wp-emoji-release.min.js"
+
+#: inc/admin.php:1277
+msgid "Disable Emojis"
+msgstr "停用 Emoji 表情符號"
+
+#: inc/admin.php:1272
+msgid "Reduce page load times for repeat visitors"
+msgstr "這項功能可降低回訪訪客的頁面載入時間"
+
+#: inc/admin.php:1271
+msgid "Browser Caching"
+msgstr "瀏覽器快取"
+
+#: inc/admin.php:1260
+msgid "Reduce the size of files sent from your server"
+msgstr "減少從網站伺服器傳送的檔案大小"
+
+#: inc/admin.php:1259
+msgid "Gzip"
+msgstr "Gzip"
+
+#: inc/admin.php:1240 inc/admin.php:1247 inc/admin.php:1253
+msgid "Combine Js Plus"
+msgstr "JS 進階合併"
+
+#: inc/admin.php:1233
+msgid "Combine Js"
+msgstr "JS 合併"
+
+#: inc/admin.php:1217 inc/admin.php:1222 inc/admin.php:1228
+msgid "You can decrease the size of js files"
+msgstr "這項功能可減少 JS 檔案大小"
+
+#: inc/admin.php:1216 inc/admin.php:1221 inc/admin.php:1227
+msgid "Minify Js"
+msgstr "JS 壓縮"
+
+#: inc/admin.php:1209
+msgid "Reduce HTTP requests through combined css files"
+msgstr "合併 CSS 檔案可以減少 HTTP 要求次數"
+
+#: inc/admin.php:1208
+msgid "Combine Css"
+msgstr "CSS 合併"
+
+#: inc/admin.php:1197 inc/admin.php:1202
+msgid "More powerful minify css"
+msgstr "更多 CSS 進階壓縮功能"
+
+#: inc/admin.php:1196 inc/admin.php:1201
+msgid "Minify Css Plus"
+msgstr "CSS 進階壓縮"
+
+#: inc/admin.php:1188
+msgid "You can decrease the size of css files"
+msgstr "這項功能可減少 CSS 檔案大小"
+
+#: inc/admin.php:1187
+msgid "Minify Css"
+msgstr "CSS 壓縮"
+
+#: inc/admin.php:1175 inc/admin.php:1180
+msgid "More powerful minify html"
+msgstr "更多 HTML 進階壓縮功能"
+
+#: inc/admin.php:1174 inc/admin.php:1179
+msgid "Minify HTML Plus"
+msgstr "HTML 進階壓縮"
+
+#: inc/admin.php:1168
+msgid "You can decrease the size of page"
+msgstr "這項功能可減少頁面檔案大小"
+
+#: inc/admin.php:1167
+msgid "Minify HTML"
+msgstr "HTML 壓縮"
+
+#: inc/admin.php:1159
+msgid "Clear cache files when a post or page is updated"
+msgstr "更新文章或頁面後便清除快取檔案"
+
+#: templates/updatepost.php:18 inc/admin.php:1158
+msgid "Update Post"
+msgstr "更新內容"
+
+#: inc/admin.php:1152
+msgid "Clear cache files when a post or page is published"
+msgstr "發佈文章或頁面後便清除快取檔案"
+
+#: templates/newpost.php:18 inc/admin.php:1151
+msgid "New Post"
+msgstr "新增內容"
+
+#: inc/admin.php:1119 inc/admin.php:1145
+msgid "Create cache for mobile theme"
+msgstr "為行動版佈景主題建立快取"
+
+#: inc/admin.php:1118 inc/admin.php:1144
+msgid "Mobile Theme"
+msgstr "行動版佈景主題"
+
+#: inc/admin.php:1113
+msgid "Don't show the cached version for desktop to mobile devices"
+msgstr "在行動裝置上不顯示已快取的桌面版內容"
+
+#: inc/admin.php:1112
+msgid "Mobile"
+msgstr "行動裝置"
+
+#: inc/admin.php:1108
+msgid "Don't show the cached version for logged-in users"
+msgstr "不在使用者登入後顯示已快取的內容"
+
+#: inc/admin.php:1107
+msgid "Logged-in Users"
+msgstr "已登入的使用者"
+
+#: inc/admin.php:1098
+msgid "Create the cache of all the site automatically"
+msgstr "為這個網站的全部項目自動建立快取"
+
+#: templates/preload.php:20 inc/admin.php:1097
+msgid "Preload"
+msgstr "預先載入"
+
+#: inc/admin.php:1069 inc/admin.php:1075 inc/admin.php:1082 inc/admin.php:1089
+msgid "Reduce the number of SQL queries"
+msgstr "減少 SQL 查詢的次數"
+
+#: inc/admin.php:1068 inc/admin.php:1074 inc/admin.php:1081 inc/admin.php:1088
+msgid "Widget Cache"
+msgstr "小工具快取"
+
+#: inc/admin.php:1043
+msgid "Enable"
+msgstr "啟用"
+
+#: inc/admin.php:1042
+msgid "Cache System"
+msgstr "快取系統"
+
+#: wpFastestCache.php:1598
+msgid "Once Every 15 Days"
+msgstr "每 15 日一次"
+
+#: wpFastestCache.php:1586
+msgid "Once Every 7 Days"
+msgstr "每 7 日一次"
+
+#: wpFastestCache.php:1580
+msgid "Once Every 3 Days"
+msgstr "每 3 日一次"
+
+#: wpFastestCache.php:1568
+msgid "Once Every 10 Hours"
+msgstr "每 10 小時一次"
+
+#: wpFastestCache.php:1562
+msgid "Once Every 9 Hours"
+msgstr "每 9 小時一次"
+
+#: wpFastestCache.php:1556
+msgid "Once Every 8 Hours"
+msgstr "每 8 小時一次"
+
+#: wpFastestCache.php:1550
+msgid "Once Every 7 Hours"
+msgstr "每 7 小時一次"
+
+#: wpFastestCache.php:1538
+msgid "Once Every 5 Hours"
+msgstr "每 5 小時一次"
+
+#: wpFastestCache.php:1532
+msgid "Once Every 4 Hours"
+msgstr "每 4 小時一次"
+
+#: wpFastestCache.php:1526
+msgid "Once Every 3 Hours"
+msgstr "每 3 小時一次"
+
+#: wpFastestCache.php:1520
+msgid "Once Every 2 Hours"
+msgstr "每 2 小時一次"
+
+#: wpFastestCache.php:1592
+msgid "Once Every 10 Days"
+msgstr "每 10 日一次"
+
+#. Author URI of the plugin
+msgid "http://tr.linkedin.com/in/emrevona"
+msgstr "http://tr.linkedin.com/in/emrevona"
+
+#. Author of the plugin
+msgid "Emre Vona"
+msgstr "Emre Vona"
+
+#. Description of the plugin
+msgid "The simplest and fastest WP Cache system"
+msgstr "最易於使用、最快速的 WordPress 快取外掛。"
+
+#. Plugin URI of the plugin
+msgid "http://wordpress.org/plugins/wp-fastest-cache/"
+msgstr "http://tw.wordpress.org/plugins/wp-fastest-cache/"
+
+#. Plugin Name of the plugin
+msgid "WP Fastest Cache"
+msgstr "WP Fastest Cache"
+
+#: wpFastestCache.php:1610
+msgid "Once a Year"
+msgstr "每年一次"
+
+#: wpFastestCache.php:1604
+msgid "Once a Month"
+msgstr "每月一次"
+
+#: wpFastestCache.php:1574
+msgid "Once a Day"
+msgstr "每日一次"
+
+#: wpFastestCache.php:1544
+msgid "Once Every 6 Hours"
+msgstr "每 6 小時一次"
+
+#: wpFastestCache.php:1514
+msgid "Once an Hour"
+msgstr "每小時一次"
+
+#: wpFastestCache.php:1508
+msgid "Twice an Hour"
+msgstr "每小時兩次"
+
+#: wpFastestCache.php:1502
+msgid "Once Every 15 Minutes"
+msgstr "每 15 分鐘一次"
+
+#: wpFastestCache.php:1496
+msgid "Once Every 5 Minutes"
+msgstr "每 5 分鐘一次"
+
+#: wpFastestCache.php:1490
+msgid "Once Every 1 Minute"
+msgstr "每分鐘一次"
