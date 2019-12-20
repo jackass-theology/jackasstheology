@@ -299,7 +299,6 @@ jQuery(document).ready(function($) {
     $('#upsell-dialog').dialog("option", "position", {my: "center", at: "center", of: window});
   });
 
-  // upsell dialog init
   $('#mailoptin-upsell-dialog').dialog({'dialogClass': 'wp-dialog ucp-dialog mailoptin-upsell-dialog',
                               'modal': 1,
                               'resizable': false,
@@ -330,8 +329,6 @@ jQuery(document).ready(function($) {
     return false;
   });
 
-
-  // upsell dialog init
   $('#weglot-upsell-dialog').dialog({'dialogClass': 'wp-dialog ucp-dialog weglot-upsell-dialog',
                               'modal': 1,
                               'resizable': false,
@@ -426,7 +423,6 @@ jQuery(document).ready(function($) {
     return false;
   });
 
-
   $('.settings_page_ucp').on('click', '.open-weglot-upsell', function(e) {
     e.preventDefault();
 
@@ -436,7 +432,6 @@ jQuery(document).ready(function($) {
 
     return false;
   });
-
 
   $('#tabs_upsell').on('tabsactivate', function(event, ui) {
     $('#upsell-dialog').dialog("option", "position", {my: "center", at: "center", of: window});

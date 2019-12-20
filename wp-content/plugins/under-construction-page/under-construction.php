@@ -4,10 +4,9 @@
   Plugin URI: https://underconstructionpage.com/
   Description: Put your site behind a great looking under construction, coming soon, maintenance mode or landing page.
   Author: WebFactory Ltd
-  Version: 3.45
+  Version: 3.65
   Author URI: https://www.webfactoryltd.com/
   Text Domain: under-construction-page
-  Domain Path: lang
 
   Copyright 2015 - 2019  Web factory Ltd  (email: ucp@webfactoryltd.com)
 
@@ -97,7 +96,6 @@ class UCP {
       add_action('wp_ajax_ucp_dismiss_pointer', array(__CLASS__, 'dismiss_pointer_ajax'));
       add_action('wp_ajax_ucp_dismiss_survey', array(__CLASS__, 'dismiss_survey_ajax'));
       add_action('wp_ajax_ucp_submit_survey', array(__CLASS__, 'submit_survey_ajax'));
-      add_action('wp_ajax_ucp_submit_earlybird', array(__CLASS__, 'submit_earlybird_ajax'));
       add_action('wp_ajax_ucp_submit_support_message', array(__CLASS__, 'submit_support_message_ajax'));
 
       add_filter('install_plugins_table_api_args_featured', array(__CLASS__, 'featured_plugins_tab'));
@@ -249,8 +247,7 @@ class UCP {
       return;
     }
 
-    if (true == self::is_construction_mode_enabled(false)
-        || (is_user_logged_in() && isset($_GET['ucp_preview']))) {
+    if (true == self::is_construction_mode_enabled(false) || (is_user_logged_in() && isset($_GET['ucp_preview']))) {
       header(self::wp_get_server_protocol() . ' 200 OK');
       if ($options['end_date'] && $options['end_date'] != '0000-00-00 00:00') {
         header('Retry-After: ' . date('D, d M Y H:i:s T', strtotime($options['end_date'])));
@@ -266,7 +263,7 @@ class UCP {
       }
 
       echo self::get_template($theme);
-      exit;
+      die();
     }
   } // display_construction_page
 
@@ -298,7 +295,7 @@ class UCP {
     $pointers = get_option(UCP_POINTERS_KEY);
 
     // auto remove welcome pointer when options are opened
-    if (isset($pointers['welcome']) && 'settings_page_ucp' == $hook) {
+    if (self::is_plugin_page()) {
       unset($pointers['welcome']);
       update_option(UCP_POINTERS_KEY, $pointers);
     }
@@ -332,11 +329,11 @@ class UCP {
                          'weglot_install_url' => add_query_arg(array('action' => 'install_weglot'), admin_url('admin.php')),
                          'nonce_dismiss_survey' => wp_create_nonce('ucp_dismiss_survey'),
                          'nonce_submit_survey' => wp_create_nonce('ucp_submit_survey'),
-                         'nonce_submit_earlybird' => wp_create_nonce('ucp_submit_earlybird'),
                          'nonce_submit_support_message' => wp_create_nonce('ucp_submit_support_message'),
                          'deactivate_confirmation' => __('Are you sure you want to deactivate UnderConstruction plugin?' . "\n" . 'If you are removing it because of a problem please contact our support. They will be more than happy to help.', 'under-construction-page'));
 
-    if ('settings_page_ucp' == $hook) {
+    if (self::is_plugin_page()) {
+      remove_editor_styles();
       wp_enqueue_style('wp-jquery-ui-dialog');
       wp_enqueue_style('ucp-select2', UCP_PLUGIN_URL . 'css/select2.min.css', array(), self::$version);
       wp_enqueue_style('ucp-admin', UCP_PLUGIN_URL . 'css/ucp-admin.css', array(), self::$version);
@@ -361,16 +358,6 @@ class UCP {
       wp_dequeue_style('file-manager__jquery-ui-css-theme');
       wp_dequeue_style('wpmegmaps-jqueryui');
       wp_dequeue_style('wp-botwatch-css');
-    }
-
-    // disabled - regular deactivation is back
-    if (false && 'plugins.php' == $hook) {
-      wp_enqueue_style('wp-jquery-ui-dialog');
-      wp_enqueue_style('ucp-admin-plugins', UCP_PLUGIN_URL . 'css/ucp-admin-plugins.css', array(), self::$version);
-
-      wp_enqueue_script('jquery-ui-dialog');
-      wp_enqueue_script('ucp-admin-plugins', UCP_PLUGIN_URL . 'js/ucp-admin-plugins.js', array('jquery'), self::$version, true);
-      wp_localize_script('ucp-admin-plugins', 'ucp', $js_localize);
     }
 
     if ($pointers) {
@@ -496,42 +483,6 @@ class UCP {
   } // submit_survey_ajax
 
 
-  // submit earlybird email
-  static function submit_earlybird_ajax() {
-    check_ajax_referer('ucp_submit_earlybird');
-
-    $options = self::get_options();
-    $meta = self::get_meta();
-
-    $vars = wp_parse_args($_POST, array('type' => '', 'email' => ''));
-
-    if (empty($vars['email']) || empty($vars['type'])) {
-      wp_send_json_error(__('Please tell us your email and how you use UCP.', 'under-construction-page'));
-    }
-
-    $request_params = array('sslverify' => false, 'timeout' => 15, 'redirection' => 2);
-    $request_args = array('action' => 'submit_survey',
-                          'survey' => 'earlybird',
-                          'email' => $vars['email'],
-                          'answers' => $vars['type'],
-                          'custom_answer' => $options['theme'] . '; ' . date('Y-m-d H:i:s', $meta['first_install']),
-                          'first_version' => $meta['first_version'],
-                          'version' => UCP::$version,
-                          'codebase' => 'free',
-                          'site' => get_home_url());
-
-    $url = add_query_arg($request_args, self::$licensing_servers[0]);
-    $response = wp_remote_get(esc_url_raw($url), $request_params);
-
-    if (is_wp_error($response) || !wp_remote_retrieve_body($response)) {
-      $url = add_query_arg($request_args, self::$licensing_servers[1]);
-      $response = wp_remote_get(esc_url_raw($url), $request_params);
-    }
-
-    wp_send_json_success();
-  } // submit_earlybird_ajax
-
-
   // encode email for frontend use
   static function encode_email($email) {
     $len = strlen($email);
@@ -636,7 +587,7 @@ class UCP {
     $out .= '<link rel="stylesheet" href="' . trailingslashit(UCP_PLUGIN_URL . 'themes/' . $template_id) . 'style.css?v=' . self::$version . '" type="text/css">' . "\n";
     $out .= '<link rel="stylesheet" href="' . trailingslashit(UCP_PLUGIN_URL . 'themes/css') . 'font-awesome.min.css?v=' . self::$version . '" type="text/css">' . "\n";
 
-    $out .= '<link rel="shortcut icon" type="image/png" href="' . trailingslashit(UCP_PLUGIN_URL . 'themes/images') . 'favicon.png" />';
+    $out .= '<link rel="icon" sizes="128x128" href="' . trailingslashit(UCP_PLUGIN_URL . 'themes/images') . 'favicon.png" />';
 
     if (self::is_weglot_setup()) {
       $out .= '<link rel="stylesheet" href="' . WEGLOT_URL_DIST . '/css/front-css.css?v=' . WEGLOT_VERSION . '" type="text/css">';
@@ -697,7 +648,7 @@ class UCP {
       } elseif ($tmp[0] < '8') {
         $out .= '<p id="linkback">Create a <a href="' . self::generate_web_link('show-love-2')  . '" target="_blank">free under construction page for WordPress</a> like this one in under a minute.</p>';
       } elseif ($tmp[0] < 'c') {
-        $out .= '<p id="linkback">Join more than 100,000 happy people using the <a href="https://wordpress.org/plugins/under-construction-page/" target="_blank">free Under Construction Page plugin for WordPress</a>.</p>';
+        $out .= '<p id="linkback">Join more than 400,000 happy people using the <a href="https://wordpress.org/plugins/under-construction-page/" target="_blank">free Under Construction Page plugin for WordPress</a>.</p>';
       } else {
         $out .= '<p id="linkback">Create free <a href="' . self::generate_web_link('show-love-3')  . '" target="_blank">maintenance mode pages for WordPress</a>.</p>';
       }
@@ -850,7 +801,6 @@ class UCP {
     }
 
     // ask for rating; disabled
-    // todo: translate strings
     if (false && empty($notices['dismiss_rate']) &&
         (time() - $meta['first_install']) > (DAY_IN_SECONDS * 1.0)) {
       $rate_url = 'https://wordpress.org/support/plugin/under-construction-page/reviews/?filter=5&rate=5#new-post';
@@ -888,16 +838,15 @@ class UCP {
     }
 
     // promo for new users
-    // todo: translate
     if (self::is_plugin_page() &&
         empty($notices['dismiss_welcome']) &&
         !$shown && $promo == 'welcome') {
       $dismiss_url = add_query_arg(array('action' => 'ucp_dismiss_notice', 'notice' => 'welcome', 'redirect' => urlencode($_SERVER['REQUEST_URI'])), admin_url('admin.php'));
 
       echo '<div id="ucp_rate_notice" class="notice-info notice"><p>Hi' . $name . ',<br>';
-      echo 'We have a <a class="open-ucp-upsell" data-pro-ad="notification-welcome-text" href="#">special time-sensitive offer</a> available only for another <b class="ucp-countdown">59min</b>! A <b>20% DISCOUNT</b> on our most popular lifetime licenses!<br>No nonsense! Pay once and use the plugin forever. <a class="open-ucp-upsell" data-pro-ad="notification-welcome-text2" href="#">Get</a> more than 50+ extra features, 100+ premium themes and 400,000+ professional images.</p>';
+      echo 'We have a <a class="open-ucp-upsell" data-pro-ad="notification-welcome-text" href="#">special time-sensitive offer</a> available just for another <b class="ucp-countdown">59min</b>! A <b>20% DISCOUNT</b> on our most popular lifetime licenses!<br>No nonsense! Pay once and use the plugin forever. <a class="open-ucp-upsell" data-pro-ad="notification-welcome-text2" href="#">Get</a> more than 50+ extra features, 200+ premium themes and over a million professional images.</p>';
 
-      echo '<a href="#" style="vertical-align: baseline; margin-top: 15px;" class="button-primary open-ucp-upsell" data-pro-ad="notification-welcome-button">Upgrade to <b>PRO</b> now with a <b>SPECIAL WELCOME DISCOUNT</b></a>';
+      echo '<a href="#" class="button-primary open-ucp-upsell" data-pro-ad="notification-welcome-button">Upgrade to PRO now with a SPECIAL 20% WELCOME DISCOUNT</a>';
       echo '&nbsp;&nbsp;&nbsp;&nbsp;<a href="' . esc_url($dismiss_url) . '"><small>' . __('I\'m not interested (remove this notice)', 'under-construction-page') . '</small></a>';
       echo '</p></div>';
       $shown = true;
@@ -910,9 +859,9 @@ class UCP {
       $dismiss_url = add_query_arg(array('action' => 'ucp_dismiss_notice', 'notice' => 'olduser', 'redirect' => urlencode($_SERVER['REQUEST_URI'])), admin_url('admin.php'));
 
       echo '<div id="ucp_rate_notice" class="notice-info notice"><p>Hi' . $name . ',<br>';
-      echo 'We have a <a class="open-ucp-upsell" data-pro-ad="notification-olduser-text" href="#">special offer</a> only for <b>users like you</b> who\'ve been using the UnderConstructionPage for a longer period of time: a <b>special DISCOUNT</b> on our most popular lifetime licenses!<br>No nonsense! Pay once and use the plugin forever.<br><a class="open-ucp-upsell" data-pro-ad="notification-olduser-text" href="#">Upgrade now</a> to <b>PRO</b> &amp; get more than 50+ extra features, 100+ premium themes and 400,000+ images.</p>';
+      echo 'We have a <a class="open-ucp-upsell" data-pro-ad="notification-olduser-text" href="#">special offer</a> only for <b>users like you</b> who\'ve been using the UnderConstructionPage for a longer period of time: a <b>special DISCOUNT</b> on our most popular lifetime licenses!<br>No nonsense! Pay once and use the plugin forever.<br><a class="open-ucp-upsell" data-pro-ad="notification-olduser-text" href="#">Upgrade now</a> to <b>PRO</b> &amp; get more than 50+ extra features, 200+ premium themes and over a million HD images.</p>';
 
-      echo '<a href="#" style="vertical-align: baseline; margin-top: 15px;" class="button-primary open-ucp-upsell" data-pro-ad="notification-olduser-button">Upgrade to <b>PRO</b> now with a <b>SPECIAL DISCOUNT</b></a>';
+      echo '<a href="#" class="button-primary open-ucp-upsell" data-pro-ad="notification-olduser-button">Upgrade to PRO now with a SPECIAL DISCOUNT</a>';
       echo '&nbsp;&nbsp;&nbsp;&nbsp;<a href="' . esc_url($dismiss_url) . '"><small>' . __('I\'m not interested (remove this notice)', 'under-construction-page') . '</small></a>';
       echo '</p></div>';
       $shown = true;
@@ -1117,7 +1066,7 @@ class UCP {
       return $text;
     }
 
-    $text = '<i><a href="' . self::generate_web_link('admin-footer') . '" title="' . __('Visit UCP\'s site for more info', 'under-construction-page') . '" target="_blank">' . __('UnderConstructionPage', 'under-construction-page') . '</a> v' . self::$version . ' by <a href="https://www.webfactoryltd.com/" title="' . __('Visit our site to get more great plugins', 'under-construction-page') . '" target="_blank">' . __('WebFactory Ltd', 'under-construction-page') . '</a>.</i> '. $text;
+    $text = '<i><a href="' . self::generate_web_link('admin-footer') . '" title="' . __('Visit UCP\'s site for more info', 'under-construction-page') . '" target="_blank">' . __('UnderConstructionPage', 'under-construction-page') . '</a> v' . self::$version . ' by <a href="https://www.webfactoryltd.com/" title="' . __('Visit our site to get more great plugins', 'under-construction-page') . '" target="_blank">' . __('WebFactory Ltd', 'under-construction-page') . '</a>. Please <a target="_blank" href="https://wordpress.org/support/plugin/under-construction-page/reviews/#new-post" title="Rate the plugin">rate the plugin <span>★★★★★</span></a> to help us spread the word. Thank you!</i>';
 
     return $text;
   } // admin_footer_text
@@ -1320,11 +1269,15 @@ class UCP {
       unset($notices['dismiss_whitelisted']);
       update_option(UCP_NOTICES_KEY, $notices);
 
-      if (function_exists('w3tc_pgcache_flush')) {
-        w3tc_pgcache_flush();
+      wp_cache_flush();
+      if (function_exists('w3tc_flush_all')) {
+        w3tc_flush_all();
       }
       if (function_exists('wp_cache_clear_cache')) {
         wp_cache_clear_cache();
+      }
+      if (method_exists('LiteSpeed_Cache_API', 'purge_all')) {
+        LiteSpeed_Cache_API::purge_all();
       }
       if (class_exists('Endurance_Page_Cache')) {
         $epc = new Endurance_Page_Cache;
@@ -1341,6 +1294,9 @@ class UCP {
       }
       if (is_callable(array('Swift_Performance_Cache', 'clear_all_cache'))) {
         Swift_Performance_Cache::clear_all_cache();
+      }
+      if (is_callable(array('Hummingbird\WP_Hummingbird', 'flush_cache'))) {
+        Hummingbird\WP_Hummingbird::flush_cache(true, false);
       }
     }
 
@@ -1560,7 +1516,6 @@ class UCP {
       echo '</tr>';
     } // weglot not active
 
-    // todo: translate
     echo '<tr valign="top">
     <th scope="row"><label for="title">' . __('Title', 'under-construction-page') . '</label></th>
     <td><input type="text" id="title" class="regular-text" name="' . UCP_OPTIONS_KEY . '[title]" value="' . esc_attr($options['title']) . '" />';
@@ -1638,9 +1593,9 @@ class UCP {
       echo '<th><label for="">Optin Boxes &amp; Popups</label></th>';
       echo '<td>';
       echo '<div class="toggle-wrapper">
-      <input type="checkbox" id="mailoptin_support" type="checkbox" value="1" class="skip-save open-mailoptin-upsell">
-      <label for="mailoptin_support" class="toggle"><span class="toggle_handler"></span></label>
-    </div>';
+            <input type="checkbox" id="mailoptin_support" type="checkbox" value="1" class="skip-save open-mailoptin-upsell">
+            <label for="mailoptin_support" class="toggle"><span class="toggle_handler"></span></label>
+        </div>';
       echo '<p class="description">Collecting leads and subscribers is one of the most important aspect of any under construction page. ';
       echo 'To add optin boxes &amp; optin popups compatible with Mailchimp and many other autoresponders <a href="#" class="open-mailoptin-upsell">install the free MailOptin plugin</a>. It seamlessly integrates with UCP, offers numerous options and will enable you to collect leads without any additional costs.</p>';
       echo '</td>';
@@ -1790,6 +1745,7 @@ class UCP {
     echo '<tr><th colspan="2"><a id="show-social-icons" href="#" class="js-action">' . __('Show more Social &amp; Contact Icons', 'under-construction-page') . '</a></th></tr>';
 
     echo '</table>';
+
     echo '</div>';
 
     self::footer_buttons();
@@ -1847,7 +1803,8 @@ class UCP {
                     'dumper_truck' => __('Dumper Truck', 'under-construction-page'),
                     '000webhost' => __('000webhost', 'under-construction-page'),
                     '_pro_grayscale-city' => __('Grayscale City', 'under-construction-page'),
-                    'work_desk' => __('Work Desk', 'under-construction-page'));
+                    'work_desk' => __('Work Desk', 'under-construction-page'),
+                    'research' => __('Research', 'under-construction-page'));
 
     $themes = apply_filters('ucp_themes', $themes);
 
@@ -1871,7 +1828,7 @@ class UCP {
 
     echo '<table class="form-table">';
     echo '<tr valign="top">
-    <td colspan="2"><b style="margin-bottom: 10px; display: inline-block;">' . __('Theme', 'under-construction-page') . '</b> (<a target="_blank" href="' . self::generate_web_link('themes-browse-premium', 'templates') . '">browse 100+ premium themes</a>)<br>';
+    <td colspan="2"><b style="margin-bottom: 10px; display: inline-block;">' . __('Theme', 'under-construction-page') . '</b> (<a target="_blank" href="' . self::generate_web_link('themes-browse-premium', 'templates') . '">browse 200+ premium themes</a>)<br>';
     echo '<input type="hidden" id="theme_id" name="' . UCP_OPTIONS_KEY . '[theme]" value="' . $options['theme'] . '">';
 
     foreach ($themes as $theme_id => $theme_name) {
@@ -1891,7 +1848,11 @@ class UCP {
         echo '<div class="ribbon"><i><span class="dashicons dashicons-star-filled"></span></i></div></div>';
       } else {
         echo '<div class="ucp-thumb' . $class . '" data-theme-id="' . $theme_id . '"><img src="' . $img_path . $theme_id . '.png" alt="' . $theme_name . '" title="' . $theme_name . '"><span>' . $theme_name . '</span>';
-        echo '<div class="buttons"><a href="#" class="button button-primary activate-theme">Activate</a> <a href="' . get_home_url() . '/?ucp_preview&theme=' . $theme_id . '" class="button-secondary" target="_blank">Preview</a></div>';
+        echo '<div class="buttons">';
+        if ($theme_id !== $options['theme']) {
+          echo '<a href="#" class="button button-primary activate-theme">Activate</a> ';
+        }
+        echo '<a href="' . get_home_url() . '/?ucp_preview&theme=' . $theme_id . '" class="button-secondary" target="_blank">Preview</a></div>';
         echo '</div>';
       }
     } // foreach
@@ -1939,7 +1900,7 @@ class UCP {
       <input type="checkbox" id="whitelisted_ips" type="checkbox" value="1" class="skip-save open-ucp-upsell">
       <label for="whitelisted_ips" class="toggle"><span class="toggle_handler"></span></label>
     </div>';
-    echo '<p>Listed IP addresses will not be affected by the under construction mode and their users will always see the "normal" site. This is a <a href="#" class="open-ucp-upsell" data-pro-ad="whitelisted_ips">PRO feature</a>.';
+    echo '<p>Listed IP addresses (both IPv4 and IPv6 are supported) will not be affected by the under construction mode and their users will always see the "normal" site. This is a <a href="#" class="open-ucp-upsell" data-pro-ad="whitelisted_ips">PRO feature</a>.';
     echo '<td></tr>';
 
     echo '<tr valign="top">
@@ -1970,7 +1931,7 @@ class UCP {
     echo '</td></tr>';
 
     echo '<tr>';
-    echo '<th><label for="url_rules">URL Based Rules</label></th>';
+    echo '<th><label for="url_rules">' . __('URL Based Rules', 'under-construction-page') . '</label></th>';
     echo '<td><select class="skip-save open-ucp-upsell" id="url_rules">';
     echo '<option value="0">Disabled</option>';
     echo '<option class="ucp-promo" value="-1">Listed URLs will NEVER be affected by UCP</option>';
@@ -1980,6 +1941,22 @@ class UCP {
     echo '</td>';
     echo '</tr>';
 
+    echo '<tr>
+    <th scope="row"><label for="direct_access_password">' . __('Direct Access Password', 'under-construction-page') . '</label></th>
+    <td>';
+    echo '<input id="direct_access_password" type="text" class="skip-save open-ucp-upsell" value="" placeholder="">';
+    echo '<p class="description">Direct Access Password is the most user-friendly way (especially when working with clients) to give selected users access to the "normal" site. Choose a password, save changes, and send users this link: <a href="' . get_home_url() . '/#access-site-form">' . get_home_url() . '/#access-site-form</a> or enable the "Password Form Button" option to show the password form button. This is a <a href="#" class="open-ucp-upsell" data-pro-ad="whitelisted_ips">PRO feature</a>.</p>';
+    echo '</td></tr>';
+
+    echo '<tr valign="top">
+    <th scope="row"><label for="site_password">' . __('Password Protect Under Construction Page', 'under-construction-page') . '</label></th>
+    <td>';
+    echo '<div class="toggle-wrapper">
+    <input type="checkbox" id="site_password" type="checkbox" value="1" class="skip-save open-ucp-upsell">
+    <label for="site_password" class="toggle"><span class="toggle_handler"></span></label>
+    </div>';
+    echo '<p class="description">Protected the entire site with a password you choose. Only those with the password can view the under construction page. This is a <a href="#" class="open-ucp-upsell" data-pro-ad="whitelisted_ips">PRO feature</a>.</p>';
+    echo '</td></tr>';
 
     echo '</table>';
     echo '</div>';
@@ -2018,6 +1995,8 @@ class UCP {
 
     echo '<p><b>Do you have a video to help me get started?</b><br>We sure do! <a href="https://www.youtube.com/watch?v=RN4XABhK7_w" target="_blank">Getting started with the UnderConstructionPage plugin</a>. If that doesn\'t help we also have an <a href="https://www.youtube.com/watch?v=K3DF-NP6Fog" target="_blank">in-depth video walktrough</a>. In case you\'re still uncertain about something don\'t hesitate to contact our friendly support.</p>';
 
+    echo '<p><b>UCP is disabled but Twitter and Facebook still show it as my site\'s preview/thumbnail when I post the URL</b><br>Twitter and Facebook have their own cache which has to be refreshed. You can either wait and the problem will resolve itself in about a day or you can manually refresh the cache.<br>For Facebook open the <a href="https://developers.facebook.com/tools/debug/" target="_blank">Debugger</a>, input the URL, click "Debug". Once the results who up click "Scrape Again" to fetch the latest version of the page.<br>For Twitter, open the <a href="https://cards-dev.twitter.com/validator" target="_blank">Card validator</a>, enter the URL and click "Preview card". Latest version of the site should appear.</p>';
+
     echo '<p><b>How can I build a custom page or customize themes?</b><br>If you know how to code custom CSS a lot can be accomplished by using the <a class="change_tab" data-tab="1" href="#custom_css">custom CSS</a> option. A much faster and easier solution is to check out <a href="#" data-pro-ad="faq-custom-css" class="open-ucp-upsell">UCP PRO</a> with an easy-to-use drag&amp;drop builder and dozens of pre-built themes.</p>';
 
     echo '<p><b>How can I check if construction mode is really enabled on my site?</b><br>If the under construction status is green in the admin bar (the very top of the page, above this text), then it\'s enabled. But we made a tool specifically for these kinds of situations so you can double-check everything. <a href="' . self::generate_web_link('faq-tester', 'under-construction-tester/', array('url' => get_home_url())) . '" target="_blank">Run under construction mode tester</a>.</p>';
@@ -2038,55 +2017,21 @@ class UCP {
 
     echo '<p><b>I have disabled UCP but the site\'s favicon is still the UCP logo. How do I change/remove it?</b><br>Make sure your theme has a favicon defined and empty all caches - browser and server ones. Open the site and force refresh browser cache (Ctrl or Shift + F5). If that doesn\'t help it means you have a caching plugin installed. Purge/delete cache in that plugin or disable it. If that fails too contact your hosting provider and ask to empty the site cache for you.</p>';
 
-    echo '<p><b>UCP is disabled but Twitter and Facebook still show it as my site\'s preview/thumbnail when I post the URL</b><br>Twitter and Facebook have their own cache which has to be refreshed. You can either wait and the problem will resolve itself in about a day or you can manually refresh the cache.<br>For Facebook open the <a href="https://developers.facebook.com/tools/debug/" target="_blank">Debugger</a>, input the URL, click "Debug". Once the results who up click "Scrape Again" to fetch the latest version of the page.<br>For Twitter, open the <a href="https://cards-dev.twitter.com/validator" target="_blank">Card validator</a>, enter the URL and click "Preview card". Latest version of the site should appear.</p>';
     echo '</div>'; // faq
 
     echo '<div style="display: none;" id="tab_support_contact" class="ucp-tab-content">';
-    echo '<p>' . __('Something is not working the way it\'s suppose to? Having problems activating UCP? Contact our friendly support, they\'ll respond ASAP.<br>You can also contact us just to say hello ;)', 'under-construction-page') . '</p>';
 
-    echo '<table class="form-table">';
-    echo '<tr valign="top">
-    <th scope="row"><label for="support_priority">Ticket Priority</label></th>
-    <td>';
-    echo '<select class="skip-save open-ucp-upsell" id="support_priority" name="support_priority">';
-    echo '<option value="0" selected>Low</option>';
-    echo '<option value="-1" class="ucp-promo">Normal</option>';
-    echo '<option value="-1" class="ucp-promo">High</option>';
-    echo '</select>';
-    echo '<p class="description">' . __('We reply to all tickets as fast as possible. However, <a data-pro-ad="support_priority" href="#" class="open-ucp-upsell">PRO users</a> get to jump the queue.', 'under-construction-page') . '</p>';
-    echo '</td></tr>';
+    echo '<div id="support-hero"><p>Our average response time is 1.5h! <b>85% of tickets are resolved within 1 hour!</b> No ticket is left unanswered. If something is not working, don\'t think twice;</p><p><a class="button button-primary" href="https://wordpress.org/support/plugin/under-construction-page/#new-post" target="_blank">OPEN A SUPPORT TICKET NOW</a></p></div>';
 
-    echo '<tr valign="top">
-    <th scope="row"><label for="support_email">' . __('Your Email Address', 'under-construction-page') . '</label></th>
-      <td><input id="support_email" type="text" class="regular-text skip-save" name="support_email" value="" placeholder="name@domain.com">';
-    echo '<p class="description">' . __('We will reply to this email, so please, double-check it.', 'under-construction-page') . '</p>';
-    echo '</td></tr>';
-
-    echo '<tr valign="top">
-    <th scope="row"><label for="support_message">' . __('Message', 'under-construction-page') . '</label></th>
-    <td><textarea rows="5" cols="75" id="support_message" class="skip-save" name="support_message" placeholder="Hi, I just wanted to ..."></textarea>';
-    echo '<p class="description">Please be as descriptive as possible. It will help us to provide faster &amp; better support.</p>';
-    echo '</td></tr>';
-
-    echo '<tr valign="top">
-    <th scope="row"><label for="support_info">' . __('Send Extra Site Info to Support Agents', 'under-construction-page') . '</label></th>
-    <td>';
-    echo '<div class="toggle-wrapper">
-      <input type="checkbox" id="support_info" checked type="checkbox" value="1" name="support_info">
-      <label for="support_info" class="toggle"><span class="toggle_handler"></span></label>
-    </div>';
-    echo '<p class="description">Our support agents need this info to provide faster &amp; better support. The following data will be added to your message;</p>';
+    echo '<p class="description">Our support agents need this info to provide faster &amp; better support. Please include the following data in your message;</p>';
     echo '<p>WordPress version: <code>' . get_bloginfo('version') . '</code><br>';
     echo 'UCP Version: <code>' . self::$version . '</code><br>';
     echo 'PHP Version: <code>' . PHP_VERSION . '</code><br>';
     echo 'Site URL: <code>' . get_bloginfo('url') . '</code><br>';
     echo 'WordPress URL: <code>' . get_bloginfo('wpurl') . '</code><br>';
-    echo 'Theme: <code>' . $theme->get('Name') . ' v' . $theme->get('Version') . '</code><br>';
-    echo 'UCP Options: <i>all option values will be sent to support to ease debugging</i>';
-    echo '</p></td></tr>';
-    echo '</table>';
-    echo '<a id="ucp-send-support-message" href="#" class="js-action button button-primary"><span class="dashicons dashicons-update"></span>' . __('Send Message to Support', 'under-construction-page') . '</a>';
-    echo '</table>';
+    echo 'Theme: <code>' . $theme->get('Name') . ' v' . $theme->get('Version') . '</code>';
+    echo '</p>';
+
     echo '</div>'; // contact
 
     echo '</div>'; // tabs
@@ -2274,34 +2219,34 @@ class UCP {
     echo '</ul>';
 
     echo '<div class="upsell-tab" id="tab-upsell-features" style="display: none;">';
-    echo '<div class="gmw-pro-feature">';
+    echo '<div class="ucp-pro-feature">';
     echo '<span>Frictionless Drag &amp; Drop Builder</span>';
     echo '<p>Forget about complicated, cumbersome builders that have too many options! UCP builder was purpose-built for the task at hand. Simple, user-friendly &amp; has only the options you need to build pages fast!</p>';
     echo '</div>';
 
-    echo '<div class="gmw-pro-feature">';
-    echo '<span>1 Million+ Stunning Searchable Images</span>';
+    echo '<div class="ucp-pro-feature">';
+    echo '<span>1 Million+ HD Searchable Images</span>';
     echo '<p>There\'s nothing worse than googling for hours just to find that the perfect image you need is either copyrighted or too small. Enjoy a vast library of 4K+ sized images - categorized &amp; copyright free!</p>';
     echo '</div>';
 
-    echo '<div class="gmw-pro-feature">';
-    echo '<span>160+ Templates</span>';
+    echo '<div class="ucp-pro-feature">';
+    echo '<span>200+ Templates</span>';
     echo '<p>Building your own page from scratch is fun, but often you don\'t have time to do it! Use one of our purpose-built templates, change a few lines of text and you\'re ready to rock!</p>';
     echo '</div>';
 
-    echo '<div class="gmw-pro-feature">';
+    echo '<div class="ucp-pro-feature">';
     echo '<span>Affiliate & Traffic Tracking</span>';
     echo '<p>Having traffic is nice. Having targeted traffic is better! Generate tracked inbound links &amp; share them on social media or with your affiliates to pinpoint the best traffic sources.</p>';
     echo '</div>';
 
-    echo '<div class="gmw-pro-feature">';
+    echo '<div class="ucp-pro-feature">';
     echo '<span>Unlimited 3rd Party Integrations</span>';
     echo '<p>With our unique universal autoresponder support, you can integrate any email autoresponder or webinar system in a page within seconds. Or push data to Zapier to more than 1,000 applications.</p>';
     echo '</div>';
 
-    echo '<div class="gmw-pro-feature">';
-    echo '<span>Suitable for Agencies &amp; Webmasters</span>';
-    echo '<p>Creating sites for others? We have your back! Our support &amp; licensing options are optimised for agencies. Unlimited sites license &amp; in-house, USA based support guarantee your peace of mind.</p>';
+    echo '<div class="ucp-pro-feature">';
+    echo '<span>Made for Agencies &amp; Webmasters</span>';
+    echo '<p>Creating sites for others? We have your back! Our features, support &amp; licensing options are optimised for agencies while in-house, USA based support guarantee your peace of mind.</p>';
     echo '</div>';
 
     echo '<p class="upsell-footer">For a complete list of features, demos and screenshots visit <a href="' . self::generate_web_link('features-more-info') . '" target="_blank">underconstructionpage.com</a>. Already have a PRO license? <a href="#" class="go-to-license-key">Activate it</a>.</p>';
@@ -2315,7 +2260,7 @@ class UCP {
   <tbody>
     <tr>
       <td>
-        <h3>Lifetime Unlimited<br>Agency License</h3>
+        <h3>Lifetime<br>Agency License</h3>
       </td>
       <td>
         <h3>Lifetime<br>PRO License</h3>
@@ -2326,52 +2271,62 @@ class UCP {
     </tr>
     <tr>
       <td>One Time Payment</td>
-      <td><span class="dashicons dashicons-yes"></span> One Time Payment</td>
+      <td>One Time Payment</td>
       <td>Monthly/Yearly Payment</td>
     </tr>
     <tr>
-      <td>Unlimited Client &amp; Personal Sites</td>
-      <td><span class="dashicons dashicons-yes"></span> 1 Personal or Client Site</td>
+      <td>100 Client or Personal Sites<br>(licenses are transferable between sites)</td>
+      <td>1 Personal or Client Site</td>
       <td>3 Personal Sites</td>
     </tr>
     <tr>
+      <td>White-Label License Mode</td>
+      <td><span class="dashicons dashicons-no"></td>
+      <td><span class="dashicons dashicons-no"></td>
+    </tr>
+    <tr>
       <td>Lifetime Priority Support &amp; Updates</td>
-      <td><span class="dashicons dashicons-yes"></span> Lifetime Support &amp; Updates</td>
+      <td>Lifetime Support &amp; Updates</td>
       <td>1 Month/Year of Support &amp; Updates</td>
     </tr>
     <tr style="display: none;">
       <td>1 Million+ Hi-Res Images</td>
-      <td><span class="dashicons dashicons-yes"></span> 1 Million+ Hi-Res Images</td>
+      <td>1 Million+ Hi-Res Images</td>
       <td>1 Million+ Hi-Res Images</td>
     </tr>
     <tr>
       <td>Drag&amp;Drop Builder</td>
-      <td><span class="dashicons dashicons-yes"></span>Drag&amp;Drop Builder</td>
+      <td>Drag&amp;Drop Builder</td>
       <td>Drag&amp;Drop Builder</td>
     </tr>
     <tr>
-      <td>160+ Templates</td>
-      <td><span class="dashicons dashicons-yes"></span>100+ Templates</td>
-      <td>100+ Templates</td>
+      <td>120+ PRO Templates</td>
+      <td>120+ PRO Templates</td>
+      <td>120+ PRO Templates</td>
+    </tr>
+    <tr>
+      <td>80+ Agency Templates</td>
+      <td><span class="dashicons dashicons-no"></td>
+      <td><span class="dashicons dashicons-no"></td>
     </tr>
     <tr>
       <td>Zapier Integration + Extra Modules</td>
       <td><span class="dashicons dashicons-no"></td>
       <td><span class="dashicons dashicons-no"></td>
     </tr>
-    <tr>
+    <tr class="bb0">
       <td>
         <a data-href-org="' . $products['agency']['link'] . '" class="promo-button go-to-license-key" href="' . $products['agency']['link'] . '" target="_blank">' . $products['agency']['price'] . '</a>
-        <span class="instant-download"><span class="dashicons dashicons-yes"></span> Secure payment<br><span class="dashicons dashicons-yes"></span> Instant activation from WordPress admin<br><span class="dashicons dashicons-yes"></span> 100% No-Risk Money Back Guarantee</span>
       </td>
       <td>
         <a data-href-org="' . $products['pro-lifetime']['link'] . '" class="promo-button go-to-license-key" href="' . $products['pro-lifetime']['link'] . '" target="_blank">' . $products['pro-lifetime']['price'] . '</a>
-        <span class="instant-download"><span class="dashicons dashicons-yes"></span> Secure payment<br><span class="dashicons dashicons-yes"></span> Instant activation from WordPress admin<br><span class="dashicons dashicons-yes"></span> 100% No-Risk Money Back Guarantee</span>
       </td>
       <td>
         <a data-href-org="' . $products['pro-yearly']['link'] . '" class="promo-button go-to-license-key" href="' . $products['pro-yearly']['link'] . '" target="_blank">' . $products['pro-yearly']['price'] . '</a>
-        <span class="instant-download"><span class="dashicons dashicons-yes"></span> Secure payment<br><span class="dashicons dashicons-yes"></span> Instant activation from WordPress admin<br><span class="dashicons dashicons-yes"></span> 100% No-Risk Money Back Guarantee</span>
       </td>
+    </tr>
+    <tr class="bb0">
+    <td colspan="3"><span class="instant-download"><span class="dashicons dashicons-yes"></span> Secure payment <span class="dashicons dashicons-yes"></span> Instant activation from WP admin <span class="dashicons dashicons-yes"></span> 100% No-Risk Money Back Guarantee</span></td>
     </tr>
   </tbody>
 </table>';
@@ -2592,7 +2547,6 @@ class UCP {
     echo '</div>';
   } // install_security_ninja
 
-
   static function is_plugin_installed($slug) {
 		if (!function_exists('get_plugins')) {
 			require_once ABSPATH . 'wp-admin/includes/plugin.php';
@@ -2670,33 +2624,40 @@ class UCP {
 
   // add single plugin to list of favs
   static function add_plugin_favs($plugin_slug, $res) {
+    if (!isset($res->plugins) || !is_array($res->plugins)) {
+      return $res;
+    }
+
     if (!empty($res->plugins) && is_array($res->plugins)) {
       foreach ($res->plugins as $plugin) {
-        if (is_object($plugin) && $plugin->slug == $plugin_slug) {
+        if (is_object($plugin) && !empty($plugin->slug) && $plugin->slug == $plugin_slug) {
           return $res;
         }
       } // foreach
     }
 
-    if ($plugin_info = get_transient('wf-plugin-info-' . $plugin_slug)) {
-      array_unshift($res->plugins, $plugin_info);
-    } else {
+    $plugin_info = get_transient('wf-plugin-info-' . $plugin_slug);
+
+    if (!$plugin_info) {
       $plugin_info = plugins_api('plugin_information', array(
         'slug'   => $plugin_slug,
         'is_ssl' => is_ssl(),
         'fields' => array(
-            'banners'           => true,
-            'reviews'           => true,
-            'downloaded'        => true,
-            'active_installs'   => true,
-            'icons'             => true,
-            'short_description' => true,
+          'banners'           => true,
+          'reviews'           => true,
+          'downloaded'        => true,
+          'active_installs'   => true,
+          'icons'             => true,
+          'short_description' => true,
         )
       ));
       if (!is_wp_error($plugin_info)) {
-        $res->plugins[] = $plugin_info;
         set_transient('wf-plugin-info-' . $plugin_slug, $plugin_info, DAY_IN_SECONDS * 7);
       }
+    }
+
+    if ($plugin_info && !is_wp_error($plugin_info)) {
+      array_unshift($res->plugins, $plugin_info);
     }
 
     return $res;
@@ -2707,7 +2668,9 @@ class UCP {
   static function plugins_api_result($res, $action, $args) {
     remove_filter('plugins_api_result', array(__CLASS__, 'plugins_api_result'), 10, 3);
 
-    $res = self::add_plugin_favs('security-ninja', $res);
+    $res = self::add_plugin_favs('eps-301-redirects', $res);
+    $res = self::add_plugin_favs('wp-force-ssl', $res);
+    $res = self::add_plugin_favs('wp-reset', $res);
     $res = self::add_plugin_favs('mailoptin', $res);
 
     return $res;

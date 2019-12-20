@@ -1,25 +1,25 @@
 === Under Construction ===
-Contributors: WebFactory, UnderConstructionPage, googlemapswidget, securityninja, wpreset
-Tags: maintenance mode, maintenance page, coming soon page, landing page, under construction, under construction page, coming soon, launch page, coming soon mode, maintenance mode page, offline page, maintenance, multilingual, multilanguage
+Contributors: WebFactory, UnderConstructionPage, googlemapswidget, wpreset
+Tags: coming soon page, under construction mode, under construction, under construction page, coming soon, maintenance mode, maintenance page, launch page, coming soon mode, maintenance mode page, offline page, maintenance, landing page
 Requires at least: 4.0
 Requires PHP: 5.2
-Tested up to: 5.2
-Stable tag: 3.45
+Tested up to: 5.3
+Stable tag: 3.65
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Super-easy to use Under Construction Page, Landing Page, Maintenance Mode & Coming Soon WordPress plugin.
+Super-easy to use Under Construction Page, Maintenance Mode & Coming Soon Page. Enable Under Construction Mode in seconds!
 
 
 == Description ==
 
-Create an Under Construction Page, Maintenance Mode Page, Coming Soon Page or a Landing Page that takes **less than a minute to install & configure**. This plugin won't waste your time! UCP is simple, fast, efficient & user-friendly with <a href="https://underconstructionpage.com/?utm_source=wordpressorg&utm_medium=content&utm_campaign=readme&utm_content=great-designs#designs">great templates</a> users love.
+Create an Under Construction Page, Maintenance Mode Page, Coming Soon Page or a Landing Page that takes **less than a minute to install & configure**. Under Construction won't waste your time! It's simple, fast, efficient & user-friendly with <a href="https://underconstructionpage.com/?utm_source=wordpressorg&utm_medium=content&utm_campaign=readme&utm_content=great-designs#designs">great templates</a> users love.
 
 [youtube https://www.youtube.com/watch?v=fqqWrQENSDc]
 
-> **PRO** version offers more than 50 extra features and options including the drag&drop builder, 400,000+ hi-res searchable images, 100+ templates, affiliate&traffic tracking, advanced access control, MailChimp, Zapier & universal autoresponder integration, and priority USA based support. Find out more on the <a href="https://underconstructionpage.com/?utm_source=wordpressorg&utm_medium=content&utm_campaign=readme&utm_content=official-site">official plugin site</a>.
+> **PRO** version offers more than 50 extra features and options including the drag&drop builder, over a million hi-res searchable images, 200+ templates, affiliate&traffic tracking, advanced access control, MailChimp, Zapier & universal autoresponder integration, white-label license mode and priority support. Find out more on the <a href="https://underconstructionpage.com/?utm_source=wordpressorg&utm_medium=content&utm_campaign=readme&utm_content=official-site">official plugin site</a>.
 
-A simple, no-nonsense plugin for all those situations when you have to hide the site behind an Under Construction page for a while. Live examples are available on the <a href="https://underconstructionpage.com/?utm_source=wordpressorg&utm_medium=content&utm_campaign=readme&utm_content=website" rel="friend">Under Construction website</a>. Give us a shout on Twitter <a href="http://twitter.com/WebFactoryLtd">@WebFactoryLtd</a> or check out the <a href="https://youtu.be/fqqWrQENSDc">video</a>.
+A simple, no-nonsense under construction plugin for all those situations when you have to hide the site behind an Under Construction page for a while. Live examples are available on the <a href="https://underconstructionpage.com/?utm_source=wordpressorg&utm_medium=content&utm_campaign=readme&utm_content=website">Under Construction website</a>. Give us a shout on Twitter <a href="http://twitter.com/WebFactoryLtd">@WebFactoryLtd</a> or check out the <a href="https://youtu.be/fqqWrQENSDc">video</a>.
 
 UCP has full support for collecting leads and subscribers via optin boxes in content, and optin popups. We've integrated <a href="https://wordpress.org/plugins/mailoptin/">MailOptin</a> a great, free plugin into UCP that connects to MailChimp and numerous other autoresponder services allowing you to easily collect emails.
 
@@ -29,14 +29,14 @@ Thanks to our partnership with <a href="https://wordpress.org/plugins/weglot/">W
 **Options**
 
 * Under construction mode - on / off
-* Automatic End date & time - automatically disable construction mode on a set date
+* Automatic End date & time - automatically disable under construction mode on a set date
 * Google Analytics Tracking ID - enable tracking via Google Analytics
-* Theme - a new one is added with each update, <a href="https://underconstructionpage.com/templates/?utm_source=wordpressorg&utm_medium=content&utm_campaign=readme&utm_content=available-themes">test all available themes (35+)</a>
+* Theme - <a href="https://underconstructionpage.com/templates/?utm_source=wordpressorg&utm_medium=content&utm_campaign=readme&utm_content=available-themes">test all available themes (200+)</a>
 * Custom CSS - adjust any part of the page to fit your needs
 * Title - page title, for SEO
 * Description - page description, for SEO
 * Headline - main headline/title
-* Content - anything you need to display, from styled text to images
+* Content - anything you need to display
 * Optin box, optin popup - collect leads and emails and sync with MailChimp and other autoresponders
 * Login Button - show a discrete link to the login form, or WP admin if you're logged in
 * Social icons/links - new ones are added with every update; let us know if we missed your favorite ones
@@ -57,10 +57,10 @@ Thanks to our partnership with <a href="https://wordpress.org/plugins/weglot/">W
   * WhatsApp
   * Tumblr
   * VK
-* Whitelisted User Roles - user roles who see the site, instead of maintenance page
-* Whitelisted Users - users who see the site, instead of maintenance page
+* Whitelisted User Roles - user roles who see the site, instead of under construction page
+* Whitelisted Users - users who see the site, instead of under construction page
 
-Under Construction Page has a built-in support system. It requires no registration or any kind of messing about; send a message to our support agents directly from within the plugin. It's compatible with the following caching plugins: W3 Total Cache, WP Super Cache, Endurance Page Cache, SiteGround SuperCacher, WP Fastest Cache and Swift Performance Cache.
+Under Construction Page is compatible with the following caching plugins: W3 Total Cache, WP Super Cache, Endurance Page Cache, SiteGround SuperCacher, WP Fastest Cache, Swift Performance Cache, and Hummingbird cache.
 
 
 **What are others saying about the Under Construction Page plugin**
@@ -128,14 +128,39 @@ Or if needed, upload manually;
 32. Dumper Truck theme
 33. 000webhost theme
 34. Work Desk theme
-35. Main settings
-36. Design settings
-37. Content settings
-38. Access settings
-39. Support
+35. Research theme
+36. Main settings
+37. Design settings
+38. Content settings
+39. Access settings
+40. Support
 
 
 == Changelog ==
+
+= 3.65 =
+* 2019/11/21
+* minor bug fixes
+* removed NotificationX integration
+* added support for Hummingbird cache plugin
+
+= 3.60 =
+* 2019/10/31
+* minor bug fixes
+* adjusted GUI for WP v5.3
+* 3,152,000 downloads
+
+= 3.55 =
+* 2019/09/18
+* minor bug fixes
+* new theme: Research
+* 2,980,000 downloads
+
+= 3.50 =
+* 2019/08/07
+* clean up
+* NotificationX plugin integration
+* 2,812,000 downloads
 
 = 3.45 =
 * 2019/05/21
@@ -469,7 +494,7 @@ Absolutely not.
 
 = Will it work on my theme? =
 
-Sure! It works 100% with all themes.
+Sure! Under construction works 100% with all themes.
 
 = Will it work with my plugins? =
 
@@ -477,7 +502,7 @@ Sure! It works 100% with all plugins.
 
 = What changes will it make to my site? =
 
-None. Once you disable the under construction mode your site will function as it did before.
+None. Once you disable the under construction page your site will function as it did before.
 
 = It's not working!!! Arrrrrrrrr =
 
