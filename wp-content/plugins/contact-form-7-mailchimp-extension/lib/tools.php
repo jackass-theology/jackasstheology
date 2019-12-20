@@ -1,5 +1,5 @@
 <?php
-/*  Copyright 2013-2017 Renzo Johnson (email: renzojohnson at gmail.com)
+/*  Copyright 2013-2019 Renzo Johnson (email: renzojohnson at gmail.com)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -14,18 +14,6 @@
     You should have received a copy of the GNU General Public License
     along with this program; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
-
-    *1: By default the key label for the name must be FNAME
-    *2: parse first & last name
-    *3: ensure we set first and last name exist
-    *4: otherwise user provided just one name
-    *5: By default the key label for the name must be FNAME
-    *6: check if subscribed
-    *bh: email_type
-    *aw: double_optin
-    *xz: update_existing
-    *rd: replace_interests
-    *gr: send_welcome
 */
 
 
@@ -103,7 +91,7 @@ function mce_init_constants(){
   define( 'MCE_AUTH', '//renzojohnson.com' );
   define( 'MCE_AUTH_COMM', '<!-- campaignmonitor extension by Renzo Johnson -->' );
   define( 'MCE_NAME', 'MailChimp Contact Form 7 Extension' );
-  define( 'MCE_SETT', admin_url( 'admin.php?page=wpcf7&post='.mc_get_latest_item().'&active-tab=4' ) );
+  define( 'MCE_SETT', admin_url( 'admin.php?page=wpcf7' ) );
   define( 'MCE_DON', 'https://www.paypal.me/renzojohnson' );
 
 }
@@ -115,8 +103,14 @@ function mc_get_latest_item(){
             'posts_per_page'    => -1,
             'fields'            => 'ids',
         );
-    // Get Highest Value from CF7Forms
-    $form = max(get_posts($args));
+
+    $form = 0 ;
+    if ( class_exists( 'WPCF7') ) {
+       $maxpost =  get_posts($args)  ;
+       $form = ( count ( $maxpost ) == 0  ) ? 0 : max( $maxpost ) ;
+    }
+
+    //$form = ( class_exists( 'WPCF7') ? max( get_posts($args) ) : 0 ) ;
     $out = '';
     if (!empty($form)) {
         $out .= $form;
@@ -126,7 +120,6 @@ function mc_get_latest_item(){
 
 
 function wpcf7_form_mce_tags() {
-  // $manager = WPCF7_FormTagsManager::get_instance();
   $manager = class_exists('WPCF7_FormTagsManager') ? WPCF7_FormTagsManager::get_instance() : WPCF7_ShortcodeManager::get_instance(); // ff cf7 46. and earlier
   $form_tags = $manager->get_scanned_tags();
   return $form_tags;
@@ -149,6 +142,88 @@ function mce_mail_tags() {
 
 }
 
+function wpcf7_mce_ga_pageview () {
+   global $wpdb;
+
+   $utms  = '?utm_source=MailChimp';
+   $utms .= '&utm_campaign=w' . get_bloginfo( 'version' ) . '-' . mce_difer_dateact_date() . 'c' . WPCF7_VERSION . ( defined( 'WPLANG' ) && WPLANG ? WPLANG : 'en_US' ) . '';
+  $utms .= '&utm_medium=cme-' . SPARTAN_MCE_VERSION . '';
+  $utms .= '&utm_term=F' . ini_get( 'allow_url_fopen' ) . 'C' . ( function_exists( 'curl_init' ) ? '1' : '0' ) . 'P' . PHP_VERSION . 'S' .  $wpdb->db_version() . '';
+
+  $varurl = MCE_URL .$utms.'activated'; // all is url
+  $varurl = str_replace ( ' ','',$varurl  ) ;
+
+  //var_dump  ( $varurl  ) ;
+
+  return vc_ga_send_pageview ('renzojohnson.com',$varurl,'Activated') ;
+
+}
+
+function plugin_activation( $plugin ) {
+    if( ! function_exists('activate_plugin') ) {
+        require_once ABSPATH . 'wp-admin/includes/plugin.php';
+    }
+
+    if( ! is_plugin_active( $plugin ) ) {
+        activate_plugin( $plugin );
+    }
+}
 
 
 
+if (!function_exists('chimpmatic_tags')) {
+  function chimpmatic_tags( $output, $name, $html ) {
+
+    if ( '_domain' == $name ) {
+      $output = chimpmatic_domain();
+    }
+
+    if ( '_formID' == $name ) {
+      $output = chimpmatic_form_id();
+    }
+
+
+    return $output;
+
+  }
+}
+add_filter( 'wpcf7_special_mail_tags', 'chimpmatic_tags', 10, 3 );
+
+
+if (!function_exists('chimpmatic_add_form_tag_posts')) {
+  function chimpmatic_add_form_tag_posts() {
+
+    wpcf7_add_form_tag('_domain', 'chimpmatic_domain');
+    wpcf7_add_form_tag('_formID', 'chimpmatic_form_id');
+
+  }
+}
+add_action('wpcf7_init', 'chimpmatic_add_form_tag_posts', 11);
+
+
+if (!function_exists('chimpmatic_domain')) {
+  function chimpmatic_domain() {
+
+    $strToLower       = strtolower(trim( get_home_url() ));
+    $httpPregReplace  = preg_replace('/^http:\/\//i', '', $strToLower);
+    $httpsPregReplace = preg_replace('/^https:\/\//i', '', $httpPregReplace);
+    $wwwPregReplace   = preg_replace('/^www\./i', '', $httpsPregReplace);
+    $explodeToArray   = explode('/', $wwwPregReplace);
+    $finalDomainName  = trim($explodeToArray[0]);
+
+    return $finalDomainName;
+
+  }
+}
+
+
+if (!function_exists('chimpmatic_form_id')) {
+  function chimpmatic_form_id() {
+
+    $wpcf7 = WPCF7_ContactForm::get_current();
+    $res = $wpcf7->id();
+
+    return $res;
+
+  }
+}

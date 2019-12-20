@@ -1,0 +1,460 @@
+/*
+  Author Name: Renzo Johnson <renzo.johnson@gmail.com>
+  Plugin Name: Contact Form 7 MailChimp Extension
+  Plugin URI: http://renzojohnson.com/contributions/contact-form-7-mailchimp-extension
+
+  Copyright 2013-2019 Renzo Johnson (email: renzojohnson at gmail.com)
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program; if not, write to the Free Software
+  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+*/
+
+
+.mc-tool-activated {
+  background-color: #00be28 !important;
+  color: #fff !important;
+  font-size: 13px;
+}
+
+.mc-tool-not-activated {
+  background-color: red !important;
+  color: #fff !important;
+  font-size: 13px;
+
+}
+
+.postbox-inner {
+  padding: 5px 20px;
+}
+
+#chimpmatic-response {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.cm-form-table {
+  padding-top: 20px;
+  margin-top: 20px;
+}
+
+.cm-form-table th,
+.cm-form-table td {
+/*   background-color: rgba(0,255,0,.05);
+  border: 1px dashed green; */
+  padding: 8px 5px;
+
+}
+
+
+#chimpmatic-response .chimp-live {
+  /* font-weight: bold; */
+}
+
+
+#chimpmatic-response h5 {
+  font-size: 15px;
+  margin-bottom: 0;
+
+
+}
+
+#chimpmatic-response ul {
+  margin-top: 10px;
+}
+
+
+.mc-lateral {
+  box-shadow: 0 0 0 1px rgba(200,215,225,.5), 0 1px 2px #e9eff3;
+}
+
+.cm-lite {
+  color: #121212;
+  font-size: 0.87em;
+  background-color: rgba(255, 255, 255, 0.85);
+  border-radius: 3px;
+  padding: 3px 8px;
+  box-shadow: inset 0 0 3px rgba(0,0,0,.15);
+}
+
+.mc-lateral:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.holder-img img {
+  display: block;
+  max-width: 100%;
+}
+
+.need-api {
+  margin-bottom: 10px;
+}
+
+.metabox-holder .mc-lateral h3 {
+  font-size: 19px;
+  padding: 25px 15px 13px !important;
+  background-color: #f9f9f9;
+  text-align: center;
+  color: #000;
+  /* text-shadow: 0 -1px 1px #666666, 1px 0 1px #666666, 0 1px 1px #666666, -1px 0 1px #666666; */
+}
+
+.metabox-holder .mc-lateral h3:before {
+  display: block;
+  position: absolute;
+  right: 0;
+  left: 0;
+  background: #fff url(../images/newsletter-stripe.svg) repeat-x;
+  background-size: 70px 9px;
+  width: 100%;
+  height: 9px;
+  content: '';
+  top: -1px;
+  z-index: 2;
+}
+
+.metabox-holder .mc-lateral .inside {
+      padding: 0 15px 25px !important;
+      margin-top: 0;
+}
+
+.donate {
+  border: 1px solid #46b450 !important;
+  background-color: #46b450 !important;
+  display: inline-block;
+  padding: 3px 10px;
+  text-decoration: none;
+  color: #fff;
+  border-radius: 3px;
+  border-color: #43ab4b #3c9943 #3c9943 !important;
+  box-shadow: 0 2px 0 #3c9943 !important;
+  text-shadow: 0 -1px 1px #3c9943, 1px 0 1px #3c9943, 0 1px 1px #3c9943, -1px 0 1px #3c9943 !important;
+
+
+}
+
+
+.dops-button.is-primary {
+    background: #00aadc;
+    border-color: #0087be;
+    color: #fff;
+}
+
+.dops-button {
+    background: #fff;
+    border: solid #d5d5d5;
+    border-width: 1px 1px 2px;
+    color: #414141;
+    cursor: pointer;
+    display: inline-block;
+    margin: 0;
+    outline: 0;
+    overflow: hidden;
+    font-weight: 500;
+    text-overflow: ellipsis;
+    text-decoration: none;
+    vertical-align: top;
+    box-sizing: border-box;
+    font-size: 14px;
+    line-height: 21px;
+    border-radius: 4px;
+    padding: 7px 14px 9px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.dops-button.is-primary {
+    background: #00be28;
+    border-color: #00a523;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    flex-shrink: 0;
+    padding: 5px 20px 5px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    float: right;
+}
+
+.dops-button.is-primary:hover {
+      background: #00a523;
+    border-color: #008b1d;
+}
+
+.mce-custom-fields .spinner {
+  float: none;
+  margin-top: 0;
+}
+
+
+.donate-2019 {
+  font-size: 17px;
+  position: absolute;
+  right: 15px;
+  top: 0;
+  padding: 5px 30px 3px !important;
+  letter-spacing: 1px;
+}
+
+
+
+.vc-notice {
+  position: relative;
+  z-index: 0;
+  padding-top: 32px;
+  padding-bottom: 22px;
+
+}
+
+.vc-notice:before {
+    display: block;
+    position: absolute;
+    right: 0;
+    left: 0;
+    background: #fff url('../images/newsletter-stripe.svg') repeat-x;
+    background-size: 70px 9px;
+    width: 100%;
+    // height: .5625rem;
+    height: 9px;
+    content: '';
+    top: 0;
+}
+
+.welcome-panel-content {
+  position: relative;
+  z-index: 2;
+}
+
+.welcome-panel-column-container:before,
+.welcome-panel-column-container:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.mce-required {
+  color: #dd3d36;
+  font-weight: 900;
+}
+
+.vc-notice:after {
+  content: "\f488";
+  color: #ddd;
+  display: inline-block;
+  position: absolute;
+  z-index: 1;
+  right: 5%;
+  bottom: 10%;
+  font-size: 7em;
+
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH;
+  -ms-filter: "FlipH";
+
+  line-height: 1;
+  font-family: dashicons;
+  text-decoration: inherit;
+  font-weight: 400;
+  font-style: normal;
+  vertical-align: top;
+  text-align: center;
+  -webkit-transition: color .1s ease-in 0;
+  transition: color .1s ease-in 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+}
+
+.dev-cta .welcome-panel-content {
+  padding-left: 9em;
+
+}
+
+.dev-cta .welcome-panel-content:before {
+
+  content: "\f488";
+  color: #ddd;
+  display: inline-block;
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 50%;
+  margin-top: -0.5em;
+  font-size: 7em;
+
+  line-height: 1;
+  font-family: dashicons;
+  text-decoration: inherit;
+  font-weight: 400;
+  font-style: normal;
+  vertical-align: top;
+  text-align: center;
+  -webkit-transition: color .1s ease-in 0;
+  transition: color .1s ease-in 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+}
+
+.donate:hover {
+  background-color: #4cc255;
+  color:#fff;
+}
+
+
+/* chimpmail */
+.mcee-container {
+  display: block;
+
+}
+
+.mcee-container select {
+  margin-left: 0;
+}
+
+.mce-custom-fields {
+  background-color: rgba(255,255,255,.95);
+  border: 1px solid #e5e5e5;
+  border-radius: 3px;
+  padding: 12px 15px 15px;
+  box-shadow: 0 1px 1px rgba(0,0,0,.04);
+  margin-bottom: 15px;
+}
+
+
+.test-hide {
+  /* display: none !important; */
+}
+
+.spt-hidden {
+  font: 0;
+  /* opacity: 0; */
+  position: absolute;
+  left: 0;
+  top: 0;
+  /* display: none; */
+  background-color: rgba(0,255,0,.05) !important;
+  border: 1px dashed green !important;
+}
+
+.mce-type {
+  color: #999 !important;
+}
+
+
+/* // *======================================================================================================================================================= */
+/* //             Bootstrap 3 Media Queries */
+/* // ======================================================================================================================================================== */
+
+/* // ==========  Mobile First Method  ========== */
+/* // ======================================================================================================================================================== */
+
+/* // Custom, iPhone Retina */
+@media only screen and (min-width : 320px) {
+
+}
+
+/* // Extra Small Devices, Phones  ========================= */
+@media only screen and (min-width : 480px) {
+
+}
+
+/* // Small Devices, Tablets   ============================= */
+@media only screen and (min-width : 768px) {
+
+  /* chimpmail */
+  .mcee-container {
+    display: inline-block;
+    width: 49.5%;
+    box-sizing: border-box;
+
+  }
+
+  .mcee-container select {
+    margin-top: 3px;
+    margin-bottom: 10px;
+  }
+
+
+  .mce-custom-fields .md-half {
+    display: inline-block;
+    width: 49%;
+    vertical-align:top;
+  }
+
+
+}
+
+/* // Medium Devices, Desktops  ============================ */
+@media only screen and (min-width : 992px) {
+
+  /* chimpmail */
+  .mcee-container {
+    padding-right: 3.85rem;
+  }
+
+}
+
+/* // Large Devices, Wide Screens  ========================= */
+@media only screen and (min-width : 1200px) {
+
+}
+
+
+
+/* // ==========  Non-Mobile First Method  ========== */
+/* // ======================================================================================================================================================== */
+
+/* // Large Devices, Wide Screens  ========================= */
+@media only screen and (max-width : 1200px) {
+
+}
+
+/* // Medium Devices, Desktops  ============================ */
+@media only screen and (max-width : 992px) {
+
+}
+
+/* // Medium Devices, Desktops  ============================ */
+@media only screen and (max-width : 991px) {
+
+}
+
+/* // Small Devices, Tablets  ============================== */
+@media only screen and (max-width : 768px) {
+
+}
+
+/* // Small Devices, Tablets  ============================== */
+@media only screen and (max-width : 767px) {
+
+}
+
+/* // Extra Small Devices, Phones  ========================= */
+@media only screen and (max-width : 480px) {
+
+}
+
+/* // Custom, iPhone Retina  =============================== */
+@media only screen and (max-width : 350px) {
+
+}
+
+/* // Custom, iPhone Retina  =============================== */
+@media only screen and (max-width : 320px) {
+
+}

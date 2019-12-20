@@ -1,5 +1,5 @@
 <?php
-/*  Copyright 2013-2017 Renzo Johnson (email: renzojohnson at gmail.com)
+/*  Copyright 2013-2019 Renzo Johnson (email: renzojohnson at gmail.com)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -23,9 +23,9 @@ function wpcf7_mce_admin_enqueue_scripts() {
 	if ( ! isset( $plugin_page ) || 'wpcf7' != $plugin_page )
 		return;
 
-	wp_enqueue_style( 'wpcf7-mce-admin', SPARTAN_MCE_PLUGIN_URL . '/assets/css/style-spartan.css', array(), SPARTAN_MCE_VERSION, 'all' );
+	wp_enqueue_style( 'chimpmatic', SPARTAN_MCE_PLUGIN_URL . '/assets/css/chimpmatic.css', array(), SPARTAN_MCE_VERSION, 'all' );
 
-	wp_enqueue_script( 'wpcf7-mce-admin', SPARTAN_MCE_PLUGIN_URL . '/assets/js/scripts-spartan.js', array( 'jquery', 'wpcf7-admin' ), SPARTAN_MCE_VERSION, true );
+	wp_enqueue_script( 'chimpmatic', SPARTAN_MCE_PLUGIN_URL . '/assets/js/chimpmatic-lite.js', array( 'jquery', 'wpcf7-admin' ), SPARTAN_MCE_VERSION, true );
 
 
 }
@@ -35,9 +35,9 @@ add_action( 'admin_print_scripts', 'wpcf7_mce_admin_enqueue_scripts' );
 
 function mce_admin_scripts() {
 
-  wp_register_style( 'wpcf7-mce-wp-admin-css', SPARTAN_MCE_PLUGIN_URL . '/assets/css/mce-admin.css', array(), SPARTAN_MCE_VERSION, 'all' );
+  wp_register_style( 'chimpmatic-admin', SPARTAN_MCE_PLUGIN_URL . '/assets/css/chimpmatic-admin.css', array(), SPARTAN_MCE_VERSION, 'all' );
 
-  wp_enqueue_style( 'wpcf7-mce-wp-admin-css' );
+  wp_enqueue_style( 'chimpmatic-admin' );
 
 }
 add_action( 'admin_enqueue_scripts', 'mce_admin_scripts' );

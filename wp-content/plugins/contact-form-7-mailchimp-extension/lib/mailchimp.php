@@ -1,5 +1,5 @@
 <?php
-/*  Copyright 2013-2017 Renzo Johnson (email: renzojohnson at gmail.com)
+/*  Copyright 2013-2019 Renzo Johnson (email: renzojohnson at gmail.com)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -16,14 +16,14 @@
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
 
-
 require_once( SPARTAN_MCE_PLUGIN_DIR . '/lib/activate.php' );
 require_once( SPARTAN_MCE_PLUGIN_DIR . '/lib/enqueue.php' );
-require_once( SPARTAN_MCE_PLUGIN_DIR . '/lib/tools.php' );
-require_once( SPARTAN_MCE_PLUGIN_DIR . '/lib/mch-debug-logger.php' );
-require_once( SPARTAN_MCE_PLUGIN_DIR . '/lib/functions.php' );
+require_once( SPARTAN_MCE_PLUGIN_DIR . '/lib/tools.php' ); 
+require_once( SPARTAN_MCE_PLUGIN_DIR . '/lib/chimp_db_log.php' );
+require_once( SPARTAN_MCE_PLUGIN_DIR . '/lib/helper.php' ); 
+require_once( SPARTAN_MCE_PLUGIN_DIR . '/lib/handler.php' );
 require_once( SPARTAN_MCE_PLUGIN_DIR . '/lib/wp.php' );
-
-if (!class_exists('Mailchimp')) {
-   require_once( SPARTAN_MCE_PLUGIN_DIR . '/api/Mailchimp.php');
-}
+require_once( SPARTAN_MCE_PLUGIN_DIR . '/lib/deactivate.php' );
+require_once( SPARTAN_MCE_PLUGIN_DIR . '/lib/find.php' );
+require_once( SPARTAN_MCE_PLUGIN_DIR . '/lib/events.php' );
+//require_once( SPARTAN_MCE_PLUGIN_DIR . '/lib/install-wp-plugins.php' );

@@ -1,0 +1,5 @@
+{
+    "require": {
+        "krizalys/onedrive-php-sdk": "^2.4"
+    }
+}

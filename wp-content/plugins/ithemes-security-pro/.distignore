@@ -1,0 +1,9 @@
+node_modules
+tests
+bin
+package-lock.json
+phpunit.xml
+.git
+.gitmodules
+.idea
+.travis.yml

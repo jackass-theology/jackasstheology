@@ -1,5 +1,5 @@
 <?php
-/*  Copyright 2013-2017 Renzo Johnson (email: renzojohnson at gmail.com)
+/*  Copyright 2013-2019 Renzo Johnson (email: renzojohnson at gmail.com)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -15,7 +15,6 @@
     along with this program; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
-
 
  ?>
 
@@ -89,7 +88,7 @@
   // Must-use plugins
   // NOTE: MU plugins can't show updates!
   $muplugins = get_mu_plugins();
-  if( count( $muplugins > 0 ) ) {
+  if( count( $muplugins )  > 0  ) {
     $return .= "\n" . '== Must-Use Plugins' . "\n";
     $return .= '================================================' . "\n";
     foreach( $muplugins as $plugin => $plugin_data ) {
